@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aquarium Guides & Articles – Aquapacity</title>
+<meta name="description" content="Science-based aquarium guides: fish stocking, filtration, bioload, planted tanks and more. Every article links back to the free Aquapacity stocking calculator.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aquapacity.com/articles.html">
+<meta property="og:title" content="Aquarium Guides & Articles – Aquapacity">
+<meta property="og:description" content="Science-based aquarium guides on stocking, filtration, bioload and more. Free stocking calculator included.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aquapacity.com/articles.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ─── TOKENS ───────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#0369a1;--p2:#0ea5e9;--teal:#0d9488;
+  --bg:#f0f9ff;--surf:#fff;--border:#e0f2fe;
+  --txt:#1e293b;--muted:#64748b;
+  --sh:0 1px 3px rgba(0,0,0,.10),0 1px 2px rgba(0,0,0,.06);
+  --sh2:0 4px 12px rgba(0,0,0,.10),0 2px 4px rgba(0,0,0,.06);
+  --r6:6px;--r12:12px;
+  --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--font);background:var(--bg);color:var(--txt);line-height:1.6;font-size:15px;overflow-x:hidden}
+a{color:var(--p);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ─── HEADER ───────────────────────────────────────────────── */
+header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;user-select:none}
+.logo-wordmark{font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;letter-spacing:-.02em;line-height:1}
+.logo-icon{flex-shrink:0}
+nav{display:flex;gap:20px}
+nav a{color:rgba(255,255,255,.85);font-size:.875rem;transition:color .2s}
+nav a:hover{color:#fff;text-decoration:none}
+nav a.active{color:#fff;font-weight:700}
+
+/* ─── HAMBURGER ────────────────────────────────────────────── */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px;cursor:pointer;z-index:1001}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ─── MOBILE NAV ───────────────────────────────────────────── */
+.mobile-nav{position:fixed;top:0;right:0;width:280px;height:100%;background:#fff;z-index:1000;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 24px rgba(0,0,0,.15);display:flex;flex-direction:column}
+.mobile-nav.open{transform:translateX(0)}
+.mn-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(135deg,#0a3d5c,#0369a1);color:#fff}
+.mn-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem}
+.mn-close{background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;padding:4px 8px;line-height:1}
+.mn-links{display:flex;flex-direction:column;padding:16px 0;flex:1}
+.mn-links a{display:flex;align-items:center;gap:12px;padding:16px 24px;font-size:1rem;font-weight:600;color:var(--txt);text-decoration:none;border-bottom:1px solid var(--border);transition:background .15s}
+.mn-links a:hover{background:#f0f9ff;color:var(--p);text-decoration:none}
+.mn-links a.active{background:#f0f9ff;color:var(--p)}
+.mn-icon{font-size:1.2rem;width:28px;text-align:center}
+.mn-footer{padding:20px 24px;border-top:1px solid var(--border)}
+.mn-kofi{display:block;text-align:center;background:var(--p);color:#fff;padding:12px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
+.mn-kofi:hover{background:#0284c7;text-decoration:none}
+.mobile-nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;backdrop-filter:blur(2px)}
+.mobile-nav-backdrop.open{display:block}
+
+/* ─── PAGE HERO ────────────────────────────────────────────── */
+.page-hero{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 60%,#0891b2 100%);color:#fff;padding:48px 24px 56px}
+.page-hero-inner{max-width:1200px;margin:0 auto}
+.breadcrumb{font-size:.82rem;color:rgba(255,255,255,.7);margin-bottom:16px}
+.breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb span{margin:0 6px;opacity:.5}
+.page-hero h1{font-family:'Nunito',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;margin-bottom:10px}
+.page-hero p{color:rgba(255,255,255,.8);max-width:580px;font-size:.975rem;margin-bottom:24px}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--p);font-weight:700;font-size:.9rem;padding:10px 20px;border-radius:100px;text-decoration:none;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.hero-cta:hover{background:#f0f9ff;transform:translateY(-1px);text-decoration:none}
+
+/* ─── FILTER BAR ───────────────────────────────────────────── */
+.filter-bar{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;position:sticky;top:64px;z-index:50}
+.filter-bar-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.filter-label{font-size:.82rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.filter-chips{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.chip{border:1.5px solid var(--border);background:#fff;padding:5px 14px;border-radius:100px;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--p2);color:var(--p)}
+.chip.active{background:var(--p);border-color:var(--p);color:#fff}
+.article-count{font-size:.82rem;color:var(--muted);white-space:nowrap}
+
+/* ─── ARTICLES GRID ────────────────────────────────────────── */
+.articles-main{max-width:1200px;margin:0 auto;padding:40px 24px 64px}
+.articles-grid-full{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+
+/* ─── ARTICLE CARD ─────────────────────────────────────────── */
+.article-card{background:var(--surf);border:1.5px solid var(--border);border-radius:var(--r12);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--txt);transition:all .2s}
+.article-card:not(.ac-soon):hover{border-color:var(--p2);box-shadow:var(--sh2);transform:translateY(-2px);text-decoration:none}
+.article-card.ac-soon{opacity:.6;cursor:default}
+.ac-img{font-size:2.5rem;padding:28px 28px 14px;text-align:center}
+.ac-img.cat-stocking{background:linear-gradient(135deg,#e0f2fe,#bae6fd)}
+.ac-img.cat-filtration{background:linear-gradient(135deg,#f0fdf4,#bbf7d0)}
+.ac-img.cat-plants{background:linear-gradient(135deg,#f0fdf4,#d9f99d)}
+.ac-img.cat-species{background:linear-gradient(135deg,#fff7ed,#fed7aa)}
+.ac-img.cat-care{background:linear-gradient(135deg,#fdf4ff,#e9d5ff)}
+.ac-img.cat-soon{background:linear-gradient(135deg,#f8fafc,#f1f5f9)}
+.ac-body{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}
+.ac-tag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--p);margin-bottom:8px}
+.ac-tag.tag-soon{color:var(--muted)}
+.article-card h2{font-size:1rem;font-weight:700;color:var(--txt);margin-bottom:8px;line-height:1.45}
+.ac-excerpt{font-size:.85rem;color:var(--muted);line-height:1.55;flex:1;margin-bottom:16px}
+.ac-footer{display:flex;align-items:center;justify-content:space-between;font-size:.78rem;padding-top:12px;border-top:1px solid var(--border)}
+.ac-meta{display:flex;align-items:center;gap:10px;color:var(--muted)}
+.ac-read{display:flex;align-items:center;gap:4px}
+.ac-cta{color:var(--p);font-weight:700;transition:gap .2s}
+.article-card:hover .ac-cta{text-decoration:underline}
+
+/* ─── EMPTY STATE ──────────────────────────────────────────── */
+.empty-filter{text-align:center;padding:60px 24px;color:var(--muted);display:none}
+.empty-filter.visible{display:block}
+.empty-filter p{font-size:.95rem;margin-top:8px}
+
+/* ─── NEWSLETTER / CTA BANNER ──────────────────────────────── */
+.cta-banner{background:linear-gradient(135deg,#0a3d5c,#0369a1);color:#fff;padding:48px 24px;margin-top:24px}
+.cta-banner-inner{max-width:700px;margin:0 auto;text-align:center}
+.cta-banner h2{font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:900;margin-bottom:10px}
+.cta-banner p{color:rgba(255,255,255,.8);margin-bottom:24px;font-size:.975rem}
+.cta-banner a{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--p);font-weight:700;padding:12px 24px;border-radius:100px;text-decoration:none;font-size:.95rem;transition:all .2s}
+.cta-banner a:hover{background:#f0f9ff;transform:translateY(-1px);text-decoration:none}
+
+/* ─── FOOTER ───────────────────────────────────────────────── */
+footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size:.85rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.footer-inner a{color:rgba(255,255,255,.8)}
+.footer-credit{font-size:.78rem;opacity:.6}
+
+/* ─── RESPONSIVE ───────────────────────────────────────────── */
+@media(max-width:900px){
+  .hamburger{display:flex}
+  nav{display:none}
+  .filter-bar{top:50px}
+}
+@media(max-width:640px){
+  .page-hero{padding:32px 16px 40px}
+  .page-hero h1{font-size:1.4rem}
+  .filter-bar{padding:12px 16px}
+  .articles-main{padding:24px 16px 48px}
+  .articles-grid-full{grid-template-columns:1fr;gap:16px}
+  .ac-img{padding:20px 20px 10px;font-size:2rem}
+  .ac-body{padding:14px 16px 18px}
+  .header-inner{height:50px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">
+        <svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><clipPath id="atc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="rgba(255,255,255,0.10)"/>
+          <rect x="2" y="18" width="30" height="22" clip-path="url(#atc)" fill="rgba(94,234,212,0.45)"/>
+          <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#atc)" fill="rgba(94,234,212,0.7)"/>
+          <line x1="24" y1="9" x2="30" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="14" x2="30" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+          <ellipse cx="14" cy="27" rx="6" ry="3.5" fill="rgba(255,255,255,0.85)"/>
+          <path d="M8 27 L5 23 L5 31 Z" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="18.5" cy="25.8" r="1.3" fill="rgba(0,60,80,0.8)"/>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+        </svg>
+      </span>
+      <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
+    </a>
+    <nav>
+      <a href="index.html">Calculator</a>
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="articles.html" class="active">Articles</a>
+    </nav>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mn-header">
+    <span class="mn-title">Menu</span>
+    <button class="mn-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="mn-links">
+    <a href="index.html#calculator" onclick="toggleMobileMenu()"><span class="mn-icon">🧮</span> Calculator</a>
+    <a href="index.html#how-it-works" onclick="toggleMobileMenu()"><span class="mn-icon">🔬</span> How It Works</a>
+    <a href="index.html#faq" onclick="toggleMobileMenu()"><span class="mn-icon">❓</span> FAQ</a>
+    <a href="articles.html" class="active" onclick="toggleMobileMenu()"><span class="mn-icon">📖</span> Articles</a>
+  </nav>
+  <div class="mn-footer">
+    <a href="https://ko-fi.com/aquapacity" target="_blank" class="mn-kofi">Support the project ☕</a>
+  </div>
+</div>
+<div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="toggleMobileMenu()"></div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Aquapacity</a>
+      <span>›</span>
+      Articles
+    </div>
+    <h1>Aquarium Guides &amp; Articles</h1>
+    <p>Science-based guides on stocking, filtration, bioload, and fish care. Every article links back to the calculator so you can apply what you learn immediately.</p>
+    <a href="index.html#calculator" class="hero-cta">🧮 Open the calculator</a>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <span class="filter-label">Filter:</span>
+    <div class="filter-chips" id="filter-chips">
+      <button class="chip active" data-cat="all" onclick="filterArticles(this)">All</button>
+      <button class="chip" data-cat="stocking" onclick="filterArticles(this)">Stocking</button>
+      <button class="chip" data-cat="filtration" onclick="filterArticles(this)">Filtration</button>
+      <button class="chip" data-cat="plants" onclick="filterArticles(this)">Planted Tanks</button>
+      <button class="chip" data-cat="species" onclick="filterArticles(this)">Species Guides</button>
+      <button class="chip" data-cat="care" onclick="filterArticles(this)">Fish Care</button>
+    </div>
+    <span class="article-count" id="article-count">6 published</span>
+  </div>
+</div>
+
+<!-- ARTICLES GRID -->
+<main class="articles-main">
+  <div class="articles-grid-full" id="articles-grid">
+
+    <!-- PUBLISHED -->
+    <a class="article-card" href="articles/1-inch-per-gallon-rule.html" data-cat="stocking">
+      <div class="ac-img cat-stocking">🐟</div>
+      <div class="ac-body">
+        <div class="ac-tag">Stocking Fundamentals</div>
+        <h2>Why the 1-Inch-Per-Gallon Rule Is Wrong (and What to Use Instead)</h2>
+        <p class="ac-excerpt">The most widespread aquarium rule leads to overstocked, stressed tanks. Here's the science behind why body-length stocking fails — and the bioload framework that actually works.</p>
+        <div class="ac-footer">
+          <div class="ac-meta">
+            <span class="ac-read">⏱ 8 min read</span>
+          </div>
+          <span class="ac-cta">Read article →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- PUBLISHED -->
+    <a class="article-card" href="articles/complete-guide-aquarium-filtration.html" data-cat="filtration">
+      <div class="ac-img cat-filtration">🔬</div>
+      <div class="ac-body">
+        <div class="ac-tag">Filtration</div>
+        <h2>The Complete Guide to Aquarium Filtration: Mechanical, Biological &amp; Chemical</h2>
+        <p class="ac-excerpt">How each filtration stage works, which media actually matters for your fish, and how to size your filter correctly for any tank.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">10 min read</span></div>
+          <span class="ac-cta">Read article →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="article-card" href="articles/planted-tanks-bioload.html" data-cat="plants">
+      <div class="ac-img cat-plants">🌿</div>
+      <div class="ac-body">
+        <div class="ac-tag">Planted Tanks</div>
+        <h2>Planted Tanks and Bioload: How Live Plants Change Your Stocking Capacity</h2>
+        <p class="ac-excerpt">Live plants actively reduce ammonia and nitrate. Here's how much they actually help, which species are most effective, and how CO2 injection multiplies the effect.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">7 min read</span></div>
+          <span class="ac-cta">Read article →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="article-card" href="articles/how-to-stock-10-gallon-tank.html" data-cat="stocking">
+      <div class="ac-img cat-stocking">🐠</div>
+      <div class="ac-body">
+        <div class="ac-tag">Stocking</div>
+        <h2>How to Stock a 10-Gallon Tank: The Best Fish Combinations for Nano Aquariums</h2>
+        <p class="ac-excerpt">Ten gallons is a rewarding challenge. We break down the best species combinations, minimum group sizes, and how to avoid the most common nano-tank mistakes.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">9 min read</span></div>
+          <span class="ac-cta">Read article →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="article-card" href="articles/corydoras-species-guide.html" data-cat="species">
+      <div class="ac-img cat-species">🐡</div>
+      <div class="ac-body">
+        <div class="ac-tag">Species Guides</div>
+        <h2>Corydoras Species Guide: Which Cory Fits Your Tank?</h2>
+        <p class="ac-excerpt">From pygmy corys at 2.5 cm to emerald corys at 7 cm, each species has different space requirements, bioload, and social needs. A complete comparison.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">11 min read</span></div>
+          <span class="ac-cta">Read article →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="article-card" href="articles/water-changes-guide.html" data-cat="care">
+      <div class="ac-img cat-care">💧</div>
+      <div class="ac-body">
+        <div class="ac-tag">Fish Care</div>
+        <h2>Water Changes: How Often, How Much, and Why It Changes Everything</h2>
+        <p class="ac-excerpt">The single most impactful thing you can do for your fish's health — and the one most beginners get wrong. The data behind frequency, volume, and technique.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">6 min read</span></div>
+          <span class="ac-cta">Read article →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Empty state when filter hides all cards -->
+  <div class="empty-filter" id="empty-filter">
+    <div style="font-size:2.5rem;margin-bottom:12px">📭</div>
+    <p>No published articles in this category yet. Check back soon!</p>
+  </div>
+</main>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2>Ready to put the theory into practice?</h2>
+    <p>Use the free Aquapacity calculator to check your stocking in real time — add your fish, enter your filter, and get an instant bioload analysis.</p>
+    <a href="index.html#calculator">🧮 Use the free calculator</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:#fff">Aquapacity</strong> &nbsp;·&nbsp;
+      <a href="index.html">Calculator</a> &nbsp;·&nbsp;
+      <a href="index.html#how-it-works">How It Works</a> &nbsp;·&nbsp;
+      <a href="index.html#faq">FAQ</a> &nbsp;·&nbsp;
+      <a href="articles.html">Articles</a> &nbsp;·&nbsp;
+      <a href="https://ko-fi.com/aquapacity" target="_blank">Support</a>
+    </div>
+    <div class="footer-credit">Free forever. Built for aquarists, by aquarists.</div>
+  </div>
+</footer>
+
+<script>
+/* ─── MOBILE NAV ────────────────────────────────────────────── */
+function toggleMobileMenu(){
+  const nav=document.getElementById('mobile-nav');
+  const backdrop=document.getElementById('mobile-nav-backdrop');
+  const btn=document.getElementById('hamburger');
+  const isOpen=nav.classList.toggle('open');
+  backdrop.classList.toggle('open',isOpen);
+  btn.classList.toggle('open',isOpen);
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+
+/* ─── CATEGORY FILTER ───────────────────────────────────────── */
+function filterArticles(btn){
+  // Update active chip
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  const cat = btn.dataset.cat;
+
+  const cards = document.querySelectorAll('#articles-grid .article-card');
+  let visible = 0;
+  cards.forEach(card=>{
+    const cardCat = card.dataset.cat || 'all';
+    const show = cat === 'all' || cardCat === cat;
+    card.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+
+  // Update count
+  const published = [...cards].filter(c=>!c.classList.contains('ac-soon')&&(cat==='all'||c.dataset.cat===cat)).length;
+  const soon = [...cards].filter(c=>c.classList.contains('ac-soon')&&(cat==='all'||c.dataset.cat===cat)).length;
+  const countEl = document.getElementById('article-count');
+  if(countEl){
+    const parts=[];
+    if(published) parts.push(`${published} published`);
+    if(soon) parts.push(`${soon} coming soon`);
+    countEl.textContent = parts.join(' · ') || 'No articles';
+  }
+
+  // Show/hide empty state
+  const emptyEl = document.getElementById('empty-filter');
+  if(emptyEl) emptyEl.classList.toggle('visible', visible===0);
+}
+</script>
+</body>
+</html>

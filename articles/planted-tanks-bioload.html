@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planted Tanks and Bioload: How Live Plants Change Your Stocking Capacity | Aquapacity</title>
+<meta name="description" content="Live plants actively reduce ammonia and nitrate in your aquarium. Here's the science on how much they actually help, which species are most effective, and how CO2 injection multiplies the benefit.">
+<meta name="keywords" content="planted tank bioload, live plants aquarium stocking, aquarium plants nitrogen, planted tank fish capacity, CO2 injection aquarium, aquatic plants ammonia, planted tank stocking calculator">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Planted Tanks and Bioload: How Live Plants Change Your Stocking Capacity | Aquapacity">
+<meta property="og:description" content="Live plants do more than look good. They actively reduce ammonia and nitrate and let you keep more fish. Here's the data.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://aquapacity.com/articles/planted-tanks-bioload.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Planted Tanks and Bioload: How Live Plants Change Your Stocking Capacity">
+<meta name="twitter:description" content="How live aquarium plants reduce nitrogen and let you keep more fish — the science explained.">
+<link rel="canonical" href="https://aquapacity.com/articles/planted-tanks-bioload.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET & TOKENS ──────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#0369a1; --p2:#0ea5e9; --teal:#0d9488;
+  --g:#16a34a; --y:#d97706; --r:#dc2626;
+  --bg:#f0f9ff; --surf:#fff; --border:#e0f2fe;
+  --txt:#1e293b; --muted:#64748b;
+  --sh:0 1px 3px rgba(0,0,0,.10),0 1px 2px rgba(0,0,0,.06);
+  --sh2:0 4px 12px rgba(0,0,0,.10),0 2px 4px rgba(0,0,0,.06);
+  --r6:6px; --r12:12px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;font-size:16px;overflow-x:hidden;width:100%}
+a{color:var(--p);text-decoration:none}
+a:hover{text-decoration:underline}
+button{cursor:pointer;font-family:inherit;font-size:inherit}
+h1,h2,h3,h4{line-height:1.3;font-weight:800}
+
+/* ─── HEADER ──────────────────────────────────────────────── */
+header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;user-select:none}
+.logo-wordmark{font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
+
+
+.logo-icon{flex-shrink:0;width:40px;height:40px}
+nav{display:flex;gap:20px}
+nav a{color:rgba(255,255,255,.85);font-size:.875rem;transition:color .2s}
+nav a:hover{color:#fff;text-decoration:none}
+
+/* ─── BREADCRUMB ──────────────────────────────────────────── */
+.breadcrumb{max-width:900px;margin:24px auto 0;padding:0 24px;display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.breadcrumb a{color:var(--p)}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ─── ARTICLE HERO ────────────────────────────────────────── */
+.article-hero{max-width:900px;margin:0 auto;padding:40px 24px;text-align:center}
+.article-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);color:#0c4a6e;margin-bottom:16px;line-height:1.2}
+.article-hero .article-meta{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-size:.9rem;color:var(--muted);margin-top:16px}
+.article-tag{display:inline-block;background:#f0fdf4;color:#16a34a;padding:4px 10px;border-radius:100px;font-size:.8rem;font-weight:700}
+
+/* ─── ARTICLE CONTENT ────────────────────────────────────── */
+.article-body{max-width:900px;margin:0 auto;padding:0 24px 48px;line-height:1.8}
+.article-body h2{font-size:1.5rem;color:#0c4a6e;margin-top:40px;margin-bottom:16px;padding-top:20px;border-top:2px solid var(--border)}
+.article-body h3{font-size:1.15rem;color:#0369a1;margin-top:28px;margin-bottom:12px}
+.article-body p{margin-bottom:16px;color:var(--txt)}
+.article-body ul,.article-body ol{margin:16px 0 16px 24px}
+.article-body li{margin-bottom:8px}
+.article-body strong{font-weight:700;color:#0c4a6e}
+.article-body em{font-style:italic;color:var(--muted)}
+
+/* ─── CALLOUT BOXES ───────────────────────────────────────── */
+.callout{border-radius:var(--r12);padding:20px 24px;margin:24px 0}
+.callout-info{background:#f0f9ff;border-left:4px solid var(--p2)}
+.callout-tip{background:#f0fdf4;border-left:4px solid var(--g)}
+.callout-warn{background:#fffbeb;border-left:4px solid var(--y)}
+.callout-title{font-weight:800;font-size:.9rem;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.callout-info .callout-title{color:var(--p)}
+.callout-tip .callout-title{color:var(--g)}
+.callout-warn .callout-title{color:var(--y)}
+.callout p{margin-bottom:0;font-size:.95rem}
+
+/* ─── TABLE ───────────────────────────────────────────────── */
+.table-wrapper{overflow-x:auto;margin:20px 0}
+.comparison-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:var(--r6);overflow:hidden}
+.comparison-table th{background:#f0fdf4;color:#0c4a6e;padding:12px 16px;text-align:left;font-weight:700;border-bottom:2px solid #bbf7d0}
+.comparison-table td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table tr:nth-child(even){background:#fafbfc}
+.tag-high{display:inline-block;background:#dcfce7;color:#16a34a;font-size:.72rem;font-weight:700;padding:2px 7px;border-radius:100px;margin-left:4px}
+.tag-med{display:inline-block;background:#fef9c3;color:#92400e;font-size:.72rem;font-weight:700;padding:2px 7px;border-radius:100px;margin-left:4px}
+.tag-low{display:inline-block;background:#fee2e2;color:#dc2626;font-size:.72rem;font-weight:700;padding:2px 7px;border-radius:100px;margin-left:4px}
+
+/* ─── PLANT GRID ──────────────────────────────────────────── */
+.plant-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin:24px 0}
+.plant-card{background:#fff;border:1.5px solid #bbf7d0;border-radius:var(--r12);padding:18px}
+.plant-card-icon{font-size:1.8rem;margin-bottom:8px}
+.plant-card-title{font-weight:800;font-size:.95rem;color:#065f46;margin-bottom:4px}
+.plant-card-sub{font-size:.78rem;color:var(--muted);margin-bottom:10px;font-style:italic}
+.plant-card p{font-size:.88rem;color:var(--txt);margin:0}
+
+/* ─── DENSITY SCALE ──────────────────────────────────────── */
+.density-scale{display:flex;gap:0;border-radius:var(--r6);overflow:hidden;margin:20px 0;border:1px solid var(--border)}
+.density-col{flex:1;padding:14px 12px;text-align:center;font-size:.82rem}
+.density-col strong{display:block;font-size:.95rem;margin-bottom:4px}
+.density-low{background:#fef9c3}
+.density-med{background:#dcfce7}
+.density-high{background:#bbf7d0}
+.density-ultra{background:#4ade80;color:#065f46}
+
+/* ─── CTA BOX ─────────────────────────────────────────────── */
+.cta-box{background:linear-gradient(135deg,#f0fdf4 0%,#e0f9f0 100%);border:2px solid #86efac;border-radius:var(--r12);padding:32px 24px;margin:40px 0;text-align:center}
+.cta-box h3{font-size:1.3rem;color:#065f46;margin-bottom:12px}
+.cta-box p{margin-bottom:20px;font-size:.95rem}
+.cta-btn{display:inline-block;background:var(--g);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(22,163,74,.3)}
+.cta-btn:hover{background:#15803d;transform:translateY(-2px);box-shadow:0 6px 20px rgba(22,163,74,.4);text-decoration:none}
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size:.85rem;margin-top:48px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.footer-inner a{color:rgba(255,255,255,.8)}
+.footer-credit{font-size:.78rem;opacity:.6}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media(max-width:640px){
+  .article-hero{padding:24px 16px}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:0 16px 32px}
+  .article-body h2{font-size:1.25rem;margin-top:28px}
+  .cta-box{padding:24px 16px;margin:24px 0}
+  .breadcrumb{padding:0 16px}
+  .plant-grid{grid-template-columns:1fr}
+  .density-scale{flex-direction:column}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Planted Tanks and Bioload: How Live Plants Change Your Stocking Capacity",
+  "description": "Live plants actively reduce ammonia and nitrate in your aquarium. Here's the science on how much they actually help, which species are most effective, and how CO2 injection multiplies the benefit.",
+  "image": "https://aquapacity.com/og-image.jpg",
+  "datePublished": "2026-04-24",
+  "dateModified": "2026-04-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Aquapacity",
+    "url": "https://aquapacity.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aquapacity",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://aquapacity.com/logo.svg",
+      "width": 60,
+      "height": 60
+    }
+  }
+}
+</script>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-icon"><svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><clipPath id="artc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="rgba(255,255,255,0.10)"/>
+          <rect x="2" y="18" width="30" height="22" clip-path="url(#artc)" fill="rgba(94,234,212,0.45)"/>
+          <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#artc)" fill="rgba(94,234,212,0.7)"/>
+          <line x1="24" y1="9" x2="30" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="14" x2="30" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+          <ellipse cx="14" cy="27" rx="6" ry="3.5" fill="rgba(255,255,255,0.85)"/>
+          <path d="M8 27 L5 23 L5 31 Z" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="18.5" cy="25.8" r="1.3" fill="rgba(0,60,80,0.8)"/>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+        </svg></span>
+      <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
+    </a>
+    <nav>
+      <a href="../index.html#calculator">Calculator</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../index.html#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../index.html">Home</a>
+  <span>›</span>
+  <a href="../articles.html">Articles</a>
+  <span>›</span>
+  <span>Planted Tanks &amp; Bioload</span>
+</div>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+  <span class="article-tag">Planted Tanks</span>
+  <h1>Planted Tanks and Bioload: How Live Plants Change Your Stocking Capacity</h1>
+  <div class="article-meta">
+    <span>7 min read</span>
+    <span>•</span>
+    <span>Updated April 2026</span>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+
+<h2>Plants Are Not Just Decoration</h2>
+
+<p>When most people think about aquarium plants, they think about aesthetics — the lush green carpet of a Dutch aquascape, the delicate fronds of Java fern, or the dramatic sword plants framing a rocky cichlid tank. But live plants do something far more consequential than look beautiful: they actively process the nitrogen compounds that would otherwise accumulate and harm your fish.</p>
+
+<p>A densely planted aquarium is, in a very real sense, a more capable biological system than a bare tank of identical size. It can support more fish, maintain more stable water chemistry, and tolerate the kind of fluctuations — a missed water change, a slightly overfed day — that would tip an unplanted tank toward a water quality crisis.</p>
+
+<p>Understanding exactly how plants reduce bioload — and by how much — lets you make more informed stocking decisions and get more out of your tank. This article covers the science, the practical numbers, and which plants give you the most bioload-reduction per square centimetre.</p>
+
+<h2>How Plants Process Nitrogen: The Biology</h2>
+
+<p>Plants need nitrogen to grow. Specifically, they need it in the form of ammonium (NH₄⁺) and nitrate (NO₃⁻) — the same nitrogen compounds that your filter's nitrogen cycle produces. This creates a direct competition between plants and the bacteria in your filter media: both are consuming the ammonia and nitrate that your fish produce.</p>
+
+<p>The key processes at work:</p>
+
+<h3>Direct Ammonia Uptake</h3>
+
+<p>Aquatic plants can absorb ammonium (NH₄⁺ — the form ammonia takes at typical aquarium pH) directly through their leaves and roots. This is their preferred nitrogen source; it costs the plant less energy to assimilate ammonium than nitrate. In a densely planted tank, fast-growing plants can absorb a significant fraction of the ammonia your fish produce before it ever reaches your filter media.</p>
+
+<p>This is why new aquarists sometimes find that a heavily planted tank "cycles faster" — the plants are buffering the ammonia spike, making the water chemistry appear more stable even before the bacterial colony is fully mature.</p>
+
+<h3>Nitrate Consumption</h3>
+
+<p>While plants prefer ammonium, they also absorb nitrate readily — especially when ammonium is limited. In an established, well-filtered tank where most ammonia is converted to nitrate by nitrifying bacteria, plants become significant nitrate consumers. This is the most practical benefit for most aquarists: reduced nitrate accumulation means less frequent large water changes are needed to keep nitrate below the safe threshold (typically &lt;20 mg/L for sensitive species, &lt;40 mg/L for most community fish).</p>
+
+<h3>Oxygen Production</h3>
+
+<p>A secondary but important benefit: photosynthesising plants produce oxygen, raising dissolved oxygen levels during the photoperiod. Higher dissolved oxygen levels support larger, more active bacterial colonies in your filter media — meaning your filter actually becomes slightly more effective in a planted tank than in a bare one.</p>
+
+<div class="callout callout-warn">
+  <div class="callout-title">⚠️ Night-Time Oxygen Reversal</div>
+  <p>Plants photosynthesise only under light. At night, they respire — consuming oxygen and producing CO₂, just like your fish. In a very heavily planted tank with a long dark period and weak surface agitation, oxygen can drop significantly overnight. If you observe fish gasping at the surface in the morning but fine during the day, plant respiration during darkness is the likely cause. Ensure good surface agitation, especially at night.</p>
+</div>
+
+<h2>How Much Bioload Reduction Do Plants Actually Provide?</h2>
+
+<p>This is the question most aquarists care about — and it has a frustrating answer: it depends heavily on planting density, plant species, light intensity, CO₂ availability, and how actively the plants are growing. A tank that looks planted but holds a few slow-growing crypts at low light provides almost no meaningful bioload reduction. A tank densely carpeted with fast-growing stem plants under high light and CO₂ injection can reduce effective bioload by 30–40%.</p>
+
+<p>Here's a practical framework based on commonly observed planting densities:</p>
+
+<div class="density-scale">
+  <div class="density-col density-low">
+    <strong>Sparse</strong>
+    <span>A few low-light plants, no carpet</span>
+    <br><br>
+    <span style="font-weight:700">~5–10%</span><br>bioload reduction
+  </div>
+  <div class="density-col density-med">
+    <strong>Moderate</strong>
+    <span>30–50% substrate covered, mix of slow &amp; fast growers</span>
+    <br>
+    <span style="font-weight:700">~15–20%</span><br>bioload reduction
+  </div>
+  <div class="density-col density-high">
+    <strong>Dense</strong>
+    <span>60–80% coverage, fast-growing stem plants, good lighting</span>
+    <br>
+    <span style="font-weight:700">~25–35%</span><br>bioload reduction
+  </div>
+  <div class="density-col density-ultra">
+    <strong>Ultra High</strong>
+    <span>80%+ coverage, CO₂, high light, fast growers dominating</span>
+    <br>
+    <span style="font-weight:700">~35–45%</span><br>bioload reduction
+  </div>
+</div>
+
+<p>These figures represent the effective reduction in <em>net nitrogen input to the water column</em> — meaning a tank at "Dense" density can support approximately 30% more fish bioload than an equivalent unplanted tank, assuming all other factors (filter, water changes) remain constant.</p>
+
+<div class="callout callout-info">
+  <div class="callout-title">💡 How Aquapacity Uses This</div>
+  <p>The Aquapacity calculator applies a planting density multiplier to your bioload capacity. Select "Planted (moderate)" or "Planted (dense)" when setting up your tank, and the calculator adjusts your stocking headroom accordingly — giving you a more accurate picture of what your specific system can actually support.</p>
+</div>
+
+<h2>Which Plants Give the Most Bioload Reduction?</h2>
+
+<p>The key variable is <strong>growth rate</strong>. A fast-growing plant actively pulling nutrients from the water column provides far more bioload reduction than a slow-growing one that barely changes week to week. This is why a tank full of slow-growing anubias and java fern looks beautifully planted but contributes relatively little to nitrogen processing.</p>
+
+<div class="plant-grid">
+
+  <div class="plant-card">
+    <div class="plant-card-icon">🌿</div>
+    <div class="plant-card-title">Hornwort <em>(Ceratophyllum demersum)</em></div>
+    <div class="plant-card-sub">Growth: Very Fast · Light: Low–Medium</div>
+    <p>One of the best nitrogen reducers available. Hornwort grows extremely rapidly, absorbing nutrients at pace. It needs no substrate (floats or can be anchored), is nearly indestructible, and thrives in low to medium light. Ideal for tanks without CO₂.</p>
+  </div>
+
+  <div class="plant-card">
+    <div class="plant-card-icon">🌿</div>
+    <div class="plant-card-title">Water Wisteria <em>(Hygrophila difformis)</em></div>
+    <div class="plant-card-sub">Growth: Fast · Light: Medium</div>
+    <p>A workhorse stem plant with excellent nutrient uptake. Water wisteria grows quickly in medium light without CO₂, produces dense foliage that absorbs nitrogen efficiently, and is simple to propagate by replanting cuttings.</p>
+  </div>
+
+  <div class="plant-card">
+    <div class="plant-card-icon">🌿</div>
+    <div class="plant-card-title">Guppy Grass <em>(Najas guadalupensis)</em></div>
+    <div class="plant-card-sub">Growth: Very Fast · Light: Low–Medium</div>
+    <p>Possibly the fastest-growing common aquarium plant. Guppy grass absorbs nitrogen almost as fast as fish produce it in a well-stocked tank. It also provides cover for fry and small fish. Grows in almost any light condition.</p>
+  </div>
+
+  <div class="plant-card">
+    <div class="plant-card-icon">🌿</div>
+    <div class="plant-card-title">Amazon Sword <em>(Echinodorus bleheri)</em></div>
+    <div class="plant-card-sub">Growth: Medium · Light: Medium–High</div>
+    <p>A large, root-feeding plant that absorbs significant nutrients through its root system. Provides moderate bioload reduction when mature, with root tabs helping it reach its growth potential. Better suited to larger tanks (60L+).</p>
+  </div>
+
+  <div class="plant-card">
+    <div class="plant-card-icon">🌿</div>
+    <div class="plant-card-title">Rotala <em>(Rotala rotundifolia / indica)</em></div>
+    <div class="plant-card-sub">Growth: Fast · Light: Medium–High</div>
+    <p>A popular stem plant in aquascaping that also provides solid nitrogen uptake. Grows faster under high light and CO₂ injection, but still performs well in medium-light setups. Plant in dense groups for maximum effect.</p>
+  </div>
+
+  <div class="plant-card">
+    <div class="plant-card-icon">🌿</div>
+    <div class="plant-card-title">Java Fern &amp; Anubias</div>
+    <div class="plant-card-sub">Growth: Slow · Light: Low</div>
+    <p>Beautiful, nearly indestructible, and very popular — but slow-growing plants that contribute minimally to bioload reduction. Include them for aesthetics and hardiness, but don't count on them to meaningfully process nitrogen from a heavily stocked tank.</p>
+  </div>
+
+</div>
+
+<h2>CO₂ Injection: The Multiplier Effect</h2>
+
+<p>Carbon dioxide is the limiting factor for photosynthesis in most aquariums. Atmospheric CO₂ dissolves into tank water at only about 3–5 mg/L — enough to support low-to-medium light plants at a slow growth rate. When you inject CO₂ to raise levels to 20–30 mg/L, you remove that limitation entirely.</p>
+
+<p>The result is dramatically accelerated plant growth — and proportionally greater nitrogen uptake. A tank of water wisteria under medium light might grow 3–4 cm per week. The same tank with CO₂ injection might grow 8–12 cm per week. The plants are photosynthesising faster, pulling more ammonia and nitrate from the water column, and therefore providing considerably more bioload reduction.</p>
+
+<p>Quantitatively, CO₂ injection typically increases the nitrogen-processing contribution of plants by <strong>50–80%</strong> compared to non-injected equivalents — moving a "dense, no CO₂" setup from ~30% bioload reduction to ~45–50% with injection.</p>
+
+<div class="callout callout-tip">
+  <div class="callout-title">✅ CO₂ Without a Full System</div>
+  <p>Pressurised CO₂ systems (regulator + cylinder) give the most control, but DIY yeast CO₂ reactors or liquid carbon supplements (like Seachem Excel) provide a meaningful boost for smaller tanks. Even a modest increase in CO₂ above atmospheric levels accelerates plant growth noticeably in tanks with adequate light.</p>
+</div>
+
+<h2>The Other Side: When Plants Can Stress Fish</h2>
+
+<p>Live plants are beneficial in almost all scenarios — but there are a few situations where they complicate tank management rather than simplifying it.</p>
+
+<h3>Dying or Decaying Plants Release Ammonia</h3>
+
+<p>A plant that's struggling — due to low light, nutrient deficiency, algae smothering its leaves, or physical damage — can transition from a nitrogen consumer to a nitrogen producer. Decaying plant tissue releases ammonia at a rate that can rival fish waste. If you notice plants yellowing, melting, or dying back significantly, remove decaying matter promptly and address the underlying cause before it impacts water quality.</p>
+
+<h3>Overnight Oxygen Competition in Very Dense Tanks</h3>
+
+<p>As mentioned above, extremely dense planted tanks with weak surface agitation can see oxygen dip during long dark periods. This is rarely a problem in moderately planted tanks but is worth monitoring with an oxygen test kit if you're running a high-density plant setup.</p>
+
+<h3>Planted Tanks Require a Different Maintenance Rhythm</h3>
+
+<p>Trimming, replanting cuttings, removing dead leaves, and managing fertiliser dosing are all additional tasks that a planted tank requires. Neglecting plant maintenance — letting a stem plant become a leggy, shaded, low-growth mess — will reduce its nitrogen contribution and may add to your bioload from decaying tissue.</p>
+
+<h2>Practical Guidelines: Planting Density and How Much Extra Stocking It Allows</h2>
+
+<div class="table-wrapper">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Setup</th>
+        <th>Nitrogen Reduction</th>
+        <th>Extra Stocking Headroom</th>
+        <th>Best Plants For This</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Unplanted / fake plants</strong></td>
+        <td>0%</td>
+        <td>Baseline</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><strong>Sparse (a few slow growers)</strong></td>
+        <td>~5–10%</td>
+        <td>+5–10% fish <span class="tag-low">Minimal</span></td>
+        <td>Anubias, Java fern</td>
+      </tr>
+      <tr>
+        <td><strong>Moderate (mixed, medium light)</strong></td>
+        <td>~15–20%</td>
+        <td>+15–20% fish <span class="tag-med">Useful</span></td>
+        <td>Water wisteria + Java fern + sword</td>
+      </tr>
+      <tr>
+        <td><strong>Dense (fast growers, no CO₂)</strong></td>
+        <td>~25–35%</td>
+        <td>+25–35% fish <span class="tag-high">Significant</span></td>
+        <td>Hornwort, guppy grass, rotala</td>
+      </tr>
+      <tr>
+        <td><strong>Ultra dense (fast growers + CO₂)</strong></td>
+        <td>~40–50%</td>
+        <td>+40–50% fish <span class="tag-high">Major</span></td>
+        <td>Rotala, water wisteria, ludwigia + CO₂</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>These percentages represent approximate additional fish bioload you can safely support compared to an unplanted baseline, assuming constant filter quality and water change schedule. Real-world results vary — a tank in a growth spurt with fresh substrate and root tabs may outperform these numbers; a neglected, low-light planted tank may underperform them.</p>
+
+<p><strong>The most important principle:</strong> don't use planting density as an excuse to significantly overstock without testing. Test nitrate weekly when pushing stocking limits in a planted tank. If nitrate climbs above 20 mg/L between water changes despite heavy planting, your plants aren't keeping pace with your bioload.</p>
+
+<!-- CTA BOX -->
+<div class="cta-box">
+  <h3>Factor Your Plants Into Your Stocking Calculation</h3>
+  <p>The Aquapacity calculator includes a planting density selector that adjusts your bioload capacity based on your plant setup. Try adding your fish, setting your planting density, and see exactly how much headroom your planted tank gives you.</p>
+  <a href="../index.html#calculator" class="cta-btn">Calculate My Planted Tank Stocking</a>
+</div>
+
+<h2>The Right Mindset: Plants as Partners, Not a Cheat Code</h2>
+
+<p>The best framing for live plants and bioload is this: plants are genuine partners in maintaining water quality, not a cheat code that lets you ignore fundamental limits. A dense planted tank genuinely can support more fish than an equivalent bare tank — but it can't eliminate the need for filtration, water changes, and sensible stocking altogether.</p>
+
+<p>The most stable, successful aquariums combine all three legs of the stool: good filtration, regular water changes, and live plants working together. Remove any one leg and the system becomes fragile. Add all three, and you get the kind of resilient, forgiving tank that recovers quickly from missed maintenance and keeps fish thriving for years.</p>
+
+<p>Live plants are one of the most rewarding investments you can make in your aquarium — both for the visual impact and for the genuine biological benefit they provide to every fish in the tank.</p>
+
+<p><strong>Want to see how your planted setup stacks up?</strong> <a href="../index.html#calculator">Use the Aquapacity calculator</a> to input your planting density, stocking, and filter — and get a complete bioload picture for your specific tank.</p>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:#fff">🐠 Aquapacity</strong> · Advanced Aquarium Stocking Calculator
+      <div class="footer-credit">Free forever. Built for aquarists, by aquarists.</div>
+    </div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="../index.html#calculator">Calculator</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../index.html#faq">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
