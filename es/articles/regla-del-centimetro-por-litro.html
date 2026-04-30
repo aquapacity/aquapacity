@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Por qué la Regla del Centímetro por Litro Está Equivocada | Aquapacity</title>
+<meta name="description" content="La regla del centímetro por litro es peligrosamente imprecisa para poblar acuarios. Aprende por qué falla y descubre un enfoque basado en ciencia para mantener tus peces sanos.">
+<meta name="keywords" content="regla centímetro litro, biocarga acuario, cuántos peces en mi acuario, poblar acuario, calculadora población acuario">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html">
+<link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html">
+<link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/1-inch-per-gallon-rule.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#0369a1;--p2:#0ea5e9;--teal:#0d9488;
+  --g:#16a34a;--y:#d97706;--r:#dc2626;
+  --bg:#f0f9ff;--surf:#fff;--border:#e0f2fe;
+  --txt:#1e293b;--muted:#64748b;
+  --sh:0 1px 3px rgba(0,0,0,.10),0 1px 2px rgba(0,0,0,.06);
+  --sh2:0 4px 12px rgba(0,0,0,.10),0 2px 4px rgba(0,0,0,.06);
+  --r6:6px;--r12:12px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;font-size:16px;overflow-x:hidden;width:100%}
+a{color:var(--p);text-decoration:none}
+a:hover{text-decoration:underline}
+button{cursor:pointer;font-family:inherit;font-size:inherit}
+h1,h2,h3,h4{line-height:1.3;font-weight:800}
+
+header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;user-select:none}
+.logo-wordmark{font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
+.logo-icon{flex-shrink:0;width:40px;height:40px}
+nav{display:flex;gap:20px}
+nav a{color:rgba(255,255,255,.85);font-size:.875rem;transition:color .2s}
+nav a:hover{color:#fff;text-decoration:none}
+
+.breadcrumb{max-width:900px;margin:24px auto 0;padding:0 24px;display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.breadcrumb a{color:var(--p)}
+
+.article-hero{max-width:900px;margin:0 auto;padding:40px 24px;text-align:center}
+.article-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);color:#0c4a6e;margin-bottom:16px;line-height:1.2}
+.article-hero .article-meta{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-size:.9rem;color:var(--muted);margin-top:16px}
+.article-tag{display:inline-block;background:#e0f2fe;color:var(--p);padding:4px 10px;border-radius:100px;font-size:.8rem;font-weight:700}
+
+.article-body{max-width:900px;margin:0 auto;padding:0 24px 48px;line-height:1.8}
+.article-body h2{font-size:1.5rem;color:#0c4a6e;margin-top:32px;margin-bottom:16px;padding-top:16px;border-top:2px solid var(--border)}
+.article-body h3{font-size:1.15rem;color:#0369a1;margin-top:24px;margin-bottom:12px}
+.article-body p{margin-bottom:16px;color:var(--txt)}
+.article-body ul,.article-body ol{margin:16px 0 16px 24px}
+.article-body li{margin-bottom:8px}
+.article-body strong{font-weight:700;color:#0c4a6e}
+.article-body em{font-style:italic;color:var(--muted)}
+
+.table-wrapper{overflow-x:auto;margin:20px 0}
+.comparison-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:var(--r6);overflow:hidden}
+.comparison-table th{background:#f0f9ff;color:#0c4a6e;padding:12px 16px;text-align:left;font-weight:700;border-bottom:2px solid var(--border)}
+.comparison-table td{padding:12px 16px;border-bottom:1px solid var(--border)}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table tr:nth-child(even){background:#fafbfc}
+
+.cta-box{background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f4 100%);border:2px solid var(--p2);border-radius:var(--r12);padding:32px 24px;margin:40px 0;text-align:center}
+.cta-box h3{font-size:1.3rem;color:#0c4a6e;margin-bottom:12px}
+.cta-box p{margin-bottom:20px;font-size:.95rem}
+.cta-btn{display:inline-block;background:var(--p);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(3,105,161,.3)}
+.cta-btn:hover{background:#0284c7;transform:translateY(-2px);box-shadow:0 6px 20px rgba(3,105,161,.4);text-decoration:none}
+
+footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size:.85rem;margin-top:48px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.footer-inner a{color:rgba(255,255,255,.8)}
+.footer-credit{font-size:.78rem;opacity:.6}
+
+@media(max-width:640px){
+  nav{display:none}
+  .article-hero{padding:24px 16px}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:0 16px 32px}
+  .article-body h2{font-size:1.25rem;margin-top:24px}
+  .cta-box{padding:24px 16px;margin:24px 0}
+  .breadcrumb{padding:0 16px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Por qué la Regla del Centímetro por Litro Está Equivocada (y Cómo Poblar tu Acuario Correctamente)",
+  "description": "La regla del centímetro por litro es peligrosamente imprecisa. Aprende por qué falla y descubre un enfoque basado en biocarga real.",
+  "datePublished": "2026-04-29",
+  "dateModified": "2026-04-29",
+  "author": {"@type": "Organization","name": "Aquapacity","url": "https://aquapacity.com"},
+  "publisher": {"@type": "Organization","name": "Aquapacity","logo": {"@type": "ImageObject","url": "https://aquapacity.com/logo.svg","width": 60,"height": 60}}
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-icon"><svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><clipPath id="artc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="rgba(255,255,255,0.10)"/>
+          <rect x="2" y="18" width="30" height="22" clip-path="url(#artc)" fill="rgba(94,234,212,0.45)"/>
+          <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#artc)" fill="rgba(94,234,212,0.7)"/>
+          <line x1="24" y1="9" x2="30" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="14" x2="30" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+          <ellipse cx="14" cy="27" rx="6" ry="3.5" fill="rgba(255,255,255,0.85)"/>
+          <path d="M8 27 L5 23 L5 31 Z" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="18.5" cy="25.8" r="1.3" fill="rgba(0,60,80,0.8)"/>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+        </svg></span>
+      <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
+    </a>
+    <nav>
+      <a href="../index.html#calculator">Calculadora</a>
+      <a href="../index.html#how-it-works">Cómo Funciona</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../articles.html">Artículos</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="../index.html">Inicio</a>
+  <span>›</span>
+  <a href="../articles.html">Artículos</a>
+  <span>›</span>
+  <span>Regla del Centímetro por Litro</span>
+</div>
+
+<div class="article-hero">
+  <span class="article-tag">Población</span>
+  <h1>Por qué la Regla del Centímetro por Litro Está Equivocada (y Cómo Poblar tu Acuario Correctamente)</h1>
+  <div class="article-meta">
+    <span>8 min de lectura</span>
+    <span>•</span>
+    <span>Actualizado abril 2026</span>
+  </div>
+</div>
+
+<div class="article-body">
+
+<h2>La Regla Que No Muere</h2>
+
+<p>Si alguna vez has preguntado a un acuarista "¿cuántos peces puedo meter en mi acuario?", seguramente la has escuchado: <strong>la regla del centímetro por litro</strong>. Un centímetro de pez adulto por litro de agua. Simple. Memorable. Incorrecta.</p>
+
+<p>Esta regla lleva décadas circulando en el hobby, transmitida en tiendas de animales, foros y guías para principiantes como si fuera verdad absoluta. Y sin embargo, es uno de los consejos más dañinos de la acuariofilia moderna. Provoca acuarios crónicamente superpoblados, crisis de calidad de agua y peces que viven vidas más cortas y estresadas de lo necesario.</p>
+
+<p>Entender por qué falla —y qué usar en su lugar— es la base de una acuariofilia responsable.</p>
+
+<h2>Por qué la Regla del Centímetro por Litro Falla</h2>
+
+<h3>1. Ignora completamente la forma del cuerpo y la tasa metabólica</h3>
+
+<p>La regla trata a todos los peces como unidades intercambiables de "longitud", pero la forma del cuerpo importa enormemente. Un óscar de 30 cm no equivale a treinta neones de 1 cm en términos de impacto sobre el acuario.</p>
+
+<p>Un óscar es un pez voluminoso, musculoso, con una tasa metabólica elevada y un apetito descomunal. Un neón es un pez esbelto que come muy poco. <strong>Un solo óscar produce aproximadamente 10–15 veces más residuos nitrogenados que un neón</strong>, pero ambos podrían contarse como "10 cm" bajo la regla del centímetro.</p>
+
+<p>Por eso la forma corporal y la tasa metabólica son la base del modelo de biocarga que usa la calculadora Aquapacity. El tamaño solo no te dice casi nada sobre el impacto ambiental de un pez.</p>
+
+<h3>2. Ignora el comportamiento y las necesidades territoriales</h3>
+
+<p>Algunos peces son tranquilos y sociables; otros son territoriales y agresivos. Un tetra pacífico de 5 cm necesita mucho menos espacio que un cíclido de 5 cm defendiendo un territorio de cría. Superpoblar peces territoriales más allá de sus umbrales de comportamiento genera agresión constante, estrés y lesiones, incluso si la química del agua es perfecta.</p>
+
+<p>La regla del centímetro no contempla umbrales de agresividad, tamaños mínimos de grupo ni estructura social. Es una métrica puramente volumétrica, ciega al comportamiento.</p>
+
+<h3>3. Ignora la capacidad y el tipo de filtración</h3>
+
+<p>Un acuario de 100 litros con un pequeño filtro interno no equivale a un acuario de 100 litros con un filtro externo de alta gama. Sin embargo, la regla del centímetro les daría el mismo límite de población.</p>
+
+<p>El tipo de filtro, la superficie de los medios biológicos, el caudal y la eficiencia bacteriana determinan cuánta biocarga puede procesar realmente tu sistema. Un acuario bien filtrado con cambios de agua semanales puede soportar muchos más peces que uno mal filtrado del mismo volumen.</p>
+
+<h3>4. Ignora el crecimiento de los peces</h3>
+
+<p>Muchos principiantes compran peces jóvenes que parecen cumplir la regla del centímetro a la perfección. Y luego los peces crecen. Un escalar joven mide 2 cm; un adulto mide 15 cm. Un pleco joven mide 3 cm; un pleco común adulto puede superar los 50 cm.</p>
+
+<p>La regla no ofrece ninguna orientación sobre planificar para el tamaño adulto, lo que lleva a superpoblaciones catastróficas a medida que los peces maduran. Siempre hay que planificar para el tamaño <em>adulto</em>, no para el tamaño actual.</p>
+
+<h3>5. Ignora la química del nitrógeno y la acumulación de nitrato</h3>
+
+<p>Incluso si pudieras encajar cierta cantidad de peces sin que el amoniaco llegue a niveles tóxicos (algo que la regla no garantiza), existe otro problema: <strong>la acumulación de nitrato</strong>.</p>
+
+<p>Todos los peces producen residuos nitrogenados que deben abandonar el acuario. Demasiada biocarga crea una espiral de nitrato: los cambios de agua no dan abasto, y se instala una intoxicación crónica por nitrato a bajo nivel. Los peces se vuelven letárgicos, pierden color, su sistema inmunitario se debilita y las enfermedades se vuelven frecuentes.</p>
+
+<p>La regla del centímetro no incluye ningún componente de frecuencia de cambios de agua, umbrales de nitrato ni gestión del ciclo del nitrógeno.</p>
+
+<h2>Qué Significa Realmente la Biocarga</h2>
+
+<p><strong>La biocarga es la cantidad total de residuos biológicos producidos por todos los organismos vivos de tu acuario.</strong> Estos residuos son principalmente nitrógeno (amoniaco procedente de las branquias y la orina de los peces), que el ciclo del nitrógeno debe convertir en compuestos menos tóxicos.</p>
+
+<p>Cuando sobrecargas tu acuario de peces, superas la capacidad del ciclo del nitrógeno. El amoniaco y el nitrito (ambos extremadamente tóxicos) se acumulan. Los peces muestran señales de estrés: buscan la superficie en busca de oxígeno, pierden el apetito, pierden color y aumentan su susceptibilidad a enfermedades.</p>
+
+<p>La clave: <strong>la biocarga depende de la especie y el tamaño del pez, no solo de la cantidad.</strong> Un óscar grande produce más biocarga que veinte neones. El ciclo del nitrógeno no distingue cuántos peces hay; solo le importa la entrada total de nitrógeno.</p>
+
+<h2>Un Enfoque Mejor: El Modelo de Biocarga</h2>
+
+<p>En lugar de contar centímetros, los acuicultores profesionales usan un <strong>modelo de biocarga</strong> que tiene en cuenta:</p>
+
+<ul>
+  <li><strong>Coeficientes de biocarga por especie</strong> — derivados de datos publicados sobre tasas metabólicas y excreción de nitrógeno</li>
+  <li><strong>Capacidad del filtro</strong> — la biocarga máxima que tu filtro puede procesar</li>
+  <li><strong>Eficiencia biológica</strong> — cuán eficazmente tus medios filtrantes soportan bacterias nitrificantes</li>
+  <li><strong>Frecuencia de cambios de agua</strong> — con qué regularidad diluyes el nitrato acumulado</li>
+  <li><strong>Volumen del acuario</strong> — los acuarios más grandes diluyen los residuos más rápido</li>
+  <li><strong>Absorción por plantas</strong> — las plantas vivas consumen amoniaco y nitrato directamente</li>
+</ul>
+
+<p>¿Cómo se compara la regla del centímetro con los datos reales de biocarga?</p>
+
+<div class="table-wrapper">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Especie (tamaño adulto)</th>
+        <th>Predicción regla 1 cm/L*</th>
+        <th>Capacidad real (acuario 100 L)**</th>
+        <th>Conclusión</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Neón tetra</strong> (4 cm)</td>
+        <td>25 peces</td>
+        <td>15–20 peces</td>
+        <td>La regla se acerca para peces pequeños y pacíficos</td>
+      </tr>
+      <tr>
+        <td><strong>Óscar</strong> (35 cm)</td>
+        <td>2–3 peces</td>
+        <td>Máximo 1 pez</td>
+        <td>La regla superpobla gravemente — los óscares son máquinas de biocarga</td>
+      </tr>
+      <tr>
+        <td><strong>Corydoras</strong> (7 cm)</td>
+        <td>14 peces</td>
+        <td>8–10 peces</td>
+        <td>La regla sobreestima para peces de fondo con alta producción de residuos</td>
+      </tr>
+      <tr>
+        <td><strong>Guppy</strong> (6 cm)</td>
+        <td>16 peces</td>
+        <td>12–15 peces</td>
+        <td>La regla se acerca, ligera sobreestimación</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p><em>*Acuario de 100 litros; tallas adultas. **Asume filtro externo (eficiencia ×4), medios biológicos estándar y cambios del 30% semanales.</em></p>
+
+<p>Fíjate en el patrón: la regla funciona <em>a veces</em> para peces pequeños y pacíficos, pero es peligrosamente incorrecta para todo lo que sea metabólicamente exigente (óscares, plecos, cíclidos, peces dorados). E incluso para peces pequeños, suele sobreestimar.</p>
+
+<h2>Guías Prácticas para Tamaños de Acuario Comunes</h2>
+
+<h3>Acuario de 60 litros</h3>
+
+<p>Un acuario de 60 litros es pequeño y no perdona los errores. Requiere cambios de agua semanales y una elección cuidadosa del filtro.</p>
+
+<ul>
+  <li><strong>Mejor población:</strong> 8–10 neones o embers tetras, o 6 neones + 4 corydoras pigmeos</li>
+  <li><strong>Máximo absoluto (acuaristas avanzados):</strong> 12 peces pequeños y pacíficos con cambios del 30% semanales y buen filtro</li>
+  <li><strong>Evitar:</strong> Óscares, plecos grandes, cíclidos agresivos — demasiada biocarga para el volumen</li>
+</ul>
+
+<h3>Acuario de 120 litros</h3>
+
+<p>Un acuario de 120 litros abre muchas más posibilidades, aunque sigue requiriendo mantenimiento semanal.</p>
+
+<ul>
+  <li><strong>Comunidad pacífica:</strong> 15–20 tetras pequeños, o 10 neones + 6 corydoras + 1 gourami enano</li>
+  <li><strong>Opción con cíclidos:</strong> Una pareja de ramirezi o apistos (cíclidos no agresivos) con 8–10 peces distractor</li>
+  <li><strong>Máximo absoluto (avanzado):</strong> 25 peces pequeños con excelente filtración y cambios semanales del 50%</li>
+  <li><strong>Evitar:</strong> Plecos grandes, peces dorados comunes (reservar para acuarios de 200+ L)</li>
+</ul>
+
+<h3>Acuario de 200 litros</h3>
+
+<p>Un acuario de 200 litros te da flexibilidad real. Los cambios de agua semanales son manejables y puedes mantener peces más grandes.</p>
+
+<ul>
+  <li><strong>Comunidad pacífica:</strong> 30–40 peces pequeños (tetras, rásboras, corydoras, gurami enanos)</li>
+  <li><strong>Comunidad mixta con cíclidos:</strong> 5–6 cíclidos medianos + 15–20 peces distractor</li>
+  <li><strong>Óscar o cíclido grande:</strong> 1 pez grande + 10–12 peces compatibles</li>
+  <li><strong>Ventaja del plantado:</strong> Añade un 20–30% más de peces si está densamente plantado</li>
+</ul>
+
+<p><strong>Principio clave:</strong> Estas cifras asumen cambios de agua semanales, filtración de calidad y peces completamente adultos. Ajusta a la baja si saltas cambios de agua o usas filtración débil; ajusta al alza si mejoras la filtración o añades plantas vivas abundantes.</p>
+
+<h2>El Daño Real de la Superpoblación</h2>
+
+<p>Los acuarios superpoblados no fallan de golpe: fallan lentamente e invisiblemente.</p>
+
+<p>La intoxicación aguda por amoniaco (de un ciclo del nitrógeno colapsado) es inmediata: jadeo en la superficie, pérdida de color, muerte en días. Eso, por desgracia, es obvio.</p>
+
+<p>La superpoblación crónica es distinta. La calidad del agua nunca se vuelve agudamente tóxica, pero el nitrato se acumula semana tras semana. Los peces muestran señales sutiles: colores apagados, apetito reducido, mayor letargo, enfermedades que tardan más en curar. La esperanza de vida se acorta. La reproducción falla. El acuario "parece bien", pero algo no va.</p>
+
+<p>El acuarista culpa a la mala suerte, a la genética o a enfermedades, sin darse cuenta de que la causa raíz es la superpoblación crónica y la intoxicación por nitrato. Para cuando alguien analiza el agua —si es que lo hace— el nitrato puede estar a 100+ mg/L, muy por encima del umbral de 20 mg/L para la salud.</p>
+
+<div class="cta-box">
+  <h3>Deja de adivinar. Empieza a calcular.</h3>
+  <p>La regla del centímetro lleva al ensayo y error. Pero poblar un acuario no tiene por qué ser una apuesta. Usa datos científicos en su lugar.</p>
+  <p>Añade tus peces a la <strong>calculadora Aquapacity</strong>, introduce las especificaciones de tu filtro y obtén un análisis instantáneo de biocarga. Sin sorpresas de superpoblación. Sin estrés oculto para tus peces.</p>
+  <a href="../index.html#calculator" class="cta-btn">Usar la Calculadora Gratis</a>
+</div>
+
+<h2>Conclusión: Mejor Población Empieza con Mejores Datos</h2>
+
+<p>La regla del centímetro por litro persiste porque es simple. Pero la simplicidad a costa de la precisión es peligrosa en acuariofilia.</p>
+
+<p>Tus peces no saben si seguiste una regla; solo saben si la calidad del agua sostiene su supervivencia y salud. La superpoblación —incluso leve— crea estrés crónico que acorta la vida y suprime el sistema inmunitario.</p>
+
+<p><strong>Una mejor población empieza por entender la biocarga:</strong> el total de residuos que producen tus peces, la capacidad de tu filtro para procesar esos residuos, y el papel de tus cambios de agua en diluir lo que el filtro no puede eliminar.</p>
+
+<p>Sustituye la regla del centímetro por un modelo específico por especie, consciente de la filtración e informado por la química. Analiza el agua, controla el nitrato y ajusta la población con datos reales, no con reglas obsoletas.</p>
+
+<p><strong>¿Listo para una guía de población más precisa?</strong> <a href="../index.html#calculator">Usa la calculadora Aquapacity ahora</a> y comprueba cómo queda tu población actual con datos reales de biocarga.</p>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:#fff">🐠 Aquapacity</strong> · Calculadora de Biocarga para Acuarios
+      <div class="footer-credit">Gratis para siempre. Hecha por y para aficionados a la acuariofilia.</div>
+    </div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="../index.html#calculator">Calculadora</a>
+      <a href="../index.html#how-it-works">Cómo Funciona</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../articles.html">Artículos</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

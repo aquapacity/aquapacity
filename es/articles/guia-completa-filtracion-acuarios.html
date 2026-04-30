@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Completa de Filtración para Acuarios | Aquapacity</title>
+<meta name="description" content="Todo lo que necesitas saber sobre filtración de acuarios: tipos de filtros, medios biológicos, caudal ideal y cómo elegir el mejor sistema para tu acuario de agua dulce o salada.">
+<meta name="keywords" content="filtración acuario, filtro externo acuario, biofiltración acuario, medios filtrantes, caudal filtro acuario, filtro interno acuario">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html">
+<link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html">
+<link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/complete-guide-aquarium-filtration.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#0369a1;--p2:#0ea5e9;--teal:#0d9488;
+  --g:#16a34a;--y:#d97706;--r:#dc2626;
+  --bg:#f0f9ff;--surf:#fff;--border:#e0f2fe;
+  --txt:#1e293b;--muted:#64748b;
+  --sh:0 1px 3px rgba(0,0,0,.10),0 1px 2px rgba(0,0,0,.06);
+  --sh2:0 4px 12px rgba(0,0,0,.10),0 2px 4px rgba(0,0,0,.06);
+  --r6:6px;--r12:12px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;font-size:16px;overflow-x:hidden;width:100%}
+a{color:var(--p);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{line-height:1.3;font-weight:800}
+
+header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;user-select:none}
+.logo-wordmark{font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
+.logo-icon{flex-shrink:0;width:40px;height:40px}
+nav{display:flex;gap:20px}
+nav a{color:rgba(255,255,255,.85);font-size:.875rem;transition:color .2s}
+nav a:hover{color:#fff;text-decoration:none}
+
+.breadcrumb{max-width:900px;margin:24px auto 0;padding:0 24px;display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.breadcrumb a{color:var(--p)}
+
+.article-hero{max-width:900px;margin:0 auto;padding:40px 24px;text-align:center}
+.article-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);color:#0c4a6e;margin-bottom:16px;line-height:1.2}
+.article-hero .article-meta{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-size:.9rem;color:var(--muted);margin-top:16px}
+.article-tag{display:inline-block;background:#e0f2fe;color:var(--p);padding:4px 10px;border-radius:100px;font-size:.8rem;font-weight:700}
+
+.article-body{max-width:900px;margin:0 auto;padding:0 24px 48px;line-height:1.8}
+.article-body h2{font-size:1.5rem;color:#0c4a6e;margin-top:32px;margin-bottom:16px;padding-top:16px;border-top:2px solid var(--border)}
+.article-body h3{font-size:1.15rem;color:#0369a1;margin-top:24px;margin-bottom:12px}
+.article-body p{margin-bottom:16px;color:var(--txt)}
+.article-body ul,.article-body ol{margin:16px 0 16px 24px}
+.article-body li{margin-bottom:8px}
+.article-body strong{font-weight:700;color:#0c4a6e}
+.article-body em{font-style:italic;color:var(--muted)}
+
+.table-wrapper{overflow-x:auto;margin:20px 0}
+.comparison-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:var(--r6);overflow:hidden}
+.comparison-table th{background:#f0f9ff;color:#0c4a6e;padding:12px 16px;text-align:left;font-weight:700;border-bottom:2px solid var(--border)}
+.comparison-table td{padding:12px 16px;border-bottom:1px solid var(--border)}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table tr:nth-child(even){background:#fafbfc}
+
+.tip-box{background:#f0fdf4;border-left:4px solid var(--g);border-radius:0 var(--r6) var(--r6) 0;padding:16px 20px;margin:20px 0}
+.tip-box strong{color:var(--g)}
+
+.cta-box{background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f4 100%);border:2px solid var(--p2);border-radius:var(--r12);padding:32px 24px;margin:40px 0;text-align:center}
+.cta-box h3{font-size:1.3rem;color:#0c4a6e;margin-bottom:12px}
+.cta-box p{margin-bottom:20px;font-size:.95rem}
+.cta-btn{display:inline-block;background:var(--p);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(3,105,161,.3)}
+.cta-btn:hover{background:#0284c7;transform:translateY(-2px);box-shadow:0 6px 20px rgba(3,105,161,.4);text-decoration:none}
+
+footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size:.85rem;margin-top:48px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.footer-inner a{color:rgba(255,255,255,.8)}
+.footer-credit{font-size:.78rem;opacity:.6}
+
+@media(max-width:640px){
+  nav{display:none}
+  .article-hero{padding:24px 16px}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:0 16px 32px}
+  .article-body h2{font-size:1.25rem;margin-top:24px}
+  .cta-box{padding:24px 16px;margin:24px 0}
+  .breadcrumb{padding:0 16px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Guía Completa de Filtración para Acuarios",
+  "description": "Todo sobre filtración de acuarios: tipos de filtros, medios biológicos, caudal ideal y cómo elegir el sistema correcto.",
+  "datePublished": "2026-04-29",
+  "dateModified": "2026-04-29",
+  "author": {"@type": "Organization","name": "Aquapacity","url": "https://aquapacity.com"},
+  "publisher": {"@type": "Organization","name": "Aquapacity","logo": {"@type": "ImageObject","url": "https://aquapacity.com/logo.svg","width": 60,"height": 60}}
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-icon"><svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><clipPath id="artc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="rgba(255,255,255,0.10)"/>
+          <rect x="2" y="18" width="30" height="22" clip-path="url(#artc)" fill="rgba(94,234,212,0.45)"/>
+          <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#artc)" fill="rgba(94,234,212,0.7)"/>
+          <line x1="24" y1="9" x2="30" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="14" x2="30" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+          <ellipse cx="14" cy="27" rx="6" ry="3.5" fill="rgba(255,255,255,0.85)"/>
+          <path d="M8 27 L5 23 L5 31 Z" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="18.5" cy="25.8" r="1.3" fill="rgba(0,60,80,0.8)"/>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+        </svg></span>
+      <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
+    </a>
+    <nav>
+      <a href="../index.html#calculator">Calculadora</a>
+      <a href="../index.html#how-it-works">Cómo Funciona</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../articles.html">Artículos</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="../index.html">Inicio</a>
+  <span>›</span>
+  <a href="../articles.html">Artículos</a>
+  <span>›</span>
+  <span>Guía de Filtración</span>
+</div>
+
+<div class="article-hero">
+  <span class="article-tag">Filtración</span>
+  <h1>Guía Completa de Filtración para Acuarios: Tipos, Medios y Caudal</h1>
+  <div class="article-meta">
+    <span>12 min de lectura</span>
+    <span>•</span>
+    <span>Actualizado abril 2026</span>
+  </div>
+</div>
+
+<div class="article-body">
+
+<h2>Por qué la Filtración lo Es Todo</h2>
+
+<p>Si tuvieras que elegir un solo factor que determina el éxito o el fracaso de un acuario, sería la filtración. No el sustrato, no la iluminación, no incluso los cambios de agua (aunque son fundamentales). La filtración es el corazón del sistema: el mecanismo que convierte los residuos tóxicos de tus peces en compuestos inocuos.</p>
+
+<p>Sin embargo, la filtración sigue siendo uno de los aspectos más malentendidos del hobby. La mayoría de los principiantes compran el filtro que viene incluido con el acuario o el más barato de la tienda, sin entender qué hace realmente ni por qué importa.</p>
+
+<p>Esta guía cubre todo: los tres tipos de filtración, los mejores medios biológicos disponibles, cómo calcular el caudal adecuado y qué filtros usar según el tamaño y tipo de acuario.</p>
+
+<h2>Los Tres Tipos de Filtración</h2>
+
+<h3>1. Filtración Mecánica</h3>
+
+<p>La filtración mecánica es la más visible: atrapa partículas físicas (restos de comida, heces, detritos) antes de que se descompongan y liberen amoniaco al agua. Se realiza mediante esponjas de poro fino, guata de perlón, lana filtrante o medios similares.</p>
+
+<p><strong>Lo que no hace:</strong> No elimina el amoniaco ni el nitrato disuelto. Sólo atrapa partículas sólidas. Si no limpias los medios mecánicos regularmente, acaban convirtiéndose en una fuente de amoniaco al descomponerse los residuos atrapados.</p>
+
+<p><strong>Frecuencia de limpieza:</strong> Enjuaga los medios mecánicos en agua del propio acuario cada 2–4 semanas. Nunca con agua del grifo: el cloro mata las bacterias beneficiosas que también colonizan la esponja.</p>
+
+<h3>2. Filtración Biológica</h3>
+
+<p>La filtración biológica es el proceso más crítico y el más invisible. Las bacterias nitrificantes —principalmente <em>Nitrosomonas</em> y <em>Nitrospira</em>— colonizan los medios filtrantes porosos y convierten el amoniaco (NH₃) en nitrito (NO₂⁻) y finalmente en nitrato (NO₃⁻), mucho menos tóxico.</p>
+
+<p>Este proceso se llama el <strong>ciclo del nitrógeno</strong>, y es literalmente lo que mantiene vivos a tus peces. Sin bacterias nitrificantes suficientes, el amoniaco se acumula rápidamente hasta niveles letales.</p>
+
+<p><strong>Lo que no hace:</strong> La filtración biológica no elimina el nitrato, sólo lo produce. El nitrato se elimina principalmente mediante cambios de agua y, en menor medida, por las plantas vivas.</p>
+
+<h3>3. Filtración Química</h3>
+
+<p>La filtración química elimina compuestos disueltos específicos mediante adsorción. El carbón activado es el medio químico más común: adsorbe medicamentos residuales, taninos (que amarillan el agua), olores y ciertos contaminantes orgánicos.</p>
+
+<p><strong>Limitaciones importantes:</strong> El carbón activo tiene capacidad limitada y se satura en 4–6 semanas. Una vez saturado, puede liberar los compuestos que había adsorbe —el llamado efecto "leaching". No tiene valor biológico permanente. Las resinas especializadas (para fosfatos, silicatos, etc.) son más específicas y costosas.</p>
+
+<p><strong>¿Es obligatorio?</strong> No. Muchos acuarios funcionan perfectamente sin filtración química. Es útil tras tratamientos con medicamentos (para eliminar residuos) y en aguas con alto contenido de taninos. No es necesaria en el día a día para la mayoría de acuarios de agua dulce bien mantenidos.</p>
+
+<h2>Tipos de Filtros y Cuándo Usar Cada Uno</h2>
+
+<h3>Filtro Interno</h3>
+
+<p>Los filtros internos se colocan dentro del acuario, sumergidos en el agua. Son económicos, fáciles de instalar y adecuados para acuarios pequeños (hasta 60–80 L) o como filtración secundaria.</p>
+
+<p><strong>Ventajas:</strong> precio bajo, fácil mantenimiento, no requieren cebado.</p>
+<p><strong>Desventajas:</strong> espacio de medios limitado, capacidad biológica inferior a los externos de precio similar, ocupan espacio dentro del acuario.</p>
+<p><strong>Mejor para:</strong> acuarios de 20–60 L, acuarios de cuarentena, tanques de cría.</p>
+
+<h3>Filtro Externo (Canister)</h3>
+
+<p>Los filtros externos son el estándar de oro para la mayoría de acuarios a partir de 80 litros. Están ubicados fuera del acuario (generalmente debajo), conectados mediante tubos de entrada y salida. Ofrecen el mayor volumen de medios biológicos y el mayor caudal.</p>
+
+<p><strong>Ventajas:</strong> gran capacidad biológica, caudal potente y configurable, no ocupan espacio dentro del acuario, mayor flexibilidad de medios.</p>
+<p><strong>Desventajas:</strong> más caros, requieren cebado inicial, más complejos de instalar.</p>
+<p><strong>Mejor para:</strong> acuarios de 80 L en adelante, especialmente los densamente poblados.</p>
+
+<div class="tip-box">
+  <strong>💡 Regla práctica:</strong> Para agua dulce, apunta a un filtro externo con un caudal de al menos 8× el volumen del acuario por hora. Para agua salada o arrecife, 10–15×. Recuerda que el caudal nominal se mide sin carga (sin tubos largos, sin altura de bombeo) — en la práctica suele ser un 30–40% inferior.
+</div>
+
+<h3>Filtro de Esponja</h3>
+
+<p>Los filtros de esponja son extraordinariamente sencillos: una esponja porosa conectada a un difusor de aire o una pequeña bomba de agua. El agua pasa a través de la esponja, donde las bacterias convierten el amoniaco en nitrato.</p>
+
+<p><strong>Ventajas:</strong> muy económicos, excelente para crías (no aspiran alevines), ideales para acuarios de cuarentena, muy fáciles de limpiar.</p>
+<p><strong>Desventajas:</strong> bajo caudal, capacidad mecánica limitada, estéticamente poco discretos.</p>
+<p><strong>Mejor para:</strong> acuarios de cuarentena, criaderos, acuarios de camarones, o como filtración suplementaria.</p>
+
+<h3>Filtro Húmedo/Seco (Wet-Dry) y Sump</h3>
+
+<p>Los sistemas sump son la opción premium para acuarios grandes y marinos. Un sump es un depósito adicional, generalmente ubicado debajo del acuario principal, que contiene los medios de filtración, el calefactor, el skimmer de proteínas (en marino) y otros equipos. El agua fluye por gravedad desde el acuario principal hacia el sump y regresa bombeada.</p>
+
+<p><strong>Ventajas:</strong> capacidad de filtración enormes, oculta los equipos fuera del acuario, permite instalar el espumador de proteínas y la refugio de macroalgas, mayor volumen total de agua = mayor estabilidad.</p>
+<p><strong>Desventajas:</strong> instalación compleja, más costoso, requiere un agujero en el acuario (overflow) o un sifón externo.</p>
+<p><strong>Mejor para:</strong> acuarios de arrecife y marinos de 200 L en adelante, o acuarios de agua dulce muy grandes con alta carga de peces.</p>
+
+<h2>Los Mejores Medios Biológicos: Clasificados por Eficiencia</h2>
+
+<p>No todos los medios biológicos son iguales. Su eficiencia depende de la superficie colonizable disponible para las bacterias y de la accesibilidad de esa superficie al flujo de agua.</p>
+
+<div class="table-wrapper">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Medio Biológico</th>
+        <th>Eficiencia Relativa</th>
+        <th>Por qué</th>
+        <th>Notas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Foamex / Esponja de poro grueso</strong></td>
+        <td>⭐⭐⭐⭐⭐ Excelente</td>
+        <td>Gran superficie accesible + flujo de agua óptimo</td>
+        <td>La mejor relación calidad-precio. Presente en filtros de esponja y muchos HOBs</td>
+      </tr>
+      <tr>
+        <td><strong>Medios de lecho móvil (K1, K3)</strong></td>
+        <td>⭐⭐⭐⭐⭐ Excelente</td>
+        <td>Movimiento constante = superficies siempre limpias y oxigenadas</td>
+        <td>Requieren cámara de tumbling o airlift</td>
+      </tr>
+      <tr>
+        <td><strong>Roca volcánica (lava rock)</strong></td>
+        <td>⭐⭐⭐⭐ Muy buena</td>
+        <td>Alta porosidad natural, superficie rugosa</td>
+        <td>Pesada; práctica en sump o cestas grandes</td>
+      </tr>
+      <tr>
+        <td><strong>Cerámica porosa (Substrat Pro, Matrix)</strong></td>
+        <td>⭐⭐⭐⭐ Muy buena</td>
+        <td>Alta superficie interna, poros de tamaño adecuado</td>
+        <td>Requiere enjuague periódico para evitar obstrucción</td>
+      </tr>
+      <tr>
+        <td><strong>Canutillos cerámicos estándar</strong></td>
+        <td>⭐⭐⭐ Buena</td>
+        <td>Superficie moderada, solo exterior</td>
+        <td>Muy comunes y baratos; menos eficaces que foamex o cerámica porosa</td>
+      </tr>
+      <tr>
+        <td><strong>Biobolas</strong></td>
+        <td>⭐⭐ Moderada</td>
+        <td>Diseñadas para uso aéreo; sumergidas pierden eficiencia</td>
+        <td>Solo eficaces en filtros wet-dry con exposición al aire</td>
+      </tr>
+      <tr>
+        <td><strong>Lana de perlón (guata)</strong></td>
+        <td>⭐ Solo mecánica</td>
+        <td>Fibras demasiado densas para colonización bacteriana</td>
+        <td>Excelente para filtración mecánica; sin valor biológico permanente</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p><strong>Conclusión práctica:</strong> Si tuvieras que elegir un solo medio biológico, elige esponja de poro grueso (foamex). Es la opción más eficiente, más económica y más fácil de mantener. Los medios de lecho móvil son igual de buenos pero requieren más instalación.</p>
+
+<h2>Cómo Calcular el Caudal Necesario</h2>
+
+<p>El caudal del filtro determina con qué frecuencia pasa todo el volumen de agua por los medios filtrantes. Más caudal = mayor eliminación de amoniaco por hora.</p>
+
+<p><strong>Reglas generales:</strong></p>
+<ul>
+  <li><strong>Agua dulce con peces tranquilos:</strong> mínimo 6–8× el volumen del acuario por hora</li>
+  <li><strong>Agua dulce con alta biocarga (cíclidos, goldfish):</strong> 10–12×</li>
+  <li><strong>Agua salada / arrecife:</strong> 10–15×</li>
+</ul>
+
+<p>Para un acuario de 120 litros con peces de agua dulce, necesitas un filtro con un caudal real de al menos 720–960 L/h. Los fabricantes indican el caudal nominal (máximo, sin carga). Resta un 30–40% para el caudal real con tubos, altura de bombeo y medios llenos.</p>
+
+<div class="tip-box">
+  <strong>⚠️ Error frecuente:</strong> Un filtro Eheim 2213 tiene un caudal nominal de 440 L/h, pero con medios llenos y un metro de tubería vertical, el caudal real puede ser de 280–320 L/h. Un acuario de 120 L necesitaría dos de estos o uno de mayor potencia.
+</div>
+
+<h2>Mantenimiento del Filtro: Lo que Nadie te Dice</h2>
+
+<h3>Con qué frecuencia limpiar</h3>
+
+<p>La respuesta correcta es "cuando el caudal se reduzca notablemente", no "cada X semanas". Un filtro en un acuario muy poblado puede necesitar limpieza mensual; en un acuario ligeramente poblado, puede funcionar meses sin intervención.</p>
+
+<p>Un error gravísimo es limpiar todos los medios del filtro a la vez con agua del grifo: esto mata la mayoría de las bacterias nitrificantes y puede provocar un "mini-ciclo" con picos de amoniaco peligrosos para los peces.</p>
+
+<h3>La regla de oro del mantenimiento</h3>
+
+<ul>
+  <li>Limpia solo los medios mecánicos (esponjas externas, guata) en cada intervención</li>
+  <li>Limpia los medios biológicos solo si están muy obstruidos, y solo en agua del acuario</li>
+  <li>Nunca limpies medios mecánicos y biológicos el mismo día</li>
+  <li>Después de limpiar medios biológicos, haz un análisis de amoniaco los días siguientes</li>
+</ul>
+
+<h2>Filtración en Acuarios de Agua Salada y Arrecife</h2>
+
+<p>Los acuarios marinos tienen requisitos de filtración más exigentes por dos razones: los peces marinos suelen producir más residuos por unidad de peso que los de agua dulce, y los corales y otros invertebrados son extremadamente sensibles a la calidad del agua.</p>
+
+<p>El sistema estándar en acuarios de arrecife incluye:</p>
+
+<ul>
+  <li><strong>Sump con refugio de macroalgas</strong> — Chaetomorpha u otras macroalgas absorben nitrato y fosfato directamente, actuando como el equivalente marino de un acuario plantado</li>
+  <li><strong>Skimmer de proteínas (espumador)</strong> — elimina materia orgánica disuelta antes de que se descomponga en amoniaco, reduciendo la carga biológica</li>
+  <li><strong>Roca viva</strong> — contiene bacterias nitrificantes y desnitrificantes (en el interior anóxico de la roca) que completan el ciclo del nitrógeno eliminando también nitrato</li>
+  <li><strong>Alto caudal</strong> — al menos 10–15× el volumen del acuario, distribuido para evitar puntos muertos</li>
+</ul>
+
+<div class="cta-box">
+  <h3>¿Tu filtro da abasto con tu población actual?</h3>
+  <p>La calculadora Aquapacity analiza el tipo de filtro que usas, los medios biológicos instalados y el caudal para decirte si tu sistema de filtración puede con la biocarga de tus peces.</p>
+  <p>Añade tu filtro, selecciona tus medios y comprueba si estás filtrando suficiente.</p>
+  <a href="../index.html#calculator" class="cta-btn">Comprobar mi Filtración</a>
+</div>
+
+<h2>Resumen: Cómo Elegir el Filtro Correcto</h2>
+
+<p>Si tienes un acuario de hasta 60 litros con peces pequeños y pacíficos, un filtro interno de calidad o un filtro de esponja con buen flujo puede ser suficiente. Por encima de 60–80 litros, o si tienes peces de alta biocarga (cíclidos, goldfish, plecos), un filtro externo es prácticamente imprescindible.</p>
+
+<p>Independientemente del filtro que elijas, los principios son siempre los mismos: prioriza la superficie biológica, elige foamex o cerámica porosa como medios principales, y asegúrate de que el caudal real (no el nominal) supere 8× el volumen de tu acuario.</p>
+
+<p>Y recuerda: el mejor filtro del mundo no puede compensar el exceso de peces. La filtración tiene un límite de biocarga. Por encima de ese límite, no hay filtro que aguante —sólo más y más amoniaco.</p>
+
+<p><strong>¿Quieres saber si tu filtro actual es suficiente para tus peces?</strong> <a href="../index.html#calculator">Usa la calculadora Aquapacity</a> e introduce tus datos de filtración para obtener un análisis instantáneo.</p>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:#fff">🐠 Aquapacity</strong> · Calculadora de Biocarga para Acuarios
+      <div class="footer-credit">Gratis para siempre. Hecha por y para aficionados a la acuariofilia.</div>
+    </div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="../index.html#calculator">Calculadora</a>
+      <a href="../index.html#how-it-works">Cómo Funciona</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../articles.html">Artículos</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

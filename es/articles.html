@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artículos sobre Acuariofilia | Aquapacity</title>
+<meta name="description" content="Guías y artículos sobre biocarga, filtración, población de acuarios y cuidado de peces. Basados en ciencia y datos reales.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aquapacity.com/es/articles.html">
+<link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles.html">
+<link rel="alternate" hreflang="en" href="https://aquapacity.com/articles.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#0369a1;--p2:#0ea5e9;--teal:#0d9488;
+  --g:#16a34a;--y:#d97706;--r:#dc2626;
+  --bg:#f0f9ff;--surf:#fff;--border:#e0f2fe;
+  --txt:#1e293b;--muted:#64748b;
+  --sh:0 1px 3px rgba(0,0,0,.10),0 1px 2px rgba(0,0,0,.06);
+  --sh2:0 4px 12px rgba(0,0,0,.10),0 2px 4px rgba(0,0,0,.06);
+  --r6:6px;--r12:12px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;font-size:16px;overflow-x:hidden}
+a{color:var(--p);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{line-height:1.3;font-weight:800}
+
+/* HEADER */
+header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;user-select:none}
+.logo-wordmark{font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
+.logo-icon{flex-shrink:0;width:40px;height:40px}
+nav{display:flex;gap:20px}
+nav a{color:rgba(255,255,255,.85);font-size:.875rem;transition:color .2s}
+nav a:hover{color:#fff;text-decoration:none}
+nav a.active{color:#fff;font-weight:700;border-bottom:2px solid rgba(255,255,255,.6)}
+
+/* HERO */
+.page-hero{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 60%,#0891b2 100%);color:#fff;padding:56px 24px 48px;text-align:center}
+.page-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
+.page-hero p{font-size:1.05rem;opacity:.85;max-width:560px;margin:0 auto}
+
+/* FILTER BAR */
+.filter-bar{max-width:1100px;margin:32px auto 0;padding:0 24px;display:flex;gap:10px;flex-wrap:wrap}
+.filter-btn{background:#fff;border:2px solid var(--border);color:var(--muted);padding:8px 18px;border-radius:100px;font-size:.875rem;font-weight:700;cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:var(--p2);color:var(--p)}
+.filter-btn.active{background:var(--p);border-color:var(--p);color:#fff}
+
+/* ARTICLES GRID */
+.articles-section{max-width:1100px;margin:0 auto;padding:24px 24px 64px}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;margin-top:24px}
+.article-card{background:#fff;border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--border);display:flex;flex-direction:column;transition:all .2s;text-decoration:none;color:inherit}
+.article-card:hover{box-shadow:var(--sh2);transform:translateY(-3px);text-decoration:none}
+.card-body{padding:22px 22px 20px;flex:1;display:flex;flex-direction:column}
+.card-tag{display:inline-block;background:#e0f2fe;color:var(--p);padding:4px 10px;border-radius:100px;font-size:.78rem;font-weight:700;margin-bottom:12px}
+.card-title{font-size:1.1rem;font-weight:800;color:#0c4a6e;line-height:1.3;margin-bottom:10px}
+.card-desc{font-size:.875rem;color:var(--muted);line-height:1.6;flex:1}
+.card-footer{padding:14px 22px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:.8rem;color:var(--muted)}
+.card-read{color:var(--p);font-weight:700;font-size:.85rem}
+.card-read::after{content:' →'}
+
+/* CTA */
+.cta-strip{background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f4 100%);border:2px solid var(--p2);border-radius:var(--r12);padding:36px 28px;text-align:center;max-width:700px;margin:0 auto 64px}
+.cta-strip h2{font-size:1.5rem;color:#0c4a6e;margin-bottom:12px}
+.cta-strip p{color:var(--muted);margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--p);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(3,105,161,.3)}
+.cta-btn:hover{background:#0284c7;transform:translateY(-2px);box-shadow:0 6px 20px rgba(3,105,161,.4);text-decoration:none}
+
+/* FOOTER */
+footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size:.85rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.footer-inner a{color:rgba(255,255,255,.8)}
+.footer-credit{font-size:.78rem;opacity:.6}
+
+/* MOBILE */
+.hamburger-wrap{display:none}
+@media(max-width:640px){
+  nav{display:none}
+  .filter-bar{gap:8px}
+  .filter-btn{padding:6px 14px;font-size:.82rem}
+  .articles-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon"><svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><clipPath id="artc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="rgba(255,255,255,0.10)"/>
+          <rect x="2" y="18" width="30" height="22" clip-path="url(#artc)" fill="rgba(94,234,212,0.45)"/>
+          <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#artc)" fill="rgba(94,234,212,0.7)"/>
+          <line x1="24" y1="9" x2="30" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="14" x2="30" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+          <ellipse cx="14" cy="27" rx="6" ry="3.5" fill="rgba(255,255,255,0.85)"/>
+          <path d="M8 27 L5 23 L5 31 Z" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="18.5" cy="25.8" r="1.3" fill="rgba(0,60,80,0.8)"/>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+        </svg></span>
+      <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
+    </a>
+    <nav>
+      <a href="index.html#calculator">Calculadora</a>
+      <a href="index.html#how-it-works">Cómo Funciona</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="articles.html" class="active">Artículos</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <h1>📖 Artículos sobre Acuariofilia</h1>
+  <p>Guías basadas en ciencia para poblar, filtrar y cuidar tu acuario correctamente.</p>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-cat="all" onclick="filterCat(this)">Todos</button>
+  <button class="filter-btn" data-cat="stocking" onclick="filterCat(this)">Población</button>
+  <button class="filter-btn" data-cat="filtration" onclick="filterCat(this)">Filtración</button>
+  <button class="filter-btn" data-cat="care" onclick="filterCat(this)">Mantenimiento</button>
+  <button class="filter-btn" data-cat="species" onclick="filterCat(this)">Especies</button>
+  <button class="filter-btn" data-cat="plants" onclick="filterCat(this)">Plantas</button>
+</div>
+
+<!-- ARTICLES GRID -->
+<div class="articles-section">
+  <div class="articles-grid" id="articles-grid">
+
+    <a class="article-card" href="articles/regla-del-centimetro-por-litro.html" data-cat="stocking">
+      <div class="card-body">
+        <span class="card-tag">Población</span>
+        <div class="card-title">Por qué la Regla del Centímetro por Litro Está Equivocada</div>
+        <div class="card-desc">La regla más repetida en acuariofilia es también la más peligrosa. Te explicamos por qué falla y qué modelo usar en su lugar.</div>
+      </div>
+      <div class="card-footer">
+        <span>8 min de lectura</span>
+        <span class="card-read">Leer</span>
+      </div>
+    </a>
+
+    <a class="article-card" href="articles/guia-completa-filtracion-acuarios.html" data-cat="filtration">
+      <div class="card-body">
+        <span class="card-tag">Filtración</span>
+        <div class="card-title">Guía Completa de Filtración para Acuarios</div>
+        <div class="card-desc">Filtros externos, internos, esponja, sump... ¿cuál elegir y por qué? Todo lo que necesitas saber sobre filtración biológica, mecánica y química.</div>
+      </div>
+      <div class="card-footer">
+        <span>12 min de lectura</span>
+        <span class="card-read">Leer</span>
+      </div>
+    </a>
+
+    <a class="article-card" href="articles/cambios-de-agua-guia.html" data-cat="care">
+      <div class="card-body">
+        <span class="card-tag">Mantenimiento</span>
+        <div class="card-title">Cambios de Agua: La Guía Definitiva</div>
+        <div class="card-desc">¿Cuánta agua cambiar y con qué frecuencia? Aprende a calcular el intervalo óptimo según tu biocarga, filtración y objetivos de calidad del agua.</div>
+      </div>
+      <div class="card-footer">
+        <span>10 min de lectura</span>
+        <span class="card-read">Leer</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <h2>¿Listo para calcular tu biocarga?</h2>
+  <p>Aplica lo aprendido con nuestra calculadora gratuita. Añade tus peces, configura tu filtro y obtén un análisis instantáneo.</p>
+  <a href="index.html#calculator" class="cta-btn">🧮 Abrir la Calculadora</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:#fff">🐠 Aquapacity</strong> · Calculadora de Biocarga para Acuarios
+      <div class="footer-credit">Gratis para siempre. Hecha por y para aficionados a la acuariofilia.</div>
+    </div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="index.html#calculator">Calculadora</a>
+      <a href="index.html#how-it-works">Cómo Funciona</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="mailto:aquapacity.info@gmail.com">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterCat(btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cat = btn.dataset.cat;
+  document.querySelectorAll('.article-card').forEach(card=>{
+    card.style.display = (cat==='all' || card.dataset.cat===cat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambios de Agua en Acuarios: La Guía Definitiva | Aquapacity</title>
+<meta name="description" content="¿Cuánta agua cambiar y con qué frecuencia? Aprende a calcular el intervalo óptimo de cambios de agua según tu biocarga, filtración y objetivos de calidad del agua en acuarios de agua dulce y salada.">
+<meta name="keywords" content="cambios de agua acuario, cuánta agua cambiar acuario, frecuencia cambios agua acuario, nitrato acuario, mantenimiento acuario agua dulce">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://aquapacity.com/es/articles/cambios-de-agua-guia.html">
+<link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/cambios-de-agua-guia.html">
+<link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/water-changes-guide.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#0369a1;--p2:#0ea5e9;--teal:#0d9488;
+  --g:#16a34a;--y:#d97706;--r:#dc2626;
+  --bg:#f0f9ff;--surf:#fff;--border:#e0f2fe;
+  --txt:#1e293b;--muted:#64748b;
+  --sh:0 1px 3px rgba(0,0,0,.10),0 1px 2px rgba(0,0,0,.06);
+  --sh2:0 4px 12px rgba(0,0,0,.10),0 2px 4px rgba(0,0,0,.06);
+  --r6:6px;--r12:12px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;font-size:16px;overflow-x:hidden;width:100%}
+a{color:var(--p);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{line-height:1.3;font-weight:800}
+
+header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;user-select:none}
+.logo-wordmark{font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
+.logo-icon{flex-shrink:0;width:40px;height:40px}
+nav{display:flex;gap:20px}
+nav a{color:rgba(255,255,255,.85);font-size:.875rem;transition:color .2s}
+nav a:hover{color:#fff;text-decoration:none}
+
+.breadcrumb{max-width:900px;margin:24px auto 0;padding:0 24px;display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.breadcrumb a{color:var(--p)}
+
+.article-hero{max-width:900px;margin:0 auto;padding:40px 24px;text-align:center}
+.article-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);color:#0c4a6e;margin-bottom:16px;line-height:1.2}
+.article-hero .article-meta{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-size:.9rem;color:var(--muted);margin-top:16px}
+.article-tag{display:inline-block;background:#e0f2fe;color:var(--p);padding:4px 10px;border-radius:100px;font-size:.8rem;font-weight:700}
+
+.article-body{max-width:900px;margin:0 auto;padding:0 24px 48px;line-height:1.8}
+.article-body h2{font-size:1.5rem;color:#0c4a6e;margin-top:32px;margin-bottom:16px;padding-top:16px;border-top:2px solid var(--border)}
+.article-body h3{font-size:1.15rem;color:#0369a1;margin-top:24px;margin-bottom:12px}
+.article-body p{margin-bottom:16px;color:var(--txt)}
+.article-body ul,.article-body ol{margin:16px 0 16px 24px}
+.article-body li{margin-bottom:8px}
+.article-body strong{font-weight:700;color:#0c4a6e}
+.article-body em{font-style:italic;color:var(--muted)}
+
+.table-wrapper{overflow-x:auto;margin:20px 0}
+.comparison-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:var(--r6);overflow:hidden}
+.comparison-table th{background:#f0f9ff;color:#0c4a6e;padding:12px 16px;text-align:left;font-weight:700;border-bottom:2px solid var(--border)}
+.comparison-table td{padding:12px 16px;border-bottom:1px solid var(--border)}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table tr:nth-child(even){background:#fafbfc}
+
+.tip-box{background:#f0fdf4;border-left:4px solid var(--g);border-radius:0 var(--r6) var(--r6) 0;padding:16px 20px;margin:20px 0}
+.tip-box strong{color:var(--g)}
+
+.warn-box{background:#fefce8;border-left:4px solid var(--y);border-radius:0 var(--r6) var(--r6) 0;padding:16px 20px;margin:20px 0}
+.warn-box strong{color:var(--y)}
+
+.cta-box{background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f4 100%);border:2px solid var(--p2);border-radius:var(--r12);padding:32px 24px;margin:40px 0;text-align:center}
+.cta-box h3{font-size:1.3rem;color:#0c4a6e;margin-bottom:12px}
+.cta-box p{margin-bottom:20px;font-size:.95rem}
+.cta-btn{display:inline-block;background:var(--p);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(3,105,161,.3)}
+.cta-btn:hover{background:#0284c7;transform:translateY(-2px);box-shadow:0 6px 20px rgba(3,105,161,.4);text-decoration:none}
+
+footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size:.85rem;margin-top:48px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.footer-inner a{color:rgba(255,255,255,.8)}
+.footer-credit{font-size:.78rem;opacity:.6}
+
+@media(max-width:640px){
+  nav{display:none}
+  .article-hero{padding:24px 16px}
+  .article-hero h1{font-size:1.5rem}
+  .article-body{padding:0 16px 32px}
+  .article-body h2{font-size:1.25rem;margin-top:24px}
+  .cta-box{padding:24px 16px;margin:24px 0}
+  .breadcrumb{padding:0 16px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cambios de Agua en Acuarios: La Guía Definitiva",
+  "description": "Aprende a calcular el intervalo óptimo de cambios de agua según tu biocarga, filtración y objetivos de calidad.",
+  "datePublished": "2026-04-29",
+  "dateModified": "2026-04-29",
+  "author": {"@type": "Organization","name": "Aquapacity","url": "https://aquapacity.com"},
+  "publisher": {"@type": "Organization","name": "Aquapacity","logo": {"@type": "ImageObject","url": "https://aquapacity.com/logo.svg","width": 60,"height": 60}}
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-icon"><svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><clipPath id="artc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="rgba(255,255,255,0.10)"/>
+          <rect x="2" y="18" width="30" height="22" clip-path="url(#artc)" fill="rgba(94,234,212,0.45)"/>
+          <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#artc)" fill="rgba(94,234,212,0.7)"/>
+          <line x1="24" y1="9" x2="30" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="14" x2="30" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+          <line x1="24" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+          <ellipse cx="14" cy="27" rx="6" ry="3.5" fill="rgba(255,255,255,0.85)"/>
+          <path d="M8 27 L5 23 L5 31 Z" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="18.5" cy="25.8" r="1.3" fill="rgba(0,60,80,0.8)"/>
+          <rect x="2" y="2" width="30" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+        </svg></span>
+      <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
+    </a>
+    <nav>
+      <a href="../index.html#calculator">Calculadora</a>
+      <a href="../index.html#how-it-works">Cómo Funciona</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../articles.html">Artículos</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="../index.html">Inicio</a>
+  <span>›</span>
+  <a href="../articles.html">Artículos</a>
+  <span>›</span>
+  <span>Cambios de Agua</span>
+</div>
+
+<div class="article-hero">
+  <span class="article-tag">Mantenimiento</span>
+  <h1>Cambios de Agua en Acuarios: La Guía Definitiva</h1>
+  <div class="article-meta">
+    <span>10 min de lectura</span>
+    <span>•</span>
+    <span>Actualizado abril 2026</span>
+  </div>
+</div>
+
+<div class="article-body">
+
+<h2>Por qué los Cambios de Agua Son Imprescindibles</h2>
+
+<p>Hay una idea que circula entre algunos acuaristas avanzados: el "acuario sin cambios de agua" o <em>no-water-change tank</em> (NWC). Acuarios tan bien plantados y equilibrados que, en teoría, no necesitan cambios de agua periódicos. Son sistemas fascinantes y técnicamente posibles.</p>
+
+<p>Pero para el 99% de los acuarios, los cambios de agua son imprescindibles. Son el único mecanismo eficaz para eliminar el nitrato acumulado, reponer minerales consumidos y diluir compuestos orgánicos que los filtros no pueden eliminar. Ningún filtro, por caro que sea, puede reemplazar completamente el efecto de un cambio de agua bien ejecutado.</p>
+
+<p>La pregunta no es "¿debo cambiar el agua?", sino "¿cuánta agua debo cambiar y con qué frecuencia?"</p>
+
+<h2>Qué Elimina Realmente un Cambio de Agua</h2>
+
+<p>Cuando extraes y repones agua de tu acuario, reduces la concentración de todo lo que estaba disuelto en esa fracción de agua. Los principales beneficiarios son:</p>
+
+<ul>
+  <li><strong>Nitrato (NO₃⁻):</strong> El producto final del ciclo del nitrógeno. Se acumula indefinidamente si no se extrae. Umbrales seguros: &lt;20 mg/L para peces sensibles, &lt;40 mg/L para comunidades resistentes, &lt;5 mg/L para corales SPS.</li>
+  <li><strong>Fosfato (PO₄³⁻):</strong> Nutriente que alimenta algas si se acumula. Los cambios de agua ayudan a mantenerlo bajo control.</li>
+  <li><strong>Compuestos orgánicos disueltos (DOC):</strong> Subproductos de la descomposición que amarillan el agua y favorecen el crecimiento bacteriano patógeno.</li>
+  <li><strong>Medicamentos residuales:</strong> Tras tratamientos, los cambios de agua eliminan restos de medicamentos más eficazmente que el carbón activo solo.</li>
+</ul>
+
+<p>Los cambios de agua también reponen:</p>
+
+<ul>
+  <li><strong>Carbonatos (KH/alcalinidad):</strong> Consumidos por las bacterias nitrificantes y por la fotosíntesis. La caída de KH puede desestabilizar el pH.</li>
+  <li><strong>Calcio y magnesio:</strong> Especialmente importantes en acuarios de arrecife, donde los corales consumen Ca y Mg constantemente para construir su esqueleto.</li>
+  <li><strong>Oligoelementos:</strong> En acuarios plantados, los cambios de agua reponen trazas de hierro, manganeso y otros micronutrientes.</li>
+</ul>
+
+<h2>¿Cuánta Agua Cambiar? La Matemática del Nitrato</h2>
+
+<p>La cantidad y frecuencia de los cambios de agua necesarios depende directamente de tu tasa de producción de nitrato, que a su vez depende de tu biocarga (cuántos peces y de qué especie tienes).</p>
+
+<p>La fórmula básica de dilución de nitrato es:</p>
+
+<p><strong>Nitrato final = Nitrato inicial × (1 − fracción cambiada)</strong></p>
+
+<p>Por ejemplo: Si tu agua tiene 40 mg/L de nitrato y cambias el 30%, el nitrato baja a 40 × 0.70 = 28 mg/L. Si durante la semana produces otros 12 mg/L de nitrato nuevo, vuelves a llegar a 40 mg/L cuando hagas el siguiente cambio semanal. Ese es tu estado de equilibrio.</p>
+
+<div class="table-wrapper">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Biocarga del acuario</th>
+        <th>% cambio semanal recomendado</th>
+        <th>Objetivo de nitrato</th>
+        <th>Notas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Ligeramente poblado</strong> (≤50% capacidad)</td>
+        <td>20–25%</td>
+        <td>&lt;20 mg/L</td>
+        <td>Peces pequeños, buenos medios biológicos, acuario plantado</td>
+      </tr>
+      <tr>
+        <td><strong>Moderadamente poblado</strong> (50–75%)</td>
+        <td>25–35%</td>
+        <td>&lt;30 mg/L</td>
+        <td>Situación habitual en comunidades bien mantenidas</td>
+      </tr>
+      <tr>
+        <td><strong>Densamente poblado</strong> (75–100%)</td>
+        <td>40–50%</td>
+        <td>&lt;40 mg/L</td>
+        <td>Requiere excelente filtración y mantenimiento riguroso</td>
+      </tr>
+      <tr>
+        <td><strong>Acuario de arrecife / SPS</strong></td>
+        <td>10–15% semanal o dosificación de 2 partes/3 partes/Kalkwasser</td>
+        <td>&lt;5 mg/L nitrato, &lt;0.03 mg/L fosfato</td>
+        <td>Parámetros mucho más exigentes; sistema Zeovit o similar en tanques de competición</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>¿Con Qué Frecuencia Cambiar el Agua?</h2>
+
+<p>La respuesta convencional es "una vez por semana". Y para la mayoría de acuarios de agua dulce, es la respuesta correcta. Los cambios semanales del 25–30% son la rutina más equilibrada: lo suficientemente frecuentes para evitar acumulaciones peligrosas, lo suficientemente espaciados para no estresar a los peces con cambios bruscos de parámetros.</p>
+
+<p>Pero la frecuencia óptima depende del contexto:</p>
+
+<ul>
+  <li><strong>Acuario recién ciclado o superpoblado:</strong> cambios del 20–25% cada 2–3 días hasta estabilizar el nitrato</li>
+  <li><strong>Acuario establecido, ligeramente poblado y bien plantado:</strong> cambios del 20–25% cada 10–14 días pueden ser suficientes si el nitrato se mantiene bajo</li>
+  <li><strong>Acuario de cichlídeos africanos o goldfish:</strong> cambios del 30–40% semanales como mínimo; estas especies producen mucho más nitrato que la media</li>
+  <li><strong>Acuario de arrecife:</strong> cambios pequeños más frecuentes (10–15% semanales) o sistemas de dosificación automática</li>
+</ul>
+
+<div class="tip-box">
+  <strong>💡 La regla práctica:</strong> Analiza el nitrato antes de un cambio de agua. Si supera 20 mg/L de forma habitual, necesitas cambios más frecuentes o más grandes. Si se mantiene consistentemente por debajo de 15 mg/L, puedes espaciar un poco más.
+</div>
+
+<h2>Preparación del Agua Nueva: Lo que No Puedes Saltarte</h2>
+
+<h3>Temperatura</h3>
+
+<p>La diferencia de temperatura entre el agua nueva y el agua del acuario no debe superar 1–2°C. Una diferencia de 5°C o más puede causar shock térmico, especialmente en peces tropicales. Tempera el agua nueva con un calentador de inmersión o añádela muy lentamente.</p>
+
+<h3>Decloración</h3>
+
+<p>El agua del grifo contiene cloro (desinfectante) y, en muchas ciudades, cloraminas (más estables y difíciles de eliminar). Ambos son tóxicos para las bacterias nitrificantes y para los peces. Siempre usa un declorificador antes de añadir agua del grifo al acuario.</p>
+
+<p>Los declorificadores estándar (como Seachem Prime o AquaSafe) neutralizan cloro y cloraminas y pueden también destoxificar temporalmente el amoniaco y el nitrito, lo que los hace especialmente útiles en situaciones de estrés.</p>
+
+<h3>pH y KH</h3>
+
+<p>Si el agua del grifo tiene un pH o KH muy diferente al del acuario, añadirla directamente puede causar un shock de parámetros. En casos extremos (diferencias de más de 1 punto de pH), añade el agua nueva muy lentamente o acondiciona el agua en un cubo antes.</p>
+
+<div class="warn-box">
+  <strong>⚠️ Advertencia sobre grandes cambios de agua:</strong> Cambiar más del 50% del agua de golpe puede estresar a los peces incluso si el agua nueva está perfectamente preparada. Los parámetros del acuario llevan tiempo estabilizándose. Si necesitas reducir un pico de amoniaco urgente, es mejor hacer dos cambios del 30–40% separados por unas horas que uno del 70%.
+</div>
+
+<h2>El Procedimiento Correcto de un Cambio de Agua</h2>
+
+<ol>
+  <li><strong>Aspira el sustrato:</strong> Con un sifón o aspirador de grava, elimina los detritos acumulados en el fondo y entre las plantas. No es necesario limpiar todo el sustrato cada vez: aspira una sección diferente en cada cambio de agua.</li>
+  <li><strong>Extrae el agua:</strong> Saca la cantidad prevista (25–30% para la mayoría de acuarios). Aprovecha esta agua para enjuagar los medios mecánicos del filtro si llevan mucho tiempo sin limpiar.</li>
+  <li><strong>Prepara el agua nueva:</strong> Añade el declorificador al cubo, ajusta la temperatura y déjala reposar si el pH es muy diferente.</li>
+  <li><strong>Añade el agua nueva lentamente:</strong> Vierte despacio o usa un tubo para evitar remover el sustrato y estresar a los peces.</li>
+  <li><strong>Comprueba los parámetros:</strong> Especialmente tras cambios grandes o en acuarios de arrecife. Anota el nitrato, pH y KH para llevar un registro.</li>
+</ol>
+
+<h2>Cambios de Agua en Acuarios Plantados</h2>
+
+<p>En acuarios densamente plantados, las plantas consumen amoniaco y nitrato directamente, reduciendo la carga sobre el filtro y retrasando la acumulación de nitrato. Esto puede permitir cambios de agua menos frecuentes, pero no eliminarlos.</p>
+
+<p>Un error común en plantados es creer que "las plantas se encargan de todo". Las plantas no eliminan el nitrato del sistema: lo incorporan en su biomasa. Cuando las plantas mueren o se podan y se descomponen, ese nitrógeno vuelve al agua. Los cambios de agua siguen siendo necesarios para exportar materia orgánica del sistema.</p>
+
+<p>En plantados con CO₂ y alta densidad de plantas, los cambios del 25–30% cada 10–14 días suelen ser suficientes para mantener el nitrato por debajo de 20 mg/L. Sin CO₂, el crecimiento de las plantas es más lento y su capacidad de absorción menor: mantén cambios semanales.</p>
+
+<div class="cta-box">
+  <h3>Calcula el intervalo óptimo para tu acuario</h3>
+  <p>La calculadora Aquapacity tiene en cuenta tu biocarga, filtración y frecuencia de cambios de agua para decirte si tu rutina actual mantiene el nitrato bajo control.</p>
+  <p>Introduce tus peces y tu filtro y obtén una recomendación personalizada.</p>
+  <a href="../index.html#calculator" class="cta-btn">Usar la Calculadora Gratis</a>
+</div>
+
+<h2>Señales de que Necesitas Cambiar el Agua con Más Frecuencia</h2>
+
+<ul>
+  <li>Nitrato consistentemente por encima de 30–40 mg/L antes del cambio semanal</li>
+  <li>Aparición frecuente de algas filamentosas o punto verde en el cristal</li>
+  <li>Agua amarillenta o con olor desagradable entre cambios</li>
+  <li>Peces con comportamiento letárgico, apetito reducido o fins pegadas</li>
+  <li>Enfermedades frecuentes o difíciles de curar</li>
+  <li>KH (carbonatos) cayendo entre cambios, con oscilaciones de pH</li>
+</ul>
+
+<p>Si observas alguna de estas señales, aumenta la frecuencia o el volumen de tus cambios de agua antes de buscar otra causa. En muchos casos, el agua simplemente está sucia y los peces te lo están diciendo.</p>
+
+<h2>Conclusión: Consistencia sobre Cantidad</h2>
+
+<p>La pregunta "¿cuánta agua cambiar?" tiene respuesta, pero la respuesta más importante es: <strong>sé consistente</strong>. Un 25% semanal realizado con regularidad es infinitamente mejor que un 50% mensual o que cambios irregulares e impredecibles.</p>
+
+<p>Los peces toleran mejor los entornos estables —aunque no sean perfectos— que los entornos que cambian bruscamente. Salta un cambio de agua ocasionalmente y el nitrato subirá un poco. Salta varios seguidos y tendrás un problema serio.</p>
+
+<p>Establece una rutina, analiza el nitrato regularmente y ajusta según los datos. Y recuerda: ningún filtro, por potente que sea, puede reemplazar el agua fresca.</p>
+
+<p><strong>¿Quieres saber si tu rutina de cambios de agua es suficiente?</strong> <a href="../index.html#calculator">Usa la calculadora Aquapacity</a> para ver el análisis completo de tu acuario.</p>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:#fff">🐠 Aquapacity</strong> · Calculadora de Biocarga para Acuarios
+      <div class="footer-credit">Gratis para siempre. Hecha por y para aficionados a la acuariofilia.</div>
+    </div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="../index.html#calculator">Calculadora</a>
+      <a href="../index.html#how-it-works">Cómo Funciona</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../articles.html">Artículos</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

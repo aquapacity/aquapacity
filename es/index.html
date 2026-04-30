@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aquapacity – Calculadora de Acuarios | ¿Cuántos Peces Caben en mi Acuario?</title>
-<meta name="description" content="Calculadora de acuarios gratuita y avanzada. Calcula el bioload, la capacidad del filtro y la compatibilidad de peces. Más de 100 especies de agua dulce y marina, acuarios plantados, unidades métricas e imperiales.">
+<meta name="description" content="La calculadora de biocarga más precisa para acuarios de agua dulce y salada.">
 <meta name="keywords" content="cuantos peces caben en mi acuario, calculadora acuario, regla centimetro por litro, bioload acuario, calculadora peces acuario, compatibilidad peces, acuario plantado bioload, calculadora filtro acuario, acuario nano peces, stock acuario">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Aquapacity – Calculadora de Acuarios Gratis">
@@ -684,6 +684,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
       <a href="#calculator">Calculadora</a>
       <a href="#how-it-works">Cómo Funciona</a>
       <a href="#faq">FAQ</a>
+      <a href="articles.html">Artículos</a>
       <a href="../index.html" class="lang-btn">🇬🇧 EN</a>
     </nav>
     <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
@@ -696,7 +697,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 <div class="mobile-nav" id="mobile-nav">
   <div class="mn-header">
     <span class="mn-title">Menú</span>
-    <button class="mn-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
+    
   </div>
   <nav class="mn-links">
     <a href="#calculator" onclick="toggleMobileMenu()">
@@ -712,7 +713,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
       <span class="mn-icon">📖</span> Artículos
     </a>
   </nav>
-  <div class="mn-footer"><a href="../index.html" style="display:block;text-align:center;padding:10px;font-size:.85rem;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border)">🇬🇧 Versión en inglés</a>
+  <div class="mn-footer"><a href="../index.html" style="display:block;text-align:center;padding:10px;font-size:.85rem;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border)">🇬🇧 English</a>
     <a href="https://ko-fi.com/aquapacity" target="_blank" class="mn-kofi">Apoya el proyecto ☕</a>
   </div>
 </div>
@@ -732,7 +733,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 <div id="mob-bar">
   <div class="mb-inner">
     <div class="mb-metric">
-      <div class="mb-label">Bioload</div>
+      <div class="mb-label">Biocarga</div>
       <div class="mb-val" id="mob-stk" style="color:var(--muted)">—</div>
     </div>
     <div class="mb-metric">
@@ -791,7 +792,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 
         <!-- Mode toggle -->
         <div class="tank-mode-toggle">
-          <button id="mode-dims" class="active" onclick="setTankMode('dims')">📐 Introducir dimensiones</button>
+          <button id="mode-dims" class="active" onclick="setTankMode('dims')">📐 Introducir dimensión</button>
           <button id="mode-vol" onclick="setTankMode('vol')">🪣 Introducir volumen</button>
         </div>
 
@@ -1190,45 +1191,45 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
     <div class="section-tag">Base de Conocimiento</div>
     <h2>Guías y Artículos de Acuariofilia</h2>
     <p>Guías basadas en ciencia para construir un acuario próspero. Todos los artículos enlazan a la calculadora para que puedas aplicar lo aprendido de inmediato.</p>
-    <a href="../articles.html" class="view-all-btn">Ver todos los artículos →</a>
+    <a href="articles.html" class="view-all-btn">Ver todos los artículos →</a>
 
     <div class="articles-grid">
 
-      <a class="article-card ac-soon" href="#articles">
+      <a class="article-card" href="articles/regla-del-centimetro-por-litro.html">
         <div class="ac-img">🐟</div>
         <div class="ac-body">
-          <div class="ac-tag">Fundamentos de Stock</div>
-          <h3>¿Cuántos Peces Caben en mi Acuario? Por Qué la Regla del Centímetro por Litro Está Equivocada</h3>
-          <p class="ac-excerpt">La regla más usada para poblar acuarios lleva a acuarios estresados y superpoblados. Descubre la ciencia detrás de por qué falla — y un método mucho mejor.</p>
+          <div class="ac-tag">Población</div>
+          <h3>Por qué la Regla del Centímetro por Litro Está Equivocada</h3>
+          <p class="ac-excerpt">La regla más repetida en acuariofilia es también la más peligrosa. Te explicamos por qué falla y qué modelo usar en su lugar.</p>
           <div class="ac-footer">
             <span class="ac-read">8 min de lectura</span>
-            <span class="ac-cta">Próximamente</span>
+            <span class="ac-cta">Leer →</span>
           </div>
         </div>
       </a>
 
-      <a class="article-card ac-soon" href="#articles">
+      <a class="article-card" href="articles/guia-completa-filtracion-acuarios.html">
         <div class="ac-img">🔬</div>
         <div class="ac-body">
           <div class="ac-tag">Filtración</div>
-          <h3>Guía Completa de Filtración para Acuarios de Agua Dulce</h3>
-          <p class="ac-excerpt">Filtración mecánica, biológica y química explicadas — y cómo elegir el filtro correcto para el tamaño de tu acuario y el nivel de stock.</p>
+          <h3>Guía Completa de Filtración para Acuarios</h3>
+          <p class="ac-excerpt">Filtros externos, internos, esponja, sump... todo lo que necesitas saber sobre filtración biológica, mecánica y química para elegir bien.</p>
           <div class="ac-footer">
-            <span class="ac-read">10 min de lectura</span>
-            <span class="ac-cta">Próximamente</span>
+            <span class="ac-read">12 min de lectura</span>
+            <span class="ac-cta">Leer →</span>
           </div>
         </div>
       </a>
 
-      <a class="article-card ac-soon" href="#articles">
+      <a class="article-card" href="articles/cambios-de-agua-guia.html">
         <div class="ac-img">🪣</div>
         <div class="ac-body">
-          <div class="ac-tag">Guías de Peces</div>
-          <h3>Cómo Poblar un Acuario de 60 Litros: Las Mejores Combinaciones de Peces</h3>
-          <p class="ac-excerpt">Guía práctica para elegir los peces ideales para un acuario de 60 litros: compatibilidad, bioload y las combinaciones que mejor funcionan.</p>
+          <div class="ac-tag">Mantenimiento</div>
+          <h3>Cambios de Agua: La Guía Definitiva</h3>
+          <p class="ac-excerpt">¿Cuánta agua cambiar y con qué frecuencia? Aprende a calcular el intervalo óptimo según tu biocarga y filtración.</p>
           <div class="ac-footer">
-            <span class="ac-read">9 min de lectura</span>
-            <span class="ac-cta">Próximamente</span>
+            <span class="ac-read">10 min de lectura</span>
+            <span class="ac-cta">Leer →</span>
           </div>
         </div>
       </a>
@@ -1400,7 +1401,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
       <a href="#calculator">Calculadora</a>
       <a href="#how-it-works">Cómo Funciona</a>
       <a href="#faq">FAQ</a>
-      <a href="../articles.html">Artículos</a>
+      <a href="articles.html">Artículos</a>
       <span style="color:rgba(255,255,255,.7)">Contacto: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a></span>
     </div>
   </div>
@@ -1701,7 +1702,7 @@ function setWaterType(type){
 
   // Panel 4 title + icon
   document.getElementById('panel-plants-title').textContent =
-    isSW ? 'Marine Setup & Water Changes' : 'Plants & Water Changes';
+    isSW ? 'Instalación Marina y Cambios de Agua' : 'Plantas y Cambios de Agua';
   document.getElementById('panel-plants-icon').textContent = isSW ? '🌊' : '🌿';
 
   // Show/hide FW plants vs SW refugium
@@ -1891,7 +1892,7 @@ const CAT_LABELS = {
   'Betta':       'Betta',
   'Puffer':      'Pez globo',
   'Goldfish':    'Goldfish / Agua fría',
-  'Shrimp':      'Camarones',
+  'Shrimp':      'Gambas',
   'Snail':       'Caracoles',
   'Rainbowfish': 'Peces arcoíris',
 };
@@ -2084,9 +2085,10 @@ function recalc(){
 function updateVolumeDisplay(gross_L, net_L){
   const el = document.getElementById('vol-display');
   if(!gross_L){
-    el.innerHTML = '<div class="vd-row"><span class="vd-label">Introduce las dimensiones del acuario para ver el volumen</span></div>';
+    el.style.display = 'none';
     return;
   }
+  el.style.display = '';
   const u = state.metric;
   const gStr = u ? `${gross_L.toFixed(1)} L` : `${l2gal(gross_L).toFixed(1)} gal`;
   const nStr = u ? `${net_L.toFixed(1)} L`  : `${l2gal(net_L).toFixed(1)} gal`;
