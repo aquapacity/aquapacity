@@ -2876,6 +2876,7 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
+<script>
 // Language dropdown toggle
 document.querySelectorAll('.lang-switcher').forEach(function(sw){
   sw.querySelector('.lang-btn').addEventListener('click',function(e){
@@ -2885,5 +2886,6 @@ document.querySelectorAll('.lang-switcher').forEach(function(sw){
 document.addEventListener('click',function(){ 
   document.querySelectorAll('.lang-switcher.open').forEach(function(sw){ sw.classList.remove('open'); });
 });
+</script>
 </body>
 </html>
