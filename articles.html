@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aquarium Guides & Articles – Aquapacity</title>
-<meta name="description" content="Science-based aquarium guides: fish stocking, filtration, bioload, planted tanks and more. Every article links back to the free Aquapacity stocking calculator.">
+<title>Aquarium Articles & Guides | Aquapacity</title>
+<meta name="description" content="Free expert guides on aquarium stocking, filtration, water changes and more. Science-based advice for freshwater and saltwater fishkeepers.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://aquapacity.com/articles.html">
-<meta property="og:title" content="Aquarium Guides & Articles – Aquapacity">
-<meta property="og:description" content="Science-based aquarium guides on stocking, filtration, bioload and more. Free stocking calculator included.">
+<meta property="og:title" content="Aquarium Articles & Guides | Aquapacity">
+<meta property="og:description" content="Free expert guides on aquarium stocking, filtration, water changes and more.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aquapacity.com/articles.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,6 +151,70 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   .header-inner{height:50px}
 }
 </style>
+
+<!-- Google Analytics 4 + Consent Mode v2 -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Default: deny everything before user choice
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'wait_for_update': 500
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-03QX35NF7F"></script>
+<script>
+gtag('js', new Date());
+gtag('config', 'G-03QX35NF7F', {
+  'anonymize_ip': true,
+  'cookie_flags': 'SameSite=None;Secure'
+});
+
+// Restore consent if user already chose
+(function(){
+  var c = localStorage.getItem('aq_consent');
+  if(c === 'granted') {
+    gtag('consent', 'update', {'analytics_storage': 'granted'});
+  }
+})();
+</script>
+    <meta property="og:image" content="https://aquapacity.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Aquarium Articles & Guides | Aquapacity">
+    <meta name="twitter:description" content="Free expert guides on aquarium stocking, filtration, water changes and more.">
+    <meta name="twitter:image" content="https://aquapacity.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aquapacity">
+    <link rel="alternate" hreflang="en" href="https://aquapacity.com/articles.html">
+    <link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles.html">
+    <link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Aquarium Articles & Guides",
+      "description": "Free expert guides on aquarium stocking, filtration, water changes and more.",
+      "url": "https://aquapacity.com/articles.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Aquapacity",
+        "url": "https://aquapacity.com"
+      },
+      "inLanguage": "en",
+      "hasPart": [
+        {"@type": "Article", "name": "Why the 1-Inch-Per-Gallon Rule Is Wrong", "url": "https://aquapacity.com/articles/1-inch-per-gallon-rule.html"},
+        {"@type": "Article", "name": "Complete Guide to Aquarium Filtration", "url": "https://aquapacity.com/articles/complete-guide-aquarium-filtration.html"},
+        {"@type": "Article", "name": "Aquarium Water Changes: The Complete Guide", "url": "https://aquapacity.com/articles/water-changes-guide.html"},
+        {"@type": "Article", "name": "Corydoras Species Guide", "url": "https://aquapacity.com/articles/corydoras-species-guide.html"},
+        {"@type": "Article", "name": "How to Stock a 10-Gallon Aquarium", "url": "https://aquapacity.com/articles/how-to-stock-10-gallon-tank.html"},
+        {"@type": "Article", "name": "Planted Tanks & Bioload", "url": "https://aquapacity.com/articles/planted-tanks-bioload.html"}
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -397,6 +461,30 @@ function filterArticles(btn){
   // Show/hide empty state
   const emptyEl = document.getElementById('empty-filter');
   if(emptyEl) emptyEl.classList.toggle('visible', visible===0);
+}
+</script>
+
+<!-- Cookie consent banner -->
+<div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 12px rgba(0,0,0,.2)">
+  <span style="flex:1;min-width:200px">We use analytics cookies (Google Analytics) to improve this site. We don't share data with third parties. <a href="/privacidad.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidad</a></span>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="aqConsent('denied')" style="background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.875rem;font-family:inherit">Essential only</button>
+    <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit">Accept</button>
+  </div>
+</div>
+<script>
+(function(){
+  var b = document.getElementById('aq-cookie-banner');
+  if(!b) return;
+  if(!localStorage.getItem('aq_consent')) b.style.display='flex';
+})();
+
+function aqConsent(choice){
+  localStorage.setItem('aq_consent', choice);
+  gtag('consent', 'update', {'analytics_storage': choice});
+  var b = document.getElementById('aq-cookie-banner');
+  if(b) b.style.display='none';
+  if(choice === 'granted') gtag('event', 'consent_accepted');
 }
 </script>
 </body>

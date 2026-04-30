@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aquapacity – Advanced Aquarium Stocking Calculator | Free Bioload Tool</title>
-<meta name="description" content="Free advanced aquarium stocking calculator. Analyze bioload, filter capacity, and fish compatibility for any tank. Supports 100+ freshwater and saltwater species, planted tanks, metric and imperial units.">
+<title>Aquapacity | Free Advanced Aquarium Stocking Calculator</title>
+<meta name="description" content="Science-based bioload calculator for freshwater and saltwater aquariums. Supports hundreds of species and analyzes all the important parameters.">
 <meta name="keywords" content="aquarium stocking calculator, bioload calculator, fish tank stocking calculator, how many fish in my tank, aquarium filter turnover calculator, planted tank bioload, fish compatibility tool, nano tank stocking guide, best aquarium stocking calculator">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Aquapacity – Advanced Aquarium Stocking Calculator">
-<meta property="og:description" content="Science-based bioload calculator for freshwater and saltwater aquariums. Supports 100+ species, planted tanks, and filtration quality analysis. Free forever.">
+<meta property="og:title" content="Aquapacity | Free Advanced Aquarium Stocking Calculator">
+<meta property="og:description" content="Science-based bioload calculator for freshwater and saltwater aquariums. Supports hundreds of species and analyzes all the important parameters.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aquapacity.com/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Aquapacity – Advanced Aquarium Stocking Calculator">
-<meta name="twitter:description" content="The most accurate free aquarium bioload calculator. Add fish, check your filter, and get instant compatibility alerts.">
+<meta name="twitter:title" content="Aquapacity | Free Advanced Aquarium Stocking Calculator">
+<meta name="twitter:description" content="Science-based bioload calculator for freshwater and saltwater aquariums. Supports hundreds of species and analyzes all the important parameters.">
 <link rel="canonical" href="https://aquapacity.com/">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="alternate" hreflang="en" href="https://aquapacity.com/">
@@ -667,6 +667,39 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   }
 })();
 </script>
+
+<!-- Google Analytics 4 + Consent Mode v2 -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Default: deny everything before user choice
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'wait_for_update': 500
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-03QX35NF7F"></script>
+<script>
+gtag('js', new Date());
+gtag('config', 'G-03QX35NF7F', {
+  'anonymize_ip': true,
+  'cookie_flags': 'SameSite=None;Secure'
+});
+
+// Restore consent if user already chose
+(function(){
+  var c = localStorage.getItem('aq_consent');
+  if(c === 'granted') {
+    gtag('consent', 'update', {'analytics_storage': 'granted'});
+  }
+})();
+</script>
+    <meta property="og:image" content="https://aquapacity.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://aquapacity.com/og-image.jpg">
 </head>
 
 <body>
@@ -1413,7 +1446,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
       <a href="#how-it-works">How It Works</a>
       <a href="#faq">FAQ</a>
       <a href="articles.html">Articles</a>
-      <span style="color:rgba(255,255,255,.7)">Contact: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a></span>
+      <span style="color:rgba(255,255,255,.7)">Contact: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a> &nbsp;·&nbsp; <a href="/privacidad.html">Privacy Policy</a></span>
     </div>
   </div>
 </footer>
@@ -2686,5 +2719,80 @@ async function loadFromSheets(){
 })();
 </script>
 
+
+<!-- Cookie consent banner -->
+<div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 12px rgba(0,0,0,.2)">
+  <span style="flex:1;min-width:200px">We use analytics cookies (Google Analytics) to improve this site. We don't share data with third parties. <a href="/privacidad.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidad</a></span>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="aqConsent('denied')" style="background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.875rem;font-family:inherit">Essential only</button>
+    <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit">Accept</button>
+  </div>
+</div>
+<script>
+(function(){
+  var b = document.getElementById('aq-cookie-banner');
+  if(!b) return;
+  if(!localStorage.getItem('aq_consent')) b.style.display='flex';
+})();
+
+function aqConsent(choice){
+  localStorage.setItem('aq_consent', choice);
+  gtag('consent', 'update', {'analytics_storage': choice});
+  var b = document.getElementById('aq-cookie-banner');
+  if(b) b.style.display='none';
+  if(choice === 'granted') gtag('event', 'consent_accepted');
+}
+</script>
+
+<script>
+/* ── GA4 Custom Events ─────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', function(){
+
+  // Ko-fi button
+  document.querySelectorAll('a[href*="ko-fi.com"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      gtag('event', 'click_kofi', {event_category:'monetization', event_label:'kofi_en'});
+    });
+  });
+
+  // Contact email
+  document.querySelectorAll('a[href*="aquapacity.info@gmail.com"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      gtag('event', 'click_contact_email', {event_category:'engagement', event_label:'contact_email_en'});
+    });
+  });
+
+  // Language switch
+  document.querySelectorAll('.lang-btn, a[href*="/es/"], a[href*="../index.html"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      gtag('event', 'switch_language', {event_category:'navigation', event_label:'switch_to_es'});
+    });
+  });
+
+  // Article card clicks
+  document.querySelectorAll('.article-card, .ac-body').forEach(function(el){
+    el.addEventListener('click', function(){
+      var title = el.querySelector('h3');
+      gtag('event', 'click_article', {event_category:'content', event_label: title ? title.textContent.trim().substring(0,60) : 'unknown'});
+    });
+  });
+
+  // Hero CTA
+  document.querySelectorAll('.hero-cta, a[href="#calculator"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      gtag('event', 'click_cta_calculator', {event_category:'engagement'});
+    });
+  });
+
+  // Suggest species submit
+  var suggestBtn = document.getElementById('suggest-btn');
+  if(suggestBtn){
+    suggestBtn.addEventListener('click', function(){
+      gtag('event', 'suggest_species', {event_category:'engagement', event_label:'suggest_species_en'});
+    });
+  }
+
+});
+</script>
 </body>
 </html>
