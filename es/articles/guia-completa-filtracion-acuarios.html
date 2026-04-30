@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guía Completa de Filtración para Acuarios | Aquapacity</title>
-<meta name="description" content="Todo lo que necesitas saber sobre filtración de acuarios: tipos de filtros, medios biológicos, caudal ideal y cómo elegir el mejor sistema para tu acuario de agua dulce o salada.">
+<meta name="description" content="Todo sobre filtración de acuarios: mecánica, biológica y química. Elige el filtro adecuado para tu acuario — calculadora de biocarga gratis.">
 <meta name="keywords" content="filtración acuario, filtro externo acuario, biofiltración acuario, medios filtrantes, caudal filtro acuario, filtro interno acuario">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html">
@@ -99,6 +99,47 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   "publisher": {"@type": "Organization","name": "Aquapacity","logo": {"@type": "ImageObject","url": "https://aquapacity.com/logo.svg","width": 60,"height": 60}}
 }
 </script>
+
+<!-- Google Analytics 4 + Consent Mode v2 -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Default: deny everything before user choice
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'wait_for_update': 500
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-03QX35NF7F"></script>
+<script>
+gtag('js', new Date());
+gtag('config', 'G-03QX35NF7F', {
+  'anonymize_ip': true,
+  'cookie_flags': 'SameSite=None;Secure'
+});
+
+// Restore consent if user already chose
+(function(){
+  var c = localStorage.getItem('aq_consent');
+  if(c === 'granted') {
+    gtag('consent', 'update', {'analytics_storage': 'granted'});
+  }
+})();
+</script>
+    <meta property="og:title" content="Guía Completa de Filtración para Acuarios">
+    <meta property="og:description" content="Todo sobre filtración de acuarios: mecánica, biológica y química. Elige el filtro adecuado para tu acuario.">
+    <meta property="og:url" content="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html">
+    <meta property="og:image" content="https://aquapacity.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Guía Completa de Filtración para Acuarios">
+    <meta name="twitter:description" content="Todo sobre filtración de acuarios: mecánica, biológica y química. Elige el filtro adecuado para tu acuario.">
+    <meta name="twitter:image" content="https://aquapacity.com/og-image.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aquapacity">
 </head>
 <body>
 
@@ -125,6 +166,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
       <a href="../index.html#how-it-works">Cómo Funciona</a>
       <a href="../index.html#faq">FAQ</a>
       <a href="../articles.html">Artículos</a>
+      <a href="/es/privacidad.html">Privacidad</a>
     </nav>
   </div>
 </header>
@@ -365,5 +407,29 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   </div>
 </footer>
 
+
+<!-- Cookie consent banner -->
+<div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 12px rgba(0,0,0,.2)">
+  <span style="flex:1;min-width:200px">Usamos cookies analíticas (Google Analytics) para mejorar la web. No compartimos datos con terceros. <a href="/es/privacidad.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidad</a></span>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="aqConsent('denied')" style="background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.875rem;font-family:inherit">Solo esenciales</button>
+    <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit">Aceptar</button>
+  </div>
+</div>
+<script>
+(function(){
+  var b = document.getElementById('aq-cookie-banner');
+  if(!b) return;
+  if(!localStorage.getItem('aq_consent')) b.style.display='flex';
+})();
+
+function aqConsent(choice){
+  localStorage.setItem('aq_consent', choice);
+  gtag('consent', 'update', {'analytics_storage': choice});
+  var b = document.getElementById('aq-cookie-banner');
+  if(b) b.style.display='none';
+  if(choice === 'granted') gtag('event', 'consent_accepted');
+}
+</script>
 </body>
 </html>
