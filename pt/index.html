@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aquapacity | Calculadora de Aquários Grátis</title>
 <meta name="description" content="Calculadora de biocarga científica para aquários de água doce e salgada. Centenas de espécies e parâmetros analisados. 100% gratuita.">
-<meta name="keywords" content="cuantos peces caben en mi acuario, calculadora acuario, regla centimetro por litro, bioload acuario, calculadora peces acuario, compatibilidad peces, acuario plantado bioload, calculadora filtro acuario, acuario nano peces, stock acuario">
+<meta name="keywords" content="quantos peixes cabem no aquário, calculadora aquário, regra centímetro por litro, biocarga aquário, calculadora peixes aquário, compatibilidade peixes, aquário plantado biocarga, calculadora filtro aquário, aquário nano peixes, stock aquário">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Aquapacity | Calculadora de Aquários Grátis">
 <meta property="og:description" content="Calculadora de biocarga científica para aquários de água doce e salgada. Centenas de espécies e parâmetros analisados.">
@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://aquapacity.com/pt/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aquapacity | Calculadora de Aquários Grátis">
-<meta name="twitter:description" content="Calculadora de densidad de peces basada en ciencia para aquários de água doce e salgada. Cientos de espécies y parámetros analizados.">
+<meta name="twitter:description" content="Calculadora de biocarga científica para aquários de água doce e salgada. Centenas de espécies e parâmetros analisados.">
 <link rel="canonical" href="https://aquapacity.com/pt/">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <link rel="alternate" hreflang="en" href="https://aquapacity.com/">
@@ -613,6 +613,14 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 /* ─── LANGUAGE SWITCHER ───────────────────────────────────── */
 .lang-btn{display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,.85);font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.4);border-radius:100px;padding:4px 11px;transition:all .2s;text-decoration:none;white-space:nowrap}
 .lang-btn:hover{color:#fff;border-color:rgba(255,255,255,.9);background:rgba(255,255,255,.1);text-decoration:none}
+.lang-switcher{position:relative;display:inline-block}
+.lang-switcher .lang-btn{cursor:pointer;background:transparent;border:none;font-family:inherit}
+.lang-options{display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.18);overflow:hidden;min-width:150px;z-index:2000}
+.lang-options a{display:flex;align-items:center;gap:8px;padding:10px 16px;text-decoration:none;color:#1e293b;font-size:.875rem;font-weight:700;transition:background .15s}
+.lang-options a:hover{background:#f1f5f9}
+.lang-options a.current{background:#e0f2fe;color:#0c4a73}
+.lang-switcher.open .lang-options{display:block}
+@media(max-width:900px){.lang-switcher{display:none}}
 </style>
 
 <!-- Structured Data -->
@@ -625,32 +633,26 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
       "@id":"https://aquapacity.com/#website",
       "url":"https://aquapacity.com/",
       "name":"Aquapacity",
-      "description":"Calculadora avanzada de acuarios y bioload para água doce y marina"
+      "description":"Calculadora avançada de aquários e biocarga para água doce e marina"
     },
     {
       "@type":"SoftwareApplication",
-      "name":"Aquapacity – Calculadora de Acuarios",
+      "name":"Aquapacity – Calculadora de Aquários",
       "applicationCategory":"UtilitiesApplication",
       "operatingSystem":"Web",
       "url":"https://aquapacity.com/",
-      "description":"Calculadora de acuarios gratuita basada en ciencia. Analiza bioload, capacidad del filtro, estabilidad de nitratos y compatibilidad de peces para acuarios de água doce y marina.",
+      "description":"Calculadora de aquários gratuita baseada em ciência. Analisa biocarga, capacidade do filtro, estabilidade de nitratos e compatibilidade de peixes para aquários de água doce e marina.",
       "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
       "featureList":["100+ freshwater and saltwater species database","Bioload calculator","Filter turnover analysis","Plant density correction","Nitrate stability model","Fish compatibility checker","Metric and imperial units"]
     },
     {
       "@type":"FAQPage",
       "mainEntity":[
-        {"@type":"Question","name":"¿Cuántos peces caben en un acuario de 40 litros?","acceptedAnswer":{"@type":"Answer","text":"Un acuario de 40 litros puede albergar cómodamente 6–10 peces pequeños de menos de 5 cm, como 8 tetras neón, 6 tetras ember o una mezcla de tetras pequeños y corydoras pygmaeus. El número exacto depende de la capacidad de tu filtro y la frecuencia de cambios de agua. Usa Aquapacity para un análisis preciso de bioload."}},
-        {"@type":"Question","name":"¿Cuántos peces caben en un acuario de 80 litros?","acceptedAnswer":{"@type":"Answer","text":"Un acuario de 80 litros puede albergar 15–25 peces comunitarios pequeños, o un grupo más reducido de espécies medianas como gouramis enanos, rams bolivianos o barbo tigre. Podrías tener 12 tetras neón más 6 corydoras, por ejemplo. La calidad del filtro y la densidad de plantas también afectan al número final."}},
-        {"@type":"Question","name":"¿Cuántos tetras neón caben en un acuario de 40 litros?","acceptedAnswer":{"@type":"Answer","text":"Puedes tener 8–10 tetras neón en un acuario de 40 litros con un buen filtro. Los tetras neón son peces de banco y deben mantenerse en grupos de al menos 6. Un acuario de 40 litros con un filtro de 5–8× recambio y cambios de agua semanales del 25% puede mantener un banco saludable de 8–10."}},
-        {"@type":"Question","name":"¿Cómo sé si mi acuario está superpoblado?","acceptedAnswer":{"@type":"Answer","text":"Las señales de un acuario superpoblado incluyen agresión frecuente, peces jadeando en la superficie, agua turbia que no aclara tras los cambios de agua, picos de amoniaco o nitrito, y peces con colores de estrés o aletas dañadas. Aquapacity calcula tu porcentaje de ocupación de bioload: por encima del 80% es advertencia, por encima del 100% es superpoblación."}},
-        {"@type":"Question","name":"¿Qué es el bioload en un acuario?","acceptedAnswer":{"@type":"Answer","text":"El bioload se refiere a los residuos biológicos totales producidos por los peces y otros organismos de tu acuario. Un bioload más alto significa que se produce más amoniaco, que debe ser procesado por las bacterias beneficiosas de tu filtro. Los peces grandes como los peces de colores u oscares tienen un bioload muy alto, mientras que los pequeños como los tetras neón o los camarones cherry tienen un bioload mínimo."}},
-        {"@type":"Question","name":"¿Con qué frecuencia debo cambiar el agua de mi acuario?","acceptedAnswer":{"@type":"Answer","text":"Para la mayoría de los acuarios comunitarios, un cambio de agua del 25–30% semanal es ideal. Los acuarios con alto bioload (peces de colores, cíclidos) pueden necesitar del 30–50% semanal. Los acuarios plantados con inyección de CO2 a veces pueden permitirse cambios menos frecuentes. Saltarse los cambios causa acumulación de nitratos, lo que estresa a los peces y favorece las algas."}},
-        {"@type":"Question","name":"¿Puedo tener corydoras con tetras neón?","acceptedAnswer":{"@type":"Answer","text":"Sí, los corydoras y los tetras neón son una de las combinaciones más populares y compatibles de la afición. Ambos son pacíficos, prefieren agua blanda ligeramente ácida y ocupan diferentes zonas del acuario (neones en zona media, corydoras en el fondo). En un acuario de 80 litros podrías tener cómodamente 8–10 tetras neón y 4–6 corydoras."}},
-        {"@type":"Question","name":"¿Un acuario plantado reduce el bioload?","acceptedAnswer":{"@type":"Answer","text":"Sí. Las plantas vivas absorben amoniaco y nitrato directamente, reduciendo el bioload efectivo sobre tu filtro. Un acuario muy plantado con inyección de CO2 puede reducir el bioload hasta un 50%. Incluso plantas de bajo mantenimiento como helecho de Java, Anubias y musgos proporcionan una reducción significativa del 10–20%."}},
-        {"@type":"Question","name":"¿Qué es la tasa de recambio del filtro?","acceptedAnswer":{"@type":"Answer","text":"La tasa de recambio del filtro es cuántas veces por hora tu filtro procesa el volumen total del acuario. Un filtro nominal de 400 L/h en un acuario de 100L da un recambio de 4×. La mayoría de los acuarios comunitarios necesitan 5–10× de recambio para una filtración biológica adecuada. Los acuarios de peces de colores y cíclidos se benefician de 10–15× de recambio."}},
-        {"@type":"Question","name":"¿Puedo tener peces de colores con peces tropicales?","acceptedAnswer":{"@type":"Answer","text":"No, los peces de colores son peces de agua fría que viven bien a 10–22°C, mientras que los peces tropicales como los tetras neón, guppies y cíclidos necesitan 24–28°C. Los rangos de temperatura no se superponen suficientemente, y los peces de colores producen un bioload muy alto que estresa a otros peces. Es mejor mantenerlos en un acuario de espécie específica."}},
-        {"@type":"Question","name":"¿Cómo calcula Aquapacity la capacidad de peces?","acceptedAnswer":{"@type":"Answer","text":"Aquapacity utiliza un modelo de huella territorial combinado con un modelo biológico del ciclo del nitrógeno. Cada espécie tiene una reclamación de territorio base más una huella incremental por pez adicional. Esto se combina con la capacidad biológica de tu filtro (ajustada por tipo y medio), la bonificación de densidad de plantas y la frecuencia de cambios de agua para producir un porcentaje preciso de ocupación de bioload."}}
+        {"@type":"Question","name":"O que é biocarga de aquário?","acceptedAnswer":{"@type":"Answer","text":"A biocarga é a quantidade total de resíduos biológicos produzidos por todos os seres vivos do aquário. Um filtro adequado converte amônia em nitrato, mas só as trocas de água removem o nitrato acumulado."}},
+        {"@type":"Question","name":"Quantos peixes cabem em um aquário de 40 litros?","acceptedAnswer":{"@type":"Answer","text":"Um aquário de 40 litros pode abrigar 6–10 peixes pequenos de menos de 5 cm, como 8 tetras-neon ou 6 tetras ember. Use Aquapacity para análise precisa."}},
+        {"@type":"Question","name":"Quantos peixes cabem em um aquário de 80 litros?","acceptedAnswer":{"@type":"Answer","text":"Um aquário de 80 litros pode abrigar 15–25 peixes comunitários pequenos, ou um grupo menor de espécies médias como gouramis anões ou rams bolivianos."}},
+        {"@type":"Question","name":"A regra do centímetro por litro funciona?","acceptedAnswer":{"@type":"Answer","text":"Não. A regra ignora forma do corpo, metabolismo, comportamento territorial e qualidade da filtração. Aquapacity usa um modelo de biocarga científico por espécie."}},
+        {"@type":"Question","name":"Com que frequência devo trocar a água?","acceptedAnswer":{"@type":"Answer","text":"Para aquários comunitários, 25–30% semanal é ideal. Aquários com alta biocarga precisam de 30–50% semanal."}}
       ]
     }
   ]
@@ -719,7 +721,13 @@ gtag('config', 'G-03QX35NF7F', {
       <a href="#how-it-works">Como Funciona</a>
       <a href="#faq">FAQ</a>
       <a href="articles.html">Artigos</a>
-      <a href="../index.html" class="lang-btn">🇬🇧 EN</a>
+      <div class="lang-switcher">
+        <button class="lang-btn">🌐 PT ▾</button>
+        <div class="lang-options">
+          <a href="../index.html">🇬🇧 English</a>
+          <a href="../es/index.html">🇪🇸 Español</a>
+        </div>
+      </div>
     </nav>
     <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -747,17 +755,19 @@ gtag('config', 'G-03QX35NF7F', {
       <span class="mn-icon">📖</span> Artigos
     </a>
   </nav>
-  <div class="mn-footer"><a href="../index.html" style="display:block;text-align:center;padding:10px;font-size:.85rem;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border)">🇬🇧 English</a>
-    <a href="https://ko-fi.com/aquapacity" target="_blank" class="mn-kofi">Apoya el proyecto ☕</a>
+  <div class="mn-footer">
+    <a href="../index.html" style="display:flex;align-items:center;gap:8px;padding:11px 20px;font-size:.875rem;font-weight:700;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border)">🇬🇧 English</a>
+    <a href="../es/index.html" style="display:flex;align-items:center;gap:8px;padding:11px 20px;font-size:.875rem;font-weight:700;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border)">🇪🇸 Español</a>
+    <a href="https://ko-fi.com/aquapacity" target="_blank" class="mn-kofi">Apoie o projeto ☕</a>
   </div>
 </div>
 <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="toggleMobileMenu()"></div>
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Calculadora de <em>Acuarios</em> Avanzada</h1>
-  <p class="hero-lead">La calculadora de bioload más precisa para acuarios de água doce y marina.</p>
-  <p><span class="hero-first-sentence">La calculadora de bioload más precisa para acuarios de água doce y marina. </span>Añade tus peces, comprueba tu filtro y descubre al instante si tu acuario está superpoblado. Basada en datos reales de espécies y modelado del ciclo del nitrógeno.</p>
+  <h1>Calculadora de <em>Aquários</em> Avançada</h1>
+  <p class="hero-lead">A calculadora de biocarga mais precisa para aquários de água doce e marina.</p>
+  <p><span class="hero-first-sentence">A calculadora de biocarga mais precisa para aquários de água doce e marina. </span>Adicione seus peixes, verifique seu filtro e descubra imediatamente se seu aquário está superpopulado. Baseada em dados reais de espécies e modelagem do ciclo do nitrogênio.</p>
 </div>
 
 <!-- DB SOURCE BANNER -->
@@ -771,7 +781,7 @@ gtag('config', 'G-03QX35NF7F', {
       <div class="mb-val" id="mob-stk" style="color:var(--muted)">—</div>
     </div>
     <div class="mb-metric">
-      <div class="mb-label">Peces añadidos</div>
+      <div class="mb-label">Peixes adicionados</div>
       <div class="mb-val" id="mob-nit" style="color:var(--muted)">—</div>
     </div>
     <a class="mb-btn" href="#results-panel">Resultados ↓</a>
@@ -798,7 +808,7 @@ gtag('config', 'G-03QX35NF7F', {
       <div class="panel-head">
         <span class="panel-num">1</span>
         <span class="panel-icon">💧</span>
-        <h2>Tipo de Acuario</h2>
+        <h2>Tipo de Aquário</h2>
       </div>
       <div class="panel-body" style="padding-bottom:16px">
         <div class="wt-selector">
@@ -819,7 +829,7 @@ gtag('config', 'G-03QX35NF7F', {
       <div class="panel-head" onclick="togglePanel('panel-tank')">
         <span class="panel-num">2</span>
         <span class="panel-icon">🏊</span>
-        <h2>Tamaño del Acuario</h2>
+        <h2>Tamanho do Aquário</h2>
         <span class="panel-toggle">▾</span>
       </div>
       <div class="panel-body">
@@ -856,13 +866,13 @@ gtag('config', 'G-03QX35NF7F', {
               <input type="number" id="tank-vol" placeholder="63" min="1" oninput="recalc()">
             </div>
           </div>
-          <div class="field-hint">Introduce el volumen nominal total de tu acuario. Aplicamos −15% automáticamente por sustrato, decoración y plantas.</div>
+          <div class="field-hint">Insira o volume nominal total do seu aquário. Aplicamos −15% automaticamente por substrato, decoração e plantas.</div>
         </div>
 
         <!-- Volume display -->
         <div class="vol-display" id="vol-display">
           <div class="vd-row">
-            <span class="vd-label">Introduce el tamaño del acuario</span>
+            <span class="vd-label">Insira o tamanho do aquário</span>
           </div>
         </div>
       </div>
@@ -885,7 +895,7 @@ gtag('config', 'G-03QX35NF7F', {
             <input type="number" id="filter-flow" placeholder="400" min="0" oninput="recalc()">
           </div>
         </div>
-        <div class="field-hint">Introduce el caudal de tu filtro o bomba de sump. El caudal nominal se mide con presión cero y filtro limpio — en la práctica suele ser un 30–50% menor. Apunta a ≥8× el volumen del acuario para água doce; ≥10× para marino/arrecife.</div>
+        <div class="field-hint">Insira a vazão do seu filtro ou bomba de sump. A vazão nominal é medida sem pressão e com filtro limpo — na prática costuma ser 30–50% menor. Mire em ≥8× o volume do aquário para água doce; ≥10× para marinho/recife.</div>
 
         <!-- Filter type -->
         <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:16px;margin-bottom:4px">Tipo de Filtro</div>
@@ -925,7 +935,7 @@ gtag('config', 'G-03QX35NF7F', {
         <div class="media-grid" id="media-grid">
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('foam_sponge',this)">
             <span>Foamex/Esponja</span>
-            <span class="media-tip" data-tip="Esponja de poliuretano de poro grueso. Sus grandes poros facilitan un excelente flujo de agua y albergan enormes colonias de bacterias beneficiosas. Presente en filtros de esponja y muchos HOBs. La mejor opción para filtración biológica.">?</span>
+            <span class="media-tip" data-tip="Esponja de poliuretano de poro grosso. Seus poros grandes facilitam excelente fluxo de água e abrigam enormes colônias de bactérias benéficas. Presente em filtros de esponja e muitos HOBs. A melhor opção para filtração biológica.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('k1_moving',this)">
             <span>Lecho móvil / K1</span>
@@ -937,7 +947,7 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('porous_ceramic',this)">
             <span>Cerámica porosa</span>
-            <span class="media-tip" data-tip="Piezas cerámicas cocidas con numerosos poros internos (p.ej. Eheim Substrat, Seachem Matrix). Alta superficie interna. Los poros más pequeños pueden obstruirse con el tiempo si no se enjuagan periódicamente en agua del acuario.">?</span>
+            <span class="media-tip" data-tip="Peças cerâmicas com numerosos poros internos (ex. Eheim Substrat, Seachem Matrix). Alta superfície interna. Os poros menores podem entupir com o tempo se não forem enxaguados periodicamente em água do aquário.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('premium_bio',this)">
             <span>Resinas/Zeolitas</span>
@@ -949,11 +959,11 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('ceramic_rings',this)">
             <span>Canutillos cerámicos</span>
-            <span class="media-tip" data-tip="Canutillos cerámicos estándar (p.ej. Fluval Biomax, canutillos genéricos). Superficie moderada solo en el exterior. Muy comunes y económicos, pero menos eficaces que la esponja o la cerámica porosa para filtración biológica.">?</span>
+            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa para filtração biológica.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('filter_wool',this)">
             <span>Lana de perlón (Guata)</span>
-            <span class="media-tip" data-tip="Solo filtración mecánica: atrapa partículas finas y residuos para pulir el agua. Valor biológico mínimo, ya que las bacterias no pueden colonizar sus fibras densas eficazmente. Reemplazar o enjuagar frecuentemente para evitar obstrucciones.">?</span>
+            <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('activated_carbon',this)">
             <span>Carbón activo</span>
@@ -999,25 +1009,25 @@ gtag('config', 'G-03QX35NF7F', {
 
         <!-- SW: Marine tank type + live rock + refugium -->
         <div id="sw-env" style="display:none">
-          <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Tipo de Acuario Marino</div>
+          <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Tipo de Aquário Marinho</div>
           <div class="btn-group" id="sw-tank-type-group">
             <button class="btn-opt active" data-swtype="fowlr"     onclick="setSwTankType(this)">🐟 FOWLR</button>
             <button class="btn-opt"        data-swtype="reef_soft" onclick="setSwTankType(this)">🪸 Arrecife (coral blando)</button>
             <button class="btn-opt"        data-swtype="reef_sps"  onclick="setSwTankType(this)">🌊 Arrecife (SPS)</button>
           </div>
-          <div class="field-hint" id="sw-tank-type-hint">Peces solo con roca viva — se tolera hasta 30 ppm de nitrato.</div>
+          <div class="field-hint" id="sw-tank-type-hint">Peixes apenas com rocha viva — tolera até 30 ppm de nitrato.</div>
 
           <div class="co2-row" style="background:#f0f9ff;border-color:#bae6fd;margin-top:14px">
-            <label for="live-rock-btn" style="color:var(--p)">🪨 Roca viva (biofiltración primaria)</label>
+            <label for="live-rock-btn" style="color:var(--p)">🪨 Rocha viva (biofiltração primária)</label>
             <button class="co2-toggle on" id="live-rock-btn" onclick="toggleLiveRock()" title="Toggle live rock" aria-pressed="true"></button>
           </div>
-          <div class="field-hint">La roca viva alberga bacterias nitrificantes y es el filtro biológico primario en acuarios marinos. Estándar en prácticamente toda instalación seria.</div>
+          <div class="field-hint">A rocha viva abriga bactérias nitrificantes e é o filtro biológico primário em aquários marinhos. Padrão em praticamente toda instalação séria.</div>
 
           <div class="co2-row" style="background:#f0f9ff;border-color:#bae6fd;margin-top:8px">
             <label for="chaeto-btn" style="color:var(--p)">🌿 Refugio con macroalgas (Chaeto/Caulerpa)</label>
             <button class="co2-toggle" id="chaeto-btn" onclick="toggleChaeto()" title="Toggle refugium" aria-pressed="false"></button>
           </div>
-          <div class="field-hint">Una sección del sump iluminada con Chaeto absorbe nitrato y fosfato — el equivalente marino de un acuario plantado. Muy recomendado para acuarios de arrecife.</div>
+          <div class="field-hint">Uma seção do sump iluminada com Chaeto absorve nitrato e fosfato — o equivalente marinho de um aquário plantado. Muito recomendado para aquários de recife.</div>
         </div>
 
         <!-- Water changes (shared FW + SW) -->
@@ -1067,7 +1077,7 @@ gtag('config', 'G-03QX35NF7F', {
         <!-- Missing species field -->
         <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border)">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-            <label style="font-size:.8rem;font-weight:600;color:var(--muted)">🐟 ¿Falta alguna espécie?</label>
+            <label style="font-size:.8rem;font-weight:600;color:var(--muted)">🐟 Falta alguma espécie?</label>
             </div>
           <div style="display:flex;gap:8px;align-items:flex-start">
             <input type="text" id="missing-species-input" placeholder="Nome comum o científico" maxlength="250" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r6);font-size:.82rem;color:var(--text);background:#fff;outline:none" onfocus="this.style.borderColor='var(--p2)'" onblur="this.style.borderColor='var(--border)'">
@@ -1110,7 +1120,7 @@ gtag('config', 'G-03QX35NF7F', {
           <span class="metric-val" id="stk-val">0%</span>
         </div>
         <div class="meter-track"><div class="meter-bar" id="stk-bar" style="width:0%;background:var(--g)"></div></div>
-        <div class="meter-sub" id="stk-sub">Añade peces para calcular la capacidad</div>
+        <div class="meter-sub" id="stk-sub">Adicione peixes para calcular a capacidade</div>
       </div>
 
       <!-- Filtration -->
@@ -1145,20 +1155,20 @@ gtag('config', 'G-03QX35NF7F', {
 
       <!-- Selected fish list -->
       <div class="sel-list" id="sel-list" style="display:none">
-        <div class="sel-list-title">Peces Seleccionados</div>
+        <div class="sel-list-title">Peixes Selecionados</div>
         <div id="sel-items"><!-- filled by JS --></div>
       </div>
 
       <!-- Conservative disclaimer -->
       <div class="rp-disclaimer" id="rp-disclaimer" style="display:none">
-        ⚠️ <strong>Solo estimaciones.</strong> Los resultados incluyen márgenes de seguridad para priorizar el bienestar de los peces. El stock de acuario no es una ciencia exacta y depende de muchas variables. Úsalo como punto de partida e investiga siempre las necesidades de cada espécie.
+        ⚠️ <strong>Apenas estimativas.</strong> Os resultados incluem margens de segurança para priorizar o bem-estar dos peixes. O stock de aquário não é uma ciência exata e depende de muitas variáveis. Use como ponto de partida e sempre pesquise as necessidades de cada espécie.
       </div>
 
       <!-- Alerts -->
       <div class="alerts" id="alerts-box">
         <div class="alert alert-info">
           <span>ℹ️</span>
-          <span>Introduce el tamaño del acuario, el caudal del filtro y añade peces para ver el análisis.</span>
+          <span>Insira o tamanho do aquário, a vazão do filtro e adicione peixes para ver a análise.</span>
         </div>
       </div>
 
@@ -1177,17 +1187,17 @@ gtag('config', 'G-03QX35NF7F', {
       <div class="hiw-card">
         <div class="hc-icon">🗺️</div>
         <h3>Modelo de Huella Territorial</h3>
-        <p>Cada espécie tiene una reclamación de territorio base más una huella incremental por pez adicional, reflejando cómo los peces usan realmente el espacio en el acuario.</p>
+        <p>Cada espécie tem uma reivindicação de território base mais uma pegada incremental por peixe adicional, refletindo como os peixes realmente usam o espaço no aquário.</p>
       </div>
       <div class="hiw-card">
         <div class="hc-icon">🦠</div>
         <h3>Modelado del Ciclo del Nitrogênio</h3>
-        <p>Modelamos la capacidad biológica de tu filtro (ajustada por tipo y calidad del medio filtrante), la absorción de las plantas y la frecuencia de cambios de agua para predecir los niveles estacionarios de nitrato.</p>
+        <p>Modelamos a capacidade biológica do seu filtro (ajustada por tipo e qualidade da mídia filtrante), a absorção das plantas e a frequência das trocas de água para prever os níveis estacionários de nitrato.</p>
       </div>
       <div class="hiw-card">
         <div class="hc-icon">🌿</div>
-        <h3>Bonificación por Acuario Plantado</h3>
-        <p>Las plantas vivas absorben amoniaco directamente. Un acuario plantado con inyección de CO₂ puede reducir el bioload efectivo hasta un 50%, permitiéndote tener más peces de forma segura.</p>
+        <h3>Bônus por Aquário Plantado</h3>
+        <p>Plantas vivas absorvem amônia diretamente. Um aquário plantado com injeção de CO₂ pode reduzir a biocarga efetiva em até 50%, permitindo ter mais peixes com segurança.</p>
       </div>
       <div class="hiw-card">
         <div class="hc-icon">⚗️</div>
@@ -1207,13 +1217,13 @@ gtag('config', 'G-03QX35NF7F', {
       Creamos esta herramienta porque amamos la afición y creemos que todo acuarista merece acceso a información precisa y basada en ciencia. Mantenerla online, ampliar la base de datos de espécies y mejorar la ciencia detrás de los cálculos requiere tiempo real y costes de servidor reales.
     </p>
     <p style="color:#374151;font-size:.95rem;line-height:1.7;margin-bottom:24px">
-      Si Aquapacity te ha ayudado a tomar una mejor decisión para tus peces, considera apoyarla. Cada contribución va directamente de vuelta a la herramienta: más espécies, mejores algoritmos y nuevas funciones para toda la comunidad.
+      Se o Aquapacity ajudou você a tomar uma decisão melhor para seus peixes, considere apoiá-lo. Cada contribuição vai diretamente de volta para a ferramenta: mais espécies, algoritmos melhores e novas funcionalidades para toda a comunidade.
     </p>
     <a href="https://ko-fi.com/aquapacity" target="_blank" rel="noopener"
        style="display:inline-flex;align-items:center;gap:10px;background:#0369a1;color:#fff;font-weight:700;font-size:1rem;padding:14px 28px;border-radius:50px;text-decoration:none;box-shadow:0 4px 14px rgba(3,105,161,.35);transition:transform .15s,box-shadow .15s"
        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(3,105,161,.45)'"
        onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(3,105,161,.35)'">
-      💧 Apoya Aquapacity
+      💧 Apoie Aquapacity
     </a>
     <p style="margin-top:16px;font-size:.78rem;color:#6b7280">Vía Ko-fi &nbsp;·&nbsp; Pago único o mensual &nbsp;·&nbsp; Sin cuenta necesaria</p>
   </div>
@@ -1223,8 +1233,8 @@ gtag('config', 'G-03QX35NF7F', {
 <section class="articles-section" id="articles">
   <div class="articles-inner">
     <div class="section-tag">Base de Conocimiento</div>
-    <h2>Guías y Artigos de Acuariofilia</h2>
-    <p>Guías basadas en ciencia para construir un acuario próspero. Todos los artículos enlazan a la calculadora para que puedas aplicar lo aprendido de inmediato.</p>
+    <h2>Guias e Artigos de Aquariofilia</h2>
+    <p>Guias baseados em ciência para montar um aquário próspero. Todos os artigos estão conectados à calculadora para que você possa aplicar o que aprendeu imediatamente.</p>
     <a href="articles.html" class="view-all-btn">Ver todos os artigos →</a>
 
     <div class="articles-grid">
@@ -1234,7 +1244,7 @@ gtag('config', 'G-03QX35NF7F', {
         <div class="ac-body">
           <div class="ac-tag">Población</div>
           <h3>Por qué la Regla del Centímetro por Litro Está Equivocada</h3>
-          <p class="ac-excerpt">La regla más repetida en acuariofilia es también la más peligrosa. Te explicamos por qué falla y qué modelo usar en su lugar.</p>
+          <p class="ac-excerpt">A regra mais repetida na aquariofilia é também a mais perigosa. Explicamos por que ela falha e qual modelo usar em seu lugar.</p>
           <div class="ac-footer">
             <span class="ac-read">8 min de leitura</span>
             <span class="ac-cta">Leer →</span>
@@ -1242,12 +1252,12 @@ gtag('config', 'G-03QX35NF7F', {
         </div>
       </a>
 
-      <a class="article-card" href="articles/guia-completa-filtracion-acuarios.html">
+      <a class="article-card" href="articles/guia-completa-filtragem-aquarios.html">
         <div class="ac-img">🔬</div>
         <div class="ac-body">
           <div class="ac-tag">Filtração</div>
-          <h3>Guía Completa de Filtração para Acuarios</h3>
-          <p class="ac-excerpt">Filtros externos, internos, esponja, sump... todo lo que necesitas saber sobre filtración biológica, mecánica y química para elegir bien.</p>
+          <h3>Guia Completo de Filtragem para Aquários</h3>
+          <p class="ac-excerpt">Filtros externos, internos, esponja, sump... tudo o que você precisa saber sobre filtração biológica, mecânica e química para escolher bem.</p>
           <div class="ac-footer">
             <span class="ac-read">12 min de leitura</span>
             <span class="ac-cta">Leer →</span>
@@ -1260,7 +1270,7 @@ gtag('config', 'G-03QX35NF7F', {
         <div class="ac-body">
           <div class="ac-tag">Mantenimiento</div>
           <h3>Cambios de Agua: La Guía Definitiva</h3>
-          <p class="ac-excerpt">¿Cuánta agua cambiar y con qué frecuencia? Aprende a calcular el intervalo óptimo según tu biocarga y filtración.</p>
+          <p class="ac-excerpt">Quanta água trocar e com que frequência? Aprenda a calcular o intervalo ideal segundo sua biocarga e filtração.</p>
           <div class="ac-footer">
             <span class="ac-read">10 min de leitura</span>
             <span class="ac-cta">Leer →</span>
@@ -1273,62 +1283,49 @@ gtag('config', 'G-03QX35NF7F', {
 </section>
 
 <!-- FAQ -->
-<section class="faq-section" id="faq" aria-label="Perguntas frequentes sobre el stock de acuario">
+<section class="faq-section" id="faq" aria-label="Perguntas frequentes sobre o stock de aquário">
   <div class="faq-inner">
     <h2>Perguntas Frequentes</h2>
 
     <details class="faq-item">
-      <summary>¿Qué es el bioload de un acuario y por qué importa?</summary>
-      <p>El bioload es la cantidad total de residuos biológicos producidos por todos los seres vivos de tu acuario — peces, invertebrados, plantas — y la demanda que esto genera sobre el ciclo del nitrógeno de tu filtro. Un bioload alto significa más amoniaco y nitrato, lo que estresa a los peces y favorece la proliferación de algas. Entender el bioload es la base de una acuariofilia responsable: es la razón por la que dos peces de 10 cm pueden no equivaler a un pez de 20 cm en impacto sobre el acuario.</p>
+      <summary>O que é biocarga de aquário e por que importa?</summary>
+      <p>A biocarga é a quantidade total de resíduos biológicos produzidos por todos os seres vivos do seu aquário — peixes, invertebrados, plantas — e a demanda que isso gera sobre o ciclo do nitrogênio do seu filtro. Uma biocarga alta significa mais amônia e nitrato, o que estressas os peixes e favorece o crescimento de algas. Entender a biocarga é a base de uma aquariofilia responsável: é a razão pela qual dois peixes de 10 cm podem não equivaler a um peixe de 20 cm em impacto sobre o aquário.</p>
     </details>
-
     <details class="faq-item">
-      <summary>¿Es correcta la "regla del centímetro por litro"?</summary>
-      <p>No — la regla del centímetro por litro es una aproximación obsoleta que ignora la forma del cuerpo, el metabolismo, el nivel de actividad, el comportamiento territorial, la calidad de la filtración y la frecuencia de cambios de agua. Un oscar de 10 cm produce muchísimo más desecho que diez tetras neón de 1 cm. Aquapacity sustituye esta regla por un modelo de bioload específico por espécie derivado de datos científicos sobre consumo de oxígeno y tasas de excreción de nitrógeno.</p>
+      <summary>A regra do centímetro por litro funciona?</summary>
+      <p>Não — a regra do centímetro por litro é uma aproximação obsoleta que ignora a forma do corpo, o metabolismo, o nível de atividade, o comportamento territorial, a qualidade da filtração e a frequência das trocas de água. Um oscar de 10 cm produz muito mais resíduos do que dez tetras-neon de 1 cm. Aquapacity substitui esta regra por um modelo de biocarga específico por espécie derivado de dados científicos sobre consumo de oxigênio e taxas de excreção de nitrogênio.</p>
     </details>
-
     <details class="faq-item">
-      <summary>¿Cuántos peces caben en mi acuario?</summary>
-      <p>El número de peces que tu acuario puede albergar con seguridad depende de: el volumen neto de agua (total menos sustrato y decoración), el bioload individual de cada espécie, la capacidad biológica de tu filtro y su tasa de recambio, la frecuencia de cambios de agua, y si el acuario está plantado. Un acuario de 100 L con filtro canister, biomedio premium, cambios semanales del 30% y plantas vivas puede albergar significativamente más peces que el mismo acuario con un filtro interno pequeño y sin plantas.</p>
+      <summary>Quantos peixes cabem no meu aquário?</summary>
+      <p>O número de peixes que seu aquário pode abrigar com segurança depende de: o volume líquido de água (total menos substrato e decoração), a biocarga individual de cada espécie, a capacidade biológica do seu filtro e sua taxa de recirculação, a frequência das trocas de água e se o aquário é plantado. Um aquário de 100 L com filtro canister, biomídia premium, trocas semanais de 30% e plantas vivas pode abrigar significativamente mais peixes do que o mesmo aquário com um filtro interno pequeno e sem plantas.</p>
     </details>
-
     <details class="faq-item">
-      <summary>¿Qué tan precisa es la calculadora de Aquapacity?</summary>
-      <p>Aquapacity usa coeficientes de bioload específicos por espécie derivados de datos publicados sobre consumo de oxígeno de los peces, tasas metabólicas y excreción de nitrógeno — no reglas basadas en longitud corporal. El modelo también tiene en cuenta el tipo de filtro, el área de superficie del medio biológico, la eficiencia biológica, la frecuencia de cambios de agua y la absorción de nitratos en acuarios plantados. La calculadora es una herramienta de nivel profesional, pero no puede sustituir las pruebas de agua directas, que siempre recomendamos.</p>
+      <summary>Como o Aquapacity calcula a capacidade de peixes?</summary>
+      <p>Aquapacity usa coeficientes de biocarga específicos por espécie derivados de dados publicados sobre consumo de oxigênio dos peixes, taxas metabólicas e excreção de nitrogênio — não regras baseadas em comprimento corporal. O modelo também considera o tipo de filtro, a área de superfície da mídia biológica, a eficiência biológica, a frequência das trocas de água e a absorção de nitratos em aquários plantados. A calculadora é uma ferramenta de nível profissional, mas não pode substituir testes diretos da água, que sempre recomendamos.</p>
     </details>
-
     <details class="faq-item">
-      <summary>¿Qué es el ciclo del nitrógeno y por qué importa para el stock?</summary>
-      <p>El ciclo del nitrógeno es el proceso biológico por el cual las bacterias beneficiosas convierten los residuos tóxicos de los peces (amoniaco → nitrito → nitrato) en un compuesto menos dañino que se elimina mediante los cambios de agua. Un acuario correctamente ciclado (normalmente 4–6 semanas) es esencial antes de añadir peces. Adicionar demasiados peces demasiado rápido desborda las colonias bacterianas inmaduras, causando picos de amoniaco y nitrito que pueden matar peces en pocos días.</p>
+      <summary>O que é o ciclo do nitrogênio?</summary>
+      <p>O ciclo do nitrogênio é o processo biológico pelo qual bactérias benéficas convertem os resíduos tóxicos dos peixes (amônia → nitrito → nitrato) em um composto menos nocivo, que é eliminado pelas trocas de água. Um aquário corretamente ciclado (normalmente 4–6 semanas) é essencial antes de adicionar peixes. Adicionar muitos peixes muito rapidamente sobrecarrega as colônias bacterianas imaturas, causando picos de amônia e nitrito que podem matar peixes em poucos dias.</p>
     </details>
-
     <details class="faq-item">
-      <summary>¿Qué es la tasa de recambio del filtro y cuánto necesito?</summary>
-      <p>La tasa de recambio mide cuántas veces por hora tu filtro procesa el volumen total del acuario. Un filtro de 600 L/h en un acuario de 100 L da un recambio de 6× por hora. La mayoría de los acuarios comunitarios de água doce necesitan un filtro con al menos 8–10× el volumen del acuario por hora — pero recuerda que el caudal nominal se mide con presión cero y filtro limpio; en la práctica suele ser un 30–50% menor. Aquapacity muestra tu recambio efectivo automáticamente.</p>
+      <summary>Quantos peixes cabem em um aquário de 40 litros?</summary>
+      <p>Um aquário de 40 litros pode abrigar confortavelmente 6–10 peixes pequenos de menos de 5 cm, como 8 tetras-neon, 6 tetras ember ou uma mistura de tetras pequenos e corydoras pygmaeus. O número exato depende da capacidade do seu filtro e da frequência das trocas de água. Use Aquapacity para uma análise precisa de biocarga.</p>
     </details>
-
     <details class="faq-item">
-      <summary>¿La superpoblación realmente daña a los peces?</summary>
-      <p>Sí, de forma crónica. Los acuarios superpoblados acumulan nitrato más rápido de lo que los cambios de agua pueden eliminarlo, causando una intoxicación crónica de bajo nivel que suprime el sistema inmunológico, acorta la vida y crea estrés constante. Los peces en acuarios superpoblados son más propensos a enfermedades, muestran colores apagados, se vuelven letárgicos y pueden mostrar agresividad por competencia de recursos.</p>
+      <summary>Quantos peixes cabem em um aquário de 80 litros?</summary>
+      <p>Um aquário de 80 litros pode abrigar 15–25 peixes comunitários pequenos, ou um grupo menor de espécies médias como gouramis anões, rams bolivianos ou barbo tigre. Você poderia ter 12 tetras-neon mais 6 corydoras, por exemplo. A qualidade do filtro e a densidade de plantas também afetam o número final.</p>
     </details>
-
     <details class="faq-item">
-      <summary>¿Un acuario plantado permite tener más peces?</summary>
-      <p>Sí. Las plantas vivas absorben amoniaco y nitrato directamente, reduciendo la carga del filtro. Incluso plantas de bajo mantenimiento como el helecho de Java, Anubias y espada de Amazonas proporcionan una reducción del bioload del 10–20%. Un acuario plantado de alta densidad con inyección de CO₂ puede absorber suficiente nitrógeno para permitir un 30–50% más de peces que el mismo acuario sin plantas.</p>
+      <summary>Com que frequência devo trocar a água do aquário?</summary>
+      <p>Para a maioria dos aquários comunitários, uma troca de água de 25–30% semanal é ideal. Aquários com alta biocarga (peixe dourado, ciclídeos) podem precisar de 30–50% semanal. Aquários plantados com injeção de CO₂ às vezes permitem trocas menos frequentes. Pular as trocas causa acúmulo de nitratos, o que estressas os peixes e favorece algas.</p>
     </details>
-
     <details class="faq-item">
-      <summary>¿Con qué frecuencia debo hacer cambios de agua y afecta a la capacidad del stock?</summary>
-      <p>Para la mayoría de los acuarios comunitarios, un cambio de agua del 25–30% semanal es el estándar. Los acuarios con mucho stock necesitan del 30–50% semanalmente. La frecuencia de cambios de agua afecta directamente a la capacidad de stock: los cambios más frecuentes o más grandes diluyen el nitrato más rápido, permitiendo un mayor bioload. Aquapacity modela esto — cambia la frecuencia de cambios de agua y observa cómo se actualiza tu puntuación de estabilidad de nitratos en tiempo real.</p>
+      <summary>Posso ter corydoras com tetras-neon?</summary>
+      <p>Sim, corydoras e tetras-neon são uma das combinações mais populares e compatíveis da aquariofilia. Ambos são pacíficos, preferem água macia levemente ácida e ocupam diferentes zonas do aquário (neons na zona média, corydoras no fundo). Em um aquário de 80 litros você poderia ter confortavelmente 8–10 tetras-neon e 4–6 corydoras.</p>
     </details>
-
     <details class="faq-item">
-      <summary>¿Puedo usar esta calculadora para acuarios de água salgada o arrecife?</summary>
-      <p>Sí! Selecciona <strong>Água Salgada</strong> en el Paso 1 de la calculadora para cargar nuestra base de datos de espécies marinas. El motor de bioload funciona de forma idéntica — introduce el tamaño del acuario, el filtro y las espécies que quieres tener, y Aquapacity te dirá si tu sistema puede soportarlos. Se incluyen datos específicos de água salgada (rango de salinidad, compatibilidad con arrecife, nivel de cuidado) para cada espécie marina.</p>
-    </details>
-
-  </div>
-</section>
+      <summary>Um aquário plantado reduz a biocarga?</summary>
+      <p>Sim. Plantas vivas absorvem amônia e nitrato diretamente, reduzindo a biocarga efetiva sobre o seu filtro. Um aquário muito plantado com injeção de CO₂ pode reduzir a biocarga em até 50%. Mesmo plantas de baixa manutenção como samambaia de Java, Anubias e musgos proporcionam uma redução significativa de 10–20%.</section>
 
 <section id="bibliography" style="background:#f8fafc;border-top:1px solid var(--border);padding:28px 24px">
   <div style="max-width:860px;margin:0 auto">
@@ -1351,7 +1348,7 @@ gtag('config', 'G-03QX35NF7F', {
 
       <details style="border:1px solid #e2e8f0;border-radius:6px;background:#fff;overflow:hidden">
         <summary style="padding:9px 14px;cursor:pointer;font-size:.8rem;font-weight:600;color:#334155;list-style:none;display:flex;align-items:center;gap:8px">
-          <span style="color:var(--p2)">▸</span> Acuicultura recirculante y biofiltración
+          <span style="color:var(--p2)">▸</span> Aquicultura recirculante e biofiltração
         </summary>
         <div style="padding:10px 14px 12px 28px;font-size:.78rem;color:#475569;line-height:1.6;border-top:1px solid #f1f5f9">
           Timmons, M.B. &amp; Ebeling, J.M. (2010). <em>Recirculating Aquaculture</em> (2nd ed.). Cayuga Aqua Ventures.<br>
@@ -1364,7 +1361,7 @@ gtag('config', 'G-03QX35NF7F', {
 
       <details style="border:1px solid #e2e8f0;border-radius:6px;background:#fff;overflow:hidden">
         <summary style="padding:9px 14px;cursor:pointer;font-size:.8rem;font-weight:600;color:#334155;list-style:none;display:flex;align-items:center;gap:8px">
-          <span style="color:var(--p2)">▸</span> Alometría de peces y datos de espécies
+          <span style="color:var(--p2)">▸</span> Alometria de peixes e dados de espécies
         </summary>
         <div style="padding:10px 14px 12px 28px;font-size:.78rem;color:#475569;line-height:1.6;border-top:1px solid #f1f5f9">
           Froese, R. &amp; Pauly, D. (Eds.). FishBase. www.fishbase.org.<br>
@@ -2209,12 +2206,12 @@ function renderResults(r){
     document.getElementById('stk-sub').textContent=
       r.stk<70  ? '✅ Good — tank has space for more fish':
       r.stk<85  ? '🟡 Llenando — planifica las siguientes adiciones':
-      r.stk<100 ? '⚠️ Casi lleno — considera un acuario más grande':
-                  '🚨 Superpoblado — reduce peces o amplía el acuario';
+      r.stk<100 ? '⚠️ Quase cheio — considere um aquário maior':
+                  '🚨 Superpopulado — reduza peixes ou amplie o aquário';
   } else {
     document.getElementById('stk-val').textContent='0%';
     document.getElementById('stk-bar').style.width='0%';
-    document.getElementById('stk-sub').textContent='Añade peces para calcular el nivel de población';
+    document.getElementById('stk-sub').textContent='Adicione peixes para calcular o nível de população';
   }
 
   // Filtration
@@ -2235,7 +2232,7 @@ function renderResults(r){
     document.getElementById('flt-val').textContent='—';
     document.getElementById('flt-bar').style.width='50%';
     document.getElementById('flt-bar').style.background='var(--muted)';
-    document.getElementById('flt-sub').textContent='Añade peces para comprobar la capacidad del filtro';
+    document.getElementById('flt-sub').textContent='Adicione peixes para verificar a capacidade do filtro';
   } else {
     document.getElementById('flt-val').textContent='—';
     document.getElementById('flt-bar').style.width='0%';
@@ -2283,7 +2280,7 @@ function renderResults(r){
   {
     const isSW_n = state.waterType === 'salt';
     const nitThresh = isSW_n ? getSwNitrateThresholds() : {warnPpm:20, dangerPpm:40};
-    const tankTypeLabel = !isSW_n ? 'acuario de água doce'
+    const tankTypeLabel = !isSW_n ? 'aquário de água doce'
       : state.swTankType === 'reef_sps'  ? 'arrecife SPS'
       : state.swTankType === 'reef_soft' ? 'arrecife de corales blandos'
       : 'FOWLR';
@@ -2296,9 +2293,9 @@ function renderResults(r){
       setMeter('nit-bar','nit-val','nit-sub', barPct, 100, '≈'+ppm+' ppm', cc);
       document.getElementById('nit-sub').textContent =
         ppm < warnPpm*0.5  ? `✅ Excelente — NO₃ muy estable (≈${ppm} ppm)` :
-        ppm < warnPpm      ? `🟡 Bueno (≈${ppm} ppm) — mantén los cambios de agua rutinarios` :
-        ppm < dangerPpm    ? `⚠️ Elevado (≈${ppm} ppm) — aumenta el volumen de cambios de agua` :
-                             `🚨 Nitrato alto (≈${ppm} ppm) — reduce peces o cambia más agua`;
+        ppm < warnPpm      ? `🟡 Bom (≈${ppm} ppm) — mantenha as trocas de água rotineiras` :
+        ppm < dangerPpm    ? `⚠️ Elevado (≈${ppm} ppm) — aumente o volume das trocas de água` :
+                             `🚨 Nitrato alto (≈${ppm} ppm) — reduza peixes ou faça mais trocas de água`;
     } else {
       // Always show correct target threshold for current mode
       document.getElementById('nit-sub').textContent =
@@ -2406,7 +2403,7 @@ function renderAlerts(r){
   const fishList=r.fishList;
 
   if(fishList.length===0){
-    box.innerHTML=`<div class="alert alert-info"><span>ℹ️</span><span>Introduce el tamaño del acuario, el caudal del filtro y añade peces para obtener el análisis completo.</span></div>`;
+    box.innerHTML=`<div class="alert alert-info"><span>ℹ️</span><span>Insira o tamanho do aquário, a vazão do filtro e adicione peixes para obter a análise completa.</span></div>`;
     return;
   }
 
@@ -2415,14 +2412,14 @@ function renderAlerts(r){
     const tooSmall = fishList.filter(({f}) => f.minGal && (f.minGal * 3.785) > r.vol_L);
     tooSmall.forEach(({f}) => {
       const minL = Math.round(f.minGal * 3.785);
-      alerts.push({t:'danger', m:`🚫 ${dn(f)} necesita un mínimo de ${minL} L (${f.minGal} gal). Tu acuario es demasiado pequeño para esta espécie.`});
+      alerts.push({t:'danger', m:`🚫 ${dn(f)} precisa de no mínimo ${minL} L (${f.minGal} gal). Seu aquário é muito pequeno para esta espécie.`});
     });
   }
 
   // Stocking
-  if(r.stk>100)      alerts.push({t:'danger',m:'🚨 El acuario está superpoblado. Retira algunos peces o cambia a uno más grande.'});
-  else if(r.stk>80)  alerts.push({t:'warn',  m:'⚠️ El acuario se acerca a su capacidad máxima. Planifica bien los próximos peces.'});
-  else if(r.stk<20 && r.vol_L>20) alerts.push({t:'ok',m:'✅ El acuario tiene mucha capacidad — puedes añadir más peces.'});
+  if(r.stk>100)      alerts.push({t:'danger',m:'🚨 O aquário está superpopulado. Remova alguns peixes ou mude para um maior.'});
+  else if(r.stk>80)  alerts.push({t:'warn',  m:'⚠️ O aquário está chegando à capacidade máxima. Planeje bem os próximos peixes.'});
+  else if(r.stk<20 && r.vol_L>20) alerts.push({t:'ok',m:'✅ O aquário tem bastante capacidade — você pode adicionar mais peixes.'});
 
   // Filter
   const recLPH2 = r.eff_bl>0 && r.eta_bio>0 && r.wc_penalty>0
@@ -2432,7 +2429,7 @@ function renderAlerts(r){
   const flowIsOk = r.turnover >= 6;
   if(r.C_bio>0 && r.flt<80 && r.eff_bl>0){
     if(flowIsOk){
-      alerts.push({t:'danger',m:`🔴 La filtración biológica es insuficiente a pesar del caudal adecuado. Mejora tu medio filtrante: añade material de alta superficie como esponja de espuma, K1 o cerámica porosa.`});
+      alerts.push({t:'danger',m:`🔴 A filtração biológica é insuficiente apesar da vazão adequada. Melhore sua mídia filtrante ou adicione mais superfície biológica.`});
     } else {
       alerts.push({t:'danger',m:`🔴 Filtração insuficiente. Recomendado: ≥ ${recLPH2} L/h — considera un ${recFilterType} con biomedio de calidad.`});
     }
@@ -2443,23 +2440,23 @@ function renderAlerts(r){
       alerts.push({t:'warn',m:`⚠️ Filtro ligeramente infradimensionado. Mínimo recomendado: ${recLPH2} L/h (${recFilterType}).`});
     }
   }
-  if(r.C_bio===0) alerts.push({t:'warn',m:'⚠️ No se ha especificado filtro. Todos los acuarios necesitan filtración biológica — introduce el caudal de tu filtro.'});
+  if(r.C_bio===0) alerts.push({t:'warn',m:'⚠️ Nenhum filtro especificado. Todos os aquários precisam de filtração biológica. Adicione um filtro para resultados precisos.'});
 
   // Nitrate — thresholds differ FW vs SW tank type
   const ppm = Math.round(r.NO3_ss);
   if(r.swNitThresh){
     const {warnPpm, dangerPpm} = r.swNitThresh;
     const tankLabel = state.swTankType==='reef_sps' ? 'arrecife SPS' : state.swTankType==='reef_soft' ? 'arrecife de corales blandos' : 'FOWLR';
-    if(ppm >= dangerPpm) alerts.push({t:'danger', m:`🧪 Nitrato crítico para ${tankLabel} (≈${ppm} ppm — peligroso por encima de ${dangerPpm} ppm). Aumenta los cambios de agua o añade un refugio de Chaeto.`});
+    if(ppm >= dangerPpm) alerts.push({t:'danger', m:`🧪 Nitrato crítico para ${tankLabel} (≈${ppm} ppm — perigoso acima de ${dangerPpm} ppm). Faça uma troca de água de emergência imediatamente.`});
     else if(ppm >= warnPpm) alerts.push({t:'warn', m:`💧 Nitrato elevado para ${tankLabel} (≈${ppm} ppm). Objetivo: menos de ${warnPpm} ppm — prueba cambios más frecuentes o un refugio de Chaeto.`});
   } else {
-    if(r.F_nit>1.0)    alerts.push({t:'danger',m:`🧪 El nitrato se acumulará (≈${ppm} ppm). Aumenta el volumen o la frecuencia de cambios de agua.`});
-    else if(r.F_nit>0.7) alerts.push({t:'warn', m:`💧 Nitrato ligeramente elevado. Prueba cambios de agua del 30% semanales para mejores resultados.`});
+    if(r.F_nit>1.0)    alerts.push({t:'danger',m:`🧪 O nitrato vai se acumular (≈${ppm} ppm). Aumente o volume ou a frequência das trocas de água.`});
+    else if(r.F_nit>0.7) alerts.push({t:'warn', m:`💧 Nitrato levemente elevado. Tente trocas de água de 30% semanais.`});
   }
 
   // Bio-balls warning in SW (submerged = nitrate factory, unless in wet/dry)
   if(state.waterType === 'salt' && state.selectedMedia.has('bio_balls') && state.filterType !== 'wetdry'){
-    alerts.push({t:'warn', m:'⚠️ Las bio-balls sumergidas en un sump se convierten en fábricas de nitratos en acuarios marinos — sus cavidades atrapan detritos y crean zonas anaeróbicas. Sustitúyelas por esponja de espuma o K1, o úsalas solo en un filtro Wet/Dry (trickle) donde estén expuestas al aire.'});
+    alerts.push({t:'warn', m:'⚠️ Bio-balls submersas em um sump se tornam fábricas de nitratos em aquários marinhos — suas cavidades acumulam detritos e criam zonas anaeróbicas. Substitua por esponja ou K1, ou use-as apenas em filtro Wet/Dry (trickle) onde ficam expostas ao ar.'});
   }
 
   // Reef safe warnings (SW only)
@@ -2473,7 +2470,7 @@ function renderAlerts(r){
   }
 
   // Water change
-  if(r.wc_pct<20) alerts.push({t:'warn',m:'💧 Los cambios de agua inferiores al 20% proporcionan una eliminación limitada de nitratos. Apunta al 25–30% semanal.'});
+  if(r.wc_pct<20) alerts.push({t:'warn',m:'💧 Trocas de água abaixo de 20% proporcionam remoção limitada de nitratos. Recomendamos ≥25% semanais.'});
 
   // Schooling
   fishList.forEach(({f,qty})=>{
@@ -2514,10 +2511,10 @@ function renderAlerts(r){
   fishList.forEach(({f})=>{
     const minL=Math.round(f.minGal*3.785);
     if(r.vol_L>0&&r.vol_L<minL)
-      alerts.push({t:'warn',m:`📏 ${dn(f)} necesita al menos ${state.metric?minL+'L':f.minGal+' gal'} — tu acuario puede ser demasiado pequeño.`});
+      alerts.push({t:'warn',m:`📏 ${dn(f)} precisa de pelo menos ${state.metric?minL+'L':f.minGal+' gal'} — seu aquário pode ser muito pequeno.`});
   });
 
-  if(alerts.length===0) alerts.push({t:'ok',m:'✅ Todo en orden! Los parámetros de tu acuario están dentro de rangos saludables.'});
+  if(alerts.length===0) alerts.push({t:'ok',m:'✅ Tudo em ordem! Os parâmetros do seu aquário estão dentro de faixas saudáveis.'});
 
   box.innerHTML=alerts.map(a=>`
     <div class="alert alert-${a.t==='danger'?'danger':a.t==='warn'?'warn':a.t==='ok'?'ok':'info'}">
@@ -2872,5 +2869,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
 });
 </script>
+
+// Language dropdown toggle
+document.querySelectorAll('.lang-switcher').forEach(function(sw){
+  sw.querySelector('.lang-btn').addEventListener('click',function(e){
+    e.stopPropagation(); sw.classList.toggle('open');
+  });
+});
+document.addEventListener('click',function(){ 
+  document.querySelectorAll('.lang-switcher.open').forEach(function(sw){ sw.classList.remove('open'); });
+});
 </body>
 </html>
