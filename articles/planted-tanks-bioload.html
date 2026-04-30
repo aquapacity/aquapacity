@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planted Tanks and Bioload: How Live Plants Change Your Stocking Capacity | Aquapacity</title>
-<meta name="description" content="Live plants actively reduce ammonia and nitrate in your aquarium. Here's the science on how much they actually help, which species are most effective, and how CO2 injection multiplies the benefit.">
+<title>Planted Tanks & Bioload: How Plants Help | Aquapacity</title>
+<meta name="description" content="Live aquarium plants reduce bioload and improve water quality. Learn how plants affect stocking density — free bioload calculator.">
 <meta name="keywords" content="planted tank bioload, live plants aquarium stocking, aquarium plants nitrogen, planted tank fish capacity, CO2 injection aquarium, aquatic plants ammonia, planted tank stocking calculator">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Planted Tanks and Bioload: How Live Plants Change Your Stocking Capacity | Aquapacity">
-<meta property="og:description" content="Live plants do more than look good. They actively reduce ammonia and nitrate and let you keep more fish. Here's the data.">
+<meta property="og:title" content="Planted Tanks & Bioload: How Plants Help">
+<meta property="og:description" content="Live aquarium plants reduce bioload and improve water quality. Learn how plants affect stocking density.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://aquapacity.com/articles/planted-tanks-bioload.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Planted Tanks and Bioload: How Live Plants Change Your Stocking Capacity">
-<meta name="twitter:description" content="How live aquarium plants reduce nitrogen and let you keep more fish — the science explained.">
+<meta name="twitter:title" content="Planted Tanks & Bioload: How Plants Help">
+<meta name="twitter:description" content="Live aquarium plants reduce bioload and improve water quality. Learn how plants affect stocking density.">
 <link rel="canonical" href="https://aquapacity.com/articles/planted-tanks-bioload.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -162,6 +162,42 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   }
 }
 </script>
+
+<!-- Google Analytics 4 + Consent Mode v2 -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Default: deny everything before user choice
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'wait_for_update': 500
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-03QX35NF7F"></script>
+<script>
+gtag('js', new Date());
+gtag('config', 'G-03QX35NF7F', {
+  'anonymize_ip': true,
+  'cookie_flags': 'SameSite=None;Secure'
+});
+
+// Restore consent if user already chose
+(function(){
+  var c = localStorage.getItem('aq_consent');
+  if(c === 'granted') {
+    gtag('consent', 'update', {'analytics_storage': 'granted'});
+  }
+})();
+</script>
+    <meta property="og:image" content="https://aquapacity.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://aquapacity.com/og-image.jpg">
+    <link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/planted-tanks-bioload.html">
+    <link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/planted-tanks-bioload.html">
+
 </head>
 
 <body>
@@ -453,5 +489,29 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   </div>
 </footer>
 
+
+<!-- Cookie consent banner -->
+<div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 12px rgba(0,0,0,.2)">
+  <span style="flex:1;min-width:200px">We use analytics cookies (Google Analytics) to improve this site. We don't share data with third parties. <a href="/privacidad.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidad</a></span>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="aqConsent('denied')" style="background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.875rem;font-family:inherit">Essential only</button>
+    <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit">Accept</button>
+  </div>
+</div>
+<script>
+(function(){
+  var b = document.getElementById('aq-cookie-banner');
+  if(!b) return;
+  if(!localStorage.getItem('aq_consent')) b.style.display='flex';
+})();
+
+function aqConsent(choice){
+  localStorage.setItem('aq_consent', choice);
+  gtag('consent', 'update', {'analytics_storage': choice});
+  var b = document.getElementById('aq-cookie-banner');
+  if(b) b.style.display='none';
+  if(choice === 'granted') gtag('event', 'consent_accepted');
+}
+</script>
 </body>
 </html>

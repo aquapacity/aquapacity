@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Why the 1-Inch-Per-Gallon Rule Is Wrong | Aquapacity</title>
-<meta name="description" content="The 1-inch-per-gallon rule is dangerously inaccurate for aquarium stocking. Learn why it fails and discover a science-based approach to stocking your tank safely.">
+<meta name="description" content="The old 1-inch-per-gallon stocking rule is dangerously outdated. Learn the science-based method to stock your aquarium correctly — free calculator included.">
 <meta name="keywords" content="1 inch per gallon rule, aquarium stocking, how many fish in my tank, bioload, aquarium stocking calculator, fish tank overstocking">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Why the 1-Inch-Per-Gallon Rule Is Wrong | Aquapacity">
-<meta property="og:description" content="The most common aquarium stocking rule is outdated and dangerous. Here's why it fails and what to use instead.">
+<meta property="og:title" content="Why the 1-Inch-Per-Gallon Rule Is Wrong">
+<meta property="og:description" content="The old 1-inch-per-gallon stocking rule is dangerously outdated. Learn the science-based method to stock your aquarium correctly.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://aquapacity.com/articles/1-inch-per-gallon-rule.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Why the 1-Inch-Per-Gallon Rule Is Wrong">
-<meta name="twitter:description" content="Learn why the 1-inch-per-gallon rule fails and discover a better way to stock your aquarium.">
+<meta name="twitter:description" content="The old 1-inch-per-gallon stocking rule is dangerously outdated. Learn the science-based method to stock your aquarium correctly.">
 <link rel="canonical" href="https://aquapacity.com/articles/1-inch-per-gallon-rule.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,6 +131,43 @@ script[type="application/ld+json"]{display:none}
   }
 }
 </script>
+
+<!-- Google Analytics 4 + Consent Mode v2 -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Default: deny everything before user choice
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'wait_for_update': 500
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-03QX35NF7F"></script>
+<script>
+gtag('js', new Date());
+gtag('config', 'G-03QX35NF7F', {
+  'anonymize_ip': true,
+  'cookie_flags': 'SameSite=None;Secure'
+});
+
+// Restore consent if user already chose
+(function(){
+  var c = localStorage.getItem('aq_consent');
+  if(c === 'granted') {
+    gtag('consent', 'update', {'analytics_storage': 'granted'});
+  }
+})();
+</script>
+    <meta property="og:image" content="https://aquapacity.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://aquapacity.com/og-image.jpg">
+    <link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/1-inch-per-gallon-rule.html">
+    <link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html">
+    <link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/1-inch-per-gallon-rule.html">
+
 </head>
 
 <body>
@@ -158,6 +195,7 @@ script[type="application/ld+json"]{display:none}
       <a href="../index.html#calculator">Calculator</a>
       <a href="../index.html#how-it-works">How It Works</a>
       <a href="../index.html#faq">FAQ</a>
+      <a href="/privacidad.html">Privacy Policy</a>
     </nav>
   </div>
 </header>
@@ -394,5 +432,29 @@ script[type="application/ld+json"]{display:none}
   </div>
 </footer>
 
+
+<!-- Cookie consent banner -->
+<div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 12px rgba(0,0,0,.2)">
+  <span style="flex:1;min-width:200px">We use analytics cookies (Google Analytics) to improve this site. We don't share data with third parties. <a href="/privacidad.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidad</a></span>
+  <div style="display:flex;gap:10px;flex-shrink:0">
+    <button onclick="aqConsent('denied')" style="background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.875rem;font-family:inherit">Essential only</button>
+    <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit">Accept</button>
+  </div>
+</div>
+<script>
+(function(){
+  var b = document.getElementById('aq-cookie-banner');
+  if(!b) return;
+  if(!localStorage.getItem('aq_consent')) b.style.display='flex';
+})();
+
+function aqConsent(choice){
+  localStorage.setItem('aq_consent', choice);
+  gtag('consent', 'update', {'analytics_storage': choice});
+  var b = document.getElementById('aq-cookie-banner');
+  if(b) b.style.display='none';
+  if(choice === 'granted') gtag('event', 'consent_accepted');
+}
+</script>
 </body>
 </html>
