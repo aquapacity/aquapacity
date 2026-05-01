@@ -9,6 +9,8 @@
 <link rel="canonical" href="https://aquapacity.com/pt/articles.html">
 <link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles.html">
 <link rel="alternate" hreflang="en" href="https://aquapacity.com/articles.html">
+<link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles.html">
+<link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -77,6 +79,15 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .footer-inner a{color:rgba(255,255,255,.8)}
 .footer-credit{font-size:.78rem;opacity:.6}
 
+/* LANG SWITCHER */
+.lang-switcher{position:relative;display:inline-block}
+.lang-switcher .lang-btn{cursor:pointer;background:transparent;border:none;color:rgba(255,255,255,.85);font-family:inherit;font-size:.875rem;font-weight:600}
+.lang-options{display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.18);overflow:hidden;min-width:150px;z-index:2000}
+.lang-options a{display:flex;align-items:center;gap:8px;padding:10px 16px;text-decoration:none;color:#1e293b;font-size:.875rem;font-weight:700;transition:background .15s}
+.lang-options a:hover{background:#f1f5f9}
+.lang-options a.current{background:#e0f2fe;color:#0c4a73}
+.lang-switcher.open .lang-options{display:block}
+@media(max-width:640px){.lang-switcher{display:none}}
 /* MOBILE */
 .hamburger-wrap{display:none}
 @media(max-width:640px){
@@ -122,7 +133,7 @@ gtag('config', 'G-03QX35NF7F', {
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:title" content="Artigos e Guias de Aquários Grátis | Aquapacity">
-    <meta name="twitter:description" content="Guías expertas sobre población de aquários, filtração, trocas de água y más.">
+    <meta name="twitter:description" content="Guias especializados sobre aquários: população, filtração, trocas de água e mais.">
     <meta name="twitter:image" content="https://aquapacity.com/og-image.jpg">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -132,7 +143,7 @@ gtag('config', 'G-03QX35NF7F', {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       "name": "Artigos e Guias de Aquários",
-      "description": "Guías expertas sobre población de aquários, filtração, trocas de água y más.",
+      "description": "Guias especializados sobre aquários: população, filtração, trocas de água e mais.",
       "url": "https://aquapacity.com/pt/articles.html",
       "publisher": {
         "@type": "Organization",
@@ -142,8 +153,8 @@ gtag('config', 'G-03QX35NF7F', {
       "inLanguage": "pt-BR",
       "hasPart": [
         {"@type": "Article", "name": "Por Que a Regra do Centímetro por Litro Está Errada", "url": "https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro.html"},
-        {"@type": "Article", "name": "Guía Completa de Filtração para Aquários", "url": "https://aquapacity.com/pt/articles/guia-completa-filtracion-aquários.html"},
-        {"@type": "Article", "name": "Trocas de Água en Aquários: La Guía Definitiva", "url": "https://aquapacity.com/pt/articles/trocas-de-agua-guia.html"}
+        {"@type": "Article", "name": "Guia Completa de Filtração para Aquários", "url": "https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios.html"},
+        {"@type": "Article", "name": "Trocas de Água em Aquários: O Guia Definitivo", "url": "https://aquapacity.com/pt/articles/trocas-de-agua-guia.html"}
       ]
     }
     </script>
@@ -170,9 +181,10 @@ gtag('config', 'G-03QX35NF7F', {
     </a>
     <nav>
       <a href="index.html#calculator">Calculadora</a>
-      <a href="index.html#how-it-works">Cómo Funciona</a>
+      <a href="index.html#how-it-works">Como Funciona</a>
       <a href="index.html#faq">FAQ</a>
       <a href="articles.html" class="active">Artigos</a>
+      <div class="lang-switcher"><button class="lang-btn">🌐 PT ▾</button><div class="lang-options"><a href="../articles.html">🇺🇸 English</a><a href="../es/articles.html">🇪🇸 Español</a><a href="articles.html" class="current">🇧🇷 Português</a></div></div>
     </nav>
   </div>
 </header>
@@ -180,15 +192,15 @@ gtag('config', 'G-03QX35NF7F', {
 <!-- HERO -->
 <div class="page-hero">
   <h1>📖 Artigos sobre Aquáriofilia</h1>
-  <p>Guías basadas en ciencia para poblar, filtrar y cuidar tu aquário correctamente.</p>
+  <p>Guias baseados em ciência para popular, filtrar e cuidar do seu aquário corretamente.</p>
 </div>
 
 <!-- FILTER BAR -->
 <div class="filter-bar">
   <button class="filter-btn active" data-cat="all" onclick="filterCat(this)">Todos</button>
-  <button class="filter-btn" data-cat="stocking" onclick="filterCat(this)">Población</button>
+  <button class="filter-btn" data-cat="stocking" onclick="filterCat(this)">População</button>
   <button class="filter-btn" data-cat="filtration" onclick="filterCat(this)">Filtração</button>
-  <button class="filter-btn" data-cat="care" onclick="filterCat(this)">Mantenimiento</button>
+  <button class="filter-btn" data-cat="care" onclick="filterCat(this)">Manutenção</button>
   <button class="filter-btn" data-cat="species" onclick="filterCat(this)">Espécies</button>
   <button class="filter-btn" data-cat="plants" onclick="filterCat(this)">Plantas</button>
 </div>
@@ -199,37 +211,37 @@ gtag('config', 'G-03QX35NF7F', {
 
     <a class="article-card" href="articles/regra-do-centimetro-por-litro.html" data-cat="stocking">
       <div class="card-body">
-        <span class="card-tag">Población</span>
-        <div class="card-title">Por qué la Regla del Centímetro por Litro Está Equivocada</div>
-        <div class="card-desc">La regla más repetida en aquáriofilia es también la más peligrosa. Te explicamos por qué falla y qué modelo usar en su lugar.</div>
+        <span class="card-tag">População</span>
+        <div class="card-title">Por que a Regra do Centímetro por Litro Está Errada</div>
+        <div class="card-desc">A regra mais repetida na aquariofilia é também a mais perigosa. Explicamos por que ela falha e qual modelo usar no lugar.</div>
       </div>
       <div class="card-footer">
         <span>8 min de leitura</span>
-        <span class="card-read">Leer</span>
+        <span class="card-read">Ler</span>
       </div>
     </a>
 
-    <a class="article-card" href="articles/guia-completa-filtracion-aquários.html" data-cat="filtration">
+    <a class="article-card" href="articles/guia-completa-filtragem-aquarios.html" data-cat="filtration">
       <div class="card-body">
         <span class="card-tag">Filtração</span>
-        <div class="card-title">Guía Completa de Filtração para Aquários</div>
-        <div class="card-desc">Filtros externos, internos, esponja, sump... ¿cuál elegir y por qué? Todo lo que necesitas saber sobre filtração biológica, mecánica y química.</div>
+        <div class="card-title">Guia Completa de Filtração para Aquários</div>
+        <div class="card-desc">Filtros externos, internos, esponja, sump... qual escolher e por quê? Tudo o que você precisa saber sobre filtração biológica, mecânica e química.</div>
       </div>
       <div class="card-footer">
         <span>12 min de leitura</span>
-        <span class="card-read">Leer</span>
+        <span class="card-read">Ler</span>
       </div>
     </a>
 
     <a class="article-card" href="articles/trocas-de-agua-guia.html" data-cat="care">
       <div class="card-body">
-        <span class="card-tag">Mantenimiento</span>
-        <div class="card-title">Trocas de Água: La Guía Definitiva</div>
-        <div class="card-desc">¿Cuánta agua cambiar y con qué frecuencia? Aprende a calcular el intervalo óptimo según tu biocarga, filtração y objetivos de calidad del agua.</div>
+        <span class="card-tag">Manutenção</span>
+        <div class="card-title">Trocas de Água: O Guia Definitivo</div>
+        <div class="card-desc">Quanto de água trocar e com que frequência? Aprenda a calcular o intervalo ideal de acordo com a biocarga, filtração e objetivos de qualidade da água.</div>
       </div>
       <div class="card-footer">
         <span>10 min de leitura</span>
-        <span class="card-read">Leer</span>
+        <span class="card-read">Ler</span>
       </div>
     </a>
 
@@ -238,22 +250,23 @@ gtag('config', 'G-03QX35NF7F', {
 
 <!-- CTA -->
 <div class="cta-strip">
-  <h2>¿Listo para calcular tu biocarga?</h2>
-  <p>Aplica lo aprendido con nuestra calculadora gratuita. Añade tus peixes, configura tu filtro y obtén un análisis instantáneo.</p>
-  <a href="index.html#calculator" class="cta-btn">🧮 Abrir la Calculadora</a>
+  <h2>Pronto para calcular sua biocarga?</h2>
+  <p>Aplique o que aprendeu com nossa calculadora gratuita. Adicione seus peixes, configure seu filtro e obtenha uma análise instantânea.</p>
+  <a href="index.html#calculator" class="cta-btn">🧮 Abrir a Calculadora</a>
 </div>
 
 <footer>
   <div class="footer-inner">
     <div>
       <strong style="color:#fff">🐠 Aquapacity</strong> · Calculadora de Biocarga para Aquários
-      <div class="footer-credit">Grátis para siempre. Hecha por y para aficionados a la aquáriofilia.</div>
+      <div class="footer-credit">Gratuito para sempre. Criada por aquaristas, para aquaristas.</div>
     </div>
     <div style="display:flex;gap:20px;flex-wrap:wrap">
       <a href="index.html#calculator">Calculadora</a>
-      <a href="index.html#how-it-works">Cómo Funciona</a>
+      <a href="index.html#how-it-works">Como Funciona</a>
       <a href="index.html#faq">FAQ</a>
       <a href="mailto:aquapacity.info@gmail.com">Contato</a>
+      <a href="privacidade.html">Privacidade</a>
     </div>
   </div>
 </footer>
@@ -271,10 +284,10 @@ function filterCat(btn){
 
 <!-- Cookie consent banner -->
 <div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 12px rgba(0,0,0,.2)">
-  <span style="flex:1;min-width:200px">Usamos cookies analíticas (Google Analytics) para mejorar la web. No compartimos datos con terceros. <a href="/pt/privacidade.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidade</a></span>
+  <span style="flex:1;min-width:200px">Usamos cookies analíticas (Google Analytics) para melhorar o site. Não compartilhamos dados com terceiros. <a href="/pt/privacidade.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidade</a></span>
   <div style="display:flex;gap:10px;flex-shrink:0">
-    <button onclick="aqConsent('denied')" style="background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.875rem;font-family:inherit">Solo esenciales</button>
-    <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit">Aceptar</button>
+    <button onclick="aqConsent('denied')" style="background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.875rem;font-family:inherit">Só essenciais</button>
+    <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit">Aceitar tudo</button>
   </div>
 </div>
 <script>
@@ -291,6 +304,16 @@ function aqConsent(choice){
   if(b) b.style.display='none';
   if(choice === 'granted') gtag('event', 'consent_accepted');
 }
+</script>
+<script>
+document.querySelectorAll('.lang-switcher').forEach(function(sw){
+  sw.querySelector('.lang-btn').addEventListener('click',function(e){
+    e.stopPropagation(); sw.classList.toggle('open');
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.lang-switcher.open').forEach(function(sw){ sw.classList.remove('open'); });
+});
 </script>
 </body>
 </html>
