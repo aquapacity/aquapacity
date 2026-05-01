@@ -7,84 +7,146 @@
 <meta name="description" content="Guías expertas sobre población de acuarios, filtración, cambios de agua y más. Consejos basados en ciencia para aficionados a la acuariofilia.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://aquapacity.com/es/articles.html">
-<link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles.html">
 <link rel="alternate" hreflang="en" href="https://aquapacity.com/articles.html">
+<link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles.html">
+<link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles.html">
+<link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
+/* ─── TOKENS ───────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --p:#0369a1;--p2:#0ea5e9;--teal:#0d9488;
-  --g:#16a34a;--y:#d97706;--r:#dc2626;
   --bg:#f0f9ff;--surf:#fff;--border:#e0f2fe;
   --txt:#1e293b;--muted:#64748b;
   --sh:0 1px 3px rgba(0,0,0,.10),0 1px 2px rgba(0,0,0,.06);
   --sh2:0 4px 12px rgba(0,0,0,.10),0 2px 4px rgba(0,0,0,.06);
   --r6:6px;--r12:12px;
+  --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;font-size:16px;overflow-x:hidden}
+body{font-family:var(--font);background:var(--bg);color:var(--txt);line-height:1.6;font-size:15px;overflow-x:hidden}
 a{color:var(--p);text-decoration:none}
 a:hover{text-decoration:underline}
-h1,h2,h3{line-height:1.3;font-weight:800}
 
-/* HEADER */
-header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+/* ─── HEADER ───────────────────────────────────────────────── */
+header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
 .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;user-select:none}
-.logo-wordmark{font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
-.logo-icon{flex-shrink:0;width:40px;height:40px}
+.logo-wordmark{font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;letter-spacing:-.02em;line-height:1}
+.logo-icon{flex-shrink:0}
 nav{display:flex;gap:20px}
 nav a{color:rgba(255,255,255,.85);font-size:.875rem;transition:color .2s}
 nav a:hover{color:#fff;text-decoration:none}
-nav a.active{color:#fff;font-weight:700;border-bottom:2px solid rgba(255,255,255,.6)}
+nav a.active{color:#fff;font-weight:700}
 
-/* HERO */
-.page-hero{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 60%,#0891b2 100%);color:#fff;padding:56px 24px 48px;text-align:center}
-.page-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
-.page-hero p{font-size:1.05rem;opacity:.85;max-width:560px;margin:0 auto}
+/* ─── HAMBURGER ────────────────────────────────────────────── */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px;cursor:pointer;z-index:1001}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* FILTER BAR */
-.filter-bar{max-width:1100px;margin:32px auto 0;padding:0 24px;display:flex;gap:10px;flex-wrap:wrap}
-.filter-btn{background:#fff;border:2px solid var(--border);color:var(--muted);padding:8px 18px;border-radius:100px;font-size:.875rem;font-weight:700;cursor:pointer;transition:all .2s}
-.filter-btn:hover{border-color:var(--p2);color:var(--p)}
-.filter-btn.active{background:var(--p);border-color:var(--p);color:#fff}
+/* ─── MOBILE NAV ───────────────────────────────────────────── */
+.mobile-nav{position:fixed;top:0;right:0;width:280px;height:100%;background:#fff;z-index:1000;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 24px rgba(0,0,0,.15);display:flex;flex-direction:column}
+.mobile-nav.open{transform:translateX(0)}
+.mn-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(135deg,#0a3d5c,#0369a1);color:#fff}
+.mn-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem}
+.mn-close{background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;padding:4px 8px;line-height:1}
+.mn-links{display:flex;flex-direction:column;padding:16px 0;flex:1}
+.mn-links a{display:flex;align-items:center;gap:12px;padding:16px 24px;font-size:1rem;font-weight:600;color:var(--txt);text-decoration:none;border-bottom:1px solid var(--border);transition:background .15s}
+.mn-links a:hover{background:#f0f9ff;color:var(--p);text-decoration:none}
+.mn-links a.active{background:#f0f9ff;color:var(--p)}
+.mn-icon{font-size:1.2rem;width:28px;text-align:center}
+.mn-footer{padding:20px 24px;border-top:1px solid var(--border)}
+.mn-kofi{display:block;text-align:center;background:var(--p);color:#fff;padding:12px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
+.mn-kofi:hover{background:#0284c7;text-decoration:none}
+.mobile-nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;backdrop-filter:blur(2px)}
+.mobile-nav-backdrop.open{display:block}
 
-/* ARTICLES GRID */
-.articles-section{max-width:1100px;margin:0 auto;padding:24px 24px 64px}
-.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;margin-top:24px}
-.article-card{background:#fff;border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--border);display:flex;flex-direction:column;transition:all .2s;text-decoration:none;color:inherit}
-.article-card:hover{box-shadow:var(--sh2);transform:translateY(-3px);text-decoration:none}
-.card-body{padding:22px 22px 20px;flex:1;display:flex;flex-direction:column}
-.card-tag{display:inline-block;background:#e0f2fe;color:var(--p);padding:4px 10px;border-radius:100px;font-size:.78rem;font-weight:700;margin-bottom:12px}
-.card-title{font-size:1.1rem;font-weight:800;color:#0c4a6e;line-height:1.3;margin-bottom:10px}
-.card-desc{font-size:.875rem;color:var(--muted);line-height:1.6;flex:1}
-.card-footer{padding:14px 22px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:.8rem;color:var(--muted)}
-.card-read{color:var(--p);font-weight:700;font-size:.85rem}
-.card-read::after{content:' →'}
+/* ─── PAGE HERO ────────────────────────────────────────────── */
+.page-hero{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 60%,#0891b2 100%);color:#fff;padding:48px 24px 56px}
+.page-hero-inner{max-width:1200px;margin:0 auto}
+.breadcrumb{font-size:.82rem;color:rgba(255,255,255,.7);margin-bottom:16px}
+.breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb span{margin:0 6px;opacity:.5}
+.page-hero h1{font-family:'Nunito',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;margin-bottom:10px}
+.page-hero p{color:rgba(255,255,255,.8);max-width:580px;font-size:.975rem;margin-bottom:24px}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--p);font-weight:700;font-size:.9rem;padding:10px 20px;border-radius:100px;text-decoration:none;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.hero-cta:hover{background:#f0f9ff;transform:translateY(-1px);text-decoration:none}
 
-/* CTA */
-.cta-strip{background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f4 100%);border:2px solid var(--p2);border-radius:var(--r12);padding:36px 28px;text-align:center;max-width:700px;margin:0 auto 64px}
-.cta-strip h2{font-size:1.5rem;color:#0c4a6e;margin-bottom:12px}
-.cta-strip p{color:var(--muted);margin-bottom:20px}
-.cta-btn{display:inline-block;background:var(--p);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(3,105,161,.3)}
-.cta-btn:hover{background:#0284c7;transform:translateY(-2px);box-shadow:0 6px 20px rgba(3,105,161,.4);text-decoration:none}
+/* ─── FILTER BAR ───────────────────────────────────────────── */
+.filter-bar{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;position:sticky;top:64px;z-index:50}
+.filter-bar-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.filter-label{font-size:.82rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.filter-chips{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.chip{border:1.5px solid var(--border);background:#fff;padding:5px 14px;border-radius:100px;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--p2);color:var(--p)}
+.chip.active{background:var(--p);border-color:var(--p);color:#fff}
+.article-count{font-size:.82rem;color:var(--muted);white-space:nowrap}
 
-/* FOOTER */
+/* ─── ARTICLES GRID ────────────────────────────────────────── */
+.articles-main{max-width:1200px;margin:0 auto;padding:40px 24px 64px}
+.articles-grid-full{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+
+/* ─── ARTICLE CARD ─────────────────────────────────────────── */
+.article-card{background:var(--surf);border:1.5px solid var(--border);border-radius:var(--r12);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--txt);transition:all .2s}
+.article-card:hover{border-color:var(--p2);box-shadow:var(--sh2);transform:translateY(-2px);text-decoration:none}
+.ac-img{font-size:2.5rem;padding:28px 28px 14px;text-align:center}
+.ac-img.cat-stocking{background:linear-gradient(135deg,#e0f2fe,#bae6fd)}
+.ac-img.cat-filtration{background:linear-gradient(135deg,#f0fdf4,#bbf7d0)}
+.ac-img.cat-plants{background:linear-gradient(135deg,#f0fdf4,#d9f99d)}
+.ac-img.cat-species{background:linear-gradient(135deg,#fff7ed,#fed7aa)}
+.ac-img.cat-care{background:linear-gradient(135deg,#fdf4ff,#e9d5ff)}
+.ac-body{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}
+.ac-tag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--p);margin-bottom:8px}
+.article-card h2{font-size:1rem;font-weight:700;color:var(--txt);margin-bottom:8px;line-height:1.45}
+.ac-excerpt{font-size:.85rem;color:var(--muted);line-height:1.55;flex:1;margin-bottom:16px}
+.ac-footer{display:flex;align-items:center;justify-content:space-between;font-size:.78rem;padding-top:12px;border-top:1px solid var(--border)}
+.ac-meta{display:flex;align-items:center;gap:10px;color:var(--muted)}
+.ac-cta{color:var(--p);font-weight:700}
+.article-card:hover .ac-cta{text-decoration:underline}
+
+/* ─── EMPTY STATE ──────────────────────────────────────────── */
+.empty-filter{text-align:center;padding:60px 24px;color:var(--muted);display:none}
+.empty-filter.visible{display:block}
+
+/* ─── CTA BANNER ───────────────────────────────────────────── */
+.cta-banner{background:linear-gradient(135deg,#0a3d5c,#0369a1);color:#fff;padding:48px 24px;margin-top:24px}
+.cta-banner-inner{max-width:700px;margin:0 auto;text-align:center}
+.cta-banner h2{font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:900;margin-bottom:10px}
+.cta-banner p{color:rgba(255,255,255,.8);margin-bottom:24px;font-size:.975rem}
+.cta-banner a{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--p);font-weight:700;padding:12px 24px;border-radius:100px;text-decoration:none;font-size:.95rem;transition:all .2s}
+.cta-banner a:hover{background:#f0f9ff;transform:translateY(-1px);text-decoration:none}
+
+/* ─── FOOTER ───────────────────────────────────────────────── */
 footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size:.85rem}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
 .footer-inner a{color:rgba(255,255,255,.8)}
 .footer-credit{font-size:.78rem;opacity:.6}
 
-/* MOBILE */
-.hamburger-wrap{display:none}
-@media(max-width:640px){
+/* ─── RESPONSIVE ───────────────────────────────────────────── */
+@media(max-width:900px){
+  .hamburger{display:flex}
   nav{display:none}
-  .filter-bar{gap:8px}
-  .filter-btn{padding:6px 14px;font-size:.82rem}
-  .articles-grid{grid-template-columns:1fr}
+  .filter-bar{top:50px}
 }
+@media(max-width:640px){
+  .page-hero{padding:32px 16px 40px}
+  .page-hero h1{font-size:1.4rem}
+  .filter-bar{padding:12px 16px}
+  .articles-main{padding:24px 16px 48px}
+  .articles-grid-full{grid-template-columns:1fr;gap:16px}
+  .ac-img{padding:20px 20px 10px;font-size:2rem}
+  .ac-body{padding:14px 16px 18px}
+  .header-inner{height:50px}
+}
+
+/* ─── LANG SWITCHER ────────────────────────────────────────── */
 .lang-switcher{position:relative;display:inline-block}
 .lang-switcher .lang-btn{cursor:pointer;background:transparent;border:none;color:rgba(255,255,255,.85);font-family:inherit;font-size:.875rem;font-weight:600}
 .lang-options{display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.18);overflow:hidden;min-width:150px;z-index:2000}
@@ -99,8 +161,6 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
-
-// Default: deny everything before user choice
 gtag('consent', 'default', {
   'analytics_storage': 'denied',
   'ad_storage': 'denied',
@@ -114,59 +174,55 @@ gtag('config', 'G-03QX35NF7F', {
   'anonymize_ip': true,
   'cookie_flags': 'SameSite=None;Secure'
 });
-
-// Restore consent if user already chose
 (function(){
   var c = localStorage.getItem('aq_consent');
-  if(c === 'granted') {
-    gtag('consent', 'update', {'analytics_storage': 'granted'});
-  }
+  if(c === 'granted') gtag('consent', 'update', {'analytics_storage': 'granted'});
 })();
 </script>
-    <meta property="og:title" content="Artículos y Guías de Acuarios Gratis | Aquapacity">
-    <meta property="og:description" content="Guías expertas sobre población de acuarios, filtración, cambios de agua y más.">
-    <meta property="og:url" content="https://aquapacity.com/es/articles.html">
-    <meta property="og:image" content="https://aquapacity.com/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:title" content="Artículos y Guías de Acuarios Gratis | Aquapacity">
-    <meta name="twitter:description" content="Guías expertas sobre población de acuarios, filtración, cambios de agua y más.">
-    <meta name="twitter:image" content="https://aquapacity.com/og-image.jpg">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@aquapacity">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Artículos y Guías de Acuarios",
-      "description": "Guías expertas sobre población de acuarios, filtración, cambios de agua y más.",
-      "url": "https://aquapacity.com/es/articles.html",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Aquapacity",
-        "url": "https://aquapacity.com"
-      },
-      "inLanguage": "es",
-      "hasPart": [
-        {"@type": "Article", "name": "Por Qué la Regla del Centímetro por Litro Está Equivocada", "url": "https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html"},
-        {"@type": "Article", "name": "Guía Completa de Filtración para Acuarios", "url": "https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html"},
-        {"@type": "Article", "name": "Cambios de Agua en Acuarios: La Guía Definitiva", "url": "https://aquapacity.com/es/articles/cambios-de-agua-guia.html"}
-      ]
-    }
-    </script>
-    <link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles.html">
+
+<meta property="og:title" content="Artículos y Guías de Acuarios Gratis | Aquapacity">
+<meta property="og:description" content="Guías expertas sobre población de acuarios, filtración, cambios de agua y más.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aquapacity.com/es/articles.html">
+<meta property="og:image" content="https://aquapacity.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Artículos y Guías de Acuarios Gratis | Aquapacity">
+<meta name="twitter:description" content="Guías expertas sobre población de acuarios, filtración, cambios de agua y más.">
+<meta name="twitter:image" content="https://aquapacity.com/og-image.jpg">
+<meta name="twitter:site" content="@aquapacity">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Artículos y Guías de Acuarios",
+  "description": "Guías expertas sobre población de acuarios, filtración, cambios de agua y más.",
+  "url": "https://aquapacity.com/es/articles.html",
+  "publisher": {"@type": "Organization", "name": "Aquapacity", "url": "https://aquapacity.com"},
+  "inLanguage": "es",
+  "hasPart": [
+    {"@type": "Article", "name": "Por Qué la Regla del Centímetro por Litro Está Equivocada", "url": "https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html"},
+    {"@type": "Article", "name": "Guía Completa de Filtración para Acuarios", "url": "https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html"},
+    {"@type": "Article", "name": "Cambios de Agua en Acuarios: La Guía Definitiva", "url": "https://aquapacity.com/es/articles/cambios-de-agua-guia.html"}
+  ]
+}
+</script>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
     <a href="index.html" class="logo">
-      <span class="logo-icon"><svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs><clipPath id="artc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
+      <span class="logo-icon">
+        <svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><clipPath id="esac"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
           <rect x="2" y="2" width="30" height="38" rx="4" fill="rgba(255,255,255,0.10)"/>
-          <rect x="2" y="18" width="30" height="22" clip-path="url(#artc)" fill="rgba(94,234,212,0.45)"/>
-          <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#artc)" fill="rgba(94,234,212,0.7)"/>
+          <rect x="2" y="18" width="30" height="22" clip-path="url(#esac)" fill="rgba(94,234,212,0.45)"/>
+          <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#esac)" fill="rgba(94,234,212,0.7)"/>
           <line x1="24" y1="9" x2="30" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
           <line x1="24" y1="14" x2="30" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
           <line x1="24" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
@@ -174,135 +230,177 @@ gtag('config', 'G-03QX35NF7F', {
           <path d="M8 27 L5 23 L5 31 Z" fill="rgba(255,255,255,0.7)"/>
           <circle cx="18.5" cy="25.8" r="1.3" fill="rgba(0,60,80,0.8)"/>
           <rect x="2" y="2" width="30" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
-        </svg></span>
+        </svg>
+      </span>
       <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
     </a>
     <nav>
-      <a href="index.html#calculator">Calculadora</a>
+      <a href="index.html">Calculadora</a>
       <a href="index.html#how-it-works">Cómo Funciona</a>
       <a href="index.html#faq">FAQ</a>
       <a href="articles.html" class="active">Artículos</a>
       <div class="lang-switcher"><button class="lang-btn">🌐 ES ▾</button><div class="lang-options"><a href="../articles.html">🇺🇸 English</a><a href="articles.html" class="current">🇪🇸 Español</a><a href="../pt/articles.html">🇧🇷 Português</a></div></div>
     </nav>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mn-header">
+    <span class="mn-title">Menú</span>
+    <button class="mn-close" onclick="toggleMobileMenu()" aria-label="Cerrar menú">✕</button>
+  </div>
+  <nav class="mn-links">
+    <a href="index.html#calculator" onclick="toggleMobileMenu()"><span class="mn-icon">🧮</span> Calculadora</a>
+    <a href="index.html#how-it-works" onclick="toggleMobileMenu()"><span class="mn-icon">🔬</span> Cómo Funciona</a>
+    <a href="index.html#faq" onclick="toggleMobileMenu()"><span class="mn-icon">❓</span> FAQ</a>
+    <a href="articles.html" class="active" onclick="toggleMobileMenu()"><span class="mn-icon">📖</span> Artículos</a>
+  </nav>
+  <div class="mn-footer">
+    <a href="https://ko-fi.com/aquapacity" target="_blank" class="mn-kofi">Apoya el proyecto ☕</a>
+  </div>
+</div>
+<div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="toggleMobileMenu()"></div>
+
+<!-- PAGE HERO -->
 <div class="page-hero">
-  <h1>📖 Artículos sobre Acuariofilia</h1>
-  <p>Guías basadas en ciencia para poblar, filtrar y cuidar tu acuario correctamente.</p>
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Aquapacity</a>
+      <span>›</span>
+      Artículos
+    </div>
+    <h1>Guías y Artículos de Acuariofilia</h1>
+    <p>Ciencia explicada para todos con el fin de poblar y cuidar tu acuario con éxito. Cada artículo enlaza a la calculadora para aplicar lo aprendido al instante.</p>
+    <a href="index.html#calculator" class="hero-cta">🧮 Abrir la calculadora</a>
+  </div>
 </div>
 
 <!-- FILTER BAR -->
 <div class="filter-bar">
-  <button class="filter-btn active" data-cat="all" onclick="filterCat(this)">Todos</button>
-  <button class="filter-btn" data-cat="stocking" onclick="filterCat(this)">Población</button>
-  <button class="filter-btn" data-cat="filtration" onclick="filterCat(this)">Filtración</button>
-  <button class="filter-btn" data-cat="care" onclick="filterCat(this)">Mantenimiento</button>
-  <button class="filter-btn" data-cat="species" onclick="filterCat(this)">Especies</button>
-  <button class="filter-btn" data-cat="plants" onclick="filterCat(this)">Plantas</button>
+  <div class="filter-bar-inner">
+    <span class="filter-label">Filtrar:</span>
+    <div class="filter-chips" id="filter-chips">
+      <button class="chip active" data-cat="all" onclick="filterArticles(this)">Todos</button>
+      <button class="chip" data-cat="stocking" onclick="filterArticles(this)">Población</button>
+      <button class="chip" data-cat="filtration" onclick="filterArticles(this)">Filtración</button>
+      <button class="chip" data-cat="plants" onclick="filterArticles(this)">Plantas</button>
+      <button class="chip" data-cat="species" onclick="filterArticles(this)">Especies</button>
+      <button class="chip" data-cat="care" onclick="filterArticles(this)">Mantenimiento</button>
+    </div>
+    <span class="article-count" id="article-count">3 publicados</span>
+  </div>
 </div>
 
 <!-- ARTICLES GRID -->
-<div class="articles-section">
-  <div class="articles-grid" id="articles-grid">
+<main class="articles-main">
+  <div class="articles-grid-full" id="articles-grid">
 
     <a class="article-card" href="articles/regla-del-centimetro-por-litro.html" data-cat="stocking">
-      <div class="card-body">
-        <span class="card-tag">Población</span>
-        <div class="card-title">Por qué la Regla del Centímetro por Litro Está Equivocada</div>
-        <div class="card-desc">La regla más repetida en acuariofilia es también la más peligrosa. Te explicamos por qué falla y qué modelo usar en su lugar.</div>
-      </div>
-      <div class="card-footer">
-        <span>8 min de lectura</span>
-        <span class="card-read">Leer</span>
+      <div class="ac-img cat-stocking">🐟</div>
+      <div class="ac-body">
+        <div class="ac-tag">Fundamentos de Población</div>
+        <h2>Por qué la Regla del Centímetro por Litro Está Equivocada (y Qué Usar en su Lugar)</h2>
+        <p class="ac-excerpt">La regla más repetida en acuariofilia es también la más peligrosa. Te explicamos por qué falla el modelo de talla corporal y cuál es el marco de biocarga que realmente funciona.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">⏱ 8 min de lectura</span></div>
+          <span class="ac-cta">Leer artículo →</span>
+        </div>
       </div>
     </a>
 
     <a class="article-card" href="articles/guia-completa-filtracion-acuarios.html" data-cat="filtration">
-      <div class="card-body">
-        <span class="card-tag">Filtración</span>
-        <div class="card-title">Guía Completa de Filtración para Acuarios</div>
-        <div class="card-desc">Filtros externos, internos, esponja, sump... ¿cuál elegir y por qué? Todo lo que necesitas saber sobre filtración biológica, mecánica y química.</div>
-      </div>
-      <div class="card-footer">
-        <span>12 min de lectura</span>
-        <span class="card-read">Leer</span>
+      <div class="ac-img cat-filtration">🔬</div>
+      <div class="ac-body">
+        <div class="ac-tag">Filtración</div>
+        <h2>Guía Completa de Filtración para Acuarios: Mecánica, Biológica y Química</h2>
+        <p class="ac-excerpt">Cómo funciona cada etapa de filtración, qué medios filtrantes importan de verdad para tus peces y cómo dimensionar correctamente el filtro para cualquier acuario.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">12 min de lectura</span></div>
+          <span class="ac-cta">Leer artículo →</span>
+        </div>
       </div>
     </a>
 
     <a class="article-card" href="articles/cambios-de-agua-guia.html" data-cat="care">
-      <div class="card-body">
-        <span class="card-tag">Mantenimiento</span>
-        <div class="card-title">Cambios de Agua: La Guía Definitiva</div>
-        <div class="card-desc">¿Cuánta agua cambiar y con qué frecuencia? Aprende a calcular el intervalo óptimo según tu biocarga, filtración y objetivos de calidad del agua.</div>
-      </div>
-      <div class="card-footer">
-        <span>10 min de lectura</span>
-        <span class="card-read">Leer</span>
+      <div class="ac-img cat-care">💧</div>
+      <div class="ac-body">
+        <div class="ac-tag">Mantenimiento</div>
+        <h2>Cambios de Agua: La Guía Definitiva — Cuánto, Cuándo y Por Qué Importa</h2>
+        <p class="ac-excerpt">Lo más impactante que puedes hacer por la salud de tus peces — y lo que más se hace mal. Los datos detrás de la frecuencia, el volumen y la técnica correcta.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">10 min de lectura</span></div>
+          <span class="ac-cta">Leer artículo →</span>
+        </div>
       </div>
     </a>
 
   </div>
+
+  <div class="empty-filter" id="empty-filter">
+    <div style="font-size:2.5rem;margin-bottom:12px">📭</div>
+    <p>No hay artículos publicados en esta categoría todavía. ¡Vuelve pronto!</p>
+  </div>
+</main>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2>¿Listo para aplicar la teoría?</h2>
+    <p>Usa la calculadora gratuita de Aquapacity para comprobar tu densidad en tiempo real — añade tus peces, introduce tu filtro y obtén un análisis instantáneo de biocarga.</p>
+    <a href="index.html#calculator">🧮 Usar la calculadora gratis</a>
+  </div>
 </div>
 
-<!-- CTA -->
-<div class="cta-strip">
-  <h2>¿Listo para calcular tu biocarga?</h2>
-  <p>Aplica lo aprendido con nuestra calculadora gratuita. Añade tus peces, configura tu filtro y obtén un análisis instantáneo.</p>
-  <a href="index.html#calculator" class="cta-btn">🧮 Abrir la Calculadora</a>
-</div>
-
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
-      <strong style="color:#fff">🐠 Aquapacity</strong> · Calculadora de Biocarga para Acuarios
-      <div class="footer-credit">Gratis para siempre. Hecha por y para aficionados a la acuariofilia.</div>
-    </div>
-    <div style="display:flex;gap:20px;flex-wrap:wrap">
-      <a href="index.html#calculator">Calculadora</a>
-      <a href="index.html#how-it-works">Cómo Funciona</a>
-      <a href="index.html#faq">FAQ</a>
+      <strong style="color:#fff">Aquapacity</strong> &nbsp;·&nbsp;
+      <a href="index.html">Calculadora</a> &nbsp;·&nbsp;
+      <a href="index.html#how-it-works">Cómo Funciona</a> &nbsp;·&nbsp;
+      <a href="index.html#faq">FAQ</a> &nbsp;·&nbsp;
+      <a href="articles.html">Artículos</a> &nbsp;·&nbsp;
       <a href="mailto:aquapacity.info@gmail.com">Contacto</a>
     </div>
+    <div class="footer-credit">Gratis para siempre. Hecha por y para aficionados a la acuariofilia. © 2026</div>
   </div>
 </footer>
 
 <script>
-function filterCat(btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+/* ─── MOBILE NAV ────────────────────────────────────────────── */
+function toggleMobileMenu(){
+  const nav=document.getElementById('mobile-nav');
+  const backdrop=document.getElementById('mobile-nav-backdrop');
+  const btn=document.getElementById('hamburger');
+  const isOpen=nav.classList.toggle('open');
+  backdrop.classList.toggle('open',isOpen);
+  btn.classList.toggle('open',isOpen);
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+
+/* ─── CATEGORY FILTER ───────────────────────────────────────── */
+function filterArticles(btn){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
   btn.classList.add('active');
   const cat = btn.dataset.cat;
-  document.querySelectorAll('.article-card').forEach(card=>{
-    card.style.display = (cat==='all' || card.dataset.cat===cat) ? '' : 'none';
+  const cards = document.querySelectorAll('#articles-grid .article-card');
+  let visible = 0;
+  cards.forEach(card=>{
+    const show = cat === 'all' || card.dataset.cat === cat;
+    card.style.display = show ? '' : 'none';
+    if(show) visible++;
   });
+  const countEl = document.getElementById('article-count');
+  if(countEl) countEl.textContent = visible + (visible===1?' publicado':' publicados');
+  const empty = document.getElementById('empty-filter');
+  if(empty) empty.classList.toggle('visible', visible===0);
 }
-</script>
 
-<!-- Cookie consent banner -->
-<div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 12px rgba(0,0,0,.2)">
-  <span style="flex:1;min-width:200px">Usamos cookies analíticas (Google Analytics) para mejorar la web. No compartimos datos con terceros. <a href="/es/privacidad.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidad</a></span>
-  <div style="display:flex;gap:10px;flex-shrink:0">
-    <button onclick="aqConsent('denied')" style="background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:.875rem;font-family:inherit">Solo esenciales</button>
-    <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit">Aceptar</button>
-  </div>
-</div>
-<script>
-(function(){
-  var b = document.getElementById('aq-cookie-banner');
-  if(!b) return;
-  if(!localStorage.getItem('aq_consent')) b.style.display='flex';
-})();
-
-function aqConsent(choice){
-  localStorage.setItem('aq_consent', choice);
-  gtag('consent', 'update', {'analytics_storage': choice});
-  var b = document.getElementById('aq-cookie-banner');
-  if(b) b.style.display='none';
-  if(choice === 'granted') gtag('event', 'consent_accepted');
-}
-</script>
-<script>
+/* ─── LANG SWITCHER ─────────────────────────────────────────── */
 document.querySelectorAll('.lang-switcher').forEach(function(sw){
   sw.querySelector('.lang-btn').addEventListener('click',function(e){
     e.stopPropagation(); sw.classList.toggle('open');
@@ -311,6 +409,78 @@ document.querySelectorAll('.lang-switcher').forEach(function(sw){
 document.addEventListener('click',function(){
   document.querySelectorAll('.lang-switcher.open').forEach(function(sw){ sw.classList.remove('open'); });
 });
+</script>
+
+<!-- Cookie consent banner -->
+<div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 16px rgba(0,0,0,.25)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <span style="flex:1;min-width:220px;line-height:1.5">Usamos cookies analíticas para mejorar el sitio. No compartimos datos con terceros. <a href="/es/privacidad.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidad</a></span>
+    <div style="display:flex;gap:10px;flex-shrink:0;align-items:center">
+      <button onclick="aqOpenPrefs()" style="background:transparent;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:inherit">Preferencias</button>
+      <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:9px 22px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit;white-space:nowrap">Aceptar todo</button>
+    </div>
+  </div>
+</div>
+<!-- Cookie preferences modal -->
+<div id="aq-prefs-overlay" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);align-items:center;justify-content:center">
+  <div style="background:#fff;color:#1e293b;border-radius:14px;padding:32px;max-width:460px;width:90%;font-family:'Nunito',sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <h3 style="margin:0 0 6px;font-size:1.1rem;font-weight:800;color:#0c4a73">Preferencias de cookies</h3>
+    <p style="margin:0 0 24px;font-size:.85rem;color:#64748b;line-height:1.5">Gestiona qué cookies permites. Las cookies esenciales están siempre activas porque son necesarias para el funcionamiento del sitio.</p>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #e2e8f0">
+      <div>
+        <div style="font-weight:700;font-size:.9rem">Cookies esenciales</div>
+        <div style="font-size:.8rem;color:#64748b;margin-top:2px">Necesarias para el funcionamiento del sitio. Siempre activas.</div>
+      </div>
+      <div style="background:#0ea5e9;border-radius:999px;width:44px;height:24px;position:relative;flex-shrink:0;opacity:.5;cursor:not-allowed">
+        <div style="position:absolute;right:3px;top:3px;width:18px;height:18px;background:#fff;border-radius:50%"></div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #e2e8f0">
+      <div>
+        <div style="font-weight:700;font-size:.9rem">Cookies analíticas</div>
+        <div style="font-size:.8rem;color:#64748b;margin-top:2px">Ayudan a entender cómo los visitantes usan el sitio. No se comparten datos personales.</div>
+      </div>
+      <div id="aq-analytics-toggle" onclick="aqToggleAnalytics()" style="background:#0ea5e9;border-radius:999px;width:44px;height:24px;position:relative;flex-shrink:0;cursor:pointer;transition:background .2s">
+        <div id="aq-analytics-knob" style="position:absolute;right:3px;top:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:right .2s"></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:20px;justify-content:flex-end">
+      <button onclick="aqSavePrefs()" style="background:#0c4a73;color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-weight:700;font-size:.9rem;font-family:'Nunito',sans-serif">Guardar preferencias</button>
+    </div>
+  </div>
+</div>
+<script>
+var _aqAnalyticsOn = true;
+function aqToggleAnalytics(){
+  _aqAnalyticsOn = !_aqAnalyticsOn;
+  var t=document.getElementById('aq-analytics-toggle');
+  var k=document.getElementById('aq-analytics-knob');
+  if(_aqAnalyticsOn){t.style.background='#0ea5e9';k.style.right='3px';}
+  else{t.style.background='#94a3b8';k.style.right='23px';}
+}
+function aqOpenPrefs(){
+  _aqAnalyticsOn=true;
+  var t=document.getElementById('aq-analytics-toggle');
+  var k=document.getElementById('aq-analytics-knob');
+  if(t){t.style.background='#0ea5e9';k.style.right='3px';}
+  document.getElementById('aq-prefs-overlay').style.display='flex';
+}
+function aqSavePrefs(){
+  var choice=_aqAnalyticsOn?'granted':'denied';
+  aqConsent(choice);
+  document.getElementById('aq-prefs-overlay').style.display='none';
+}
+(function(){
+  var b=document.getElementById('aq-cookie-banner');
+  if(!b)return;
+  if(!localStorage.getItem('aq_consent'))b.style.display='block';
+})();
+function aqConsent(choice){
+  localStorage.setItem('aq_consent',choice);
+  if(typeof gtag==='function') gtag('consent','update',{'analytics_storage':choice});
+  var b=document.getElementById('aq-cookie-banner');
+  if(b)b.style.display='none';
+}
 </script>
 </body>
 </html>
