@@ -84,19 +84,27 @@
     tr:nth-child(even) td{background:#f8fafc}
     .cta-box{background:linear-gradient(135deg,#0c4a73,#1589BE);color:#fff;border-radius:16px;padding:32px;text-align:center;margin:40px 0}
     .cta-box h3{font-size:1.3rem;font-weight:900;margin-bottom:10px}
-    .cta-box p{opacity:.9;margin-bottom:20px}
+    .cta-box p{opacity:.9;margin-bottom:20px;color:#fff}
     .cta-box a{background:#fff;color:#0c4a73;padding:12px 28px;border-radius:8px;font-weight:800;text-decoration:none;display:inline-block}
     .site-footer{background:#0c4a73;color:rgba(255,255,255,.7);text-align:center;padding:20px;font-size:.8rem;margin-top:60px}
     .site-footer a{color:rgba(255,255,255,.7)}
+  
+    .lang-switcher{position:relative;display:inline-block}
+    .lang-btn{cursor:pointer;background:transparent;border:none;color:rgba(255,255,255,.85);font-family:inherit;font-size:.875rem;font-weight:700;padding:0}
+    .lang-options{display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.2);overflow:hidden;min-width:150px;z-index:2000}
+    .lang-options a{display:flex;align-items:center;gap:8px;padding:10px 16px;text-decoration:none;color:#1e293b;font-size:.875rem;font-weight:700;transition:background .15s}
+    .lang-options a:hover{background:#f1f5f9}
+    .lang-options a.current{background:#e0f2fe;color:#0c4a73}
+    .lang-switcher.open .lang-options{display:block}
   </style>
 </head>
 <body>
 <header class="site-header">
-  <a href="../../index.html">Aquapacity</a>
+  <a href="../index.html">Aquapacity</a>
   <nav>
-    <a href="../../index.html">Calculadora</a>
+    <a href="../index.html">Calculadora</a>
     <a href="../articles.html">Artigos</a>
-    <a href="../../index.html" style="font-size:.8rem;opacity:.7">🇬🇧 English</a>
+    <div class="lang-switcher"><button class="lang-btn">🌐 PT ▾</button><div class="lang-options"><a href="../../articles/1-inch-per-gallon-rule.html">🇺🇸 English</a><a href="../../es/articles/regla-del-centimetro-por-litro.html">🇪🇸 Español</a><a href="#">🇧🇷 Português</a></div></div>
   </nav>
 </header>
 <div class="article-hero">
@@ -179,11 +187,92 @@
   <div class="cta-box">
     <h3>Calcule a biocarga do seu aquário</h3>
     <p>Calculadora gratuita com mais de 100 espécies. Baseada em ciência real.</p>
-    <a href="../../index.html#calculator">Usar a calculadora grátis →</a>
+    <a href="../index.html#calculator">Usar a calculadora grátis →</a>
   </div>
 </div>
 <footer class="site-footer">
-  <span>© 2025 Aquapacity · <a href="../privacidade.html">Privacidade</a> · <a href="mailto:aquapacity.info@gmail.com">Contato</a></span>
+  <span>© 2026 Aquapacity · <a href="../privacidade.html">Privacidade</a> · <a href="mailto:aquapacity.info@gmail.com">Contato</a></span>
 </footer>
+<script>
+document.querySelectorAll('.lang-switcher').forEach(function(sw){
+  sw.querySelector('.lang-btn').addEventListener('click',function(e){
+    e.stopPropagation();sw.classList.toggle('open');
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.lang-switcher.open').forEach(function(sw){sw.classList.remove('open');});
+});
+</script>
+<!-- Cookie consent banner -->
+<div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 16px rgba(0,0,0,.25)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <span style="flex:1;min-width:220px;line-height:1.5">Usamos cookies analíticas para melhorar o site. Não compartilhamos dados com terceiros. <a href="../privacidade.html" style="color:#7dd3fc;text-decoration:underline">Política de Privacidade</a></span>
+    <div style="display:flex;gap:10px;flex-shrink:0;align-items:center">
+      <button onclick="aqOpenPrefs()" style="background:transparent;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:inherit">Preferências</button>
+      <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:9px 22px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit;white-space:nowrap">Aceitar tudo</button>
+    </div>
+  </div>
+</div>
+<!-- Cookie preferences modal -->
+<div id="aq-prefs-overlay" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);align-items:center;justify-content:center">
+  <div style="background:#fff;color:#1e293b;border-radius:14px;padding:32px;max-width:460px;width:90%;font-family:'Nunito',sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <h3 style="margin:0 0 6px;font-size:1.1rem;font-weight:800;color:#0c4a73">Preferências de Cookies</h3>
+    <p style="margin:0 0 24px;font-size:.85rem;color:#64748b;line-height:1.5">Gerencie quais cookies você permite. Os cookies essenciais estão sempre ativos pois são necessários para o funcionamento do site.</p>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #e2e8f0">
+      <div>
+        <div style="font-weight:700;font-size:.9rem">Cookies essenciais</div>
+        <div style="font-size:.8rem;color:#64748b;margin-top:2px">Necessários para o funcionamento do site. Sempre ativos.</div>
+      </div>
+      <div style="background:#0ea5e9;border-radius:999px;width:44px;height:24px;position:relative;flex-shrink:0;opacity:.5;cursor:not-allowed">
+        <div style="position:absolute;right:3px;top:3px;width:18px;height:18px;background:#fff;border-radius:50%"></div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #e2e8f0">
+      <div>
+        <div style="font-weight:700;font-size:.9rem">Cookies analíticas</div>
+        <div style="font-size:.8rem;color:#64748b;margin-top:2px">Ajudam a entender como os visitantes usam o site. Nenhum dado pessoal é compartilhado.</div>
+      </div>
+      <div id="aq-analytics-toggle" onclick="aqToggleAnalytics()" style="background:#0ea5e9;border-radius:999px;width:44px;height:24px;position:relative;flex-shrink:0;cursor:pointer;transition:background .2s">
+        <div id="aq-analytics-knob" style="position:absolute;right:3px;top:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:right .2s"></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:20px;justify-content:flex-end">
+      <button onclick="aqSavePrefs()" style="background:#0c4a73;color:#fff;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;font-weight:700;font-size:.9rem;font-family:'Nunito',sans-serif">Salvar preferências</button>
+    </div>
+  </div>
+</div>
+<script>
+var _aqAnalyticsOn = true;
+function aqToggleAnalytics(){
+  _aqAnalyticsOn = !_aqAnalyticsOn;
+  var t=document.getElementById('aq-analytics-toggle');
+  var k=document.getElementById('aq-analytics-knob');
+  if(_aqAnalyticsOn){t.style.background='#0ea5e9';k.style.right='3px';}
+  else{t.style.background='#94a3b8';k.style.right='23px';}
+}
+function aqOpenPrefs(){
+  _aqAnalyticsOn=true;
+  var t=document.getElementById('aq-analytics-toggle');
+  var k=document.getElementById('aq-analytics-knob');
+  if(t){t.style.background='#0ea5e9';k.style.right='3px';}
+  document.getElementById('aq-prefs-overlay').style.display='flex';
+}
+function aqSavePrefs(){
+  var choice=_aqAnalyticsOn?'granted':'denied';
+  aqConsent(choice);
+  document.getElementById('aq-prefs-overlay').style.display='none';
+}
+(function(){
+  var b=document.getElementById('aq-cookie-banner');
+  if(!b)return;
+  if(!localStorage.getItem('aq_consent'))b.style.display='block';
+})();
+function aqConsent(choice){
+  localStorage.setItem('aq_consent',choice);
+  if(typeof gtag==='function') gtag('consent','update',{'analytics_storage':choice});
+  var b=document.getElementById('aq-cookie-banner');
+  if(b)b.style.display='none';
+}
+</script>
 </body>
 </html>

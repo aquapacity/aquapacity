@@ -993,7 +993,7 @@ gtag('config', 'G-03QX35NF7F', {
 
         <!-- FW: Plant density + CO2 -->
         <div id="fw-env">
-          <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Densidad de Plantas</div>
+          <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Densidade de Plantas</div>
           <div class="btn-group" id="plant-group">
             <button class="btn-opt active" data-val="0"    onclick="setPlant(this)">🪨 Sem plantas</button>
             <button class="btn-opt"        data-val="0.10" onclick="setPlant(this)">🌱 Baixa</button>
@@ -1033,7 +1033,7 @@ gtag('config', 'G-03QX35NF7F', {
         <!-- Water changes (shared FW + SW) -->
         <div class="field-row" style="margin-top:16px">
           <div class="field">
-            <label>Frecuencia de Cambios de Agua</label>
+            <label>Frequência de Trocas de Água</label>
             <select id="wc-freq" onchange="onWCFreqChange()">
               <option value="1">Diario</option>
               <option value="3.5">Dos veces por semana</option>
@@ -1066,7 +1066,7 @@ gtag('config', 'G-03QX35NF7F', {
       </div>
       <div class="panel-body">
         <div class="fish-search-row">
-          <input type="search" id="fish-search" placeholder="🔍  Buscar espécie..." oninput="onFishSearch()">
+          <input type="search" id="fish-search" placeholder="🔍  Pesquisar espécie..." oninput="onFishSearch()">
         </div>
         <div class="cat-tabs" id="cat-tabs">
           <button class="cat-tab active" data-cat="all" onclick="setCat(this)">Todas</button>
@@ -1097,8 +1097,8 @@ gtag('config', 'G-03QX35NF7F', {
   <!-- ── RIGHT: RESULTS ── -->
   <div class="results-panel" id="results-panel">
     <div class="rp-head">
-      <h2>Resultados en Tiempo Real</h2>
-      <div class="live-dot" title="Se actualiza en tiempo real"></div>
+      <h2>Resultados em Tempo Real</h2>
+      <div class="live-dot" title="Atualiza em tempo real"></div>
     </div>
     <div class="rp-body">
 
@@ -1108,7 +1108,7 @@ gtag('config', 'G-03QX35NF7F', {
           <span class="vb-val" id="vol-gross-val">—</span>
         </div>
         <div class="vb-row">
-          <span class="vb-label">Volume líquido <small>(−15% sustrato y decoración)</small></span>
+          <span class="vb-label">Volume líquido <small>(−15% substrato e decoração)</small></span>
           <span class="vb-val net" id="vol-net-val">—</span>
         </div>
       </div>
@@ -1116,7 +1116,7 @@ gtag('config', 'G-03QX35NF7F', {
       <!-- Stocking -->
       <div class="metric">
         <div class="metric-head">
-          <span class="metric-label">🐠 Ocupación de Bioload</span>
+          <span class="metric-label">🐠 Ocupação de Biocarga</span>
           <span class="metric-val" id="stk-val">0%</span>
         </div>
         <div class="meter-track"><div class="meter-bar" id="stk-bar" style="width:0%;background:var(--g)"></div></div>
@@ -1126,7 +1126,7 @@ gtag('config', 'G-03QX35NF7F', {
       <!-- Filtration -->
       <div class="metric">
         <div class="metric-head">
-          <span class="metric-label">🔵 Adecuación de la Filtração</span>
+          <span class="metric-label">🔵 Adequação da Filtração</span>
           <span class="metric-val" id="flt-val">—</span>
         </div>
         <div class="meter-track"><div class="meter-bar" id="flt-bar" style="width:0%;background:var(--muted)"></div></div>
@@ -1140,17 +1140,17 @@ gtag('config', 'G-03QX35NF7F', {
           <span class="metric-val" id="tov-val">—</span>
         </div>
         <div class="meter-track"><div class="meter-bar" id="tov-bar" style="width:0%;background:var(--p2)"></div></div>
-        <div class="meter-sub" id="tov-sub">Apunta a ≥8× caudal nominal (AD) / ≥10× caudal sump (M)</div>
+        <div class="meter-sub" id="tov-sub">Mire ≥8× renovação (AD) / ≥10× no sump (M)</div>
       </div>
 
       <!-- Nitrate -->
       <div class="metric">
         <div class="metric-head">
-          <span class="metric-label">🧪 Estabilidad de Nitratos</span>
+          <span class="metric-label">🧪 Estabilidade de Nitratos</span>
           <span class="metric-val" id="nit-val">—</span>
         </div>
         <div class="meter-track"><div class="meter-bar" id="nit-bar" style="width:0%;background:var(--g)"></div></div>
-        <div class="meter-sub" id="nit-sub">Objetivo: menos de 40 ppm (AD) / 20 ppm (FOWLR) / 10 ppm (arrecife)</div>
+        <div class="meter-sub" id="nit-sub">Objetivo: menos de 40 ppm (AD) / 20 ppm (FOWLR) / 10 ppm (recife)</div>
       </div>
 
       <!-- Selected fish list -->
@@ -2204,10 +2204,10 @@ function renderResults(r){
     const cc=colorClass(r.stk,70,85,100,false);
     setMeter('stk-bar','stk-val','stk-sub',r.stk,150,Math.round(r.stk)+'%',cc);
     document.getElementById('stk-sub').textContent=
-      r.stk<70  ? '✅ Good — tank has space for more fish':
-      r.stk<85  ? '🟡 Llenando — planifica las siguientes adiciones':
+      r.stk<70  ? '✅ Ótimo — há espaço para mais peixes':
+      r.stk<85  ? '🟡 Enchendo — planeje as próximas adições':
       r.stk<100 ? '⚠️ Quase cheio — considere um aquário maior':
-                  '🚨 Superpopulado — reduza peixes ou amplie o aquário';
+                  '🚨 Superlotado — reduza peixes ou amplie o aquário';
   } else {
     document.getElementById('stk-val').textContent='0%';
     document.getElementById('stk-bar').style.width='0%';
@@ -2225,9 +2225,9 @@ function renderResults(r){
       : 0;
     document.getElementById('flt-sub').textContent=
       r.flt>=100?`✅ Filtro adequado (${Math.round(r.flt)}% da carga biológica)`:
-      r.flt>=80 ?`🟡 Marginal — ligeramente insuficiente${recLPH? ` (recomendado ≥ ${recLPH} L/h)` : ''}`:
-      r.flt>=60 ?`⚠️ Insuficiente${recLPH? ` — recomendado al menos ${recLPH} L/h` : ' — mejora tu filtro'}`:
-                 `🚨 Muy insuficiente${recLPH? ` — mejora a ≥ ${recLPH} L/h urgentemente` : ' — mejora el filtro urgentemente'}`;
+      r.flt>=80 ?`🟡 Marginal — levemente insuficiente${recLPH? ` (recomendado ≥ ${recLPH} L/h)` : ''}`:
+      r.flt>=60 ?`⚠️ Insuficiente${recLPH? ` — recomendado pelo menos ${recLPH} L/h` : ' — melhore seu filtro'}`:
+                 `🚨 Muito insuficiente${recLPH? ` — melhore para ≥ ${recLPH} L/h urgentemente` : ' — melhore o filtro urgentemente'}`;
   } else if(r.C_bio>0){
     document.getElementById('flt-val').textContent='—';
     document.getElementById('flt-bar').style.width='50%';
@@ -2253,26 +2253,26 @@ function renderResults(r){
         r.turnover.toFixed(1)+'×/h', tcc);
       if(isSW_t){
         document.getElementById('tov-sub').textContent=
-          r.turnover<tovMin  ?`🚨 Muy bajo — mejora urgentemente la bomba del sump`:
-          r.turnover<tovMed  ?`⚠️ Por debajo de lo recomendado — apunta a ≥10× de caudal en sump`:
-          r.turnover<tovGood ?`🟡 Mejorando — ≥10× de caudal en sump es el mínimo`:
+          r.turnover<tovMin  ?`🚨 Muito baixo — melhore urgentemente a bomba do sump`:
+          r.turnover<tovMed  ?`⚠️ Abaixo do recomendado — mire ≥10× de renovação no sump`:
+          r.turnover<tovGood ?`🟡 Melhorando — ≥10× no sump é o mínimo`:
                               isReef
                                ?`✅ Boa vazão no sump — adicione powerheads para os corais`
                                :`✅ Boa renovação no sump`;
       } else {
         document.getElementById('tov-sub').textContent=
-          r.turnover<4  ?`🚨 Muy bajo — mejora el filtro urgentemente`:
-          r.turnover<6  ?`⚠️ Por debajo de lo recomendado — apunta a ≥8× del caudal nominal`:
-          r.turnover<8  ?`🟡 Mejorando — 8× es el mínimo recomendado`:
+          r.turnover<4  ?`🚨 Muito baixo — melhore o filtro urgentemente`:
+          r.turnover<6  ?`⚠️ Abaixo do recomendado — mire ≥8× da vazão nominal`:
+          r.turnover<8  ?`🟡 Melhorando — 8× é o mínimo recomendado`:
                          `✅ Boa renovação`;
       }
     } else {
       // Update default sub-text to match current water type even when no flow entered
       document.getElementById('tov-sub').textContent = isSW_t
         ? (isReef
-            ? 'Apunta a ≥10× de caudal en sump; los corales también necesitan powerheads para circulación adicional'
-            : 'Apunta a ≥10× del caudal nominal a través del sump y el skimmer')
-        : 'Apunta a ≥8× del caudal nominal para compensar pérdidas reales';
+            ? 'Mire ≥10× no sump; os corais também precisam de powerheads para circulação adicional'
+            : 'Mire ≥10× da vazão nominal através do sump e skimmer')
+        : 'Mire ≥8× da vazão nominal para compensar perdas reais';
     }
   }
 
@@ -2282,7 +2282,7 @@ function renderResults(r){
     const nitThresh = isSW_n ? getSwNitrateThresholds() : {warnPpm:20, dangerPpm:40};
     const tankTypeLabel = !isSW_n ? 'aquário de água doce'
       : state.swTankType === 'reef_sps'  ? 'arrecife SPS'
-      : state.swTankType === 'reef_soft' ? 'arrecife de corales blandos'
+      : state.swTankType === 'reef_soft' ? 'recife de corais moles'
       : 'FOWLR';
     if(r.net_L>0 && r.eff_bl>0){
       const ppm = Math.round(r.NO3_ss);
@@ -2292,7 +2292,7 @@ function renderResults(r){
       const barPct = Math.min(r.NO3_ss / dangerPpm * 100, 100);
       setMeter('nit-bar','nit-val','nit-sub', barPct, 100, '≈'+ppm+' ppm', cc);
       document.getElementById('nit-sub').textContent =
-        ppm < warnPpm*0.5  ? `✅ Excelente — NO₃ muy estable (≈${ppm} ppm)` :
+        ppm < warnPpm*0.5  ? `✅ Excelente — NO₃ muito estável (≈${ppm} ppm)` :
         ppm < warnPpm      ? `🟡 Bom (≈${ppm} ppm) — mantenha as trocas de água rotineiras` :
         ppm < dangerPpm    ? `⚠️ Elevado (≈${ppm} ppm) — aumente o volume das trocas de água` :
                              `🚨 Nitrato alto (≈${ppm} ppm) — reduza peixes ou faça mais trocas de água`;
@@ -2446,7 +2446,7 @@ function renderAlerts(r){
   const ppm = Math.round(r.NO3_ss);
   if(r.swNitThresh){
     const {warnPpm, dangerPpm} = r.swNitThresh;
-    const tankLabel = state.swTankType==='reef_sps' ? 'arrecife SPS' : state.swTankType==='reef_soft' ? 'arrecife de corales blandos' : 'FOWLR';
+    const tankLabel = state.swTankType==='reef_sps' ? 'arrecife SPS' : state.swTankType==='reef_soft' ? 'recife de corais moles' : 'FOWLR';
     if(ppm >= dangerPpm) alerts.push({t:'danger', m:`🧪 Nitrato crítico para ${tankLabel} (≈${ppm} ppm — perigoso acima de ${dangerPpm} ppm). Faça uma troca de água de emergência imediatamente.`});
     else if(ppm >= warnPpm) alerts.push({t:'warn', m:`💧 Nitrato elevado para ${tankLabel} (≈${ppm} ppm). Objetivo: menos de ${warnPpm} ppm — prueba cambios más frecuentes o un refugio de Chaeto.`});
   } else {
@@ -2492,7 +2492,7 @@ function renderAlerts(r){
       if(aCold!==bCold) alerts.push({t:'danger',m:`❌ Incompatibles: ${dn(a)} (agua fría) no puede convivir con ${dn(b)} (tropical).`});
 
       const tOverlap=Math.min(a.tMax,b.tMax)-Math.max(a.tMin,b.tMin);
-      if(!aCold&&!bCold&&tOverlap<2) alerts.push({t:'danger',m:`🌡️ Temperatura incompatible: ${dn(a)} (${a.tMin}–${a.tMax}°C) y ${dn(b)} (${b.tMin}–${b.tMax}°C) tienen rangos incompatibles.`});
+      if(!aCold&&!bCold&&tOverlap<2) alerts.push({t:'danger',m:`🌡️ Temperatura incompatível: ${dn(a)} (${a.tMin}–${a.tMax}°C) e ${dn(b)} (${b.tMin}–${b.tMax}°C) têm faixas incompatíveis.`});
 
       const phOverlap=Math.min(a.phMax,b.phMax)-Math.max(a.phMin,b.phMin);
       if(phOverlap<0.3) alerts.push({t:'danger',m:`⚗️ pH incompatible: ${dn(a)} (${a.phMin}–${a.phMax}) y ${dn(b)} (${b.phMin}–${b.phMax}) tienen química del agua incompatible.`});
