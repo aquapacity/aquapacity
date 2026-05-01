@@ -836,7 +836,7 @@ gtag('config', 'G-03QX35NF7F', {
 
         <!-- Mode toggle -->
         <div class="tank-mode-toggle">
-          <button id="mode-dims" class="active" onclick="setTankMode('dims')">📐 Introducir dimensión</button>
+          <button id="mode-dims" class="active" onclick="setTankMode('dims')">📐 Inserir dimensões</button>
           <button id="mode-vol" onclick="setTankMode('vol')">🪣 Inserir volume</button>
         </div>
 
@@ -844,15 +844,15 @@ gtag('config', 'G-03QX35NF7F', {
         <div id="tank-dims-fields">
           <div class="field-row">
             <div class="field">
-              <label id="lbl-L">Largo (cm)</label>
+              <label id="lbl-L">Comprimento (cm)</label>
               <input type="number" id="tank-L" placeholder="60" min="1" oninput="recalc()">
             </div>
             <div class="field">
-              <label id="lbl-W">Ancho (cm)</label>
+              <label id="lbl-W">Largura (cm)</label>
               <input type="number" id="tank-W" placeholder="30" min="1" oninput="recalc()">
             </div>
             <div class="field">
-              <label id="lbl-H">Alto (cm)</label>
+              <label id="lbl-H">Altura (cm)</label>
               <input type="number" id="tank-H" placeholder="35" min="1" oninput="recalc()">
             </div>
           </div>
@@ -862,7 +862,7 @@ gtag('config', 'G-03QX35NF7F', {
         <div id="tank-vol-fields" style="display:none">
           <div class="field-row">
             <div class="field">
-              <label id="lbl-vol">Volumen (L)</label>
+              <label id="lbl-vol">Volume (L)</label>
               <input type="number" id="tank-vol" placeholder="63" min="1" oninput="recalc()">
             </div>
           </div>
@@ -891,7 +891,7 @@ gtag('config', 'G-03QX35NF7F', {
         <!-- Flow rate -->
         <div class="field-row">
           <div class="field">
-            <label id="lbl-flow">Caudal del Filtro (L/h)</label>
+            <label id="lbl-flow">Vazão do Filtro (L/h)</label>
             <input type="number" id="filter-flow" placeholder="400" min="0" oninput="recalc()">
           </div>
         </div>
@@ -931,51 +931,51 @@ gtag('config', 'G-03QX35NF7F', {
         </div>
 
         <!-- Filter media -->
-        <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:16px;margin-bottom:4px">Materiales Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(selecciona los que uses)</span></div>
+        <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:16px;margin-bottom:4px">Mídias Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(selecione as que usa)</span></div>
         <div class="media-grid" id="media-grid">
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('foam_sponge',this)">
             <span>Foamex/Esponja</span>
             <span class="media-tip" data-tip="Esponja de poliuretano de poro grosso. Seus poros grandes facilitam excelente fluxo de água e abrigam enormes colônias de bactérias benéficas. Presente em filtros de esponja e muitos HOBs. A melhor opção para filtração biológica.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('k1_moving',this)">
-            <span>Lecho móvil / K1</span>
+            <span>Leito móvel / K1</span>
             <span class="media-tip" data-tip="Pequeñas piezas de plástico (K1, K3, etc.) que giran libremente en agua en movimiento. El movimiento constante mantiene las superficies limpias y bien oxigenadas, maximizando el crecimiento bacteriano. Se usan en sistemas de lecho móvil.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('lava_rock',this)">
-            <span>Roca volcánica</span>
-            <span class="media-tip" data-tip="Roca volcánica natural de superficie rugosa e irregular con gran porosidad. Barata y eficaz, con buena superficie para bacterias. Pesada, por lo que solo es práctica en sumps o cestas grandes de filtros externos.">?</span>
+            <span>Rocha vulcânica</span>
+            <span class="media-tip" data-tip="Rocha vulcânica natural de superfície rugosa e irregular com grande porosidade. Barata e eficaz, com boa superfície para bactérias. Pesada, portanto só é prática em sumps ou cestas grandes de filtros externos.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('porous_ceramic',this)">
-            <span>Cerámica porosa</span>
+            <span>Cerâmica porosa</span>
             <span class="media-tip" data-tip="Peças cerâmicas com numerosos poros internos (ex. Eheim Substrat, Seachem Matrix). Alta superfície interna. Os poros menores podem entupir com o tempo se não forem enxaguados periodicamente em água do aquário.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('premium_bio',this)">
-            <span>Resinas/Zeolitas</span>
-            <span class="media-tip" data-tip="Resinas de intercambio iónico y zeolitas que eliminan amoníaco y otros compuestos del agua. Acción química puntual, sin valor biológico permanente. Reemplazar cada 4–6 semanas cuando se saturen o tras tratamientos con medicamentos.">?</span>
+            <span>Resinas/Zeólitas</span>
+            <span class="media-tip" data-tip="Resinas de troca iônica e zeólitas que eliminam amônia e outros compostos da água. Ação química pontual, sem valor biológico permanente. Substituir a cada 4–6 semanas quando saturadas ou após tratamentos com medicamentos.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('bio_balls',this)">
             <span>Biobolas</span>
             <span class="media-tip" data-tip="Esferas de plástico diseñadas para filtros de gota o húmedo-seco (wet-dry); la exposición al aire aumenta el oxígeno para las bacterias. Cuando se usan totalmente sumergidas (canister o HOB) su eficiencia cae significativamente, pues necesitan flujo de aire.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('ceramic_rings',this)">
-            <span>Canutillos cerámicos</span>
+            <span>Argolas cerâmicas</span>
             <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa para filtração biológica.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('filter_wool',this)">
-            <span>Lana de perlón (Guata)</span>
+            <span>Lã de filtro (Guata)</span>
             <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('activated_carbon',this)">
-            <span>Carbón activo</span>
+            <span>Carvão ativo</span>
             <span class="media-tip" data-tip="Medio químico que adsorbe compuestos orgánicos disueltos, medicamentos y olores. Sin valor biológico; sus poros son demasiado pequeños para las bacterias beneficiosas. Reemplazar cada 4–6 semanas cuando se sature.">?</span>
           </div>
         </div>
-        <div class="field-hint" style="margin-top:6px">Valoraciones basadas en la superficie colonizable. Las estrellas indican la capacidad de albergar bacterias beneficiosas. Si no se selecciona ningún medio, se usa una eficiencia por defecto.</div>
+        <div class="field-hint" style="margin-top:6px">Avaliações baseadas na superfície colonizável. As estrelas indicam a capacidade de abrigar bactérias benéficas. Se nenhuma mídia for selecionada, usa-se uma eficiência padrão.</div>
 
         <!-- Bio efficiency display -->
         <div class="bio-eff-display" id="bio-eff-display">
-          <span class="be-label">Eficiencia biológica estimada</span>
-          <span class="be-val" id="bio-eff-val">55% (Por defecto. Selecciona medios filtrantes para mayor precisión)</span>
+          <span class="be-label">Eficiência biológica estimada</span>
+          <span class="be-val" id="bio-eff-val">55% (Padrão. Selecione mídias filtrantes para maior precisão)</span>
         </div>
 
       </div>
@@ -996,15 +996,15 @@ gtag('config', 'G-03QX35NF7F', {
           <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Densidad de Plantas</div>
           <div class="btn-group" id="plant-group">
             <button class="btn-opt active" data-val="0"    onclick="setPlant(this)">🪨 Sem plantas</button>
-            <button class="btn-opt"        data-val="0.10" onclick="setPlant(this)">🌱 Baja</button>
+            <button class="btn-opt"        data-val="0.10" onclick="setPlant(this)">🌱 Baixa</button>
             <button class="btn-opt"        data-val="0.20" onclick="setPlant(this)">🌿 Media</button>
             <button class="btn-opt"        data-val="0.35" onclick="setPlant(this)">🌳 Alta</button>
           </div>
           <div class="co2-row">
-            <label for="co2-toggle-btn">💡 Inyección de CO₂</label>
+            <label for="co2-toggle-btn">💡 Injeção de CO₂</label>
             <button class="co2-toggle" id="co2-toggle-btn" onclick="toggleCO2()" title="Toggle CO₂ injection" aria-pressed="false"></button>
           </div>
-          <div class="field-hint">El CO₂ y la densidad de plantas son independientes. Puedes tener plantas de densidad media con o sin CO₂.</div>
+          <div class="field-hint">O CO₂ e a densidade de plantas são independentes. Você pode ter plantas de densidade média com ou sem CO₂.</div>
         </div>
 
         <!-- SW: Marine tank type + live rock + refugium -->
@@ -1037,18 +1037,18 @@ gtag('config', 'G-03QX35NF7F', {
             <select id="wc-freq" onchange="onWCFreqChange()">
               <option value="1">Diario</option>
               <option value="3.5">Dos veces por semana</option>
-              <option value="7" selected>Semanal (cada 7 días)</option>
-              <option value="14">Quincenal (cada 14 días)</option>
-              <option value="30">Mensual (cada 30 días)</option>
+              <option value="7" selected>Semanal (a cada 7 dias)</option>
+              <option value="14">Quinzenal (a cada 14 dias)</option>
+              <option value="30">Mensal (a cada 30 dias)</option>
               <option value="custom">Otro…</option>
             </select>
             <div class="wc-custom" id="wc-custom">
               <input type="number" id="wc-custom-days" placeholder="10" min="1" max="90" oninput="recalc()">
-              <span>días entre cambios</span>
+              <span>dias entre trocas</span>
             </div>
           </div>
           <div class="field">
-            <label>Volumen de cambio %</label>
+            <label>Volume de troca %</label>
             <input type="number" id="wc-pct" value="25" min="5" max="100" oninput="recalc()">
           </div>
         </div>
@@ -1070,7 +1070,7 @@ gtag('config', 'G-03QX35NF7F', {
         </div>
         <div class="cat-tabs" id="cat-tabs">
           <button class="cat-tab active" data-cat="all" onclick="setCat(this)">Todas</button>
-          <!-- Las pestañas adicionales se construyen dinámicamente by rebuildCatTabs() from the sheet's Category column (col I) -->
+          <!-- As abas adicionais são criadas dinamicamente por rebuildCatTabs() a partir da coluna Category da planilha (col I) -->
         </div>
         <div class="fish-grid" id="fish-grid"><!-- filled by JS --></div>
 
@@ -1136,7 +1136,7 @@ gtag('config', 'G-03QX35NF7F', {
       <!-- Turnover -->
       <div class="metric">
         <div class="metric-head">
-          <span class="metric-label">💧 Recambio del Filtro</span>
+          <span class="metric-label">💧 Renovação do Filtro</span>
           <span class="metric-val" id="tov-val">—</span>
         </div>
         <div class="meter-track"><div class="meter-bar" id="tov-bar" style="width:0%;background:var(--p2)"></div></div>
@@ -1182,7 +1182,7 @@ gtag('config', 'G-03QX35NF7F', {
   <div class="hiw-inner">
     <span class="section-tag">Baseado em Ciência</span>
     <h2>Como Funciona Aquapacity</h2>
-    <p>A diferencia de la simple "regla del centímetro por litro", Aquapacity utiliza un modelo biológico multivariable para darte recomendaciones de stock precisas.</p>
+    <p>Diferente da simples "regra do centímetro por litro", o Aquapacity utiliza um modelo biológico multivariável para dar recomendações de stock precisas.</p>
     <div class="hiw-grid">
       <div class="hiw-card">
         <div class="hc-icon">🗺️</div>
@@ -1191,7 +1191,7 @@ gtag('config', 'G-03QX35NF7F', {
       </div>
       <div class="hiw-card">
         <div class="hc-icon">🦠</div>
-        <h3>Modelado del Ciclo del Nitrogênio</h3>
+        <h3>Modelagem do Ciclo do Nitrogênio</h3>
         <p>Modelamos a capacidade biológica do seu filtro (ajustada por tipo e qualidade da mídia filtrante), a absorção das plantas e a frequência das trocas de água para prever os níveis estacionários de nitrato.</p>
       </div>
       <div class="hiw-card">
@@ -1201,8 +1201,8 @@ gtag('config', 'G-03QX35NF7F', {
       </div>
       <div class="hiw-card">
         <div class="hc-icon">⚗️</div>
-        <h3>Análisis de Medios Filtrantes</h3>
-        <p>No todos los medios son iguales. Las investigaciones muestran que la esponja de espuma gruesa alberga 9× más bacterias que los aros cerámicos. Nuestro modelo usa datos de superficie revisados por expertos para cada tipo de medio.</p>
+        <h3>Análise de Mídias Filtrantes</h3>
+        <p>Nem todas as mídias são iguais. Pesquisas mostram que a esponja de espuma grossa abriga 9× mais bactérias do que argolas cerâmicas. Nosso modelo usa dados de superfície revisados por especialistas para cada tipo de mídia.</p>
       </div>
     </div>
   </div>
@@ -1214,7 +1214,7 @@ gtag('config', 'G-03QX35NF7F', {
     <div style="font-size:2rem;margin-bottom:12px">🐠</div>
     <h2 style="font-size:1.4rem;font-weight:800;color:#1e3a5f;margin-bottom:12px">Aquapacity es gratuita. Y siempre lo será.</h2>
     <p style="color:#374151;font-size:.95rem;line-height:1.7;margin-bottom:16px">
-      Creamos esta herramienta porque amamos la afición y creemos que todo acuarista merece acceso a información precisa y basada en ciencia. Mantenerla online, ampliar la base de datos de espécies y mejorar la ciencia detrás de los cálculos requiere tiempo real y costes de servidor reales.
+      Criamos esta ferramenta porque amamos o hobby e acreditamos que todo aquarista merece acesso a informações precisas e baseadas em ciência. Mantê-la online, ampliar a base de dados de espécies e melhorar a ciência por trás dos cálculos exige tempo real e custos de servidor reais.
     </p>
     <p style="color:#374151;font-size:.95rem;line-height:1.7;margin-bottom:24px">
       Se o Aquapacity ajudou você a tomar uma decisão melhor para seus peixes, considere apoiá-lo. Cada contribuição vai diretamente de volta para a ferramenta: mais espécies, algoritmos melhores e novas funcionalidades para toda a comunidade.
@@ -1243,7 +1243,7 @@ gtag('config', 'G-03QX35NF7F', {
         <div class="ac-img">🐟</div>
         <div class="ac-body">
           <div class="ac-tag">Población</div>
-          <h3>Por qué la Regla del Centímetro por Litro Está Equivocada</h3>
+          <h3>Por que a Regra do Centímetro por Litro Está Errada</h3>
           <p class="ac-excerpt">A regra mais repetida na aquariofilia é também a mais perigosa. Explicamos por que ela falha e qual modelo usar em seu lugar.</p>
           <div class="ac-footer">
             <span class="ac-read">8 min de leitura</span>
@@ -1381,7 +1381,7 @@ gtag('config', 'G-03QX35NF7F', {
 
       <details style="border:1px solid #e2e8f0;border-radius:6px;background:#fff;overflow:hidden">
         <summary style="padding:9px 14px;cursor:pointer;font-size:.8rem;font-weight:600;color:#334155;list-style:none;display:flex;align-items:center;gap:8px">
-          <span style="color:var(--p2)">▸</span> Medios filtrantes y eficiencia biológica
+          <span style="color:var(--p2)">▸</span> Mídias filtrantes e eficiência biológica
         </summary>
         <div style="padding:10px 14px 12px 28px;font-size:.78rem;color:#475569;line-height:1.6;border-top:1px solid #f1f5f9">
           Hagopian, D.S. &amp; Riley, J.G. (1998). A closer look at the bacteriology of nitrification. <em>Aquacultural Engineering</em>, 18(4), 223–244.<br>
@@ -1392,7 +1392,7 @@ gtag('config', 'G-03QX35NF7F', {
 
       <details style="border:1px solid #e2e8f0;border-radius:6px;background:#fff;overflow:hidden">
         <summary style="padding:9px 14px;cursor:pointer;font-size:.8rem;font-weight:600;color:#334155;list-style:none;display:flex;align-items:center;gap:8px">
-          <span style="color:var(--p2)">▸</span> Acuario plantado y dinámica de CO₂
+          <span style="color:var(--p2)">▸</span> Aquário plantado e dinâmica de CO₂
         </summary>
         <div style="padding:10px 14px 12px 28px;font-size:.78rem;color:#475569;line-height:1.6;border-top:1px solid #f1f5f9">
           Walstad, D. (1999). <em>Ecology of the Planted Aquarium</em>. Echinodorus Publishing.<br>
@@ -1426,7 +1426,7 @@ gtag('config', 'G-03QX35NF7F', {
         </span>
         <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
       </a>
-      <div class="footer-credit">Grátis para siempre. Creada por acuaristas, para acuaristas.</div>
+      <div class="footer-credit">Gratuito para sempre. Criada por aquaristas, para aquaristas.</div>
     </div>
     <div style="display:flex;gap:20px;flex-wrap:wrap">
       <a href="#calculator">Calculadora</a>
@@ -1442,8 +1442,8 @@ gtag('config', 'G-03QX35NF7F', {
      JAVASCRIPT ENGINE
 ════════════════════════════════════════════════════════════ -->
 <script>
-const LANG = 'es';
-function dn(f){ return (LANG==='es' && f.names && f.names.es) ? f.names.es : f.name; }
+const LANG = 'pt';
+function dn(f){ if(LANG==='es' && f.names && f.names.es) return f.names.es; if(LANG==='pt' && f.names && f.names.pt) return f.names.pt; return f.name; }
 
 /* ─── FISH DATABASE ─────────────────────────────────────────
    Emojis: 🐠 = all fish, 🦐 = all shrimp/neocaridina, 🐌 = all snails
@@ -1704,11 +1704,11 @@ function setUnits(u){
   const dimUnit = state.metric ? 'cm' : 'in';
   const flowUnit = state.metric ? 'L/h' : 'GPH';
   const volUnit  = state.metric ? 'L'   : 'gal';
-  document.getElementById('lbl-L').textContent = `Largo (${dimUnit})`;
-  document.getElementById('lbl-W').textContent = `Ancho (${dimUnit})`;
-  document.getElementById('lbl-H').textContent = `Alto (${dimUnit})`;
-  document.getElementById('lbl-flow').textContent = `Caudal del Filtro (${flowUnit})`;
-  document.getElementById('lbl-vol').textContent  = `Volumen del Acuario (${volUnit})`;
+  document.getElementById('lbl-L').textContent = `Comprimento (${dimUnit})`;
+  document.getElementById('lbl-W').textContent = `Largura (${dimUnit})`;
+  document.getElementById('lbl-H').textContent = `Altura (${dimUnit})`;
+  document.getElementById('lbl-flow').textContent = `Vazão do Filtro (${flowUnit})`;
+  document.getElementById('lbl-vol').textContent  = `Volume do Aquário (${volUnit})`;
 
   document.querySelectorAll('#unit-toggle button').forEach(b=>{
     b.classList.toggle('active', b.dataset.unit===u);
@@ -1848,12 +1848,12 @@ function updateBioEffDisplay(){
   if(isSW){
     const lrBonus = state.liveRock ? 20 : 0;
     const totalPct = filterPct + lrBonus;
-    const mediaNote = noMedia ? ' (defecto)' : '';
+    const mediaNote = noMedia ? ' (padrão)' : '';
     text = lrBonus
       ? `Filter: ${filterPct}%${mediaNote} + Live rock: +${lrBonus}% = ${totalPct}% bio score`
       : `Filter: ${filterPct}%${mediaNote} (no live rock bonus)`;
   } else {
-    text = noMedia ? `${filterPct}% (Por defecto. Selecciona medios filtrantes para mayor precisión)` : `${filterPct}%`;
+    text = noMedia ? `${filterPct}% (Padrão. Selecione mídias filtrantes para maior precisão)` : `${filterPct}%`;
   }
   document.getElementById('bio-eff-val').textContent = text;
 }
@@ -2224,7 +2224,7 @@ function renderResults(r){
       ? Math.ceil((r.eff_bl / (r.eta_bio * r.wc_penalty) * 3.785) / 10) * 10
       : 0;
     document.getElementById('flt-sub').textContent=
-      r.flt>=100?`✅ Filtro adecuado (${Math.round(r.flt)}% de la carga biológica)`:
+      r.flt>=100?`✅ Filtro adequado (${Math.round(r.flt)}% da carga biológica)`:
       r.flt>=80 ?`🟡 Marginal — ligeramente insuficiente${recLPH? ` (recomendado ≥ ${recLPH} L/h)` : ''}`:
       r.flt>=60 ?`⚠️ Insuficiente${recLPH? ` — recomendado al menos ${recLPH} L/h` : ' — mejora tu filtro'}`:
                  `🚨 Muy insuficiente${recLPH? ` — mejora a ≥ ${recLPH} L/h urgentemente` : ' — mejora el filtro urgentemente'}`;
@@ -2257,14 +2257,14 @@ function renderResults(r){
           r.turnover<tovMed  ?`⚠️ Por debajo de lo recomendado — apunta a ≥10× de caudal en sump`:
           r.turnover<tovGood ?`🟡 Mejorando — ≥10× de caudal en sump es el mínimo`:
                               isReef
-                               ?`✅ Buen caudal en sump — añade powerheads para los corales`
-                               :`✅ Buen recambio en sump`;
+                               ?`✅ Boa vazão no sump — adicione powerheads para os corais`
+                               :`✅ Boa renovação no sump`;
       } else {
         document.getElementById('tov-sub').textContent=
           r.turnover<4  ?`🚨 Muy bajo — mejora el filtro urgentemente`:
           r.turnover<6  ?`⚠️ Por debajo de lo recomendado — apunta a ≥8× del caudal nominal`:
           r.turnover<8  ?`🟡 Mejorando — 8× es el mínimo recomendado`:
-                         `✅ Buen recambio`;
+                         `✅ Boa renovação`;
       }
     } else {
       // Update default sub-text to match current water type even when no flow entered
@@ -2431,11 +2431,11 @@ function renderAlerts(r){
     if(flowIsOk){
       alerts.push({t:'danger',m:`🔴 A filtração biológica é insuficiente apesar da vazão adequada. Melhore sua mídia filtrante ou adicione mais superfície biológica.`});
     } else {
-      alerts.push({t:'danger',m:`🔴 Filtração insuficiente. Recomendado: ≥ ${recLPH2} L/h — considera un ${recFilterType} con biomedio de calidad.`});
+      alerts.push({t:'danger',m:`🔴 Filtração insuficiente. Recomendado: ≥ ${recLPH2} L/h — considere um ${recFilterType} com biomídia de qualidade.`});
     }
   } else if(r.C_bio>0 && r.flt<100 && r.eff_bl>0){
     if(flowIsOk){
-      alerts.push({t:'warn',m:`⚠️ Capacidad biológica ligeramente baja. Considera añadir más biomedio (esponja, K1 o cerámica porosa) a tu filtro actual.`});
+      alerts.push({t:'warn',m:`⚠️ Capacidade biológica levemente baixa. Considere adicionar mais biomídia (esponja, K1 ou cerâmica porosa) ao seu filtro atual.`});
     } else {
       alerts.push({t:'warn',m:`⚠️ Filtro ligeramente infradimensionado. Mínimo recomendado: ${recLPH2} L/h (${recFilterType}).`});
     }
@@ -2670,15 +2670,15 @@ async function loadFromSheets(){
   const applyRows=rows=>{
     if(rows.length<2) throw new Erro('Sheet vacío');
     const loaded=rows.slice(1).map(rowToFish).filter(Boolean);
-    if(loaded.length===0) throw new Erro('No se encontraron espécies válidas');
+    if(loaded.length===0) throw new Erro('Nenhuma espécie válida encontrada');
     DB.length=0;
     loaded.forEach(f=>DB.push(f));
     rebuildCatTabs();
-    setBanner(`✅ Base de datos en vivo: ${DB.length} espécies cargadas desde Google Sheets`,true);
+    setBanner(`✅ Base de dados ao vivo: ${DB.length} espécies carregadas do Google Sheets`,true);
     return true;
   };
 
-  setBanner('⏳ Cargando base de datos desde Google Sheets…',true);
+  setBanner('⏳ Carregando base de dados do Google Sheets…',true);
 
   // Método 1: fetch directo (funciona desde servidor HTTP)
   if(SHEET_CSV_URL){
