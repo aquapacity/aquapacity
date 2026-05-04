@@ -347,7 +347,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .mn-links a{display:flex;align-items:center;gap:12px;padding:16px 24px;font-size:1rem;font-weight:600;color:var(--txt);text-decoration:none;border-bottom:1px solid var(--border);transition:background .15s}
 .mn-links a:hover{background:#f0f9ff;color:var(--p);text-decoration:none}
 .mn-icon{font-size:1.2rem;width:28px;text-align:center}
-.mn-footer{padding:20px 24px;border-top:1px solid var(--border)}
+.mn-footer{padding:20px 24px;border-top:1px solid #e0f2fe}
 .mn-kofi{display:block;text-align:center;background:var(--p);color:#fff;padding:12px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
 .mn-kofi:hover{background:#0284c7;text-decoration:none}
 
@@ -361,11 +361,11 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 
 /* ─── RESPONSIVE ──────────────────────────────────────────── */
 
-/* Tablet + Mobile — single column layout */
+/* Tablet + Mobile, single column layout */
 @media(max-width:900px){
   .calc-wrap{grid-template-columns:1fr}
   .results-panel{position:static}
-  /* Contain everything — prevent any horizontal overflow */
+  /* Contain everything, prevent any horizontal overflow */
   html,body{overflow-x:hidden}
   .calc-wrap,.panel,.results-panel,.rp-body,.panel-body{min-width:0;box-sizing:border-box;overflow-x:hidden}
 
@@ -411,7 +411,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 
 /* ── MOBILE ── */
 @media(max-width:640px){
-  /* Hero intro sentence — mobile only */
+  /* Hero intro sentence, mobile only */
   .hero-lead{display:block;color:var(--p);font-weight:400;font-size:.95rem;margin-bottom:6px}
   .hero-first-sentence{display:none}
 
@@ -421,7 +421,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 
   /* Prevent any horizontal overflow */
   html,body{overflow-x:hidden;max-width:100vw}
-  /* Targeted overflow containment — avoid blanket *{max-width:100%} which breaks carousels */
+  /* Targeted overflow containment, avoid blanket *{max-width:100%} which breaks carousels */
   .calc-wrap,.panel,.results-panel,.rp-head,.rp-body,.panel-body,
   .hero,.unit-bar,.hiw-section,.hiw-inner,.faq-section,.faq-inner,
   footer,.footer-inner,#support-us,#bibliography{width:100%;min-width:0;box-sizing:border-box}
@@ -446,41 +446,41 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   .logo{font-size:1.05rem;gap:7px}
   .logo-icon{font-size:1.3rem}
 
-  /* Hero — ultra compact */
+  /* Hero, ultra compact */
   .hero{padding:14px 16px 8px}
   .hero h1{font-size:1.25rem;margin-bottom:4px}
   .hero p:not(.hero-lead){font-size:.82rem;display:none} /* hide subtitle on mobile */
   .badges{display:none} /* hide badges */
 
-  /* Unit bar — compact */
+  /* Unit bar, compact */
   .unit-bar{padding:8px 16px 10px;gap:8px}
   .unit-label{font-size:.8rem}
 
   /* Calc layout */
   .calc-wrap{padding:0 10px 24px;gap:10px}
 
-  /* Panels — compact headers, hidden body when collapsed */
+  /* Panels, compact headers, hidden body when collapsed */
   .panel{border-radius:10px;margin-bottom:10px}
   .panel-head{padding:13px 14px;gap:8px}
   .panel-head h2{font-size:.95rem}
   .panel-body{padding:14px}
 
-  /* Results panel — not sticky, flows below fish */
+  /* Results panel, not sticky, flows below fish */
   .results-panel{position:static;border-radius:10px}
   .rp-head{padding:13px 16px}
   .rp-body{padding:14px 16px}
 
-  /* Form fields — always stack */
+  /* Form fields, always stack */
   .field-row{flex-direction:column;gap:8px}
   .field{min-width:unset;width:100%}
   .field label{font-size:.78rem}
 
-  /* Inputs — 16px prevents iOS auto-zoom */
+  /* Inputs, 16px prevents iOS auto-zoom */
   .field input,.field select,
   .fish-search-row input,
   .wc-custom input{font-size:16px;padding:12px 13px;border-radius:8px}
 
-  /* Tank mode toggle — full width, taller */
+  /* Tank mode toggle, full width, taller */
   .tank-mode-toggle{margin-bottom:12px}
   .tank-mode-toggle button{padding:12px 6px;font-size:.85rem}
 
@@ -491,7 +491,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   .btn-group{gap:6px}
   .btn-opt{padding:8px 14px;font-size:.85rem}
 
-  /* Category tabs — horizontal scroll, no wrap */
+  /* Category tabs, horizontal scroll, no wrap */
   .cat-tabs{
     flex-wrap:nowrap;overflow-x:auto;
     padding-bottom:4px;gap:6px;margin-bottom:10px;
@@ -523,7 +523,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   .fish-card .f-name{font-size:.82rem}
   .fish-card .f-sci{font-size:.65rem}
 
-  /* Fish qty — bigger touch targets */
+  /* Fish qty, bigger touch targets */
   .fish-qty{margin-top:10px}
   .fish-qty button{width:32px;height:32px;font-size:1.1rem}
   .qty-num,.qty-input{font-size:1rem;min-width:24px}
@@ -533,7 +533,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
     content:'';flex:0 0 6px;display:block
   }
 
-  /* Filter type — 3-column grid on mobile (all visible, no carousel) */
+  /* Filter type, 3-column grid on mobile (all visible, no carousel) */
   .filter-type-grid{
     display:grid!important;
     grid-template-columns:repeat(3,1fr)!important;
@@ -550,13 +550,13 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   .filter-type-btn .ft-icon svg{width:32px;height:32px;max-width:none}
   .filter-type-btn .ft-img{max-width:none}
 
-  /* Filter media — 2-column chips */
+  /* Filter media, 2-column chips */
   .media-grid{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:6px}
   .media-item{padding:10px 8px;font-size:.8rem;gap:6px;min-width:0}
   .media-item span:first-child{word-break:break-word}
   .media-rating{font-size:.65rem;padding:1px 4px;flex-shrink:0}
 
-  /* Field hints — wrap properly */
+  /* Field hints, wrap properly */
   .field-hint{font-size:.75rem;line-height:1.5;word-break:break-word}
 
   /* Bio eff text truncate */
@@ -608,7 +608,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   .footer-inner{flex-direction:column;align-items:flex-start;gap:10px}
   footer{padding:24px 16px}
 
-  /* Tooltips — reposition to avoid clipping */
+  /* Tooltips, reposition to avoid clipping */
   .media-tip::after{left:0;transform:none;width:200px}
 }
 
@@ -623,7 +623,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .lang-options a.current{background:#e0f2fe;color:#0c4a73}
 .lang-switcher.open .lang-options{display:block}
 @media(max-width:900px){.lang-switcher{display:none}}
-.lang-select-mobile{display:block;width:calc(100% - 40px);margin:12px 20px 4px;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r6);font-family:inherit;font-size:.9rem;font-weight:700;color:var(--txt);background:#fff;cursor:pointer;appearance:auto}
+.lang-select-mobile{display:block;width:calc(100% - 40px);margin:12px 20px 4px;padding:10px 14px;border:1.5px solid #e0f2fe;border-radius:6px;font-family:inherit;font-size:.9rem;font-weight:700;color:#1e293b;background:#fff;cursor:pointer;appearance:auto}
 </style>
 
 <!-- Structured Data -->
@@ -640,7 +640,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
     },
     {
       "@type":"SoftwareApplication",
-      "name":"Aquapacity – Calculadora de Acuarios",
+      "name":"Aquapacity, Calculadora de Acuarios",
       "applicationCategory":"UtilitiesApplication",
       "operatingSystem":"Web",
       "url":"https://aquapacity.com/",
@@ -907,7 +907,7 @@ gtag('config', 'G-03QX35NF7F', {
             <input type="number" id="filter-flow" placeholder="400" min="0" oninput="recalc()">
           </div>
         </div>
-        <div class="field-hint">Introduce el caudal de tu filtro o bomba de sump. El caudal nominal se mide con presión cero y filtro limpio — en la práctica suele ser un 30–50% menor. Apunta a ≥8× el volumen del acuario para agua dulce; ≥10× para marino/arrecife.</div>
+        <div class="field-hint">Introduce el caudal de tu filtro o bomba de sump. El caudal nominal se mide con presión cero y filtro limpio, en la práctica suele ser un 30–50% menor. Apunta a ≥8× el volumen del acuario para agua dulce; ≥10× para marino/arrecife.</div>
 
         <!-- Filter type -->
         <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:16px;margin-bottom:4px">Tipo de Filtro</div>
@@ -932,11 +932,11 @@ gtag('config', 'G-03QX35NF7F', {
           <button class="filter-type-btn" data-type="sump" onclick="setFilterType(this)">
             <span class="ft-icon"><img src="data:image/png;base64,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" alt="Sump filter" class="ft-img"></span>Sump
           </button>
-          <!-- Wet/Dry (trickle) — hidden in FW, shown in SW -->
+          <!-- Wet/Dry (trickle). hidden in FW, shown in SW -->
           <button class="filter-type-btn" data-type="wetdry" onclick="setFilterType(this)" style="display:none">
             <span class="ft-icon"><img src="data:image/png;base64,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" alt="Wet/Dry filter" class="ft-img"></span>Húmedo/Seco
           </button>
-          <!-- Undergravel — hidden in SW -->
+          <!-- Undergravel. hidden in SW -->
           <button class="filter-type-btn" data-type="undergravel" onclick="setFilterType(this)">
             <span class="ft-icon"><img src="data:image/png;base64,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" alt="Undergravel filter" class="ft-img"></span>Subfondo
           </button>
@@ -1027,7 +1027,7 @@ gtag('config', 'G-03QX35NF7F', {
             <button class="btn-opt"        data-swtype="reef_soft" onclick="setSwTankType(this)">🪸 Arrecife (coral blando)</button>
             <button class="btn-opt"        data-swtype="reef_sps"  onclick="setSwTankType(this)">🌊 Arrecife (SPS)</button>
           </div>
-          <div class="field-hint" id="sw-tank-type-hint">Peces solo con roca viva — se tolera hasta 30 ppm de nitrato.</div>
+          <div class="field-hint" id="sw-tank-type-hint">Peces solo con roca viva, se tolera hasta 30 ppm de nitrato.</div>
 
           <div class="co2-row" style="background:#f0f9ff;border-color:#bae6fd;margin-top:14px">
             <label for="live-rock-btn" style="color:var(--p)">🪨 Roca viva (biofiltración primaria)</label>
@@ -1039,7 +1039,7 @@ gtag('config', 'G-03QX35NF7F', {
             <label for="chaeto-btn" style="color:var(--p)">🌿 Refugio con macroalgas (Chaeto/Caulerpa)</label>
             <button class="co2-toggle" id="chaeto-btn" onclick="toggleChaeto()" title="Toggle refugium" aria-pressed="false"></button>
           </div>
-          <div class="field-hint">Una sección del sump iluminada con Chaeto absorbe nitrato y fosfato — el equivalente marino de un acuario plantado. Muy recomendado para acuarios de arrecife.</div>
+          <div class="field-hint">Una sección del sump iluminada con Chaeto absorbe nitrato y fosfato, el equivalente marino de un acuario plantado. Muy recomendado para acuarios de arrecife.</div>
         </div>
 
         <!-- Water changes (shared FW + SW) -->
@@ -1301,12 +1301,12 @@ gtag('config', 'G-03QX35NF7F', {
 
     <details class="faq-item">
       <summary>¿Qué es el bioload de un acuario y por qué importa?</summary>
-      <p>El bioload es la cantidad total de residuos biológicos producidos por todos los seres vivos de tu acuario — peces, invertebrados, plantas — y la demanda que esto genera sobre el ciclo del nitrógeno de tu filtro. Un bioload alto significa más amoniaco y nitrato, lo que estresa a los peces y favorece la proliferación de algas. Entender el bioload es la base de una acuariofilia responsable: es la razón por la que dos peces de 10 cm pueden no equivaler a un pez de 20 cm en impacto sobre el acuario.</p>
+      <p>El bioload es la cantidad total de residuos biológicos producidos por todos los seres vivos de tu acuario, peces, invertebrados, plantas, y la demanda que esto genera sobre el ciclo del nitrógeno de tu filtro. Un bioload alto significa más amoniaco y nitrato, lo que estresa a los peces y favorece la proliferación de algas. Entender el bioload es la base de una acuariofilia responsable: es la razón por la que dos peces de 10 cm pueden no equivaler a un pez de 20 cm en impacto sobre el acuario.</p>
     </details>
 
     <details class="faq-item">
       <summary>¿Es correcta la "regla del centímetro por litro"?</summary>
-      <p>No — la regla del centímetro por litro es una aproximación obsoleta que ignora la forma del cuerpo, el metabolismo, el nivel de actividad, el comportamiento territorial, la calidad de la filtración y la frecuencia de cambios de agua. Un oscar de 10 cm produce muchísimo más desecho que diez tetras neón de 1 cm. Aquapacity sustituye esta regla por un modelo de bioload específico por especie derivado de datos científicos sobre consumo de oxígeno y tasas de excreción de nitrógeno.</p>
+      <p>No, la regla del centímetro por litro es una aproximación obsoleta que ignora la forma del cuerpo, el metabolismo, el nivel de actividad, el comportamiento territorial, la calidad de la filtración y la frecuencia de cambios de agua. Un oscar de 10 cm produce muchísimo más desecho que diez tetras neón de 1 cm. Aquapacity sustituye esta regla por un modelo de bioload específico por especie derivado de datos científicos sobre consumo de oxígeno y tasas de excreción de nitrógeno.</p>
     </details>
 
     <details class="faq-item">
@@ -1316,7 +1316,7 @@ gtag('config', 'G-03QX35NF7F', {
 
     <details class="faq-item">
       <summary>¿Qué tan precisa es la calculadora de Aquapacity?</summary>
-      <p>Aquapacity usa coeficientes de bioload específicos por especie derivados de datos publicados sobre consumo de oxígeno de los peces, tasas metabólicas y excreción de nitrógeno — no reglas basadas en longitud corporal. El modelo también tiene en cuenta el tipo de filtro, el área de superficie del medio biológico, la eficiencia biológica, la frecuencia de cambios de agua y la absorción de nitratos en acuarios plantados. La calculadora es una herramienta de nivel profesional, pero no puede sustituir las pruebas de agua directas, que siempre recomendamos.</p>
+      <p>Aquapacity usa coeficientes de bioload específicos por especie derivados de datos publicados sobre consumo de oxígeno de los peces, tasas metabólicas y excreción de nitrógeno, no reglas basadas en longitud corporal. El modelo también tiene en cuenta el tipo de filtro, el área de superficie del medio biológico, la eficiencia biológica, la frecuencia de cambios de agua y la absorción de nitratos en acuarios plantados. La calculadora es una herramienta de nivel profesional, pero no puede sustituir las pruebas de agua directas, que siempre recomendamos.</p>
     </details>
 
     <details class="faq-item">
@@ -1326,7 +1326,7 @@ gtag('config', 'G-03QX35NF7F', {
 
     <details class="faq-item">
       <summary>¿Qué es la tasa de recambio del filtro y cuánto necesito?</summary>
-      <p>La tasa de recambio mide cuántas veces por hora tu filtro procesa el volumen total del acuario. Un filtro de 600 L/h en un acuario de 100 L da un recambio de 6× por hora. La mayoría de los acuarios comunitarios de agua dulce necesitan un filtro con al menos 8–10× el volumen del acuario por hora — pero recuerda que el caudal nominal se mide con presión cero y filtro limpio; en la práctica suele ser un 30–50% menor. Aquapacity muestra tu recambio efectivo automáticamente.</p>
+      <p>La tasa de recambio mide cuántas veces por hora tu filtro procesa el volumen total del acuario. Un filtro de 600 L/h en un acuario de 100 L da un recambio de 6× por hora. La mayoría de los acuarios comunitarios de agua dulce necesitan un filtro con al menos 8–10× el volumen del acuario por hora, pero recuerda que el caudal nominal se mide con presión cero y filtro limpio; en la práctica suele ser un 30–50% menor. Aquapacity muestra tu recambio efectivo automáticamente.</p>
     </details>
 
     <details class="faq-item">
@@ -1341,12 +1341,12 @@ gtag('config', 'G-03QX35NF7F', {
 
     <details class="faq-item">
       <summary>¿Con qué frecuencia debo hacer cambios de agua y afecta a la capacidad del stock?</summary>
-      <p>Para la mayoría de los acuarios comunitarios, un cambio de agua del 25–30% semanal es el estándar. Los acuarios con mucho stock necesitan del 30–50% semanalmente. La frecuencia de cambios de agua afecta directamente a la capacidad de stock: los cambios más frecuentes o más grandes diluyen el nitrato más rápido, permitiendo un mayor bioload. Aquapacity modela esto — cambia la frecuencia de cambios de agua y observa cómo se actualiza tu puntuación de estabilidad de nitratos en tiempo real.</p>
+      <p>Para la mayoría de los acuarios comunitarios, un cambio de agua del 25–30% semanal es el estándar. Los acuarios con mucho stock necesitan del 30–50% semanalmente. La frecuencia de cambios de agua afecta directamente a la capacidad de stock: los cambios más frecuentes o más grandes diluyen el nitrato más rápido, permitiendo un mayor bioload. Aquapacity modela esto, cambia la frecuencia de cambios de agua y observa cómo se actualiza tu puntuación de estabilidad de nitratos en tiempo real.</p>
     </details>
 
     <details class="faq-item">
       <summary>¿Puedo usar esta calculadora para acuarios de agua salada o arrecife?</summary>
-      <p>¡Sí! Selecciona <strong>Agua Salada</strong> en el Paso 1 de la calculadora para cargar nuestra base de datos de especies marinas. El motor de bioload funciona de forma idéntica — introduce el tamaño del acuario, el filtro y las especies que quieres tener, y Aquapacity te dirá si tu sistema puede soportarlos. Se incluyen datos específicos de agua salada (rango de salinidad, compatibilidad con arrecife, nivel de cuidado) para cada especie marina.</p>
+      <p>¡Sí! Selecciona <strong>Agua Salada</strong> en el Paso 1 de la calculadora para cargar nuestra base de datos de especies marinas. El motor de bioload funciona de forma idéntica, introduce el tamaño del acuario, el filtro y las especies que quieres tener, y Aquapacity te dirá si tu sistema puede soportarlos. Se incluyen datos específicos de agua salada (rango de salinidad, compatibilidad con arrecife, nivel de cuidado) para cada especie marina.</p>
     </details>
 
   </div>
@@ -1543,7 +1543,7 @@ const MEDIA_RATINGS = {
   premium_bio:      0.68,  // good but nanopore access limits colonisation
   bio_balls:        0.62,  // designed for trickle/wet-dry, submerged = lower
   ceramic_rings:    0.42,  // standard: low actual colonisable area
-  filter_wool:      0.10,  // mechanical only — very low bio value
+  filter_wool:      0.10,  // mechanical only, very low bio value
   activated_carbon: 0.05   // mechanical/chemical only
 };
 
@@ -1560,11 +1560,11 @@ const FILTER_TYPE_MULT = {
 // Saltwater: protein skimmer removes ~25% of DOC before it reaches the N-cycle;
 // sump volume also buffers bioload spikes. Sponge/undergravel not used in SW.
 const FILTER_TYPE_MULT_SW = {
-  sump:     1.30,  // sump + protein skimmer — best available; skimmer pre-removes organics
-  wetdry:   1.18,  // wet/dry (trickle) filter — air-exposed bio balls = excellent nitrification, no skimmer
-  canister: 1.00,  // reference — workable but no skimming benefit
+  sump:     1.30,  // sump + protein skimmer, best available; skimmer pre-removes organics
+  wetdry:   1.18,  // wet/dry (trickle) filter, air-exposed bio balls = excellent nitrification, no skimmer
+  canister: 1.00,  // reference, workable but no skimming benefit
   hob:      0.85,  // less contact time, no skimmer
-  internal: 0.72,  // nano reef / AIO — very limited capacity
+  internal: 0.72,  // nano reef / AIO, very limited capacity
 };
 // Also add wetdry to FW table (rare but valid for FW trickle towers)
 FILTER_TYPE_MULT.wetdry = 1.08;
@@ -1658,7 +1658,7 @@ function getBioEfficiency(){
   }
   let eff = typeMult * mediaRating;
   // SW: live rock acts as high-surface-area biological media throughout the tank
-  // — modelled as a +0.20 boost to bio efficiency (equivalent to adding premium ceramic media)
+  //, modelled as a +0.20 boost to bio efficiency (equivalent to adding premium ceramic media)
   if(isSW && state.liveRock) eff += 0.20;
   return eff;
 }
@@ -1765,12 +1765,12 @@ function setWaterType(type){
   document.getElementById('fw-env').style.display = isSW ? 'none' : '';
   document.getElementById('sw-env').style.display  = isSW ? ''     : 'none';
 
-  // FW-only filters: sponge, undergravel — hidden in SW
+  // FW-only filters: sponge, undergravel, hidden in SW
   ['sponge','undergravel'].forEach(t => {
     const btn = document.querySelector(`.filter-type-btn[data-type="${t}"]`);
     if(btn) btn.style.display = isSW ? 'none' : '';
   });
-  // SW-only filter: wet/dry — hidden in FW
+  // SW-only filter: wet/dry, hidden in FW
   const wetdryBtn = document.querySelector('.filter-type-btn[data-type="wetdry"]');
   if(wetdryBtn) wetdryBtn.style.display = isSW ? '' : 'none';
 
@@ -1795,9 +1795,9 @@ function setWaterType(type){
 
 /* ─── SW TANK TYPE ──────────────────────────────────────────── */
 const SW_TANK_HINTS = {
-  fowlr:     'Fish Only With Live Rock — nitrate up to 30 ppm tolerated.',
-  reef_soft: 'Soft-coral reef — keep nitrate below 10 ppm for coral health.',
-  reef_sps:  'SPS (stony coral) reef — nitrate must stay below 5 ppm. Strictest requirements.',
+  fowlr:     'Fish Only With Live Rock, nitrate up to 30 ppm tolerated.',
+  reef_soft: 'Soft-coral reef, keep nitrate below 10 ppm for coral health.',
+  reef_sps:  'SPS (stony coral) reef, nitrate must stay below 5 ppm. Strictest requirements.',
 };
 function setSwTankType(btn){
   state.swTankType = btn.dataset.swtype;
@@ -1919,7 +1919,7 @@ function setCat(btn){
   renderFishGrid();
 }
 
-/* ─── FISH SEARCH — last action wins ────────────────────────── */
+/* ─── FISH SEARCH, last action wins ────────────────────────── */
 function onFishSearch(){
   const q = (document.getElementById('fish-search').value||'').trim();
   if(q){
@@ -2154,7 +2154,7 @@ function recalc(){
   // (Jobling 1994 Fish Bioenergetics; Fromm 1980: 0.3-0.8 mg TAN/g/day × 4.43 TAN→NO3 factor)
   const NO3_ss = net_L>0 ? (eff_bl*15*(wc_freq/7)) / (net_L*(wc_pct/100)) : 0;
   // F_nit: normalised 0–1 scale. Reference = 40 ppm (FW safe max).
-  // SW thresholds differ by tank type — passed through to renderResults/renderAlerts.
+  // SW thresholds differ by tank type, passed through to renderResults/renderAlerts.
   const F_nit = NO3_ss/40;
   const swNitThresh = state.waterType === 'salt' ? getSwNitrateThresholds() : null;
 
@@ -2215,7 +2215,7 @@ function renderResults(r){
     disc.style.display = showDisc ? '' : 'none';
     if(showDisc){
       if(state.waterType === 'salt'){
-        disc.innerHTML = '⚠️ <strong>Marine tanks — estimates only.</strong> Saltwater systems are more sensitive than freshwater: nitrate tolerance is much lower, parameter stability is critical, and corals/invertebrates have strict requirements. Always test salinity (1.025–1.026 SG), alkalinity, calcium, and magnesium regularly, and research each species\' specific needs.';
+        disc.innerHTML = '⚠️ <strong>Marine tanks, estimates only.</strong> Saltwater systems are more sensitive than freshwater: nitrate tolerance is much lower, parameter stability is critical, and corals/invertebrates have strict requirements. Always test salinity (1.025–1.026 SG), alkalinity, calcium, and magnesium regularly, and research each species\' specific needs.';
       } else {
         disc.innerHTML = '⚠️ <strong>Estimates only.</strong> Results include safety margins to prioritize fish welfare. Aquarium stocking is not an exact science and depends on many variables. Use this as a starting point, and always research each species\' specific needs.';
       }
@@ -2256,10 +2256,10 @@ function renderResults(r){
     const cc=colorClass(r.stk,70,85,100,false);
     setMeter('stk-bar','stk-val','stk-sub',r.stk,150,Math.round(r.stk)+'%',cc);
     document.getElementById('stk-sub').textContent=
-      r.stk<70  ? '✅ Good — tank has space for more fish':
-      r.stk<85  ? '🟡 Llenando — planifica las siguientes adiciones':
-      r.stk<100 ? '⚠️ Casi lleno — considera un acuario más grande':
-                  '🚨 Superpoblado — reduce peces o amplía el acuario';
+      r.stk<70  ? '✅ Good. tank has space for more fish':
+      r.stk<85  ? '🟡 Llenando. planifica las siguientes adiciones':
+      r.stk<100 ? '⚠️ Casi lleno. considera un acuario más grande':
+                  '🚨 Superpoblado. reduce peces o amplía el acuario';
   } else {
     document.getElementById('stk-val').textContent='0%';
     document.getElementById('stk-bar').style.width='0%';
@@ -2277,9 +2277,9 @@ function renderResults(r){
       : 0;
     document.getElementById('flt-sub').textContent=
       r.flt>=100?`✅ Filtro adecuado (${Math.round(r.flt)}% de la carga biológica)`:
-      r.flt>=80 ?`🟡 Marginal — ligeramente insuficiente${recLPH? ` (recomendado ≥ ${recLPH} L/h)` : ''}`:
-      r.flt>=60 ?`⚠️ Insuficiente${recLPH? ` — recomendado al menos ${recLPH} L/h` : ' — mejora tu filtro'}`:
-                 `🚨 Muy insuficiente${recLPH? ` — mejora a ≥ ${recLPH} L/h urgentemente` : ' — mejora el filtro urgentemente'}`;
+      r.flt>=80 ?`🟡 Marginal, ligeramente insuficiente${recLPH? ` (recomendado ≥ ${recLPH} L/h)` : ''}`:
+      r.flt>=60 ?`⚠️ Insuficiente${recLPH? `, recomendado al menos ${recLPH} L/h` : ', mejora tu filtro'}`:
+                 `🚨 Muy insuficiente${recLPH? `, mejora a ≥ ${recLPH} L/h urgentemente` : ', mejora el filtro urgentemente'}`;
   } else if(r.C_bio>0){
     document.getElementById('flt-val').textContent='—';
     document.getElementById('flt-bar').style.width='50%';
@@ -2291,7 +2291,7 @@ function renderResults(r){
     document.getElementById('flt-sub').textContent='Introduce el caudal de tu filtro';
   }
 
-  // Turnover — SW needs higher flow than FW
+  // Turnover, SW needs higher flow than FW
   {
     const isSW_t = state.waterType === 'salt';
     const isReef = isSW_t && state.swTankType !== 'fowlr';
@@ -2305,17 +2305,17 @@ function renderResults(r){
         r.turnover.toFixed(1)+'×/h', tcc);
       if(isSW_t){
         document.getElementById('tov-sub').textContent=
-          r.turnover<tovMin  ?`🚨 Muy bajo — mejora urgentemente la bomba del sump`:
-          r.turnover<tovMed  ?`⚠️ Por debajo de lo recomendado — apunta a ≥10× de caudal en sump`:
-          r.turnover<tovGood ?`🟡 Mejorando — ≥10× de caudal en sump es el mínimo`:
+          r.turnover<tovMin  ?`🚨 Muy bajo. mejora urgentemente la bomba del sump`:
+          r.turnover<tovMed  ?`⚠️ Por debajo de lo recomendado. apunta a ≥10× de caudal en sump`:
+          r.turnover<tovGood ?`🟡 Mejorando. ≥10× de caudal en sump es el mínimo`:
                               isReef
-                               ?`✅ Buen caudal en sump — añade powerheads para los corales`
+                               ?`✅ Buen caudal en sump. añade powerheads para los corales`
                                :`✅ Buen recambio en sump`;
       } else {
         document.getElementById('tov-sub').textContent=
-          r.turnover<4  ?`🚨 Muy bajo — mejora el filtro urgentemente`:
-          r.turnover<6  ?`⚠️ Por debajo de lo recomendado — apunta a ≥8× del caudal nominal`:
-          r.turnover<8  ?`🟡 Mejorando — 8× es el mínimo recomendado`:
+          r.turnover<4  ?`🚨 Muy bajo. mejora el filtro urgentemente`:
+          r.turnover<6  ?`⚠️ Por debajo de lo recomendado. apunta a ≥8× del caudal nominal`:
+          r.turnover<8  ?`🟡 Mejorando. 8× es el mínimo recomendado`:
                          `✅ Buen recambio`;
       }
     } else {
@@ -2328,7 +2328,7 @@ function renderResults(r){
     }
   }
 
-  // Nitrate — threshold and sub-text always updated to reflect water type / SW tank type
+  // Nitrate. threshold and sub-text always updated to reflect water type / SW tank type
   {
     const isSW_n = state.waterType === 'salt';
     const nitThresh = isSW_n ? getSwNitrateThresholds() : {warnPpm:20, dangerPpm:40};
@@ -2344,10 +2344,10 @@ function renderResults(r){
       const barPct = Math.min(r.NO3_ss / dangerPpm * 100, 100);
       setMeter('nit-bar','nit-val','nit-sub', barPct, 100, '≈'+ppm+' ppm', cc);
       document.getElementById('nit-sub').textContent =
-        ppm < warnPpm*0.5  ? `✅ Excelente — NO₃ muy estable (≈${ppm} ppm)` :
-        ppm < warnPpm      ? `🟡 Bueno (≈${ppm} ppm) — mantén los cambios de agua rutinarios` :
-        ppm < dangerPpm    ? `⚠️ Elevado (≈${ppm} ppm) — aumenta el volumen de cambios de agua` :
-                             `🚨 Nitrato alto (≈${ppm} ppm) — reduce peces o cambia más agua`;
+        ppm < warnPpm*0.5  ? `✅ Excelente. NO₃ muy estable (≈${ppm} ppm)` :
+        ppm < warnPpm      ? `🟡 Bueno (≈${ppm} ppm). mantén los cambios de agua rutinarios` :
+        ppm < dangerPpm    ? `⚠️ Elevado (≈${ppm} ppm). aumenta el volumen de cambios de agua` :
+                             `🚨 Nitrato alto (≈${ppm} ppm). reduce peces o cambia más agua`;
     } else {
       // Always show correct target threshold for current mode
       document.getElementById('nit-sub').textContent =
@@ -2371,7 +2371,7 @@ function renderSelectedFish(fishList){
     </div>`).join('');
 }
 
-/* ─── MISSING SPECIES — SESSION RATE LIMIT ──────────────────── */
+/* ─── MISSING SPECIES, SESSION RATE LIMIT ──────────────────── */
 const SUGGEST_LIMIT = 10;
 
 function getSuggestCount(){
@@ -2412,7 +2412,7 @@ function submitMissingSpecies(){
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
       species: val,
-      _subject: 'Sugerencia de especie – Aquapacity',
+      _subject: 'Sugerencia de especie, Aquapacity',
       _gotcha: ''
     })
   })
@@ -2471,7 +2471,7 @@ function renderAlerts(r){
   // Stocking
   if(r.stk>100)      alerts.push({t:'danger',m:'🚨 El acuario está superpoblado. Retira algunos peces o cambia a uno más grande.'});
   else if(r.stk>80)  alerts.push({t:'warn',  m:'⚠️ El acuario se acerca a su capacidad máxima. Planifica bien los próximos peces.'});
-  else if(r.stk<20 && r.vol_L>20) alerts.push({t:'ok',m:'✅ El acuario tiene mucha capacidad — puedes añadir más peces.'});
+  else if(r.stk<20 && r.vol_L>20) alerts.push({t:'ok',m:'✅ El acuario tiene mucha capacidad, puedes añadir más peces.'});
 
   // Filter
   const recLPH2 = r.eff_bl>0 && r.eta_bio>0 && r.wc_penalty>0
@@ -2483,7 +2483,7 @@ function renderAlerts(r){
     if(flowIsOk){
       alerts.push({t:'danger',m:`🔴 La filtración biológica es insuficiente a pesar del caudal adecuado. Mejora tu medio filtrante: añade material de alta superficie como esponja de espuma, K1 o cerámica porosa.`});
     } else {
-      alerts.push({t:'danger',m:`🔴 Filtración insuficiente. Recomendado: ≥ ${recLPH2} L/h — considera un ${recFilterType} con biomedio de calidad.`});
+      alerts.push({t:'danger',m:`🔴 Filtración insuficiente. Recomendado: ≥ ${recLPH2} L/h, considera un ${recFilterType} con biomedio de calidad.`});
     }
   } else if(r.C_bio>0 && r.flt<100 && r.eff_bl>0){
     if(flowIsOk){
@@ -2492,15 +2492,15 @@ function renderAlerts(r){
       alerts.push({t:'warn',m:`⚠️ Filtro ligeramente infradimensionado. Mínimo recomendado: ${recLPH2} L/h (${recFilterType}).`});
     }
   }
-  if(r.C_bio===0) alerts.push({t:'warn',m:'⚠️ No se ha especificado filtro. Todos los acuarios necesitan filtración biológica — introduce el caudal de tu filtro.'});
+  if(r.C_bio===0) alerts.push({t:'warn',m:'⚠️ No se ha especificado filtro. Todos los acuarios necesitan filtración biológica, introduce el caudal de tu filtro.'});
 
-  // Nitrate — thresholds differ FW vs SW tank type
+  // Nitrate, thresholds differ FW vs SW tank type
   const ppm = Math.round(r.NO3_ss);
   if(r.swNitThresh){
     const {warnPpm, dangerPpm} = r.swNitThresh;
     const tankLabel = state.swTankType==='reef_sps' ? 'arrecife SPS' : state.swTankType==='reef_soft' ? 'arrecife de corales blandos' : 'FOWLR';
-    if(ppm >= dangerPpm) alerts.push({t:'danger', m:`🧪 Nitrato crítico para ${tankLabel} (≈${ppm} ppm — peligroso por encima de ${dangerPpm} ppm). Aumenta los cambios de agua o añade un refugio de Chaeto.`});
-    else if(ppm >= warnPpm) alerts.push({t:'warn', m:`💧 Nitrato elevado para ${tankLabel} (≈${ppm} ppm). Objetivo: menos de ${warnPpm} ppm — prueba cambios más frecuentes o un refugio de Chaeto.`});
+    if(ppm >= dangerPpm) alerts.push({t:'danger', m:`🧪 Nitrato crítico para ${tankLabel} (≈${ppm} ppm, peligroso por encima de ${dangerPpm} ppm). Aumenta los cambios de agua o añade un refugio de Chaeto.`});
+    else if(ppm >= warnPpm) alerts.push({t:'warn', m:`💧 Nitrato elevado para ${tankLabel} (≈${ppm} ppm). Objetivo: menos de ${warnPpm} ppm, prueba cambios más frecuentes o un refugio de Chaeto.`});
   } else {
     if(r.F_nit>1.0)    alerts.push({t:'danger',m:`🧪 El nitrato se acumulará (≈${ppm} ppm). Aumenta el volumen o la frecuencia de cambios de agua.`});
     else if(r.F_nit>0.7) alerts.push({t:'warn', m:`💧 Nitrato ligeramente elevado. Prueba cambios de agua del 30% semanales para mejores resultados.`});
@@ -2508,16 +2508,16 @@ function renderAlerts(r){
 
   // Bio-balls warning in SW (submerged = nitrate factory, unless in wet/dry)
   if(state.waterType === 'salt' && state.selectedMedia.has('bio_balls') && state.filterType !== 'wetdry'){
-    alerts.push({t:'warn', m:'⚠️ Las bio-balls sumergidas en un sump se convierten en fábricas de nitratos en acuarios marinos — sus cavidades atrapan detritos y crean zonas anaeróbicas. Sustitúyelas por esponja de espuma o K1, o úsalas solo en un filtro Wet/Dry (trickle) donde estén expuestas al aire.'});
+    alerts.push({t:'warn', m:'⚠️ Las bio-balls sumergidas en un sump se convierten en fábricas de nitratos en acuarios marinos, sus cavidades atrapan detritos y crean zonas anaeróbicas. Sustitúyelas por esponja de espuma o K1, o úsalas solo en un filtro Wet/Dry (trickle) donde estén expuestas al aire.'});
   }
 
   // Reef safe warnings (SW only)
   if(state.waterType === 'salt' && (state.swTankType === 'reef_soft' || state.swTankType === 'reef_sps')){
     fishList.forEach(({f}) => {
       if(f.reefSafe === 'NO')
-        alerts.push({t:'danger', m:`🪸 ${dn(f)} NO es apto para arrecife — dañará o comerá corales. Incompatible con tu configuración de arrecife.`});
+        alerts.push({t:'danger', m:`🪸 ${dn(f)} NO es apto para arrecife, dañará o comerá corales. Incompatible con tu configuración de arrecife.`});
       else if(f.reefSafe === 'CAUTION')
-        alerts.push({t:'warn', m:`⚠️ ${dn(f)} es apto para arrecife con precaución — puede mordisquear corales o invertebrados. Vigílalo de cerca.`});
+        alerts.push({t:'warn', m:`⚠️ ${dn(f)} es apto para arrecife con precaución, puede mordisquear corales o invertebrados. Vigílalo de cerca.`});
     });
   }
 
@@ -2527,7 +2527,7 @@ function renderAlerts(r){
   // Schooling
   fishList.forEach(({f,qty})=>{
     if(f.school && qty<f.minG)
-      alerts.push({t:'warn',m:`📏 ${dn(f)} es una especie de banco — mantén al menos ${f.minG} juntos para su bienestar (tienes ${qty}).`});
+      alerts.push({t:'warn',m:`📏 ${dn(f)} es una especie de banco. mantén al menos ${f.minG} juntos para su bienestar (tienes ${qty}).`});
   });
 
   // Compatibility
@@ -2563,7 +2563,7 @@ function renderAlerts(r){
   fishList.forEach(({f})=>{
     const minL=Math.round(f.minGal*3.785);
     if(r.vol_L>0&&r.vol_L<minL)
-      alerts.push({t:'warn',m:`📏 ${dn(f)} necesita al menos ${state.metric?minL+'L':f.minGal+' gal'} — tu acuario puede ser demasiado pequeño.`});
+      alerts.push({t:'warn',m:`📏 ${dn(f)} necesita al menos ${state.metric?minL+'L':f.minGal+' gal'}. tu acuario puede ser demasiado pequeño.`});
   });
 
   if(alerts.length===0) alerts.push({t:'ok',m:'✅ ¡Todo en orden! Los parámetros de tu acuario están dentro de rangos saludables.'});
@@ -2584,7 +2584,7 @@ function renderAlerts(r){
 // Sheet → File → Share → Publish to web → Sheet 1 → CSV → Publish
 const SHEET_CSV_FRESH = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT0J1JjMu36IQGC2MzgWVb3H00WBTlMK2J1qjWn7MDlNSBRl5tYj0qAXcAfuXtbEXoJidsUjUHoprVi/pub?gid=1198279226&single=true&output=csv';
 const SHEET_CSV_SALT  = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT0J1JjMu36IQGC2MzgWVb3H00WBTlMK2J1qjWn7MDlNSBRl5tYj0qAXcAfuXtbEXoJidsUjUHoprVi/pub?gid=875117213&single=true&output=csv';
-// Alias for backwards compat — updated dynamically by setWaterType()
+// Alias for backwards compat, updated dynamically by setWaterType()
 let SHEET_CSV_URL = SHEET_CSV_FRESH;
 
 function parseCSV(csv){
@@ -2680,7 +2680,7 @@ function rowToFish(cols){
   };
 }
 
-// JSONP fallback: loads data via <script> tag — bypasses CORS when opening from file://
+// JSONP fallback: loads data via <script> tag, bypasses CORS when opening from file://
 const SHEET_GVIZ_ID = '1ZZ5w3xM56mvz9c11PibnDLz8eQJvIR3qbUkphOckxwg';
 function loadViaGvizJSONP(){
   return new Promise((resolve,reject)=>{
@@ -2743,7 +2743,7 @@ async function loadFromSheets(){
       return applyRows(parseCSV(csv));
     }catch(e){
       if(!(e instanceof TypeError)){
-        // Error HTTP real, no CORS — no intentar JSONP
+        // Error HTTP real, no CORS, no intentar JSONP
         setBanner(`⚠️ Error al cargar Google Sheets (${e.message}). Usando base de datos local (${DB.length} especies).`,false);
         return false;
       }
