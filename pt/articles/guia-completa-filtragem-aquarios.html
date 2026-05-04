@@ -200,7 +200,8 @@ document.addEventListener('click',function(){
 <div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 16px rgba(0,0,0,.25)">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
     <span style="flex:1;min-width:220px;line-height:1.5">Usamos cookies analíticas para melhorar o site. Não compartilhamos dados com terceiros. <a href="../privacidade.html" style="color:#7dd3fc;text-decoration:underline">Política de Privacidade</a></span>
-    <div style="display:flex;gap:10px;flex-shrink:0;align-items:center">
+    <div style="display:flex;gap:10px;flex-shrink:0;align-items:center;flex-wrap:wrap">
+      <button onclick="aqConsent('denied')" style="background:transparent;border:none;color:rgba(255,255,255,.6);padding:8px 12px;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:inherit;text-decoration:underline">Recusar</button>
       <button onclick="aqOpenPrefs()" style="background:transparent;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:inherit">Preferências</button>
       <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:9px 22px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit;white-space:nowrap">Aceitar tudo</button>
     </div>
