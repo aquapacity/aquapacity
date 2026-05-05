@@ -419,7 +419,8 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   /* Header */
 
   /* Hero, ultra compact */
-  .hero p:not(.hero-lead){font-size:.82rem;display:none} /* hide subtitle on mobile */
+  .hero p:not(.hero-lead){font-size:.82rem;display:none} /* hide long subtitle on mobile */
+  .hero-lead{display:block;font-size:.875rem;color:var(--muted);max-width:680px}
 
   /* Unit bar, compact */
 
@@ -528,12 +529,9 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .lang-options a:hover{background:#f1f5f9}
 .lang-options a.current{background:#e0f2fe;color:#0c4a73}
 .lang-switcher.open .lang-options{display:block}
-.mn-lang-pill.active{background:#0369a1;color:#fff;border-color:#0369a1}
-.mn-lang-pill:hover:not(.active){background:#e0f2fe;border-color:#7dd3fc;text-decoration:none}
 .mn-footer{padding:20px 24px;border-top:1px solid #e0f2fe}
 .mn-lang-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;margin-bottom:10px}
-.mn-lang-pills{display:flex;gap:8px;margin-bottom:20px}
-.mn-lang-pill{flex:1;text-align:center;padding:10px 4px;border-radius:8px;font-weight:700;font-size:.88rem;text-decoration:none;color:#1e293b;background:#f1f5f9;border:1.5px solid #e2e8f0;transition:all .15s}
+.mn-lang-select{width:100%;padding:10px 12px;border-radius:8px;font-weight:700;font-size:.88rem;color:#1e293b;background:#f1f5f9;border:1.5px solid #e2e8f0;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer;margin-bottom:20px}
 .mn-kofi{display:block;text-align:center;background:#0369a1;color:#fff;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
 .mn-kofi:hover{background:#0284c7;text-decoration:none}
 @media(max-width:900px){.footer-inner{flex-direction:column;align-items:flex-start;gap:12px}.footer-inner>div:last-child{flex-direction:column;gap:8px}}
@@ -777,12 +775,12 @@ gtag('config', 'G-03QX35NF7F', {
     </a>
   </nav>
     <div class="mn-footer">
-    <p class="mn-lang-label">Language / Idioma</p>
-    <div class="mn-lang-pills">
-      <a class="mn-lang-pill" href="../index.html" onclick="localStorage.setItem('aqm_lang_pref','en')">🇬🇧 EN</a>
-      <a class="mn-lang-pill active" href="#" onclick="localStorage.setItem('aqm_lang_pref','es')">🇪🇸 ES</a>
-      <a class="mn-lang-pill" href="../pt/index.html" onclick="localStorage.setItem('aqm_lang_pref','pt')">🇧🇷 PT</a>
-    </div>
+    <p class="mn-lang-label">Idioma</p>
+    <select class="mn-lang-select" onchange="mnLangNav(this)">
+      <option value="../index.html" data-lang="en">🇬🇧 EN</option>
+      <option value="#" data-lang="es" selected>🇪🇸 ES</option>
+      <option value="../pt/index.html" data-lang="pt">🇧🇷 PT</option>
+    </select>
     <a href="https://ko-fi.com/aquapacity" target="_blank" class="mn-kofi">Apoya el proyecto ☕</a>
   </div>
 </div>
@@ -1679,6 +1677,7 @@ function l2gal(v){return v*0.264172}
 /* ─── SECOND FILTER ──────────────────────────────────────────── */
 function toggleSecondFilter(){
   state.hasSecondFilter = !state.hasSecondFilter;
+  if(state.hasSecondFilter) gtag('event','second_filter_opened',{water_type:state.waterType});
   if(!(state.hasSecondFilter&&state.secondFilterApplied)){
     state.secondFilterApplied = false;
     // Reset field error states
@@ -1833,6 +1832,7 @@ function setUnits(u){
   const wasMetric = state.metric;
   state.metric = (u==='metric');
   if(wasMetric === state.metric) return;
+  gtag('event','unit_switched',{to_unit:u});
 
   const conv = state.metric ? in2cm : cm2in;
   const fconv = state.metric ? gph2lph : lph2gph;
@@ -1909,6 +1909,7 @@ function applySecondFilter(){
   }
   if(!valid) return;
   state.secondFilterApplied=true;
+  gtag('event','second_filter_applied',{filter_type:typeEl.value,water_type:state.waterType});
   updateSecondFilterBtn();
   recalc();
 }
@@ -1943,6 +1944,7 @@ function updateFilterType2Options(){
 function setWaterType(type){
   if(state.waterType === type) return;
   state.waterType = type;
+  gtag('event','water_type_changed',{water_type:type});
   state.fish.clear();
   SHEET_CSV_URL = type === 'salt' ? SHEET_CSV_SALT : SHEET_CSV_FRESH;
 
@@ -2216,6 +2218,10 @@ function renderFishGrid(){
     return matchQ && matchCat;
   });
 
+  if(filtered.length===0 && q){
+    clearTimeout(window._aqNFT);
+    window._aqNFT=setTimeout(()=>gtag('event','species_not_found',{search_term:q.substring(0,100)}),800);
+  }
   grid.innerHTML = filtered.map(f=>{
     const qty = state.fish.get(f.id)||0;
     const tempClass = f.temp==='peaceful'?'tag-peace':f.temp==='semi'?'tag-semi':'tag-agg';
@@ -2270,14 +2276,23 @@ function changeQty(id, delta){
   const next = Math.min(999, Math.max(0, current+delta));
   if(next===0) state.fish.delete(id);
   else state.fish.set(id, next);
+  const _f=DB.find(x=>x.id===id);
+  const _fn=_f?_f.name:'unknown';
+  if(current===0&&next>0) gtag('event','fish_added',{species_name:_fn,water_type:state.waterType});
+  if(next===0&&current>0) gtag('event','fish_removed',{species_name:_fn,water_type:state.waterType});
   _syncCard(id);
   recalc();
 }
 
 function setQtyDirect(id, val){
+  const _prev=state.fish.get(id)||0;
   const n = Math.min(999, Math.max(0, parseInt(val)||0));
   if(n===0) state.fish.delete(id);
   else state.fish.set(id, n);
+  const _f=DB.find(x=>x.id===id);
+  const _fn=_f?_f.name:'unknown';
+  if(_prev===0&&n>0) gtag('event','fish_added',{species_name:_fn,water_type:state.waterType});
+  if(n===0&&_prev>0) gtag('event','fish_removed',{species_name:_fn,water_type:state.waterType});
   _syncCard(id);
   recalc();
 }
@@ -2741,7 +2756,10 @@ function renderAlerts(r){
       if(aCold!==bCold) alerts.push({t:'danger',m:`❌ Incompatibles: ${dn(a)} (agua fría) no puede convivir con ${dn(b)} (tropical).`});
 
       const tOverlap=Math.min(a.tMax,b.tMax)-Math.max(a.tMin,b.tMin);
-      if(!aCold&&!bCold&&tOverlap<2) alerts.push({t:'danger',m:`🌡️ Temperatura incompatible: ${dn(a)} (${a.tMin}–${a.tMax}°C) y ${dn(b)} (${b.tMin}–${b.tMax}°C) tienen rangos incompatibles.`});
+      if(!aCold&&!bCold&&tOverlap<2){
+        const fmtT=(c)=>state.metric?`${c}°C`:`${Math.round(c*9/5+32)}°F`;
+        alerts.push({t:'danger',m:`🌡️ Temperatura incompatible: ${dn(a)} (${fmtT(a.tMin)}–${fmtT(a.tMax)}) y ${dn(b)} (${fmtT(b.tMin)}–${fmtT(b.tMax)}) tienen rangos incompatibles.`});
+      }
 
       const phOverlap=Math.min(a.phMax,b.phMax)-Math.max(a.phMin,b.phMin);
       if(phOverlap<0.3) alerts.push({t:'danger',m:`⚗️ pH incompatible: ${dn(a)} (${a.phMin}–${a.phMax}) y ${dn(b)} (${b.phMin}–${b.phMax}) tienen química del agua incompatible.`});
@@ -3109,13 +3127,55 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
-  // Suggest species submit
-  var suggestBtn = document.getElementById('suggest-btn');
-  if(suggestBtn){
-    suggestBtn.addEventListener('click', function(){
-      gtag('event', 'suggest_species', {event_category:'engagement', event_label:'suggest_species_es'});
+
+  // ── calculator_started (fires once on first field interaction) ──
+  var _calcStarted = false;
+  var _calcFields = document.querySelectorAll('#calculator input, #calculator select');
+  _calcFields.forEach(function(el){
+    el.addEventListener('focus', function(){
+      if(_calcStarted) return;
+      _calcStarted = true;
+      gtag('event','calculator_started',{event_category:'calculator'});
+    }, {once: false});
+  });
+
+  // ── results_viewed + calculator_completed (IntersectionObserver) ──
+  var _resultsPanel = document.querySelector('.results-panel');
+  if(_resultsPanel && 'IntersectionObserver' in window){
+    var _resViewed = false;
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting && !_resViewed){
+          _resViewed = true;
+          gtag('event','results_viewed',{event_category:'calculator'});
+          // calculator_completed = has viewed results AND has at least 1 fish
+          var totalFish = 0;
+          if(typeof state !== 'undefined' && state.fish) state.fish.forEach(function(q){ totalFish+=q; });
+          if(totalFish > 0) gtag('event','calculator_completed',{event_category:'calculator',fish_count:totalFish});
+        }
+      });
+    },{threshold:0.3}).observe(_resultsPanel);
+  }
+
+  // ── faq_opened ──
+  document.querySelectorAll('.faq-item').forEach(function(details){
+    details.addEventListener('toggle', function(){
+      if(details.open){
+        var q = details.querySelector('summary');
+        gtag('event','faq_opened',{event_category:'content',question:(q?q.textContent.trim().substring(0,80):'unknown')});
+      }
+    });
+  });
+
+  // ── suggest_species (improved: include search term) ──
+  var _suggestBtn = document.getElementById('suggest-btn');
+  if(_suggestBtn){
+    _suggestBtn.addEventListener('click', function(){
+      var term = (document.getElementById('fish-search')||{}).value || '';
+      gtag('event','suggest_species',{event_category:'engagement',search_term:term.substring(0,80)});
     });
   }
+
 
 });
 </script>
