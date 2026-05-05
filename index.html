@@ -537,6 +537,15 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .mn-kofi{display:block;text-align:center;background:#0369a1;color:#fff;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
 .mn-kofi:hover{background:#0284c7;text-decoration:none}
 @media(max-width:900px){.footer-inner{flex-direction:column;align-items:flex-start;gap:12px}.footer-inner>div:last-child{flex-direction:column;gap:8px}}
+
+@media(max-width:640px){.media-grid{grid-template-columns:1fr 1fr}}
+.second-filter-panel{margin-top:16px;padding:14px;background:#f0f9ff;border:1.5px solid var(--border);border-radius:10px}
+.second-filter-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;font-size:.85rem;font-weight:800;color:var(--p)}
+.add-filter-btn{display:flex;align-items:center;gap:6px;margin-top:14px;padding:10px 16px;background:#fff;border:1.5px dashed var(--p2);border-radius:8px;color:var(--p);font-weight:700;font-size:.82rem;cursor:pointer;width:100%;justify-content:center;transition:all .2s}
+.add-filter-btn:hover{background:#f0f9ff;border-color:var(--p)}
+.remove-filter-btn{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:2px 6px;border-radius:4px;font-weight:700}
+.remove-filter-btn:hover{color:#e11d48;background:#fef2f2}
+
 </style>
 
 <!-- Structured Data -->
@@ -910,12 +919,69 @@ gtag('config', 'G-03QX35NF7F', {
             <span class="media-tip" data-tip="Chemical/mechanical media that adsorbs dissolved organic compounds, medications, and odours. No biological value; its pores are too small for beneficial bacteria. Replace every 4–6 weeks as it becomes saturated.">?</span>
           </div>
         </div>
-        <div class="field-hint" style="margin-top:6px">Ratings based on colonisable surface area. The stars indicate the ability to retain beneficial bacteria. If no media selected, a default efficiency is used.</div>
+        <div class="field-hint" style="margin-top:6px">Select the filter media you use. If none selected, a default efficiency will be applied.</div>
 
         <!-- Bio efficiency display -->
         <div class="bio-eff-display" id="bio-eff-display">
           <span class="be-label">Estimated bio efficiency</span>
           <span class="be-val" id="bio-eff-val">55% (default)</span>
+        </div>
+
+        <!-- Add second filter -->
+        <button class="add-filter-btn" id="add-filter-btn" onclick="toggleSecondFilter()">+ Add second filter</button>
+
+        <!-- Second filter panel -->
+        <div class="second-filter-panel" id="second-filter-panel" style="display:none">
+          <div class="second-filter-header">
+            <span>🔵 Second Filter</span>
+            <button class="remove-filter-btn" onclick="toggleSecondFilter()">✕ Remove</button>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Second Filter Flow (L/h)</label>
+              <input type="number" id="filter-flow-2" placeholder="200" min="0" oninput="recalc()">
+            </div>
+          </div>
+          <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:12px;margin-bottom:4px">Filter Media <span style="font-weight:400;text-transform:none;letter-spacing:0">(2nd filter)</span></div>
+          <div class="media-grid" id="media-grid-2">
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('foam_sponge',this)">
+            <span>Foam sponge</span>
+            <span class="media-tip" data-tip="Coarse polyurethane foam. Large open pores allow great water flow and host huge colonies of beneficial bacteria. Found in sponge filters and many HOBs. Top choice for biological filtration.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('k1_moving',this)">
+            <span>Moving bed / K1</span>
+            <span class="media-tip" data-tip="Small plastic chips (K1, K3, etc.) that tumble freely in moving water. The constant motion keeps surfaces clean and well-oxygenated, maximising bacterial growth. Used in moving bed filter systems.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('lava_rock',this)">
+            <span>Lava rock</span>
+            <span class="media-tip" data-tip="Natural volcanic rock with a rough, irregular porous surface. Cheap and effective, with good surface area for bacteria. Heavy, so only practical in sumps or large canister baskets.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('porous_ceramic',this)">
+            <span>Porous ceramic</span>
+            <span class="media-tip" data-tip="Fired ceramic pieces with many internal pores throughout (e.g. Eheim Substrat, Seachem Matrix). High internal surface area. Smaller pores can clog over time if not rinsed periodically in tank water.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('premium_bio',this)">
+            <span>Premium bio media</span>
+            <span class="media-tip" data-tip="High-end engineered media such as Siporax, Biohome Ultra, or Kaldnes. Marketed as having extremely high surface area, but much of it is in nano-pores too small for bacteria to access, placing it slightly below foam sponge in practice.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('bio_balls',this)">
+            <span>Bio-balls</span>
+            <span class="media-tip" data-tip="Plastic spheres designed for trickle or wet-dry filters; air exposure boosts oxygen for bacteria. When used fully submerged (inside a canister or HOB) their efficiency drops significantly, as they need airflow to work well.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('ceramic_rings',this)">
+            <span>Ceramic rings (std)</span>
+            <span class="media-tip" data-tip="Standard ceramic rings (e.g. Fluval Biomax, generic ceramic noodles). Moderate surface area on the outside only. Very common and inexpensive, but less effective than foam sponge or porous ceramic for biological filtration.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('filter_wool',this)">
+            <span>Filter wool / floss</span>
+            <span class="media-tip" data-tip="Mechanical filtration only: traps fine particles and debris to polish the water. Minimal biological value as bacteria cannot colonise the tight fibres effectively. Replace or rinse frequently so it doesn't clog.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('activated_carbon',this)">
+            <span>Activated carbon</span>
+            <span class="media-tip" data-tip="Chemical/mechanical media that adsorbs dissolved organic compounds, medications, and odours. No biological value; its pores are too small for beneficial bacteria. Replace every 4–6 weeks as it becomes saturated.">?</span>
+          </div>
+        
+          </div>
         </div>
 
       </div>
@@ -1506,6 +1572,8 @@ const state = {
   co2Enabled: false,
   filterType: 'canister',
   selectedMedia: new Set(),
+  selectedMedia2: new Set(),
+  hasSecondFilter: false,
   currentCat: 'all',
   fish: new Map()          // id → qty
 };
@@ -1516,6 +1584,25 @@ function in2cm(v){return v*2.54}
 function lph2gph(v){return v/3.78541}
 function gph2lph(v){return v*3.78541}
 function l2gal(v){return v*0.264172}
+
+
+/* ─── SECOND FILTER ──────────────────────────────────────────── */
+function toggleSecondFilter(){
+  state.hasSecondFilter = !state.hasSecondFilter;
+  document.getElementById('second-filter-panel').style.display = state.hasSecondFilter ? 'block' : 'none';
+  document.getElementById('add-filter-btn').style.display = state.hasSecondFilter ? 'none' : 'flex';
+  recalc();
+}
+function toggleMedia2(key,el){
+  if(state.selectedMedia2.has(key)){
+    state.selectedMedia2.delete(key);
+    el.classList.remove('selected');
+  } else {
+    state.selectedMedia2.add(key);
+    el.classList.add('selected');
+  }
+  recalc();
+}
 
 /* ─── TANK VOLUME ───────────────────────────────────────────── */
 function getTankVols(){
@@ -1560,12 +1647,14 @@ function getFootprint(){
 /* ─── FLOW GPH ──────────────────────────────────────────────── */
 function getFlowGPH(){
   const f=parseFloat(document.getElementById('filter-flow').value)||0;
-  return state.metric ? lph2gph(f) : f;
+  const f2=state.hasSecondFilter?(parseFloat(document.getElementById('filter-flow-2').value)||0):0;
+  return state.metric ? lph2gph(f+f2) : (f+f2);
 }
 
 function getFlowLPH(){
   const f=parseFloat(document.getElementById('filter-flow').value)||0;
-  return state.metric ? f : gph2lph(f);
+  const f2=state.hasSecondFilter?(parseFloat(document.getElementById('filter-flow-2').value)||0):0;
+  return state.metric ? (f+f2) : gph2lph(f+f2);
 }
 
 /* ─── BIO EFFICIENCY ────────────────────────────────────────── */
@@ -1573,18 +1662,29 @@ function getBioEfficiency(){
   const isSW = state.waterType === 'salt';
   const multTable = isSW ? FILTER_TYPE_MULT_SW : FILTER_TYPE_MULT;
   const typeMult = multTable[state.filterType] || (isSW ? FILTER_TYPE_MULT_SW.canister : 1.0);
-  const media = Array.from(state.selectedMedia);
-  let mediaRating;
-  if(media.length === 0){
-    mediaRating = 0.55; // conservative default
-  } else {
-    const sum = media.reduce((acc, m) => acc + (MEDIA_RATINGS[m] || 0.5), 0);
-    mediaRating = sum / media.length;
+  // Filter 1 bio rating
+  const media1 = Array.from(state.selectedMedia);
+  const mr1 = media1.length===0 ? 0.55 : media1.reduce((a,m)=>a+(MEDIA_RATINGS[m]||0.5),0)/media1.length;
+  const eff1 = typeMult * mr1;
+  if(!state.hasSecondFilter){
+    let eff=eff1;
+    if(isSW && state.liveRock) eff+=0.20;
+    return eff;
   }
-  let eff = typeMult * mediaRating;
-  // SW: live rock acts as high-surface-area biological media throughout the tank
-  //, modelled as a +0.20 boost to bio efficiency (equivalent to adding premium ceramic media)
-  if(isSW && state.liveRock) eff += 0.20;
+  // Filter 2 bio rating (canister multiplier as default for second filter)
+  const f1=parseFloat(document.getElementById('filter-flow').value)||0;
+  const f2=parseFloat(document.getElementById('filter-flow-2').value)||0;
+  const media2=Array.from(state.selectedMedia2);
+  const mr2=media2.length===0?0.55:media2.reduce((a,m)=>a+(MEDIA_RATINGS[m]||0.5),0)/media2.length;
+  const eff2=1.0*mr2;
+  // Weighted average by flow
+  let eff;
+  if(f1+f2>0){
+    eff=(eff1*f1+eff2*f2)/(f1+f2);
+  } else {
+    eff=(eff1+eff2)/2;
+  }
+  if(isSW && state.liveRock) eff+=0.20;
   return eff;
 }
 

@@ -537,6 +537,15 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .mn-kofi{display:block;text-align:center;background:#0369a1;color:#fff;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
 .mn-kofi:hover{background:#0284c7;text-decoration:none}
 @media(max-width:900px){.footer-inner{flex-direction:column;align-items:flex-start;gap:12px}.footer-inner>div:last-child{flex-direction:column;gap:8px}}
+
+@media(max-width:640px){.media-grid{grid-template-columns:1fr 1fr}}
+.second-filter-panel{margin-top:16px;padding:14px;background:#f0f9ff;border:1.5px solid var(--border);border-radius:10px}
+.second-filter-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;font-size:.85rem;font-weight:800;color:var(--p)}
+.add-filter-btn{display:flex;align-items:center;gap:6px;margin-top:14px;padding:10px 16px;background:#fff;border:1.5px dashed var(--p2);border-radius:8px;color:var(--p);font-weight:700;font-size:.82rem;cursor:pointer;width:100%;justify-content:center;transition:all .2s}
+.add-filter-btn:hover{background:#f0f9ff;border-color:var(--p)}
+.remove-filter-btn{background:none;border:none;color:var(--muted);font-size:.8rem;cursor:pointer;padding:2px 6px;border-radius:4px;font-weight:700}
+.remove-filter-btn:hover{color:#e11d48;background:#fef2f2}
+
 </style>
 
 <!-- Structured Data -->
@@ -890,12 +899,69 @@ gtag('config', 'G-03QX35NF7F', {
             <span class="media-tip" data-tip="Medio químico que adsorbe compuestos orgánicos disueltos, medicamentos y olores. Sin valor biológico; sus poros son demasiado pequeños para las bacterias beneficiosas. Reemplazar cada 4–6 semanas cuando se sature.">?</span>
           </div>
         </div>
-        <div class="field-hint" style="margin-top:6px">Avaliações baseadas na superfície colonizável. As estrelas indicam a capacidade de abrigar bactérias benéficas. Se nenhuma mídia for selecionada, usa-se uma eficiência padrão.</div>
+        <div class="field-hint" style="margin-top:6px">Selecione os meios filtrantes que usa. Se nenhum for selecionado, será aplicada uma eficiência padrão.</div>
 
         <!-- Bio efficiency display -->
         <div class="bio-eff-display" id="bio-eff-display">
           <span class="be-label">Eficiência biológica estimada</span>
           <span class="be-val" id="bio-eff-val">55% (Padrão. Selecione mídias filtrantes para maior precisão)</span>
+        </div>
+
+        <!-- Add second filter -->
+        <button class="add-filter-btn" id="add-filter-btn" onclick="toggleSecondFilter()">+ Tem um segundo filtro? Adicionar</button>
+
+        <!-- Second filter panel -->
+        <div class="second-filter-panel" id="second-filter-panel" style="display:none">
+          <div class="second-filter-header">
+            <span>🔵 Segundo Filtro</span>
+            <button class="remove-filter-btn" onclick="toggleSecondFilter()">✕ Remover</button>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Vazão do Segundo Filtro (L/h)</label>
+              <input type="number" id="filter-flow-2" placeholder="200" min="0" oninput="recalc()">
+            </div>
+          </div>
+          <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:12px;margin-bottom:4px">Materiais Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(2.º filtro)</span></div>
+          <div class="media-grid" id="media-grid-2">
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('foam_sponge',this)">
+            <span>Foamex/Esponja</span>
+            <span class="media-tip" data-tip="Esponja de poliuretano de poro grosso. Seus poros grandes facilitam excelente fluxo de água e abrigam enormes colônias de bactérias benéficas. Presente em filtros de esponja e muitos HOBs. A melhor opção para filtração biológica.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('k1_moving',this)">
+            <span>Leito móvel / K1</span>
+            <span class="media-tip" data-tip="Pequeñas piezas de plástico (K1, K3, etc.) que giran libremente en agua en movimiento. El movimiento constante mantiene las superficies limpias y bien oxigenadas, maximizando el crecimiento bacteriano. Se usan en sistemas de lecho móvil.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('lava_rock',this)">
+            <span>Rocha vulcânica</span>
+            <span class="media-tip" data-tip="Rocha vulcânica natural de superfície rugosa e irregular com grande porosidade. Barata e eficaz, com boa superfície para bactérias. Pesada, portanto só é prática em sumps ou cestas grandes de filtros externos.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('porous_ceramic',this)">
+            <span>Cerâmica porosa</span>
+            <span class="media-tip" data-tip="Peças cerâmicas com numerosos poros internos (ex. Eheim Substrat, Seachem Matrix). Alta superfície interna. Os poros menores podem entupir com o tempo se não forem enxaguados periodicamente em água do aquário.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('premium_bio',this)">
+            <span>Resinas/Zeólitas</span>
+            <span class="media-tip" data-tip="Resinas de troca iônica e zeólitas que eliminam amônia e outros compostos da água. Ação química pontual, sem valor biológico permanente. Substituir a cada 4–6 semanas quando saturadas ou após tratamentos com medicamentos.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('bio_balls',this)">
+            <span>Biobolas</span>
+            <span class="media-tip" data-tip="Esferas de plástico diseñadas para filtros de gota o húmedo-seco (wet-dry); la exposición al aire aumenta el oxígeno para las bacterias. Cuando se usan totalmente sumergidas (canister o HOB) su eficiencia cae significativamente, pues necesitan flujo de aire.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('ceramic_rings',this)">
+            <span>Argolas cerâmicas</span>
+            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa para filtração biológica.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('filter_wool',this)">
+            <span>Lã de filtro (Guata)</span>
+            <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('activated_carbon',this)">
+            <span>Carvão ativo</span>
+            <span class="media-tip" data-tip="Medio químico que adsorbe compuestos orgánicos disueltos, medicamentos y olores. Sin valor biológico; sus poros son demasiado pequeños para las bacterias beneficiosas. Reemplazar cada 4–6 semanas cuando se sature.">?</span>
+          </div>
+        
+          </div>
         </div>
 
       </div>
@@ -1081,7 +1147,7 @@ gtag('config', 'G-03QX35NF7F', {
 
       <!-- Conservative disclaimer -->
       <div class="rp-disclaimer" id="rp-disclaimer" style="display:none">
-        ⚠️ <strong>Apenas estimativas.</strong> Os resultados incluem margens de segurança para priorizar o bem-estar dos peixes. O stock de aquário não é uma ciência exata e depende de muitas variáveis. Use como ponto de partida e sempre pesquise as necessidades de cada espécie.
+        ⚠️ <strong>Apenas estimativas.</strong> Os resultados incluem margens de segurança para priorizar o bem-estar dos peixes. A lotação de aquários não é uma ciência exata e depende de muitas variáveis. Use como ponto de partida e pesquise sempre as necessidades específicas de cada espécie.
       </div>
 
       <!-- Alerts -->
@@ -1476,6 +1542,8 @@ const state = {
   co2Enabled: false,
   filterType: 'canister',
   selectedMedia: new Set(),
+  selectedMedia2: new Set(),
+  hasSecondFilter: false,
   currentCat: 'all',
   fish: new Map()          // id → qty
 };
@@ -1486,6 +1554,25 @@ function in2cm(v){return v*2.54}
 function lph2gph(v){return v/3.78541}
 function gph2lph(v){return v*3.78541}
 function l2gal(v){return v*0.264172}
+
+
+/* ─── SECOND FILTER ──────────────────────────────────────────── */
+function toggleSecondFilter(){
+  state.hasSecondFilter = !state.hasSecondFilter;
+  document.getElementById('second-filter-panel').style.display = state.hasSecondFilter ? 'block' : 'none';
+  document.getElementById('add-filter-btn').style.display = state.hasSecondFilter ? 'none' : 'flex';
+  recalc();
+}
+function toggleMedia2(key,el){
+  if(state.selectedMedia2.has(key)){
+    state.selectedMedia2.delete(key);
+    el.classList.remove('selected');
+  } else {
+    state.selectedMedia2.add(key);
+    el.classList.add('selected');
+  }
+  recalc();
+}
 
 /* ─── TANK VOLUME ───────────────────────────────────────────── */
 function getTankVols(){
@@ -1530,12 +1617,14 @@ function getFootprint(){
 /* ─── FLOW GPH ──────────────────────────────────────────────── */
 function getFlowGPH(){
   const f=parseFloat(document.getElementById('filter-flow').value)||0;
-  return state.metric ? lph2gph(f) : f;
+  const f2=state.hasSecondFilter?(parseFloat(document.getElementById('filter-flow-2').value)||0):0;
+  return state.metric ? lph2gph(f+f2) : (f+f2);
 }
 
 function getFlowLPH(){
   const f=parseFloat(document.getElementById('filter-flow').value)||0;
-  return state.metric ? f : gph2lph(f);
+  const f2=state.hasSecondFilter?(parseFloat(document.getElementById('filter-flow-2').value)||0):0;
+  return state.metric ? (f+f2) : gph2lph(f+f2);
 }
 
 /* ─── BIO EFFICIENCY ────────────────────────────────────────── */
@@ -1543,18 +1632,29 @@ function getBioEfficiency(){
   const isSW = state.waterType === 'salt';
   const multTable = isSW ? FILTER_TYPE_MULT_SW : FILTER_TYPE_MULT;
   const typeMult = multTable[state.filterType] || (isSW ? FILTER_TYPE_MULT_SW.canister : 1.0);
-  const media = Array.from(state.selectedMedia);
-  let mediaRating;
-  if(media.length === 0){
-    mediaRating = 0.55; // conservative default
-  } else {
-    const sum = media.reduce((acc, m) => acc + (MEDIA_RATINGS[m] || 0.5), 0);
-    mediaRating = sum / media.length;
+  // Filter 1 bio rating
+  const media1 = Array.from(state.selectedMedia);
+  const mr1 = media1.length===0 ? 0.55 : media1.reduce((a,m)=>a+(MEDIA_RATINGS[m]||0.5),0)/media1.length;
+  const eff1 = typeMult * mr1;
+  if(!state.hasSecondFilter){
+    let eff=eff1;
+    if(isSW && state.liveRock) eff+=0.20;
+    return eff;
   }
-  let eff = typeMult * mediaRating;
-  // SW: live rock acts as high-surface-area biological media throughout the tank
-  //, modelled as a +0.20 boost to bio efficiency (equivalent to adding premium ceramic media)
-  if(isSW && state.liveRock) eff += 0.20;
+  // Filter 2 bio rating (canister multiplier as default for second filter)
+  const f1=parseFloat(document.getElementById('filter-flow').value)||0;
+  const f2=parseFloat(document.getElementById('filter-flow-2').value)||0;
+  const media2=Array.from(state.selectedMedia2);
+  const mr2=media2.length===0?0.55:media2.reduce((a,m)=>a+(MEDIA_RATINGS[m]||0.5),0)/media2.length;
+  const eff2=1.0*mr2;
+  // Weighted average by flow
+  let eff;
+  if(f1+f2>0){
+    eff=(eff1*f1+eff2*f2)/(f1+f2);
+  } else {
+    eff=(eff1+eff2)/2;
+  }
+  if(isSW && state.liveRock) eff+=0.20;
   return eff;
 }
 
@@ -2112,7 +2212,7 @@ function renderResults(r){
       if(state.waterType === 'salt'){
         disc.innerHTML = '⚠️ <strong>Marine tanks, estimates only.</strong> Saltwater systems are more sensitive than freshwater: nitrate tolerance is much lower, parameter stability is critical, and corals/invertebrates have strict requirements. Always test salinity (1.025–1.026 SG), alkalinity, calcium, and magnesium regularly, and research each species\' specific needs.';
       } else {
-        disc.innerHTML = '⚠️ <strong>Estimates only.</strong> Results include safety margins to prioritize fish welfare. Aquarium stocking is not an exact science and depends on many variables. Use this as a starting point, and always research each species\' specific needs.';
+        disc.innerHTML = '⚠️ <strong>Apenas estimativas.</strong> Os resultados incluem margens de segurança para priorizar o bem-estar dos peixes. A lotação de aquários não é uma ciência exata e depende de muitas variáveis. Use como ponto de partida e pesquise sempre as necessidades específicas de cada espécie.';
       }
     }
   }
