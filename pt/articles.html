@@ -65,7 +65,7 @@ nav a.active{color:#fff;font-weight:700}
 .mn-icon{font-size:1.2rem;width:28px;text-align:center}
 .mobile-nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;backdrop-filter:blur(2px)}
 .mobile-nav-backdrop.open{display:block}
-@media(max-width:900px){.lang-switcher{display:none}.hamburger{display:flex}}
+@media(max-width:900px){nav{display:none}.hamburger{display:flex}}
 
 /* ─── PAGE HERO ────────────────────────────────────────────── */
 .page-hero{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 60%,#0891b2 100%);color:#fff;padding:48px 24px 56px}
@@ -147,7 +147,9 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .mn-lang-pills{display:flex;gap:8px;margin-bottom:20px}
 .mn-lang-pill{flex:1;text-align:center;padding:10px 4px;border-radius:8px;font-weight:700;font-size:.88rem;text-decoration:none;color:#1e293b;background:#f1f5f9;border:1.5px solid #e2e8f0;transition:all .15s}
 .mn-kofi{display:block;text-align:center;background:#0369a1;color:#fff;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
-.mn-kofi:hover{background:#0284c7;text-decoration:none}</style>
+.mn-kofi:hover{background:#0284c7;text-decoration:none}
+@media(max-width:900px){.footer-inner{flex-direction:column;align-items:flex-start;gap:12px}.footer-inner>div:last-child{flex-direction:column;gap:8px}}
+</style>
 
 <!-- Analytics + Consent Mode v2 -->
 <script>
