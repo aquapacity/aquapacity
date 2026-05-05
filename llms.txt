@@ -1,0 +1,63 @@
+# Aquapacity
+
+> Free, science-based aquarium stocking calculator for freshwater and saltwater tanks. Supports 100+ species with bioload modeling, filter capacity analysis, nitrate stability prediction, and plant density correction.
+
+Aquapacity is a web tool that replaces outdated rules like the "1 inch per gallon" with a species-specific bioload model derived from published scientific data on oxygen consumption and nitrogen excretion rates (Jobling 1994, Fromm 1980). It calculates how many fish a tank can safely hold based on tank volume, filter type and media, biological efficiency, water change schedule, and live plant density.
+
+## Key Features
+
+- 100+ freshwater and saltwater species database with individual bioload coefficients
+- Filter analysis: type multipliers (canister, HOB, sump, sponge, wet/dry), 9 filter media types, biological efficiency scoring
+- Dual-filter support: calculate combined flow and weighted bio-efficiency for two filters
+- Nitrate steady-state model: predicts NO3 accumulation at current stocking and maintenance schedule
+- Plant density bonus: low/medium/high density with CO2 injection correction
+- Water change frequency and volume modelling
+- Freshwater and saltwater/reef modes with species-appropriate thresholds
+- Metric and imperial units
+- Available in English, Spanish, and Brazilian Portuguese
+
+## Calculator
+
+- Main calculator (EN): https://aquapacity.com/
+- Calculadora (ES): https://aquapacity.com/es/
+- Calculadora (PT-BR): https://aquapacity.com/pt/
+
+## Articles
+
+### English
+- https://aquapacity.com/articles/1-inch-per-gallon-rule.html — Why the 1-Inch-Per-Gallon Rule Is Wrong
+- https://aquapacity.com/articles/complete-guide-aquarium-filtration.html — The Complete Guide to Aquarium Filtration
+- https://aquapacity.com/articles/planted-tanks-bioload.html — Planted Tanks and Bioload: How Plants Affect Stocking Capacity
+- https://aquapacity.com/articles/how-to-stock-10-gallon-tank.html — How to Stock a 10-Gallon Tank
+- https://aquapacity.com/articles/corydoras-species-guide.html — Corydoras Species Guide
+- https://aquapacity.com/articles/water-changes-guide.html — Water Changes: How Often, How Much
+
+### Spanish (Español)
+- https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html — Por qué la Regla del Centímetro por Litro Está Equivocada
+- https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html — Guía Completa de Filtración para Acuarios
+- https://aquapacity.com/es/articles/cambios-de-agua-guia.html — Cambios de Agua: La Guía Definitiva
+
+### Portuguese (Português Brasil)
+- https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro.html — Por Que a Regra do Centímetro por Litro Está Errada
+- https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios.html — Guia Completo de Filtragem para Aquários
+- https://aquapacity.com/pt/articles/trocas-de-agua-guia.html — Trocas de Água: O Guia Definitivo
+
+## The Bioload Algorithm
+
+Aquapacity uses species-specific bioload coefficients derived from empirical analysis of 144 species (74 freshwater, 50 saltwater fish, 20 saltwater invertebrates):
+
+- BioloadGPH = k_base × L^1.15 × metabolic_modifier
+- k_FW = 0.221, k_SW = 0.156 (saltwater fish have ~29% lower metabolic rate)
+- Exponent 1.15 fitted by least-squares regression on real species data
+- Filter capacity C_bio = flow_GPH × biological_efficiency × water_change_penalty
+- Stocking occupancy % = (effective_bioload / C_bio) × 100
+- Nitrate steady-state: NO3_ss = (bioload × 15 × (days_between_changes/7)) / (net_volume_L × change_pct/100)
+
+## Species Database
+
+Over 100 species including: Neon Tetra, Cardinal Tetra, Betta, Guppy, Platy, Molly, Corydoras (12+ species), Angelfish, Discus, Oscar, Goldfish, Koi (pond), Clownfish, Blue Tang, Royal Gramma, various saltwater invertebrates. Full list available in calculator.
+
+## Contact
+
+- Email: aquapacity.info@gmail.com
+- Support: https://ko-fi.com/aquapacity
