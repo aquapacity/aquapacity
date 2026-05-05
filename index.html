@@ -364,19 +364,19 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
     flex:0 0 130px;flex-shrink:0;
     scroll-snap-align:start;
     max-width:none;
-  }
+  
 
   /* Filter media → 2 columns (avoids overflow at any width) */
   .media-item span:first-child{min-width:0;flex:1}
 
   /* Long text must wrap */
   .field-hint,.meter-sub,.alert{overflow-wrap:break-word;word-break:break-word}
-}
-}
+
+
 
 /* ── MOBILE STICKY RESULTS BAR ── */
 #mob-bar{
-  display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;
+  display:none!important;position:fixed;bottom:0;left:0;right:0;z-index:998;
   background:#fff;border-top:2px solid var(--border);
   padding:10px 16px 12px;
   box-shadow:0 -4px 20px rgba(0,0,0,.10);
@@ -457,12 +457,12 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
     -webkit-overflow-scrolling:touch;
     gap:10px;padding:4px 2px 14px;
     max-height:none;scrollbar-width:none;
-  }
+  
     scroll-snap-align:start;
     flex:0 0 calc(46% - 4px);
     min-width:130px;max-width:160px!important;
     padding:12px 8px;
-  }
+  
 
   /* Fish qty, bigger touch targets */
   .qty-num,.qty-input{font-size:1rem;min-width:24px}
@@ -478,11 +478,11 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
     gap:6px;
     overflow-x:visible;
     scroll-snap-type:none;
-  }
+  
     flex:none;
     padding:10px 4px;font-size:.72rem;border-radius:8px;
     max-width:none;
-  }
+  
 
   /* Filter media, 2-column chips */
 
@@ -516,13 +516,13 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   /* Footer */
 
   /* Tooltips, reposition to avoid clipping */
-}
+
 
 /* ─── LANGUAGE SWITCHER ───────────────────────────────────── */
 .lang-btn{display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,.85);font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.4);border-radius:100px;padding:4px 11px;transition:all .2s;text-decoration:none;white-space:nowrap}
 .lang-btn:hover{color:#fff;border-color:rgba(255,255,255,.9);background:rgba(255,255,255,.1);text-decoration:none}
 .lang-switcher{position:relative;display:inline-block}
-.lang-switcher .lang-btn{cursor:pointer;background:transparent;border:none;font-family:inherit}
+.lang-switcher .lang-btn{cursor:pointer;background:transparent;border:none;font-family:inherit;color:rgba(255,255,255,.85)}
 .lang-options{display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.18);overflow:hidden;min-width:150px;z-index:2000}
 .lang-options a{display:flex;align-items:center;gap:8px;padding:10px 16px;text-decoration:none;color:#1e293b;font-size:.875rem;font-weight:700;transition:background .15s}
 .lang-options a:hover{background:#f1f5f9}
