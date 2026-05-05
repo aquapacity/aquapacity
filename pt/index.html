@@ -824,7 +824,7 @@ gtag('config', 'G-03QX35NF7F', {
             <input type="number" id="filter-flow" placeholder="400" min="0" oninput="recalc()">
           </div>
         </div>
-        <div class="field-hint">Insira a vazão do seu filtro ou bomba de sump. A vazão nominal é medida sem pressão e com filtro limpo, na prática costuma ser 30–50% menor. Mire em ≥8× o volume do aquário para água doce; ≥10× para marinho/recife.</div>
+        <div class="field-hint">Insira a vazão nominal do seu filtro (o que o fabricante indica). O algoritmo considera que na prática costuma ser 30 a 50% menor devido ao acúmulo de detritos.</div>
 
         <!-- Filter type -->
         <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:16px;margin-bottom:4px">Tipo de Filtro</div>
@@ -920,6 +920,7 @@ gtag('config', 'G-03QX35NF7F', {
             <div class="field">
               <label>Vazão do Segundo Filtro (L/h)</label>
               <input type="number" id="filter-flow-2" placeholder="200" min="0" oninput="recalc()">
+              <span id="f2-err-flow" style="display:none;color:#e11d48;font-size:.75rem;margin-top:3px;display:none">Insira a vazão do filtro</span>
             </div>
           </div>
           <div class="field-row" style="margin-top:12px">
@@ -927,6 +928,7 @@ gtag('config', 'G-03QX35NF7F', {
               <label>Tipo do Segundo Filtro</label>
               <select id="filter-type-2" onchange="recalc()" style="font-size:.9rem">
               </select>
+              <span id="f2-err-type" style="display:none;color:#e11d48;font-size:.75rem;margin-top:3px">Selecione o tipo de filtro</span>
             </div>
           </div>
           <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:12px;margin-bottom:4px">Materiais Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(2.º filtro)</span></div>
@@ -969,6 +971,7 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
         
           </div>
+          <button id="apply-filter2-btn" onclick="applySecondFilter()" style="margin-top:14px;width:100%;padding:11px;background:#0369a1;color:#fff;border:none;border-radius:8px;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .2s">Adicionar ao cálculo</button>
         </div>
 
       </div>
@@ -1551,6 +1554,7 @@ const state = {
   selectedMedia: new Set(),
   selectedMedia2: new Set(),
   hasSecondFilter: false,
+  secondFilterApplied: false,
   currentCat: 'all',
   fish: new Map()          // id → qty
 };
@@ -1566,9 +1570,17 @@ function l2gal(v){return v*0.264172}
 /* ─── SECOND FILTER ──────────────────────────────────────────── */
 function toggleSecondFilter(){
   state.hasSecondFilter = !state.hasSecondFilter;
+  if(!(state.hasSecondFilter&&state.secondFilterApplied)){
+    state.secondFilterApplied = false;
+    // Reset field error states
+    const fe=document.getElementById('filter-flow-2');
+    const te=document.getElementById('filter-type-2');
+    if(fe) fe.style.borderColor='';
+    if(te) te.style.borderColor='';
+  }
   document.getElementById('second-filter-panel').style.display = state.hasSecondFilter ? 'block' : 'none';
   document.getElementById('add-filter-btn').style.display = state.hasSecondFilter ? 'none' : 'flex';
-  recalc();
+  if(!state.hasSecondFilter) recalc();
 }
 function toggleMedia2(key,el){
   if(state.selectedMedia2.has(key)){
@@ -1624,13 +1636,13 @@ function getFootprint(){
 /* ─── FLOW GPH ──────────────────────────────────────────────── */
 function getFlowGPH(){
   const f=parseFloat(document.getElementById('filter-flow').value)||0;
-  const f2=state.hasSecondFilter?(parseFloat(document.getElementById('filter-flow-2').value)||0):0;
+  const f2=(state.hasSecondFilter&&state.secondFilterApplied)?(parseFloat(document.getElementById('filter-flow-2').value)||0):0;
   return state.metric ? lph2gph(f+f2) : (f+f2);
 }
 
 function getFlowLPH(){
   const f=parseFloat(document.getElementById('filter-flow').value)||0;
-  const f2=state.hasSecondFilter?(parseFloat(document.getElementById('filter-flow-2').value)||0):0;
+  const f2=(state.hasSecondFilter&&state.secondFilterApplied)?(parseFloat(document.getElementById('filter-flow-2').value)||0):0;
   return state.metric ? (f+f2) : gph2lph(f+f2);
 }
 
@@ -1653,7 +1665,7 @@ function getBioEfficiency(){
   const type2 = type2El ? type2El.value : 'canister';
   const typeMult2 = multTable[type2] || (isSW ? FILTER_TYPE_MULT_SW.canister : 1.0);
   const f1=parseFloat(document.getElementById('filter-flow').value)||0;
-  const f2=parseFloat(document.getElementById('filter-flow-2').value)||0;
+  const f2=(state.secondFilterApplied?parseFloat(document.getElementById('filter-flow-2').value):0)||0;
   const media2=Array.from(state.selectedMedia2);
   const mr2=media2.length===0?0.55:media2.reduce((a,m)=>a+(MEDIA_RATINGS[m]||0.5),0)/media2.length;
   const eff2=typeMult2*mr2;
@@ -1750,6 +1762,48 @@ function setUnits(u){
 
 /* ─── WATER TYPE ────────────────────────────────────────────── */
 
+function updateSecondFilterBtn(){
+  const btn=document.getElementById('apply-filter2-btn');
+  if(!btn) return;
+  if(state.secondFilterApplied){
+    btn.textContent='✓ Adicionado';
+    btn.style.background='#059669';
+    btn.style.borderColor='#059669';
+    btn.style.color='#fff';
+  } else {
+    btn.textContent='Adicionar ao cálculo';
+    btn.style.background='';
+    btn.style.borderColor='';
+    btn.style.color='';
+  }
+}
+function applySecondFilter(){
+  const flowEl=document.getElementById('filter-flow-2');
+  const typeEl=document.getElementById('filter-type-2');
+  let valid=true;
+  // Clear previous errors
+  flowEl.style.borderColor='';
+  typeEl.style.borderColor='';
+  document.getElementById('f2-err-flow').style.display='none';
+  document.getElementById('f2-err-type').style.display='none';
+  // Validate
+  const flow=parseFloat(flowEl.value)||0;
+  if(!flow){
+    flowEl.style.borderColor='#e11d48';
+    document.getElementById('f2-err-flow').style.display='block';
+    valid=false;
+  }
+  if(!typeEl.value){
+    typeEl.style.borderColor='#e11d48';
+    document.getElementById('f2-err-type').style.display='block';
+    valid=false;
+  }
+  if(!valid) return;
+  state.secondFilterApplied=true;
+  updateSecondFilterBtn();
+  recalc();
+}
+
 function updateFilterType2Options(){
   const sel=document.getElementById('filter-type-2');
   if(!sel) return;
@@ -1759,20 +1813,23 @@ function updateFilterType2Options(){
     {value:'sump',label:'Sump'},
     {value:'wetdry',label:'Úmido/Seco'},
     {value:'hob',label:'Pendurado (HOB)'},
-    {value:'internal',label:'Filtro interno'},
+    {value:'internal',label:'Filtro interno'}
   ]:[
     {value:'canister',label:'Externo / Canister'},
     {value:'hob',label:'Pendurado (HOB)'},
     {value:'internal',label:'Filtro interno'},
     {value:'sponge',label:'Filtro de esponja'},
-    {value:'wetdry',label:'Úmido/Seco'},
-    {value:'undergravel',label:'Subfundo'},
+    {value:'undergravel',label:'Subfundo'}
   ];
   const prev=sel.value;
-  sel.innerHTML=opts.map(o=>`<option value="${o.value}">${o.label}</option>`).join('');
-  // Try to preserve current selection, else default to first
+  sel.innerHTML=`<option value="">— Selecione o tipo de filtro —</option>`+opts.map(o=>`<option value="${o.value}">${o.label}</option>`).join('');
   if(opts.some(o=>o.value===prev)) sel.value=prev;
-  else sel.value=opts[0].value;
+  // If switching water type invalidates current selection, reset applied state
+  if(sel.value!==prev && state.secondFilterApplied){
+    state.secondFilterApplied=false;
+    updateSecondFilterBtn();
+    recalc();
+  }
 }
 function setWaterType(type){
   if(state.waterType === type) return;
