@@ -549,46 +549,125 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 </style>
 
 <!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@graph":[
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"WebSite",
-      "@id":"https://aquapacity.com/#website",
-      "url":"https://aquapacity.com/",
-      "name":"Aquapacity",
-      "description":"Calculadora avanzada de acuarios y bioload para agua dulce y marina"
+      "@type": "WebSite",
+      "@id": "https://aquapacity.com/#website",
+      "url": "https://aquapacity.com/",
+      "name": "Aquapacity",
+      "description": "Calculadora avanzada de acuarios y bioload para agua dulce y marina"
     },
     {
-      "@type":"SoftwareApplication",
-      "name":"Aquapacity, Calculadora de Acuarios",
-      "applicationCategory":"UtilitiesApplication",
-      "operatingSystem":"Web",
-      "url":"https://aquapacity.com/",
-      "description":"Calculadora de acuarios gratuita basada en ciencia. Analiza bioload, capacidad del filtro, estabilidad de nitratos y compatibilidad de peces para acuarios de agua dulce y marina.",
-      "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "featureList":["100+ freshwater and saltwater species database","Bioload calculator","Filter turnover analysis","Plant density correction","Nitrate stability model","Fish compatibility checker","Metric and imperial units"]
+      "@type": "SoftwareApplication",
+      "name": "Aquapacity, Calculadora de Acuarios",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "url": "https://aquapacity.com/",
+      "description": "Calculadora de acuarios gratuita basada en ciencia. Analiza bioload, capacidad del filtro, estabilidad de nitratos y compatibilidad de peces para acuarios de agua dulce y marina.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "100+ freshwater and saltwater species database",
+        "Bioload calculator",
+        "Filter turnover analysis",
+        "Plant density correction",
+        "Nitrate stability model",
+        "Fish compatibility checker",
+        "Metric and imperial units"
+      ]
     },
     {
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"¿Cuántos peces caben en un acuario de 40 litros?","acceptedAnswer":{"@type":"Answer","text":"Un acuario de 40 litros puede albergar cómodamente 6–10 peces pequeños de menos de 5 cm, como 8 tetras neón, 6 tetras ember o una mezcla de tetras pequeños y corydoras pygmaeus. El número exacto depende de la capacidad de tu filtro y la frecuencia de cambios de agua. Usa Aquapacity para un análisis preciso de bioload."}},
-        {"@type":"Question","name":"¿Cuántos peces caben en un acuario de 80 litros?","acceptedAnswer":{"@type":"Answer","text":"Un acuario de 80 litros puede albergar 15–25 peces comunitarios pequeños, o un grupo más reducido de especies medianas como gouramis enanos, rams bolivianos o barbo tigre. Podrías tener 12 tetras neón más 6 corydoras, por ejemplo. La calidad del filtro y la densidad de plantas también afectan al número final."}},
-        {"@type":"Question","name":"¿Cuántos tetras neón caben en un acuario de 40 litros?","acceptedAnswer":{"@type":"Answer","text":"Puedes tener 8–10 tetras neón en un acuario de 40 litros con un buen filtro. Los tetras neón son peces de banco y deben mantenerse en grupos de al menos 6. Un acuario de 40 litros con un filtro de 5–8× recambio y cambios de agua semanales del 25% puede mantener un banco saludable de 8–10."}},
-        {"@type":"Question","name":"¿Cómo sé si mi acuario está superpoblado?","acceptedAnswer":{"@type":"Answer","text":"Las señales de un acuario superpoblado incluyen agresión frecuente, peces jadeando en la superficie, agua turbia que no aclara tras los cambios de agua, picos de amoniaco o nitrito, y peces con colores de estrés o aletas dañadas. Aquapacity calcula tu porcentaje de ocupación de bioload: por encima del 80% es advertencia, por encima del 100% es superpoblación."}},
-        {"@type":"Question","name":"¿Qué es el bioload en un acuario?","acceptedAnswer":{"@type":"Answer","text":"El bioload se refiere a los residuos biológicos totales producidos por los peces y otros organismos de tu acuario. Un bioload más alto significa que se produce más amoniaco, que debe ser procesado por las bacterias beneficiosas de tu filtro. Los peces grandes como los peces de colores u oscares tienen un bioload muy alto, mientras que los pequeños como los tetras neón o los camarones cherry tienen un bioload mínimo."}},
-        {"@type":"Question","name":"¿Con qué frecuencia debo cambiar el agua de mi acuario?","acceptedAnswer":{"@type":"Answer","text":"Para la mayoría de los acuarios comunitarios, un cambio de agua del 25–30% semanal es ideal. Los acuarios con alto bioload (peces de colores, cíclidos) pueden necesitar del 30–50% semanal. Los acuarios plantados con inyección de CO2 a veces pueden permitirse cambios menos frecuentes. Saltarse los cambios causa acumulación de nitratos, lo que estresa a los peces y favorece las algas."}},
-        {"@type":"Question","name":"¿Puedo tener corydoras con tetras neón?","acceptedAnswer":{"@type":"Answer","text":"Sí, los corydoras y los tetras neón son una de las combinaciones más populares y compatibles de la afición. Ambos son pacíficos, prefieren agua blanda ligeramente ácida y ocupan diferentes zonas del acuario (neones en zona media, corydoras en el fondo). En un acuario de 80 litros podrías tener cómodamente 8–10 tetras neón y 4–6 corydoras."}},
-        {"@type":"Question","name":"¿Un acuario plantado reduce el bioload?","acceptedAnswer":{"@type":"Answer","text":"Sí. Las plantas vivas absorben amoniaco y nitrato directamente, reduciendo el bioload efectivo sobre tu filtro. Un acuario muy plantado con inyección de CO2 puede reducir el bioload hasta un 50%. Incluso plantas de bajo mantenimiento como helecho de Java, Anubias y musgos proporcionan una reducción significativa del 10–20%."}},
-        {"@type":"Question","name":"¿Qué es la tasa de recambio del filtro?","acceptedAnswer":{"@type":"Answer","text":"La tasa de recambio del filtro es cuántas veces por hora tu filtro procesa el volumen total del acuario. Un filtro nominal de 400 L/h en un acuario de 100L da un recambio de 4×. La mayoría de los acuarios comunitarios necesitan 5–10× de recambio para una filtración biológica adecuada. Los acuarios de peces de colores y cíclidos se benefician de 10–15× de recambio."}},
-        {"@type":"Question","name":"¿Puedo tener peces de colores con peces tropicales?","acceptedAnswer":{"@type":"Answer","text":"No, los peces de colores son peces de agua fría que viven bien a 10–22°C, mientras que los peces tropicales como los tetras neón, guppies y cíclidos necesitan 24–28°C. Los rangos de temperatura no se superponen suficientemente, y los peces de colores producen un bioload muy alto que estresa a otros peces. Es mejor mantenerlos en un acuario de especie específica."}},
-        {"@type":"Question","name":"¿Cómo calcula Aquapacity la capacidad de peces?","acceptedAnswer":{"@type":"Answer","text":"Aquapacity utiliza un modelo de huella territorial combinado con un modelo biológico del ciclo del nitrógeno. Cada especie tiene una reclamación de territorio base más una huella incremental por pez adicional. Esto se combina con la capacidad biológica de tu filtro (ajustada por tipo y medio), la bonificación de densidad de plantas y la frecuencia de cambios de agua para producir un porcentaje preciso de ocupación de bioload."}}
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el bioload de un acuario y por qué importa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El bioload es la cantidad total de residuos biológicos producidos por todos los seres vivos de tu acuario, peces, invertebrados, plantas, y la demanda que esto genera sobre el ciclo del nitrógeno de tu filtro. Un bioload alto significa más amoniaco y nitrato, lo que estresa a los peces y favorece la proliferación de algas. Entender el bioload es la base de una acuariofilia responsable: es la razón por la que dos peces de 10 cm pueden no equivaler a un pez de 20 cm en impacto sobre el acuario."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es correcta la \"regla del centímetro por litro\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, la regla del centímetro por litro es una aproximación obsoleta que ignora la forma del cuerpo, el metabolismo, el nivel de actividad, el comportamiento territorial, la calidad de la filtración y la frecuencia de cambios de agua. Un oscar de 10 cm produce muchísimo más desecho que diez tetras neón de 1 cm. Aquapacity sustituye esta regla por un modelo de bioload específico por especie derivado de datos científicos sobre consumo de oxígeno y tasas de excreción de nitrógeno."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos peces caben en mi acuario?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El número de peces que tu acuario puede albergar con seguridad depende de: el volumen neto de agua (total menos sustrato y decoración), el bioload individual de cada especie, la capacidad biológica de tu filtro y su tasa de recambio, la frecuencia de cambios de agua, y si el acuario está plantado. Un acuario de 100 L con filtro canister, biomedio premium, cambios semanales del 30% y plantas vivas puede albergar significativamente más peces que el mismo acuario con un filtro interno pequeño y sin"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tan precisa es la calculadora de Aquapacity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aquapacity usa coeficientes de bioload específicos por especie derivados de datos publicados sobre consumo de oxígeno de los peces, tasas metabólicas y excreción de nitrógeno, no reglas basadas en longitud corporal. El modelo también tiene en cuenta el tipo de filtro, el área de superficie del medio biológico, la eficiencia biológica, la frecuencia de cambios de agua y la absorción de nitratos en acuarios plantados. La calculadora es una herramienta de nivel profesional, pero no puede sustituir "
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el ciclo del nitrógeno y por qué importa para el stock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El ciclo del nitrógeno es el proceso biológico por el cual las bacterias beneficiosas convierten los residuos tóxicos de los peces (amoniaco → nitrito → nitrato) en un compuesto menos dañino que se elimina mediante los cambios de agua. Un acuario correctamente ciclado (normalmente 4–6 semanas) es esencial antes de añadir peces. Añadir demasiados peces demasiado rápido desborda las colonias bacterianas inmaduras, causando picos de amoniaco y nitrito que pueden matar peces en pocos días."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es la tasa de recambio del filtro y cuánto necesito?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La tasa de recambio mide cuántas veces por hora tu filtro procesa el volumen total del acuario. Un filtro de 600 L/h en un acuario de 100 L da un recambio de 6× por hora. La mayoría de los acuarios comunitarios de agua dulce necesitan un filtro con al menos 8–10× el volumen del acuario por hora, pero recuerda que el caudal nominal se mide con presión cero y filtro limpio; en la práctica suele ser un 30–50% menor. Aquapacity muestra tu recambio efectivo automáticamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La superpoblación realmente daña a los peces?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, de forma crónica. Los acuarios superpoblados acumulan nitrato más rápido de lo que los cambios de agua pueden eliminarlo, causando una intoxicación crónica de bajo nivel que suprime el sistema inmunológico, acorta la vida y crea estrés constante. Los peces en acuarios superpoblados son más propensos a enfermedades, muestran colores apagados, se vuelven letárgicos y pueden mostrar agresividad por competencia de recursos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Un acuario plantado permite tener más peces?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Las plantas vivas absorben amoniaco y nitrato directamente, reduciendo la carga del filtro. Incluso plantas de bajo mantenimiento como el helecho de Java, Anubias y espada de Amazonas proporcionan una reducción del bioload del 10–20%. Un acuario plantado de alta densidad con inyección de CO₂ puede absorber suficiente nitrógeno para permitir un 30–50% más de peces que el mismo acuario sin plantas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Con qué frecuencia debo hacer cambios de agua y afecta a la capacidad del stock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para la mayoría de los acuarios comunitarios, un cambio de agua del 25–30% semanal es el estándar. Los acuarios con mucho stock necesitan del 30–50% semanalmente. La frecuencia de cambios de agua afecta directamente a la capacidad de stock: los cambios más frecuentes o más grandes diluyen el nitrato más rápido, permitiendo un mayor bioload. Aquapacity modela esto, cambia la frecuencia de cambios de agua y observa cómo se actualiza tu puntuación de estabilidad de nitratos en tiempo real."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo usar esta calculadora para acuarios de agua salada o arrecife?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "¡Sí! Selecciona Agua Salada en el Paso 1 de la calculadora para cargar nuestra base de datos de especies marinas. El motor de bioload funciona de forma idéntica, introduce el tamaño del acuario, el filtro y las especies que quieres tener, y Aquapacity te dirá si tu sistema puede soportarlos. Se incluyen datos específicos de agua salada (rango de salinidad, compatibilidad con arrecife, nivel de cuidado) para cada especie marina."
+          }
+        }
       ]
     }
   ]
-}
-</script>
+}</script>
 
 <!-- Analytics + Consent Mode v2 -->
 <script>

@@ -549,40 +549,125 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 </style>
 
 <!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@graph":[
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"WebSite",
-      "@id":"https://aquapacity.com/#website",
-      "url":"https://aquapacity.com/",
-      "name":"Aquapacity",
-      "description":"Calculadora avançada de aquários e biocarga para água doce e marina"
+      "@type": "WebSite",
+      "@id": "https://aquapacity.com/#website",
+      "url": "https://aquapacity.com/",
+      "name": "Aquapacity",
+      "description": "Calculadora avançada de aquários e biocarga para água doce e marina"
     },
     {
-      "@type":"SoftwareApplication",
-      "name":"Aquapacity, Calculadora de Aquários",
-      "applicationCategory":"UtilitiesApplication",
-      "operatingSystem":"Web",
-      "url":"https://aquapacity.com/",
-      "description":"Calculadora de aquários gratuita baseada em ciência. Analisa biocarga, capacidade do filtro, estabilidade de nitratos e compatibilidade de peixes para aquários de água doce e marina.",
-      "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "featureList":["100+ freshwater and saltwater species database","Bioload calculator","Filter turnover analysis","Plant density correction","Nitrate stability model","Fish compatibility checker","Metric and imperial units"]
+      "@type": "SoftwareApplication",
+      "name": "Aquapacity, Calculadora de Aquários",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "url": "https://aquapacity.com/",
+      "description": "Calculadora de aquários gratuita baseada em ciência. Analisa biocarga, capacidade do filtro, estabilidade de nitratos e compatibilidade de peixes para aquários de água doce e marina.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "100+ freshwater and saltwater species database",
+        "Bioload calculator",
+        "Filter turnover analysis",
+        "Plant density correction",
+        "Nitrate stability model",
+        "Fish compatibility checker",
+        "Metric and imperial units"
+      ]
     },
     {
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"O que é biocarga de aquário?","acceptedAnswer":{"@type":"Answer","text":"A biocarga é a quantidade total de resíduos biológicos produzidos por todos os seres vivos do aquário. Um filtro adequado converte amônia em nitrato, mas só as trocas de água removem o nitrato acumulado."}},
-        {"@type":"Question","name":"Quantos peixes cabem em um aquário de 40 litros?","acceptedAnswer":{"@type":"Answer","text":"Um aquário de 40 litros pode abrigar 6–10 peixes pequenos de menos de 5 cm, como 8 tetras-neon ou 6 tetras ember. Use Aquapacity para análise precisa."}},
-        {"@type":"Question","name":"Quantos peixes cabem em um aquário de 80 litros?","acceptedAnswer":{"@type":"Answer","text":"Um aquário de 80 litros pode abrigar 15–25 peixes comunitários pequenos, ou um grupo menor de espécies médias como gouramis anões ou rams bolivianos."}},
-        {"@type":"Question","name":"A regra do centímetro por litro funciona?","acceptedAnswer":{"@type":"Answer","text":"Não. A regra ignora forma do corpo, metabolismo, comportamento territorial e qualidade da filtração. Aquapacity usa um modelo de biocarga científico por espécie."}},
-        {"@type":"Question","name":"Com que frequência devo trocar a água?","acceptedAnswer":{"@type":"Answer","text":"Para aquários comunitários, 25–30% semanal é ideal. Aquários com alta biocarga precisam de 30–50% semanal."}}
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que é biocarga de aquário e por que importa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A biocarga é a quantidade total de resíduos biológicos produzidos por todos os seres vivos do seu aquário, peixes, invertebrados, plantas, e a demanda que isso gera sobre o ciclo do nitrogênio do seu filtro. Uma biocarga alta significa mais amônia e nitrato, o que estressas os peixes e favorece o crescimento de algas. Entender a biocarga é a base de uma aquariofilia responsável: é a razão pela qual dois peixes de 10 cm podem não equivaler a um peixe de 20 cm em impacto sobre o aquário."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A regra do centímetro por litro funciona?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não, a regra do centímetro por litro é uma aproximação obsoleta que ignora a forma do corpo, o metabolismo, o nível de atividade, o comportamento territorial, a qualidade da filtração e a frequência das trocas de água. Um oscar de 10 cm produz muito mais resíduos do que dez tetras-neon de 1 cm. Aquapacity substitui esta regra por um modelo de biocarga específico por espécie derivado de dados científicos sobre consumo de oxigênio e taxas de excreção de nitrogênio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quantos peixes cabem no meu aquário?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O número de peixes que seu aquário pode abrigar com segurança depende de: o volume líquido de água (total menos substrato e decoração), a biocarga individual de cada espécie, a capacidade biológica do seu filtro e sua taxa de recirculação, a frequência das trocas de água e se o aquário é plantado. Um aquário de 100 L com filtro canister, biomídia premium, trocas semanais de 30% e plantas vivas pode abrigar significativamente mais peixes do que o mesmo aquário com um filtro interno pequeno e sem "
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como o Aquapacity calcula a capacidade de peixes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aquapacity usa coeficientes de biocarga específicos por espécie derivados de dados publicados sobre consumo de oxigênio dos peixes, taxas metabólicas e excreção de nitrogênio, não regras baseadas em comprimento corporal. O modelo também considera o tipo de filtro, a área de superfície da mídia biológica, a eficiência biológica, a frequência das trocas de água e a absorção de nitratos em aquários plantados. A calculadora é uma ferramenta de nível profissional, mas não pode substituir testes diret"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é o ciclo do nitrogênio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O ciclo do nitrogênio é o processo biológico pelo qual bactérias benéficas convertem os resíduos tóxicos dos peixes (amônia → nitrito → nitrato) em um composto menos nocivo, que é eliminado pelas trocas de água. Um aquário corretamente ciclado (normalmente 4–6 semanas) é essencial antes de adicionar peixes. Adicionar muitos peixes muito rapidamente sobrecarrega as colônias bacterianas imaturas, causando picos de amônia e nitrito que podem matar peixes em poucos dias."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quantos peixes cabem em um aquário de 40 litros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Um aquário de 40 litros pode abrigar confortavelmente 6–10 peixes pequenos de menos de 5 cm, como 8 tetras-neon, 6 tetras ember ou uma mistura de tetras pequenos e corydoras pygmaeus. O número exato depende da capacidade do seu filtro e da frequência das trocas de água. Use Aquapacity para uma análise precisa de biocarga."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quantos peixes cabem em um aquário de 80 litros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Um aquário de 80 litros pode abrigar 15–25 peixes comunitários pequenos, ou um grupo menor de espécies médias como gouramis anões, rams bolivianos ou barbo tigre. Você poderia ter 12 tetras-neon mais 6 corydoras, por exemplo. A qualidade do filtro e a densidade de plantas também afetam o número final."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Com que frequência devo trocar a água do aquário?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para a maioria dos aquários comunitários, uma troca de água de 25–30% semanal é ideal. Aquários com alta biocarga (peixe dourado, ciclídeos) podem precisar de 30–50% semanal. Aquários plantados com injeção de CO₂ às vezes permitem trocas menos frequentes. Pular as trocas causa acúmulo de nitratos, o que estressas os peixes e favorece algas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso ter corydoras com tetras-neon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, corydoras e tetras-neon são uma das combinações mais populares e compatíveis da aquariofilia. Ambos são pacíficos, preferem água macia levemente ácida e ocupam diferentes zonas do aquário (neons na zona média, corydoras no fundo). Em um aquário de 80 litros você poderia ter confortavelmente 8–10 tetras-neon e 4–6 corydoras."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Um aquário plantado reduz a biocarga?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fromm, P.O. (1980). A review of some physiological and toxicological responses of freshwater fish to acid stress. Environmental Biology of Fishes , 5(1), 79–93. Jobling, M. (1994). Fish Bioenergetics . Chapman &amp; Hall, London. Wedemeyer, G.A. &amp; Yasutake, W.T. (1978). Prevention and treatment of nitrite toxicity in juvenile steelhead trout. Journal of the Fisheries Research Board of Canada , 35(6), 822–827."
+          }
+        }
       ]
     }
   ]
-}
-</script>
+}</script>
 
 <!-- Analytics + Consent Mode v2 -->
 <script>

@@ -549,46 +549,125 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 </style>
 
 <!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@graph":[
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"WebSite",
-      "@id":"https://aquapacity.com/#website",
-      "url":"https://aquapacity.com/",
-      "name":"Aquapacity",
-      "description":"Advanced aquarium stocking and bioload calculator"
+      "@type": "WebSite",
+      "@id": "https://aquapacity.com/#website",
+      "url": "https://aquapacity.com/",
+      "name": "Aquapacity",
+      "description": "Advanced aquarium stocking and bioload calculator"
     },
     {
-      "@type":"SoftwareApplication",
-      "name":"Aquapacity, Aquarium Stocking Calculator",
-      "applicationCategory":"UtilitiesApplication",
-      "operatingSystem":"Web",
-      "url":"https://aquapacity.com/",
-      "description":"Free science-based aquarium stocking calculator. Analyze bioload, filter capacity, nitrate stability, and fish compatibility for freshwater and saltwater tanks.",
-      "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-      "featureList":["100+ freshwater and saltwater species database","Bioload calculator","Filter turnover analysis","Plant density correction","Nitrate stability model","Fish compatibility checker","Metric and imperial units"]
+      "@type": "SoftwareApplication",
+      "name": "Aquapacity, Aquarium Stocking Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "url": "https://aquapacity.com/",
+      "description": "Free science-based aquarium stocking calculator. Analyze bioload, filter capacity, nitrate stability, and fish compatibility for freshwater and saltwater tanks.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "100+ freshwater and saltwater species database",
+        "Bioload calculator",
+        "Filter turnover analysis",
+        "Plant density correction",
+        "Nitrate stability model",
+        "Fish compatibility checker",
+        "Metric and imperial units"
+      ]
     },
     {
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"How many fish can I put in a 10-gallon tank?","acceptedAnswer":{"@type":"Answer","text":"A 10-gallon (38L) tank can comfortably house 6–10 small fish under 5 cm, such as 8 neon tetras, 6 ember tetras, or a mix of small tetras and pygmy corydoras. The exact number depends on your filter capacity and water change schedule. Use Aquapacity for a precise bioload analysis."}},
-        {"@type":"Question","name":"How many fish can I put in a 20-gallon tank?","acceptedAnswer":{"@type":"Answer","text":"A 20-gallon (75L) tank suits 15–25 small community fish, or a smaller group of medium-sized species like dwarf gouramis, bolivian rams, or tiger barbs. You could keep 12 neon tetras plus 6 corydoras, for example. Filter quality and plant density also affect the final number."}},
-        {"@type":"Question","name":"How many neon tetras can I keep in a 10-gallon tank?","acceptedAnswer":{"@type":"Answer","text":"You can keep 8–10 neon tetras in a 10-gallon (38L) tank with a good filter. Neon tetras are schooling fish and should be kept in groups of at least 6. A 10-gallon tank with a filter rated 5–8× turnover and weekly 25% water changes can sustain a healthy school of 8–10."}},
-        {"@type":"Question","name":"How do I know if my fish tank is overstocked?","acceptedAnswer":{"@type":"Answer","text":"Signs of an overstocked tank include frequent fish aggression, fish gasping at the surface, cloudy water that doesn't clear after water changes, ammonia or nitrite spikes in tests, and fish showing stress colors or fin damage. Aquapacity calculates your bioload occupancy percentage: anything above 80% is a warning, above 100% is overstocked."}},
-        {"@type":"Question","name":"What is bioload in an aquarium?","acceptedAnswer":{"@type":"Answer","text":"Bioload refers to the total biological waste produced by the fish and other organisms in your tank. Higher bioload means more ammonia is produced, which must be processed by your filter's beneficial bacteria. Large, messy fish like goldfish or oscars have a very high bioload, while small fish like neon tetras or cherry shrimp have a minimal bioload."}},
-        {"@type":"Question","name":"How often should I change water in my aquarium?","acceptedAnswer":{"@type":"Answer","text":"For most community tanks, a 25–30% water change weekly is ideal. Tanks with high bioload (goldfish, cichlids) may need 30–50% weekly. Planted tanks with CO2 injection can sometimes get by with less frequent changes. Skipping or reducing water changes causes nitrate buildup, which stresses fish and promotes algae."}},
-        {"@type":"Question","name":"Can I keep corydoras with neon tetras?","acceptedAnswer":{"@type":"Answer","text":"Yes, corydoras and neon tetras are one of the most popular and compatible combinations in the hobby. Both are peaceful, prefer soft slightly acidic water, and occupy different zones of the tank (neons mid-water, corydoras bottom). In a 20-gallon tank you could keep 8–10 neon tetras and 4–6 corydoras comfortably."}},
-        {"@type":"Question","name":"Does a planted aquarium reduce bioload?","acceptedAnswer":{"@type":"Answer","text":"Yes. Live plants absorb ammonia and nitrate directly, reducing the effective bioload on your filter. A heavily planted tank with CO2 injection can reduce bioload by up to 50%. Even low-tech plants like java fern, anubias, and mosses provide a meaningful 10–20% bioload reduction."}},
-        {"@type":"Question","name":"What is aquarium filter turnover rate?","acceptedAnswer":{"@type":"Answer","text":"Filter turnover rate is how many times per hour your filter processes the total tank volume. A filter rated 400 L/h on a 100L tank gives 4× turnover. Most community tanks need 5–10× turnover for adequate biological filtration. Goldfish tanks and cichlid tanks benefit from 10–15× turnover due to higher waste production."}},
-        {"@type":"Question","name":"Can I keep goldfish with tropical fish?","acceptedAnswer":{"@type":"Answer","text":"No, goldfish are coldwater fish that thrive at 10–22°C, while tropical fish like neon tetras, guppies, and cichlids need 24–28°C. The temperature ranges don't overlap enough for a healthy mixed tank, and goldfish produce very high bioload that stresses other fish. Goldfish are best kept in a species-only or goldfish-compatible setup."}},
-        {"@type":"Question","name":"How does Aquapacity calculate stocking?","acceptedAnswer":{"@type":"Answer","text":"Aquapacity uses a territory-based footprint model combined with a biological nitrogen cycle model. Each species has a base territory claim plus an incremental footprint per additional fish. This is combined with your filter's biological capacity (adjusted for filter type and media), plant density bonus, and water change schedule to produce an accurate bioload occupancy percentage."}}
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is aquarium bioload and why does it matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bioload is the total biological waste produced by all living things in your tank, fish, invertebrates, plants, and the demand this places on your filter's nitrogen cycle. High bioload means more ammonia and nitrate, which stress fish and fuel algae blooms. Understanding bioload is the foundation of responsible fishkeeping: it's the reason two 10 cm fish may not equal one 20 cm fish in terms of tank impact, and why stocking by inches alone is dangerously oversimplified."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the \"1 inch per gallon\" rule accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, the 1-inch-per-gallon rule is a rough, outdated heuristic that ignores body shape, metabolism, activity level, territorial behaviour, filtration quality, and water change frequency. A 10 cm oscar produces vastly more waste than ten 1 cm neon tetras. Aquapacity replaces this rule with a species-specific bioload model derived from scientific data on oxygen consumption and nitrogen excretion rates, giving you a far more accurate and safe stocking estimate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many fish can I put in my aquarium?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The number of fish your tank can safely hold depends on: the tank's net water volume (total minus substrate and decor), the species' individual bioload, your filter's biological capacity and turnover rate, your water change schedule, and whether the tank is planted. A 100 L tank with a canister filter, premium bio-media, weekly 30% changes, and live plants can often hold significantly more than the same tank with a small internal filter and no plants. Add your fish to Aquapacity above for an ins"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the Aquapacity calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aquapacity uses species-specific bioload coefficients derived from published data on fish oxygen consumption, metabolic rates, and nitrogen excretion, not body length rules of thumb. The model also accounts for filter type, bio-media surface area, biological efficiency, water change frequency, and planted tank nitrate absorption. All results include a conservative safety margin for real-world variability. The calculator is a professional-grade tool, not a toy, but it cannot replace direct water "
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the nitrogen cycle and why does it matter for fish stocking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The nitrogen cycle is the biological process by which beneficial bacteria convert toxic fish waste (ammonia → nitrite → nitrate) into a less harmful compound that is removed by water changes. A properly cycled tank (usually taking 4–6 weeks) is essential before adding fish. Adding too many fish too quickly overwhelms immature bacterial colonies, causing ammonia and nitrite spikes that can kill fish within days. Aquapacity's bioload and filtration models assume a fully cycled tank with establishe"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is aquarium filter turnover rate and how much do I need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Turnover rate measures how many times per hour your filter processes the full tank volume. A 600 L/h filter on a 100 L tank gives 6× hourly turnover. Most community freshwater tanks need a filter rated at 8–10× your tank volume per hour, but remember that rated flow is measured at zero head pressure with a clean filter; real-world flow is typically 30–50% lower. Aquapacity shows your effective turnover automatically and flags insufficient flow before it becomes a problem."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does overstocking really harm fish?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, chronically. Overstocked tanks accumulate nitrate faster than water changes can remove it, causing chronic low-level poisoning that suppresses immune systems, shortens lifespans, and creates constant low-grade stress. Fish in overstocked tanks are more prone to disease, show faded colours, become lethargic, and may exhibit aggression due to resource competition. The damage is often invisible until fish start dying, which is why a proactive tool like Aquapacity matters more than waiting for "
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a planted aquarium allow more fish?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Live plants absorb ammonia and nitrate directly, reducing the filter's workload. Even low-tech plants like java fern, anubias, and amazon sword provide a 10–20% bioload reduction. A high-density CO₂-injected planted tank can absorb enough nitrogen to allow 30–50% more fish than the equivalent unplanted tank with identical filtration. Aquapacity accounts for this in its model: toggle the planted tank option and CO₂ injection to see how your capacity changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I do water changes and does it affect stocking capacity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most community tanks, a 25–30% water change weekly is the standard. Heavily stocked tanks need 30–50% weekly. Water change frequency directly affects stocking capacity: more frequent or larger changes dilute nitrate faster, allowing a higher bioload. Aquapacity models this, change the water change frequency slider and watch your nitrate stability score update in real time. Skipping water changes is the most common cause of declining water quality in otherwise well-filtered tanks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this calculator for saltwater or reef tanks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Select Saltwater in Step 1 of the calculator to load our marine species database. The bioload engine works identically, enter your tank size, filter, and the species you want to keep, and Aquapacity will tell you if your system can support them. Saltwater-specific data (salinity range, reef safety, care level) is included for each marine species."
+          }
+        }
       ]
     }
   ]
-}
-</script>
+}</script>
 
 <script>
 // Auto-detect browser language and redirect once — stops if user has ever made an explicit choice
