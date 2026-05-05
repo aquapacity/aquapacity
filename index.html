@@ -140,7 +140,6 @@ nav a:hover{color:#fff;text-decoration:none}
 .co2-row{display:flex;align-items:center;gap:10px;margin-top:14px;padding:10px 14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r6)}
 .co2-row label{font-size:.875rem;font-weight:600;color:#15803d;cursor:pointer;flex:1;user-select:none}
 .co2-toggle{width:40px;height:22px;border-radius:100px;border:none;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0}
-.co2-toggle{background:#cbd5e1}
 .co2-toggle.on{background:var(--g)}
 .co2-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .co2-toggle.on::after{transform:translateX(18px)}
@@ -217,7 +216,6 @@ nav a:hover{color:#fff;text-decoration:none}
 .qty-input::placeholder{color:#94a3b8}
 
 /* ─── RESULTS PANEL (right column, sticky) ───────────────── */
-.results-panel{background:var(--surf);border-radius:var(--r12);box-shadow:var(--sh2);position:sticky;top:16px;overflow-x:hidden;box-sizing:border-box}
 .rp-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;min-width:0}
 .rp-head h2{font-size:1rem;font-weight:700;color:var(--txt);min-width:0}
 .rp-head .live-dot{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 0 3px rgba(22,163,74,.25);animation:pulse 2s infinite;flex-shrink:0}
@@ -298,7 +296,6 @@ details[open] summary::after{content:"－"}
 .faq-item p{padding:0 20px 16px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border);padding-top:12px}
 
 /* ─── ARTICLES ───────────────────────────────────────────────────────────────────────── */
-.section-tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--p);margin-bottom:12px;display:inline-block}
 .articles-section{background:#fff;border-top:1px solid var(--border);padding:56px 24px}
 .articles-inner{max-width:1200px;margin:0 auto}
 .articles-inner h2{font-size:1.6rem;font-weight:800;color:#0c4a6e;margin-bottom:8px}
@@ -318,11 +315,6 @@ details[open] summary::after{content:"－"}
 .ac-read{color:var(--muted)}
 .ac-cta{color:var(--p);font-weight:700}
 @media(max-width:640px){
-  .articles-section{padding:32px 16px}
-  .articles-inner h2{font-size:1.25rem}
-  .articles-grid{grid-template-columns:1fr;gap:14px}
-  .ac-img{padding:18px 18px 10px;font-size:2rem}
-  .ac-body{padding:12px 16px 16px}
 }
 
 /* ─── FOOTER ──────────────────────────────────────────────── */
@@ -347,30 +339,20 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .mn-links a{display:flex;align-items:center;gap:12px;padding:16px 24px;font-size:1rem;font-weight:600;color:var(--txt);text-decoration:none;border-bottom:1px solid var(--border);transition:background .15s}
 .mn-links a:hover{background:#f0f9ff;color:var(--p);text-decoration:none}
 .mn-icon{font-size:1.2rem;width:28px;text-align:center}
-.mn-footer{padding:20px 24px;border-top:1px solid #e0f2fe}
-.mn-kofi{display:block;text-align:center;background:var(--p);color:#fff;padding:12px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
-.mn-kofi:hover{background:#0284c7;text-decoration:none}
 
 .mobile-nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;backdrop-filter:blur(2px)}
 .mobile-nav-backdrop.open{display:block}
 
-@media(max-width:900px){
-  .hamburger{display:flex}
-  nav{display:none}
 }
 
 /* ─── RESPONSIVE ──────────────────────────────────────────── */
 
 /* Tablet + Mobile, single column layout */
-@media(max-width:900px){
-  .calc-wrap{grid-template-columns:1fr}
-  .results-panel{position:static}
   /* Contain everything, prevent any horizontal overflow */
   html,body{overflow-x:hidden}
   .calc-wrap,.panel,.results-panel,.rp-body,.panel-body{min-width:0;box-sizing:border-box;overflow-x:hidden}
 
   /* Filter type → horizontal scroll carousel (avoids overflow at any width) */
-  .filter-type-grid{
     display:flex;flex-wrap:nowrap;
     overflow-x:auto;gap:8px;
     scroll-snap-type:x mandatory;
@@ -379,15 +361,12 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
     grid-template-columns:unset;
   }
   .filter-type-grid::-webkit-scrollbar{display:none}
-  .filter-type-btn{
     flex:0 0 130px;flex-shrink:0;
     scroll-snap-align:start;
     max-width:none;
   }
 
   /* Filter media → 2 columns (avoids overflow at any width) */
-  .media-grid{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:6px}
-  .media-item{min-width:0;padding:8px 8px;font-size:.82rem;gap:6px}
   .media-item span:first-child{min-width:0;flex:1}
 
   /* Long text must wrap */
@@ -410,17 +389,13 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   padding:10px 14px;border-radius:50px;text-decoration:none;white-space:nowrap}
 
 /* ── MOBILE ── */
-@media(max-width:640px){
   /* Hero intro sentence, mobile only */
-  .hero-lead{display:block;color:var(--p);font-weight:400;font-size:.95rem;margin-bottom:6px}
   .hero-first-sentence{display:none}
 
   /* Show mobile bar */
-  #mob-bar{display:block}
   #mob-results-btn{display:none!important}
 
   /* Prevent any horizontal overflow */
-  html,body{overflow-x:hidden;max-width:100vw}
   /* Targeted overflow containment, avoid blanket *{max-width:100%} which breaks carousels */
   .calc-wrap,.panel,.results-panel,.rp-head,.rp-body,.panel-body,
   .hero,.unit-bar,.hiw-section,.hiw-inner,.faq-section,.faq-inner,
@@ -438,73 +413,42 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   svg{max-width:none}
 
   /* Body padding so bar doesn't cover content */
-  body{padding-bottom:72px}
 
   /* Header */
-  nav{display:none}
-  .header-inner{height:50px;padding:0 16px}
-  .logo{font-size:1.05rem;gap:7px}
-  .logo-icon{font-size:1.3rem}
 
   /* Hero, ultra compact */
-  .hero{padding:14px 16px 8px}
-  .hero h1{font-size:1.25rem;margin-bottom:4px}
   .hero p:not(.hero-lead){font-size:.82rem;display:none} /* hide subtitle on mobile */
-  .badges{display:none} /* hide badges */
 
   /* Unit bar, compact */
-  .unit-bar{padding:8px 16px 10px;gap:8px}
-  .unit-label{font-size:.8rem}
 
   /* Calc layout */
-  .calc-wrap{padding:0 10px 24px;gap:10px}
 
   /* Panels, compact headers, hidden body when collapsed */
-  .panel{border-radius:10px;margin-bottom:10px}
-  .panel-head{padding:13px 14px;gap:8px}
-  .panel-head h2{font-size:.95rem}
-  .panel-body{padding:14px}
 
   /* Results panel, not sticky, flows below fish */
-  .results-panel{position:static;border-radius:10px}
-  .rp-head{padding:13px 16px}
-  .rp-body{padding:14px 16px}
 
   /* Form fields, always stack */
-  .field-row{flex-direction:column;gap:8px}
-  .field{min-width:unset;width:100%}
-  .field label{font-size:.78rem}
 
   /* Inputs, 16px prevents iOS auto-zoom */
   .field input,.field select,
   .fish-search-row input,
-  .wc-custom input{font-size:16px;padding:12px 13px;border-radius:8px}
 
   /* Tank mode toggle, full width, taller */
-  .tank-mode-toggle{margin-bottom:12px}
-  .tank-mode-toggle button{padding:12px 6px;font-size:.85rem}
 
   /* Sliders */
-  .slider-row input[type=range]{height:6px}
 
   /* Plant buttons */
-  .btn-group{gap:6px}
-  .btn-opt{padding:8px 14px;font-size:.85rem}
 
   /* Category tabs, horizontal scroll, no wrap */
-  .cat-tabs{
     flex-wrap:nowrap;overflow-x:auto;
     padding-bottom:4px;gap:6px;margin-bottom:10px;
     -webkit-overflow-scrolling:touch;scrollbar-width:none
   }
   .cat-tabs::-webkit-scrollbar{display:none}
-  .cat-tab{flex-shrink:0;padding:7px 13px;font-size:.82rem}
 
   /* Fish search */
-  .fish-search-row{margin-bottom:8px}
 
   /* Fish grid → horizontal CAROUSEL with scroll snap */
-  .fish-grid{
     display:flex;flex-direction:row;flex-wrap:nowrap;
     overflow-x:auto;overflow-y:visible;
     scroll-snap-type:x mandatory;
@@ -512,20 +456,13 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
     gap:10px;padding:4px 2px 14px;
     max-height:none;scrollbar-width:none;
   }
-  .fish-grid::-webkit-scrollbar{display:none}
-  .fish-card{
     scroll-snap-align:start;
     flex:0 0 calc(46% - 4px);
     min-width:130px;max-width:160px!important;
     padding:12px 8px;
   }
-  .fish-card .f-emoji{font-size:1.8rem;margin-bottom:6px}
-  .fish-card .f-name{font-size:.82rem}
-  .fish-card .f-sci{font-size:.65rem}
 
   /* Fish qty, bigger touch targets */
-  .fish-qty{margin-top:10px}
-  .fish-qty button{width:32px;height:32px;font-size:1.1rem}
   .qty-num,.qty-input{font-size:1rem;min-width:24px}
 
   /* Scroll hint after carousel */
@@ -534,66 +471,36 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   }
 
   /* Filter type, 3-column grid on mobile (all visible, no carousel) */
-  .filter-type-grid{
     display:grid!important;
     grid-template-columns:repeat(3,1fr)!important;
     gap:6px;
     overflow-x:visible;
     scroll-snap-type:none;
   }
-  .filter-type-btn{
     flex:none;
     padding:10px 4px;font-size:.72rem;border-radius:8px;
     max-width:none;
   }
-  .filter-type-btn .ft-icon{width:40px;height:40px}
-  .filter-type-btn .ft-icon svg{width:32px;height:32px;max-width:none}
-  .filter-type-btn .ft-img{max-width:none}
 
   /* Filter media, 2-column chips */
-  .media-grid{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:6px}
-  .media-item{padding:10px 8px;font-size:.8rem;gap:6px;min-width:0}
-  .media-item span:first-child{word-break:break-word}
-  .media-rating{font-size:.65rem;padding:1px 4px;flex-shrink:0}
 
   /* Field hints, wrap properly */
-  .field-hint{font-size:.75rem;line-height:1.5;word-break:break-word}
 
   /* Bio eff text truncate */
-  .bio-eff-display .be-val{font-size:.8rem;text-align:right}
 
   /* Bio eff display */
-  .bio-eff-display{font-size:.8rem;flex-direction:column;align-items:flex-start;gap:4px}
 
   /* Vol display */
-  .vol-display{font-size:.82rem}
 
   /* Metrics in results */
-  .metric{margin-bottom:12px}
-  .metric-val{font-size:1.05rem}
-  .metric-label{font-size:.72rem}
-  .meter-sub{font-size:.7rem}
 
   /* Selected fish list */
-  .sel-item{font-size:.82rem;padding:7px 0}
-  .sel-item .si-name{font-size:.85rem}
 
   /* Alerts */
-  .alert{font-size:.82rem;padding:9px 11px;gap:6px}
 
   /* HOW IT WORKS */
-  .hiw-section{padding:32px 16px}
-  .hiw-grid{grid-template-columns:1fr;gap:10px}
-  .hiw-inner h2{font-size:1.25rem;margin-bottom:6px}
-  .hiw-inner > p{font-size:.875rem;margin-bottom:24px}
-  .hiw-card{padding:18px}
 
   /* FAQ */
-  .faq-section{padding:32px 16px}
-  .faq-inner h2{font-size:1.25rem;margin-bottom:16px}
-  .faq-item{margin-bottom:8px}
-  .faq-item summary{padding:13px 14px;font-size:.88rem}
-  .faq-item p{padding:10px 14px 12px;font-size:.85rem}
 
   /* Support */
   #support-us{padding:28px 16px}
@@ -605,11 +512,8 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   #bibliography{padding:18px 14px}
 
   /* Footer */
-  .footer-inner{flex-direction:column;align-items:flex-start;gap:10px}
-  footer{padding:24px 16px}
 
   /* Tooltips, reposition to avoid clipping */
-  .media-tip::after{left:0;transform:none;width:200px}
 }
 
 /* ─── LANGUAGE SWITCHER ───────────────────────────────────── */
@@ -622,9 +526,14 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .lang-options a:hover{background:#f1f5f9}
 .lang-options a.current{background:#e0f2fe;color:#0c4a73}
 .lang-switcher.open .lang-options{display:block}
-@media(max-width:900px){.lang-switcher{display:none}}
-.lang-select-mobile{display:block;width:calc(100% - 40px);margin:12px 20px 4px;padding:10px 14px;border:1.5px solid #e0f2fe;border-radius:6px;font-family:inherit;font-size:.9rem;font-weight:700;color:#1e293b;background:#fff;cursor:pointer;appearance:auto}
-</style>
+.mn-lang-pill.active{background:#0369a1;color:#fff;border-color:#0369a1}
+.mn-lang-pill:hover:not(.active){background:#e0f2fe;border-color:#7dd3fc;text-decoration:none}
+.mn-footer{padding:20px 24px;border-top:1px solid #e0f2fe}
+.mn-lang-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;margin-bottom:10px}
+.mn-lang-pills{display:flex;gap:8px;margin-bottom:20px}
+.mn-lang-pill{flex:1;text-align:center;padding:10px 4px;border-radius:8px;font-weight:700;font-size:.88rem;text-decoration:none;color:#1e293b;background:#f1f5f9;border:1.5px solid #e2e8f0;transition:all .15s}
+.mn-kofi{display:block;text-align:center;background:#0369a1;color:#fff;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
+.mn-kofi:hover{background:#0284c7;text-decoration:none}</style>
 
 <!-- Structured Data -->
 <script type="application/ld+json">
@@ -669,12 +578,16 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 </script>
 
 <script>
-// Auto-detect Spanish browser and redirect to /es/ (one-time, respects manual choice)
+// Auto-detect browser language and redirect once — stops if user has ever made an explicit choice
 (function(){
-  if(sessionStorage.getItem('aqm_lang_chosen')) return;
+  if(localStorage.getItem('aqm_lang_pref')) return; // User chose explicitly, never override
+  if(sessionStorage.getItem('aqm_lang_chosen')) return; // Already redirected this session
   var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-  if(lang.startsWith('es') && window.location.pathname === '/') {
-    sessionStorage.setItem('aqm_lang_chosen', 'en');
+  if(lang.startsWith('pt') && window.location.pathname === '/') {
+    sessionStorage.setItem('aqm_lang_chosen', '1');
+    window.location.replace('pt/index.html');
+  } else if(lang.startsWith('es') && window.location.pathname === '/') {
+    sessionStorage.setItem('aqm_lang_chosen', '1');
     window.location.replace('es/index.html');
   }
 })();
@@ -774,12 +687,13 @@ gtag('config', 'G-03QX35NF7F', {
       <span class="mn-icon">📖</span> Articles
     </a>
   </nav>
-  <div class="mn-footer">
-    <select class="lang-select-mobile" onchange="window.location.href=this.value" aria-label="Language">
-      <option value="#" selected>🌐 English</option>
-      <option value="es/index.html">🇪🇸 Español</option>
-      <option value="pt/index.html">🇧🇷 Português</option>
-    </select>
+    <div class="mn-footer">
+    <p class="mn-lang-label">Language / Idioma</p>
+    <div class="mn-lang-pills">
+      <a class="mn-lang-pill active" href="#" onclick="localStorage.setItem('aqm_lang_pref','en')">🇬🇧 EN</a>
+      <a class="mn-lang-pill" href="es/index.html" onclick="localStorage.setItem('aqm_lang_pref','es')">🇪🇸 ES</a>
+      <a class="mn-lang-pill" href="pt/index.html" onclick="localStorage.setItem('aqm_lang_pref','pt')">🇧🇷 PT</a>
+    </div>
     <a href="https://ko-fi.com/aquapacity" target="_blank" class="mn-kofi">Support the project ☕</a>
   </div>
 </div>

@@ -63,9 +63,6 @@ nav a.active{color:#fff;font-weight:700}
 .mn-links a:hover{background:#f0f9ff;color:var(--p);text-decoration:none}
 .mn-links a.active{background:#f0f9ff;color:var(--p)}
 .mn-icon{font-size:1.2rem;width:28px;text-align:center}
-.mn-footer{padding:20px 24px;border-top:1px solid #e0f2fe}
-.mn-kofi{display:block;text-align:center;background:var(--p);color:#fff;padding:12px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
-.mn-kofi:hover{background:#0284c7;text-decoration:none}
 .mobile-nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;backdrop-filter:blur(2px)}
 .mobile-nav-backdrop.open{display:block}
 
@@ -133,19 +130,8 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 
 /* ─── RESPONSIVE ───────────────────────────────────────────── */
 @media(max-width:900px){
-  .hamburger{display:flex}
-  nav{display:none}
-  .filter-bar{top:50px}
 }
 @media(max-width:640px){
-  .page-hero{padding:32px 16px 40px}
-  .page-hero h1{font-size:1.4rem}
-  .filter-bar{padding:12px 16px}
-  .articles-main{padding:24px 16px 48px}
-  .articles-grid-full{grid-template-columns:1fr;gap:16px}
-  .ac-img{padding:20px 20px 10px;font-size:2rem}
-  .ac-body{padding:14px 16px 18px}
-  .header-inner{height:50px}
 }
 
 /* ─── LANG SWITCHER ────────────────────────────────────────── */
@@ -156,8 +142,14 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .lang-options a:hover{background:#f1f5f9}
 .lang-options a.current{background:#e0f2fe;color:#0c4a73}
 .lang-switcher.open .lang-options{display:block}
-@media(max-width:900px){.lang-switcher{display:none}}
-</style>
+.mn-lang-pill.active{background:#0369a1;color:#fff;border-color:#0369a1}
+.mn-lang-pill:hover:not(.active){background:#e0f2fe;border-color:#7dd3fc;text-decoration:none}
+.mn-footer{padding:20px 24px;border-top:1px solid #e0f2fe}
+.mn-lang-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;margin-bottom:10px}
+.mn-lang-pills{display:flex;gap:8px;margin-bottom:20px}
+.mn-lang-pill{flex:1;text-align:center;padding:10px 4px;border-radius:8px;font-weight:700;font-size:.88rem;text-decoration:none;color:#1e293b;background:#f1f5f9;border:1.5px solid #e2e8f0;transition:all .15s}
+.mn-kofi{display:block;text-align:center;background:#0369a1;color:#fff;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
+.mn-kofi:hover{background:#0284c7;text-decoration:none}</style>
 
 <!-- Analytics + Consent Mode v2 -->
 <script>
@@ -260,12 +252,13 @@ gtag('config', 'G-03QX35NF7F', {
     <a href="index.html#faq" onclick="toggleMobileMenu()"><span class="mn-icon">❓</span> FAQ</a>
     <a href="articles.html" class="active" onclick="toggleMobileMenu()"><span class="mn-icon">📖</span> Artículos</a>
   </nav>
-  <div class="mn-footer">
-    <select class="lang-select-mobile" onchange="window.location.href=this.value" aria-label="Idioma">
-      <option value="#" selected>🌐 Español</option>
-      <option value="../index.html">🇬🇧 English</option>
-      <option value="../pt/articles.html">🇧🇷 Português</option>
-    </select>
+    <div class="mn-footer">
+    <p class="mn-lang-label">Language / Idioma</p>
+    <div class="mn-lang-pills">
+      <a class="mn-lang-pill" href="../articles.html" onclick="localStorage.setItem('aqm_lang_pref','en')">🇬🇧 EN</a>
+      <a class="mn-lang-pill active" href="#" onclick="localStorage.setItem('aqm_lang_pref','es')">🇪🇸 ES</a>
+      <a class="mn-lang-pill" href="../pt/articles.html" onclick="localStorage.setItem('aqm_lang_pref','pt')">🇧🇷 PT</a>
+    </div>
     <a href="https://ko-fi.com/aquapacity" target="_blank" class="mn-kofi">Apoya el proyecto ☕</a>
   </div>
 </div>
