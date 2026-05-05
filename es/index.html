@@ -928,6 +928,20 @@ gtag('config', 'G-03QX35NF7F', {
               <input type="number" id="filter-flow-2" placeholder="200" min="0" oninput="recalc()">
             </div>
           </div>
+          <div class="field-row" style="margin-top:12px">
+            <div class="field">
+              <label>Tipo del Segundo Filtro</label>
+              <select id="filter-type-2" onchange="recalc()" style="font-size:.9rem">
+              <option value="canister">Filtro externo (canister)</option>
+              <option value="hob">Filtro de mochila (HOB)</option>
+              <option value="internal">Filtro interno</option>
+              <option value="sponge">Filtro de esponja</option>
+              <option value="sump">Sump / refugio</option>
+              <option value="wetdry">Húmedo-seco (wet-dry)</option>
+              <option value="undergravel">Subfondo</option>
+              </select>
+            </div>
+          </div>
           <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:12px;margin-bottom:4px">Materiales Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(2.º filtro)</span></div>
           <div class="media-grid" id="media-grid-2">
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('foam_sponge',this)">
@@ -1660,12 +1674,15 @@ function getBioEfficiency(){
     if(isSW && state.liveRock) eff+=0.20;
     return eff;
   }
-  // Filter 2 bio rating (canister multiplier as default for second filter)
+  // Filter 2 — uses its own type multiplier
+  const type2El = document.getElementById('filter-type-2');
+  const type2 = type2El ? type2El.value : 'canister';
+  const typeMult2 = multTable[type2] || (isSW ? FILTER_TYPE_MULT_SW.canister : 1.0);
   const f1=parseFloat(document.getElementById('filter-flow').value)||0;
   const f2=parseFloat(document.getElementById('filter-flow-2').value)||0;
   const media2=Array.from(state.selectedMedia2);
   const mr2=media2.length===0?0.55:media2.reduce((a,m)=>a+(MEDIA_RATINGS[m]||0.5),0)/media2.length;
-  const eff2=1.0*mr2;
+  const eff2=typeMult2*mr2;
   // Weighted average by flow
   let eff;
   if(f1+f2>0){
@@ -2802,7 +2819,6 @@ async function loadFromSheets(){
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
     <span style="flex:1;min-width:220px;line-height:1.5">Usamos cookies analíticas para mejorar la web. No compartimos datos con terceros. <a href="https://aquapacity.com/es/privacidad.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidad</a></span>
     <div style="display:flex;gap:10px;flex-shrink:0;align-items:center;flex-wrap:wrap">
-      <button onclick="aqConsent('denied')" style="background:transparent;border:none;color:rgba(255,255,255,.6);padding:8px 12px;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:inherit;text-decoration:underline">Rechazar</button>
       <button onclick="aqOpenPrefs()" style="background:transparent;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:inherit">Preferencias</button>
       <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:9px 22px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit;white-space:nowrap">Aceptar todo</button>
     </div>
