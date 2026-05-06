@@ -781,7 +781,7 @@ gtag('config', 'G-03QX35NF7F', {
       <option value="#" data-lang="es" selected>🇪🇸 ES</option>
       <option value="../pt/index.html" data-lang="pt">🇧🇷 PT</option>
     </select>
-    <a href="https://ko-fi.com/aquapacity" target="_blank" class="mn-kofi">Apoya el proyecto ☕</a>
+    <a href="https://donate.stripe.com/4gM00idGIeKcgCv3SIco001" target="_blank" class="mn-kofi">Apoya el proyecto ☕</a>
   </div>
 </div>
 <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="toggleMobileMenu()"></div>
@@ -1309,13 +1309,13 @@ gtag('config', 'G-03QX35NF7F', {
     <p style="color:#374151;font-size:.95rem;line-height:1.7;margin-bottom:24px">
       Si Aquapacity te ha ayudado a tomar una mejor decisión para tus peces, considera apoyarla. Cada contribución va directamente de vuelta a la herramienta: más especies, mejores algoritmos y nuevas funciones para toda la comunidad.
     </p>
-    <a href="https://ko-fi.com/aquapacity" target="_blank" rel="noopener"
+    <a href="https://donate.stripe.com/4gM00idGIeKcgCv3SIco001" target="_blank" rel="noopener"
        style="display:inline-flex;align-items:center;gap:10px;background:#0369a1;color:#fff;font-weight:700;font-size:1rem;padding:14px 28px;border-radius:50px;text-decoration:none;box-shadow:0 4px 14px rgba(3,105,161,.35);transition:transform .15s,box-shadow .15s"
        onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(3,105,161,.45)'"
        onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(3,105,161,.35)'">
       💧 Apoya Aquapacity
     </a>
-    <p style="margin-top:16px;font-size:.78rem;color:#6b7280">Vía Ko-fi &nbsp;·&nbsp; Pago único o mensual &nbsp;·&nbsp; Sin cuenta necesaria</p>
+    <p style="margin-top:16px;font-size:.78rem;color:#6b7280">Pago seguro vía Stripe &nbsp;·&nbsp; Donación única</p>
   </div>
 </section>
 
@@ -3092,7 +3092,7 @@ function aqConsent(choice){
 document.addEventListener('DOMContentLoaded', function(){
 
   // Ko-fi button
-  document.querySelectorAll('a[href*="ko-fi.com"]').forEach(function(el){
+  document.querySelectorAll('a[href*="donate.stripe.com"]').forEach(function(el){
     el.addEventListener('click', function(){
       gtag('event', 'click_kofi', {event_category:'monetization', event_label:'kofi_es'});
     });
