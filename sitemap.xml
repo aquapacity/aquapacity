@@ -14,61 +14,61 @@
   </url>
 
   <url>
-    <loc>https://aquapacity.com/articles.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles.html"/>
+    <loc>https://aquapacity.com/articles</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles"/>
     <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/articles/1-inch-per-gallon-rule.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/1-inch-per-gallon-rule.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro.html"/>
+    <loc>https://aquapacity.com/articles/1-inch-per-gallon-rule</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/1-inch-per-gallon-rule"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/regla-del-centimetro-por-litro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro"/>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/articles/complete-guide-aquarium-filtration.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/complete-guide-aquarium-filtration.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios.html"/>
+    <loc>https://aquapacity.com/articles/complete-guide-aquarium-filtration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/complete-guide-aquarium-filtration"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios"/>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/articles/planted-tanks-bioload.html</loc>
+    <loc>https://aquapacity.com/articles/planted-tanks-bioload</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/articles/how-to-stock-10-gallon-tank.html</loc>
+    <loc>https://aquapacity.com/articles/how-to-stock-10-gallon-tank</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/articles/corydoras-species-guide.html</loc>
+    <loc>https://aquapacity.com/articles/corydoras-species-guide</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/articles/water-changes-guide.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/water-changes-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/cambios-de-agua-guia.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/trocas-de-agua-guia.html"/>
+    <loc>https://aquapacity.com/articles/water-changes-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/water-changes-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/cambios-de-agua-guia"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/trocas-de-agua-guia"/>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -86,40 +86,40 @@
   </url>
 
   <url>
-    <loc>https://aquapacity.com/es/articles.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles.html"/>
+    <loc>https://aquapacity.com/es/articles</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles"/>
     <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/1-inch-per-gallon-rule.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro.html"/>
+    <loc>https://aquapacity.com/es/articles/regla-del-centimetro-por-litro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/1-inch-per-gallon-rule"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/regla-del-centimetro-por-litro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro"/>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/complete-guide-aquarium-filtration.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios.html"/>
+    <loc>https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/complete-guide-aquarium-filtration"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios"/>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/es/articles/cambios-de-agua-guia.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/water-changes-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/cambios-de-agua-guia.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/trocas-de-agua-guia.html"/>
+    <loc>https://aquapacity.com/es/articles/cambios-de-agua-guia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/water-changes-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/cambios-de-agua-guia"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/trocas-de-agua-guia"/>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -137,40 +137,40 @@
   </url>
 
   <url>
-    <loc>https://aquapacity.com/pt/articles.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles.html"/>
+    <loc>https://aquapacity.com/pt/articles</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles"/>
     <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/1-inch-per-gallon-rule.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/regla-del-centimetro-por-litro.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro.html"/>
+    <loc>https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/1-inch-per-gallon-rule"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/regla-del-centimetro-por-litro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/regra-do-centimetro-por-litro"/>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/complete-guide-aquarium-filtration.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios.html"/>
+    <loc>https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/complete-guide-aquarium-filtration"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-completa-filtracion-acuarios"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/guia-completa-filtragem-aquarios"/>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://aquapacity.com/pt/articles/trocas-de-agua-guia.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/water-changes-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/cambios-de-agua-guia.html"/>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/trocas-de-agua-guia.html"/>
+    <loc>https://aquapacity.com/pt/articles/trocas-de-agua-guia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/water-changes-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/cambios-de-agua-guia"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/trocas-de-agua-guia"/>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
