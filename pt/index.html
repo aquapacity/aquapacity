@@ -958,6 +958,10 @@ gtag('config', 'G-03QX35NF7F', {
         <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:16px;margin-bottom:4px">Mídias Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(selecione as que usa)</span></div>
         <div class="media-grid" id="media-grid">
           <div class="media-cat">⚙️ Mecânico</div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('polishing_pad',this)">
+            <span>Almofada pulidora</span>
+            <span class="media-tip" data-tip="Almofada de fibra ultra-fina para água cristalina (ex. Fluval Polishing Pad, Seachem The Bag). Sempre colocada no final do fluxo do filtro. Seus poros são finos demais para colonização bacteriana; substituir quando escurecer ou o fluxo cair. Não substitui mídias biológicas.">?</span>
+          </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('filter_wool',this)">
             <span>Lã de filtro (Guata)</span>
             <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
@@ -1040,6 +1044,10 @@ gtag('config', 'G-03QX35NF7F', {
           <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:12px;margin-bottom:4px">Materiais Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(2.º filtro)</span></div>
           <div class="media-grid" id="media-grid-2">
           <div class="media-cat">⚙️ Mecânico</div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('polishing_pad',this)">
+            <span>Almofada pulidora</span>
+            <span class="media-tip" data-tip="Almofada de fibra ultra-fina para água cristalina (ex. Fluval Polishing Pad, Seachem The Bag). Sempre colocada no final do fluxo do filtro. Seus poros são finos demais para colonização bacteriana; substituir quando escurecer ou o fluxo cair. Não substitui mídias biológicas.">?</span>
+          </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('filter_wool',this)">
             <span>Lã de filtro (Guata)</span>
             <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
@@ -1625,6 +1633,7 @@ const DB = [
 ──────────────────────────────────────────────────────────── */
 const MEDIA_RATINGS = {
   /* ── MECHANICAL ──────────────────────────────── */
+  polishing_pad:     0.06,  // ultra-fine mechanical only — pore size too small for bacteria; replace frequently
   filter_wool:       0.10,  // mechanical only — polishes water, no bio colonisation
   filter_socks:      0.08,  // SW/sump only — frequent washing prevents stable colonies
   /* ── CHEMICAL ────────────────────────────────── */
