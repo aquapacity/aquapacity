@@ -1,0 +1,35 @@
+# Redirect all .html URLs to clean URLs (301 permanent)
+# Eliminates Cloudflare Pages double-URL issue for SEO
+
+# Root calculators
+/index.html                                             /                                                       301
+/es/index.html                                          /es/                                                    301
+/pt/index.html                                          /pt/                                                    301
+
+# Article index pages
+/articles.html                                          /articles                                               301
+/es/articles.html                                       /es/articles                                            301
+/pt/articles.html                                       /pt/articles                                            301
+
+# EN articles
+/articles/1-inch-per-gallon-rule.html                   /articles/1-inch-per-gallon-rule                        301
+/articles/complete-guide-aquarium-filtration.html        /articles/complete-guide-aquarium-filtration             301
+/articles/corydoras-species-guide.html                  /articles/corydoras-species-guide                       301
+/articles/how-to-stock-10-gallon-tank.html              /articles/how-to-stock-10-gallon-tank                   301
+/articles/planted-tanks-bioload.html                    /articles/planted-tanks-bioload                         301
+/articles/water-changes-guide.html                      /articles/water-changes-guide                           301
+
+# ES articles
+/es/articles/guia-completa-filtracion-acuarios.html     /es/articles/guia-completa-filtracion-acuarios          301
+/es/articles/regla-del-centimetro-por-litro.html        /es/articles/regla-del-centimetro-por-litro             301
+/es/articles/cambios-de-agua-guia.html                  /es/articles/cambios-de-agua-guia                       301
+
+# PT articles
+/pt/articles/guia-completa-filtragem-aquarios.html      /pt/articles/guia-completa-filtragem-aquarios           301
+/pt/articles/regra-do-centimetro-por-litro.html         /pt/articles/regra-do-centimetro-por-litro              301
+/pt/articles/trocas-de-agua-guia.html                   /pt/articles/trocas-de-agua-guia                        301
+
+# Privacy pages (noindex but still tidy)
+/privacidad.html                                        /privacidad                                             301
+/es/privacidad.html                                     /es/privacidad                                          301
+/pt/privacidade.html                                    /pt/privacidade                                         301

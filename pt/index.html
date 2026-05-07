@@ -159,6 +159,7 @@ nav a:hover{color:#fff;text-decoration:none}
 .filter-type-btn:hover{border-color:var(--p2);color:var(--p)}
 .filter-type-btn.active{border-color:var(--p);background:#f0f9ff;color:var(--p)}
 
+.media-cat{grid-column:1/-1;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:8px 0 2px;border-bottom:1px solid var(--border);margin-bottom:2px;margin-top:6px}
 .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;margin-top:8px}
 .media-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r6);cursor:pointer;transition:all .2s;font-size:.82rem;font-weight:600;color:var(--muted);background:#fff;user-select:none}
 .media-item:hover{border-color:var(--p2);color:var(--p)}
@@ -717,7 +718,7 @@ gtag('config', 'G-03QX35NF7F', {
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <a href="index.html" class="logo">
+    <a href="/pt/" class="logo">
       <span class="logo-icon">
         <svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs><clipPath id="htc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
@@ -739,12 +740,12 @@ gtag('config', 'G-03QX35NF7F', {
       <a href="#calculator">Calculadora</a>
       <a href="#how-it-works">Como Funciona</a>
       <a href="#faq">FAQ</a>
-      <a href="articles.html">Artigos</a>
+      <a href="/pt/articles">Artigos</a>
       <div class="lang-switcher">
         <button class="lang-btn">🌐 PT ▾</button>
         <div class="lang-options">
-          <a href="../index.html">🇬🇧 English</a>
-          <a href="../es/index.html">🇪🇸 Español</a>
+          <a href="/">🇬🇧 English</a>
+          <a href="/es/">🇪🇸 Español</a>
         </div>
       </div>
     </nav>
@@ -770,7 +771,7 @@ gtag('config', 'G-03QX35NF7F', {
     <a href="#faq" onclick="toggleMobileMenu()">
       <span class="mn-icon">❓</span> FAQ
     </a>
-    <a href="articles.html" onclick="toggleMobileMenu()">
+    <a href="/pt/articles" onclick="toggleMobileMenu()">
       <span class="mn-icon">📖</span> Artigos
     </a>
   </nav>
@@ -956,41 +957,52 @@ gtag('config', 'G-03QX35NF7F', {
         <!-- Filter media -->
         <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:16px;margin-bottom:4px">Mídias Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(selecione as que usa)</span></div>
         <div class="media-grid" id="media-grid">
+          <div class="media-cat">⚙️ Mecânico</div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('filter_wool',this)">
+            <span>Lã de filtro (Guata)</span>
+            <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
+          </div>
+          <div class="media-item sw-media-only" role="button" tabindex="0" onclick="toggleMedia('filter_socks',this)" style="display:none">
+            <span>Meias filtrantes</span>
+            <span class="media-tip" data-tip="Filtros em formato de meia usados em sumps (apenas água salgada). Excelente pré-filtração mecânica. Trocados com frequência (a cada 2–3 dias em tanques de recife), por isso as bactérias não conseguem estabelecer colônias estáveis.">?</span>
+          </div>
+          <div class="media-cat">🧫 Biológico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('foam_sponge',this)">
-            <span>Foamex/Esponja</span>
+            <span>Esponja de espuma</span>
             <span class="media-tip" data-tip="Esponja de poliuretano de poro grosso. Seus poros grandes facilitam excelente fluxo de água e abrigam enormes colônias de bactérias benéficas. Presente em filtros de esponja e muitos HOBs. A melhor opção para filtração biológica.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('k1_moving',this)">
             <span>Leito móvel / K1</span>
-            <span class="media-tip" data-tip="Pequeñas piezas de plástico (K1, K3, etc.) que giran libremente en agua en movimiento. El movimiento constante mantiene las superficies limpias y bien oxigenadas, maximizando el crecimiento bacteriano. Se usan en sistemas de lecho móvil.">?</span>
+            <span class="media-tip" data-tip="Pequenas peças de plástico (ex. Kaldnes K1, K3) que giram livremente na água em movimento. O movimento constante mantém as superfícies limpas e bem oxigenadas, maximizando o crescimento bacteriano.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('sintered_glass',this)">
+            <span>Vidro sinterizado</span>
+            <span class="media-tip" data-tip="Material biológico de alto desempenho com uma superfície efetiva enorme (ex. Siporax ~270.000 m²/m³). Milhões de poros interconectados suportam colônias bacterianas massivas. Requer bom fluxo de água para atingir todo o seu potencial.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('premium_porous',this)">
+            <span>Cerâmica porosa premium</span>
+            <span class="media-tip" data-tip="Cerâmica de engenharia com macro e microporos (ex. Seachem Matrix, Biohome Plus). Os poros internos profundos permitem colonização anaeróbia, o que pode reduzir nitratos — um passo acima dos anéis cerâmicos padrão.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('lava_rock',this)">
             <span>Rocha vulcânica</span>
             <span class="media-tip" data-tip="Rocha vulcânica natural de superfície rugosa e irregular com grande porosidade. Barata e eficaz, com boa superfície para bactérias. Pesada, portanto só é prática em sumps ou cestas grandes de filtros externos.">?</span>
           </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('porous_ceramic',this)">
-            <span>Cerâmica porosa</span>
-            <span class="media-tip" data-tip="Peças cerâmicas com numerosos poros internos (ex. Eheim Substrat, Seachem Matrix). Alta superfície interna. Os poros menores podem entupir com o tempo se não forem enxaguados periodicamente em água do aquário.">?</span>
-          </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('premium_bio',this)">
-            <span>Resinas/Zeólitas</span>
-            <span class="media-tip" data-tip="Resinas de troca iônica e zeólitas que eliminam amônia e outros compostos da água. Ação química pontual, sem valor biológico permanente. Substituir a cada 4–6 semanas quando saturadas ou após tratamentos com medicamentos.">?</span>
-          </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('bio_balls',this)">
             <span>Biobolas</span>
-            <span class="media-tip" data-tip="Esferas de plástico diseñadas para filtros de gota o húmedo-seco (wet-dry); la exposición al aire aumenta el oxígeno para las bacterias. Cuando se usan totalmente sumergidas (canister o HOB) su eficiencia cae significativamente, pues necesitan flujo de aire.">?</span>
+            <span class="media-tip" data-tip="Esferas de plástico projetadas para filtros de gotejamento ou úmido-seco (wet-dry); a exposição ao ar aumenta o oxigênio para as bactérias. Quando usadas totalmente submersas (canister ou HOB) sua eficiência cai significativamente.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('ceramic_rings',this)">
             <span>Argolas cerâmicas</span>
-            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa para filtração biológica.">?</span>
+            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa premium para filtração biológica.">?</span>
           </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('filter_wool',this)">
-            <span>Lã de filtro (Guata)</span>
-            <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
-          </div>
+          <div class="media-cat">⚗️ Químico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('activated_carbon',this)">
             <span>Carvão ativo</span>
-            <span class="media-tip" data-tip="Medio químico que adsorbe compuestos orgánicos disueltos, medicamentos y olores. Sin valor biológico; sus poros son demasiado pequeños para las bacterias beneficiosas. Reemplazar cada 4–6 semanas cuando se sature.">?</span>
+            <span class="media-tip" data-tip="Adsorve compostos orgânicos dissolvidos, medicamentos e odores. Sem valor biológico; seus poros são pequenos demais para bactérias benéficas. Substituir a cada 4–6 semanas. Sempre remover antes de usar medicamentos no aquário.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('synthetic_resins',this)">
+            <span>Resinas sintéticas</span>
+            <span class="media-tip" data-tip="Resinas de troca iônica que eliminam problemas específicos: fosfato (ex. Rowaphos, PhosGuard), nitrato ou silicato. Sem colonização biológica. Usadas para correção pontual de parâmetros; substituir quando esgotadas.">?</span>
           </div>
         </div>
         <div class="field-hint" style="margin-top:6px">Selecione os meios filtrantes que usa. Se nenhum for selecionado, será aplicada uma eficiência padrão.</div>
@@ -1027,41 +1039,52 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
           <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:12px;margin-bottom:4px">Materiais Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(2.º filtro)</span></div>
           <div class="media-grid" id="media-grid-2">
+          <div class="media-cat">⚙️ Mecânico</div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('filter_wool',this)">
+            <span>Lã de filtro (Guata)</span>
+            <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
+          </div>
+          <div class="media-item sw-media-only" role="button" tabindex="0" onclick="toggleMedia2('filter_socks',this)" style="display:none">
+            <span>Meias filtrantes</span>
+            <span class="media-tip" data-tip="Filtros em formato de meia usados em sumps (apenas água salgada). Excelente pré-filtração mecânica. Trocados com frequência (a cada 2–3 dias em tanques de recife), por isso as bactérias não conseguem estabelecer colônias estáveis.">?</span>
+          </div>
+          <div class="media-cat">🧫 Biológico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('foam_sponge',this)">
-            <span>Foamex/Esponja</span>
+            <span>Esponja de espuma</span>
             <span class="media-tip" data-tip="Esponja de poliuretano de poro grosso. Seus poros grandes facilitam excelente fluxo de água e abrigam enormes colônias de bactérias benéficas. Presente em filtros de esponja e muitos HOBs. A melhor opção para filtração biológica.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('k1_moving',this)">
             <span>Leito móvel / K1</span>
-            <span class="media-tip" data-tip="Pequeñas piezas de plástico (K1, K3, etc.) que giran libremente en agua en movimiento. El movimiento constante mantiene las superficies limpias y bien oxigenadas, maximizando el crecimiento bacteriano. Se usan en sistemas de lecho móvil.">?</span>
+            <span class="media-tip" data-tip="Pequenas peças de plástico (ex. Kaldnes K1, K3) que giram livremente na água em movimento. O movimento constante mantém as superfícies limpas e bem oxigenadas, maximizando o crescimento bacteriano.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('sintered_glass',this)">
+            <span>Vidro sinterizado</span>
+            <span class="media-tip" data-tip="Material biológico de alto desempenho com uma superfície efetiva enorme (ex. Siporax ~270.000 m²/m³). Milhões de poros interconectados suportam colônias bacterianas massivas. Requer bom fluxo de água para atingir todo o seu potencial.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('premium_porous',this)">
+            <span>Cerâmica porosa premium</span>
+            <span class="media-tip" data-tip="Cerâmica de engenharia com macro e microporos (ex. Seachem Matrix, Biohome Plus). Os poros internos profundos permitem colonização anaeróbia, o que pode reduzir nitratos — um passo acima dos anéis cerâmicos padrão.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('lava_rock',this)">
             <span>Rocha vulcânica</span>
             <span class="media-tip" data-tip="Rocha vulcânica natural de superfície rugosa e irregular com grande porosidade. Barata e eficaz, com boa superfície para bactérias. Pesada, portanto só é prática em sumps ou cestas grandes de filtros externos.">?</span>
           </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('porous_ceramic',this)">
-            <span>Cerâmica porosa</span>
-            <span class="media-tip" data-tip="Peças cerâmicas com numerosos poros internos (ex. Eheim Substrat, Seachem Matrix). Alta superfície interna. Os poros menores podem entupir com o tempo se não forem enxaguados periodicamente em água do aquário.">?</span>
-          </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('premium_bio',this)">
-            <span>Resinas/Zeólitas</span>
-            <span class="media-tip" data-tip="Resinas de troca iônica e zeólitas que eliminam amônia e outros compostos da água. Ação química pontual, sem valor biológico permanente. Substituir a cada 4–6 semanas quando saturadas ou após tratamentos com medicamentos.">?</span>
-          </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('bio_balls',this)">
             <span>Biobolas</span>
-            <span class="media-tip" data-tip="Esferas de plástico diseñadas para filtros de gota o húmedo-seco (wet-dry); la exposición al aire aumenta el oxígeno para las bacterias. Cuando se usan totalmente sumergidas (canister o HOB) su eficiencia cae significativamente, pues necesitan flujo de aire.">?</span>
+            <span class="media-tip" data-tip="Esferas de plástico projetadas para filtros de gotejamento ou úmido-seco (wet-dry); a exposição ao ar aumenta o oxigênio para as bactérias. Quando usadas totalmente submersas (canister ou HOB) sua eficiência cai significativamente.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('ceramic_rings',this)">
             <span>Argolas cerâmicas</span>
-            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa para filtração biológica.">?</span>
+            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa premium para filtração biológica.">?</span>
           </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('filter_wool',this)">
-            <span>Lã de filtro (Guata)</span>
-            <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
-          </div>
+          <div class="media-cat">⚗️ Químico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('activated_carbon',this)">
             <span>Carvão ativo</span>
-            <span class="media-tip" data-tip="Medio químico que adsorbe compuestos orgánicos disueltos, medicamentos y olores. Sin valor biológico; sus poros son demasiado pequeños para las bacterias beneficiosas. Reemplazar cada 4–6 semanas cuando se sature.">?</span>
+            <span class="media-tip" data-tip="Adsorve compostos orgânicos dissolvidos, medicamentos e odores. Sem valor biológico; seus poros são pequenos demais para bactérias benéficas. Substituir a cada 4–6 semanas. Sempre remover antes de usar medicamentos no aquário.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('synthetic_resins',this)">
+            <span>Resinas sintéticas</span>
+            <span class="media-tip" data-tip="Resinas de troca iônica que eliminam problemas específicos: fosfato (ex. Rowaphos, PhosGuard), nitrato ou silicato. Sem colonização biológica. Usadas para correção pontual de parâmetros; substituir quando esgotadas.">?</span>
           </div>
         
           </div>
@@ -1325,11 +1348,11 @@ gtag('config', 'G-03QX35NF7F', {
     <div class="section-tag">Base de Conocimiento</div>
     <h2>Guias e Artigos de Aquariofilia</h2>
     <p>Guias baseados em ciência para montar um aquário próspero. Todos os artigos estão conectados à calculadora para que você possa aplicar o que aprendeu imediatamente.</p>
-    <a href="articles.html" class="view-all-btn">Ver todos os artigos →</a>
+    <a href="/pt/articles" class="view-all-btn">Ver todos os artigos →</a>
 
     <div class="articles-grid">
 
-      <a class="article-card" href="articles/regra-do-centimetro-por-litro.html">
+      <a class="article-card" href="/pt/articles/regra-do-centimetro-por-litro">
         <div class="ac-img">🐟</div>
         <div class="ac-body">
           <div class="ac-tag">Población</div>
@@ -1342,7 +1365,7 @@ gtag('config', 'G-03QX35NF7F', {
         </div>
       </a>
 
-      <a class="article-card" href="articles/guia-completa-filtragem-aquarios.html">
+      <a class="article-card" href="/pt/articles/guia-completa-filtragem-aquarios">
         <div class="ac-img">🔬</div>
         <div class="ac-body">
           <div class="ac-tag">Filtração</div>
@@ -1355,7 +1378,7 @@ gtag('config', 'G-03QX35NF7F', {
         </div>
       </a>
 
-      <a class="article-card" href="articles/trocas-de-agua-guia.html">
+      <a class="article-card" href="/pt/articles/trocas-de-agua-guia">
         <div class="ac-img">🪣</div>
         <div class="ac-body">
           <div class="ac-tag">Mantenimiento</div>
@@ -1498,7 +1521,7 @@ gtag('config', 'G-03QX35NF7F', {
 <footer>
   <div class="footer-inner">
     <div>
-      <a href="index.html" class="logo" style="margin-bottom:4px">
+      <a href="/pt/" class="logo" style="margin-bottom:4px">
         <span class="logo-icon">
           <svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs><clipPath id="ftc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
@@ -1522,8 +1545,8 @@ gtag('config', 'G-03QX35NF7F', {
       <a href="#calculator">Calculadora</a>
       <a href="#how-it-works">Como Funciona</a>
       <a href="#faq">FAQ</a>
-      <a href="articles.html">Artigos</a>
-      <span style="color:rgba(255,255,255,.7)">Contato: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a> &nbsp;·&nbsp; <a href="/pt/privacidade.html">Privacidade</a></span>
+      <a href="/pt/articles">Artigos</a>
+      <span style="color:rgba(255,255,255,.7)">Contato: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a> &nbsp;·&nbsp; <a href="/pt/privacidade">Privacidade</a></span>
     </div>
   </div>
 </footer>
@@ -1601,15 +1624,20 @@ const DB = [
    at hosting nitrifying bacteria per unit volume.
 ──────────────────────────────────────────────────────────── */
 const MEDIA_RATINGS = {
-  foam_sponge:      0.85,  // highest: large pores, ideal colonisation
-  k1_moving:        0.82,  // very high: constant tumbling, great aeration
-  lava_rock:        0.65,  // good: irregular pores, natural
-  porous_ceramic:   0.72,  // good: high surface area, accessible pores
-  premium_bio:      0.68,  // good but nanopore access limits colonisation
-  bio_balls:        0.62,  // designed for trickle/wet-dry, submerged = lower
-  ceramic_rings:    0.42,  // standard: low actual colonisable area
-  filter_wool:      0.10,  // mechanical only, very low bio value
-  activated_carbon: 0.05   // mechanical/chemical only
+  /* ── MECHANICAL ──────────────────────────────── */
+  filter_wool:       0.10,  // mechanical only — polishes water, no bio colonisation
+  filter_socks:      0.08,  // SW/sump only — frequent washing prevents stable colonies
+  /* ── CHEMICAL ────────────────────────────────── */
+  activated_carbon:  0.05,  // adsorbs organics/meds — no bio surface; replace every 4–6 wks
+  synthetic_resins:  0.03,  // removes PO₄/NO₃ — no colonisable area; targeted use only
+  /* ── BIOLOGICAL (ranked by bio efficiency) ───── */
+  foam_sponge:       0.85,  // #1 — open pores, constant flow, ideal bacterial colonisation
+  k1_moving:         0.82,  // #2 — tumbling keeps media clean and oxygenated (K1, K3, Kaldnes)
+  sintered_glass:    0.78,  // #3 — massive surface area (e.g. Siporax ~270k m²/m³)
+  premium_porous:    0.75,  // #4 — macro+micro pores support aerobic+anaerobic bacteria (Matrix, Biohome Plus)
+  lava_rock:         0.65,  // #5 — natural high macro-porosity; heavy but effective
+  bio_balls:         0.58,  // #6 — optimal in trickle/wet-dry; submerged efficiency drops significantly
+  ceramic_rings:     0.45   // #7 — exterior surface only; affordable entry-level bio media
 };
 
 /* Filter type efficiency multipliers */
@@ -2989,7 +3017,7 @@ async function loadFromSheets(){
 <!-- Cookie consent banner -->
 <div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 16px rgba(0,0,0,.25)">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-    <span style="flex:1;min-width:220px;line-height:1.5">Usamos cookies analíticas para melhorar o site. Não compartilhamos dados com terceiros. <a href="https://aquapacity.com/pt/privacidade.html" style="color:#7dd3fc;text-decoration:underline">Política de privacidade</a></span>
+    <span style="flex:1;min-width:220px;line-height:1.5">Usamos cookies analíticas para melhorar o site. Não compartilhamos dados com terceiros. <a href="https://aquapacity.com/pt/privacidade" style="color:#7dd3fc;text-decoration:underline">Política de privacidade</a></span>
     <div style="display:flex;gap:10px;flex-shrink:0;align-items:center;flex-wrap:wrap">
       <button onclick="aqOpenPrefs()" style="background:transparent;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:inherit">Preferências</button>
       <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:9px 22px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit;white-space:nowrap">Aceitar tudo</button>

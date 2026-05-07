@@ -159,6 +159,7 @@ nav a:hover{color:#fff;text-decoration:none}
 .filter-type-btn:hover{border-color:var(--p2);color:var(--p)}
 .filter-type-btn.active{border-color:var(--p);background:#f0f9ff;color:var(--p)}
 
+.media-cat{grid-column:1/-1;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:8px 0 2px;border-bottom:1px solid var(--border);margin-bottom:2px;margin-top:6px}
 .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;margin-top:8px}
 .media-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r6);cursor:pointer;transition:all .2s;font-size:.82rem;font-weight:600;color:var(--muted);background:#fff;user-select:none}
 .media-item:hover{border-color:var(--p2);color:var(--p)}
@@ -758,8 +759,8 @@ gtag('config', 'G-03QX35NF7F', {
       <div class="lang-switcher">
         <button class="lang-btn">🌐 EN ▾</button>
         <div class="lang-options">
-          <a href="es/index.html">🇪🇸 Español</a>
-          <a href="pt/index.html">🇧🇷 Português</a>
+          <a href="/es/">🇪🇸 Español</a>
+          <a href="/pt/">🇧🇷 Português</a>
         </div>
       </div>
     </nav>
@@ -784,7 +785,7 @@ gtag('config', 'G-03QX35NF7F', {
     <a href="#faq" onclick="toggleMobileMenu()">
       <span class="mn-icon">❓</span> FAQ
     </a>
-    <a href="articles.html" onclick="toggleMobileMenu()">
+    <a href="/articles" onclick="toggleMobileMenu()">
       <span class="mn-icon">📖</span> Articles
     </a>
   </nav>
@@ -970,41 +971,52 @@ gtag('config', 'G-03QX35NF7F', {
         <!-- Filter media -->
         <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:16px;margin-bottom:4px">Filter Media <span style="font-weight:400;text-transform:none;letter-spacing:0">(select all you use)</span></div>
         <div class="media-grid" id="media-grid">
+          <div class="media-cat">⚙️ Mechanical</div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('filter_wool',this)">
+            <span>Filter wool / floss</span>
+            <span class="media-tip" data-tip="Mechanical filtration only: traps fine particles and debris to polish the water. Minimal biological value as bacteria cannot colonise the tight fibres. Replace or rinse frequently so it doesn't clog.">?</span>
+          </div>
+          <div class="media-item sw-media-only" role="button" tabindex="0" onclick="toggleMedia('filter_socks',this)" style="display:none">
+            <span>Filter socks</span>
+            <span class="media-tip" data-tip="Sock-shaped mesh filters used in sumps (saltwater only). Excellent mechanical pre-filtration. Changed frequently (every 2–3 days in reef tanks), so bacteria cannot establish stable colonies.">?</span>
+          </div>
+          <div class="media-cat">🧫 Biological</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('foam_sponge',this)">
             <span>Foam sponge</span>
             <span class="media-tip" data-tip="Coarse polyurethane foam. Large open pores allow great water flow and host huge colonies of beneficial bacteria. Found in sponge filters and many HOBs. Top choice for biological filtration.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('k1_moving',this)">
             <span>Moving bed / K1</span>
-            <span class="media-tip" data-tip="Small plastic chips (K1, K3, etc.) that tumble freely in moving water. The constant motion keeps surfaces clean and well-oxygenated, maximising bacterial growth. Used in moving bed filter systems.">?</span>
+            <span class="media-tip" data-tip="Small plastic chips (e.g. Kaldnes K1, K3) that tumble freely in moving water. The constant motion keeps surfaces clean and well-oxygenated, maximising bacterial growth. Used in moving bed filter systems.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('sintered_glass',this)">
+            <span>Sintered glass</span>
+            <span class="media-tip" data-tip="High-performance biological media with an enormous effective surface area (e.g. Siporax ~270,000 m²/m³). Millions of interconnected pores support massive bacterial colonies. Requires good water flow to reach its full potential.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('premium_porous',this)">
+            <span>Premium porous ceramic</span>
+            <span class="media-tip" data-tip="Engineered ceramic with macro- and micro-pores (e.g. Seachem Matrix, Biohome Plus). Deep internal pores allow anaerobic bacteria to establish, which can reduce nitrates — a significant step above standard ceramic rings.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('lava_rock',this)">
             <span>Lava rock</span>
             <span class="media-tip" data-tip="Natural volcanic rock with a rough, irregular porous surface. Cheap and effective, with good surface area for bacteria. Heavy, so only practical in sumps or large canister baskets.">?</span>
           </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('porous_ceramic',this)">
-            <span>Porous ceramic</span>
-            <span class="media-tip" data-tip="Fired ceramic pieces with many internal pores throughout (e.g. Eheim Substrat, Seachem Matrix). High internal surface area. Smaller pores can clog over time if not rinsed periodically in tank water.">?</span>
-          </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('premium_bio',this)">
-            <span>Premium bio media</span>
-            <span class="media-tip" data-tip="High-end engineered media such as Siporax, Biohome Ultra, or Kaldnes. Marketed as having extremely high surface area, but much of it is in nano-pores too small for bacteria to access, placing it slightly below foam sponge in practice.">?</span>
-          </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('bio_balls',this)">
             <span>Bio-balls</span>
-            <span class="media-tip" data-tip="Plastic spheres designed for trickle or wet-dry filters; air exposure boosts oxygen for bacteria. When used fully submerged (inside a canister or HOB) their efficiency drops significantly, as they need airflow to work well.">?</span>
+            <span class="media-tip" data-tip="Plastic spheres designed for trickle or wet-dry filters; air exposure boosts oxygen for bacteria. When used fully submerged (canister or HOB) their efficiency drops significantly, as they need airflow to work well.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('ceramic_rings',this)">
-            <span>Ceramic rings (std)</span>
-            <span class="media-tip" data-tip="Standard ceramic rings (e.g. Fluval Biomax, generic ceramic noodles). Moderate surface area on the outside only. Very common and inexpensive, but less effective than foam sponge or porous ceramic for biological filtration.">?</span>
+            <span>Ceramic rings</span>
+            <span class="media-tip" data-tip="Standard ceramic rings (e.g. Fluval Biomax, generic ceramic noodles). Surface area on the exterior only. Very common and inexpensive, but less effective than foam sponge or porous ceramic for biological filtration.">?</span>
           </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('filter_wool',this)">
-            <span>Filter wool / floss</span>
-            <span class="media-tip" data-tip="Mechanical filtration only: traps fine particles and debris to polish the water. Minimal biological value as bacteria cannot colonise the tight fibres effectively. Replace or rinse frequently so it doesn't clog.">?</span>
-          </div>
+          <div class="media-cat">⚗️ Chemical</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('activated_carbon',this)">
             <span>Activated carbon</span>
-            <span class="media-tip" data-tip="Chemical/mechanical media that adsorbs dissolved organic compounds, medications, and odours. No biological value; its pores are too small for beneficial bacteria. Replace every 4–6 weeks as it becomes saturated.">?</span>
+            <span class="media-tip" data-tip="Adsorbs dissolved organic compounds, medications, and odours. No biological value; its pores are too small for beneficial bacteria. Replace every 4–6 weeks. Always remove before using medications in the tank.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('synthetic_resins',this)">
+            <span>Synthetic resins</span>
+            <span class="media-tip" data-tip="Ion-exchange resins that target specific problems: phosphate (e.g. Rowaphos, PhosGuard), nitrate, or silicate removal. No biological colonisation. Used for targeted water parameter correction; replace when exhausted.">?</span>
           </div>
         </div>
         <div class="field-hint" style="margin-top:6px">Select the filter media you use. If none selected, a default efficiency will be applied.</div>
@@ -1041,41 +1053,52 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
           <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:12px;margin-bottom:4px">Filter Media <span style="font-weight:400;text-transform:none;letter-spacing:0">(2nd filter)</span></div>
           <div class="media-grid" id="media-grid-2">
+          <div class="media-cat">⚙️ Mechanical</div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('filter_wool',this)">
+            <span>Filter wool / floss</span>
+            <span class="media-tip" data-tip="Mechanical filtration only: traps fine particles and debris to polish the water. Minimal biological value as bacteria cannot colonise the tight fibres. Replace or rinse frequently so it doesn't clog.">?</span>
+          </div>
+          <div class="media-item sw-media-only" role="button" tabindex="0" onclick="toggleMedia2('filter_socks',this)" style="display:none">
+            <span>Filter socks</span>
+            <span class="media-tip" data-tip="Sock-shaped mesh filters used in sumps (saltwater only). Excellent mechanical pre-filtration. Changed frequently (every 2–3 days in reef tanks), so bacteria cannot establish stable colonies.">?</span>
+          </div>
+          <div class="media-cat">🧫 Biological</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('foam_sponge',this)">
             <span>Foam sponge</span>
             <span class="media-tip" data-tip="Coarse polyurethane foam. Large open pores allow great water flow and host huge colonies of beneficial bacteria. Found in sponge filters and many HOBs. Top choice for biological filtration.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('k1_moving',this)">
             <span>Moving bed / K1</span>
-            <span class="media-tip" data-tip="Small plastic chips (K1, K3, etc.) that tumble freely in moving water. The constant motion keeps surfaces clean and well-oxygenated, maximising bacterial growth. Used in moving bed filter systems.">?</span>
+            <span class="media-tip" data-tip="Small plastic chips (e.g. Kaldnes K1, K3) that tumble freely in moving water. The constant motion keeps surfaces clean and well-oxygenated, maximising bacterial growth. Used in moving bed filter systems.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('sintered_glass',this)">
+            <span>Sintered glass</span>
+            <span class="media-tip" data-tip="High-performance biological media with an enormous effective surface area (e.g. Siporax ~270,000 m²/m³). Millions of interconnected pores support massive bacterial colonies. Requires good water flow to reach its full potential.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('premium_porous',this)">
+            <span>Premium porous ceramic</span>
+            <span class="media-tip" data-tip="Engineered ceramic with macro- and micro-pores (e.g. Seachem Matrix, Biohome Plus). Deep internal pores allow anaerobic bacteria to establish, which can reduce nitrates — a significant step above standard ceramic rings.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('lava_rock',this)">
             <span>Lava rock</span>
             <span class="media-tip" data-tip="Natural volcanic rock with a rough, irregular porous surface. Cheap and effective, with good surface area for bacteria. Heavy, so only practical in sumps or large canister baskets.">?</span>
           </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('porous_ceramic',this)">
-            <span>Porous ceramic</span>
-            <span class="media-tip" data-tip="Fired ceramic pieces with many internal pores throughout (e.g. Eheim Substrat, Seachem Matrix). High internal surface area. Smaller pores can clog over time if not rinsed periodically in tank water.">?</span>
-          </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('premium_bio',this)">
-            <span>Premium bio media</span>
-            <span class="media-tip" data-tip="High-end engineered media such as Siporax, Biohome Ultra, or Kaldnes. Marketed as having extremely high surface area, but much of it is in nano-pores too small for bacteria to access, placing it slightly below foam sponge in practice.">?</span>
-          </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('bio_balls',this)">
             <span>Bio-balls</span>
-            <span class="media-tip" data-tip="Plastic spheres designed for trickle or wet-dry filters; air exposure boosts oxygen for bacteria. When used fully submerged (inside a canister or HOB) their efficiency drops significantly, as they need airflow to work well.">?</span>
+            <span class="media-tip" data-tip="Plastic spheres designed for trickle or wet-dry filters; air exposure boosts oxygen for bacteria. When used fully submerged (canister or HOB) their efficiency drops significantly, as they need airflow to work well.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('ceramic_rings',this)">
-            <span>Ceramic rings (std)</span>
-            <span class="media-tip" data-tip="Standard ceramic rings (e.g. Fluval Biomax, generic ceramic noodles). Moderate surface area on the outside only. Very common and inexpensive, but less effective than foam sponge or porous ceramic for biological filtration.">?</span>
+            <span>Ceramic rings</span>
+            <span class="media-tip" data-tip="Standard ceramic rings (e.g. Fluval Biomax, generic ceramic noodles). Surface area on the exterior only. Very common and inexpensive, but less effective than foam sponge or porous ceramic for biological filtration.">?</span>
           </div>
-          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('filter_wool',this)">
-            <span>Filter wool / floss</span>
-            <span class="media-tip" data-tip="Mechanical filtration only: traps fine particles and debris to polish the water. Minimal biological value as bacteria cannot colonise the tight fibres effectively. Replace or rinse frequently so it doesn't clog.">?</span>
-          </div>
+          <div class="media-cat">⚗️ Chemical</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('activated_carbon',this)">
             <span>Activated carbon</span>
-            <span class="media-tip" data-tip="Chemical/mechanical media that adsorbs dissolved organic compounds, medications, and odours. No biological value; its pores are too small for beneficial bacteria. Replace every 4–6 weeks as it becomes saturated.">?</span>
+            <span class="media-tip" data-tip="Adsorbs dissolved organic compounds, medications, and odours. No biological value; its pores are too small for beneficial bacteria. Replace every 4–6 weeks. Always remove before using medications in the tank.">?</span>
+          </div>
+          <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('synthetic_resins',this)">
+            <span>Synthetic resins</span>
+            <span class="media-tip" data-tip="Ion-exchange resins that target specific problems: phosphate (e.g. Rowaphos, PhosGuard), nitrate, or silicate removal. No biological colonisation. Used for targeted water parameter correction; replace when exhausted.">?</span>
           </div>
         
           </div>
@@ -1339,11 +1362,11 @@ gtag('config', 'G-03QX35NF7F', {
     <div class="section-tag">Knowledge Base</div>
     <h2>Aquarium Guides &amp; Articles</h2>
     <p>Science-based guides to help you build a thriving aquarium. Every article links back to the calculator so you can apply what you learn immediately.</p>
-    <a href="articles.html" class="view-all-btn">View all articles →</a>
+    <a href="/articles" class="view-all-btn">View all articles →</a>
 
     <div class="articles-grid">
 
-      <a class="article-card" href="articles/1-inch-per-gallon-rule.html">
+      <a class="article-card" href="/articles/1-inch-per-gallon-rule">
         <div class="ac-img">🐟</div>
         <div class="ac-body">
           <div class="ac-tag">Stocking Fundamentals</div>
@@ -1356,7 +1379,7 @@ gtag('config', 'G-03QX35NF7F', {
         </div>
       </a>
 
-      <a class="article-card" href="articles/complete-guide-aquarium-filtration.html">
+      <a class="article-card" href="/articles/complete-guide-aquarium-filtration">
         <div class="ac-img">🔬</div>
         <div class="ac-body">
           <div class="ac-tag">Filtration</div>
@@ -1369,7 +1392,7 @@ gtag('config', 'G-03QX35NF7F', {
         </div>
       </a>
 
-      <a class="article-card" href="articles/planted-tanks-bioload.html">
+      <a class="article-card" href="/articles/planted-tanks-bioload">
         <div class="ac-img">🌿</div>
         <div class="ac-body">
           <div class="ac-tag">Planted Tanks</div>
@@ -1549,8 +1572,8 @@ gtag('config', 'G-03QX35NF7F', {
       <a href="#calculator">Calculator</a>
       <a href="#how-it-works">How It Works</a>
       <a href="#faq">FAQ</a>
-      <a href="articles.html">Articles</a>
-      <span style="color:rgba(255,255,255,.7)">Contact: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a> &nbsp;·&nbsp; <a href="/privacidad.html">Privacy Policy</a></span>
+      <a href="/articles">Articles</a>
+      <span style="color:rgba(255,255,255,.7)">Contact: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a> &nbsp;·&nbsp; <a href="/privacidad">Privacy Policy</a></span>
     </div>
   </div>
 </footer>
@@ -1625,15 +1648,20 @@ const DB = [
    at hosting nitrifying bacteria per unit volume.
 ──────────────────────────────────────────────────────────── */
 const MEDIA_RATINGS = {
-  foam_sponge:      0.85,  // highest: large pores, ideal colonisation
-  k1_moving:        0.82,  // very high: constant tumbling, great aeration
-  lava_rock:        0.65,  // good: irregular pores, natural
-  porous_ceramic:   0.72,  // good: high surface area, accessible pores
-  premium_bio:      0.68,  // good but nanopore access limits colonisation
-  bio_balls:        0.62,  // designed for trickle/wet-dry, submerged = lower
-  ceramic_rings:    0.42,  // standard: low actual colonisable area
-  filter_wool:      0.10,  // mechanical only, very low bio value
-  activated_carbon: 0.05   // mechanical/chemical only
+  /* ── MECHANICAL ──────────────────────────────── */
+  filter_wool:       0.10,  // mechanical only — polishes water, no bio colonisation
+  filter_socks:      0.08,  // SW/sump only — frequent washing prevents stable colonies
+  /* ── CHEMICAL ────────────────────────────────── */
+  activated_carbon:  0.05,  // adsorbs organics/meds — no bio surface; replace every 4–6 wks
+  synthetic_resins:  0.03,  // removes PO₄/NO₃ — no colonisable area; targeted use only
+  /* ── BIOLOGICAL (ranked by bio efficiency) ───── */
+  foam_sponge:       0.85,  // #1 — open pores, constant flow, ideal bacterial colonisation
+  k1_moving:         0.82,  // #2 — tumbling keeps media clean and oxygenated (K1, K3, Kaldnes)
+  sintered_glass:    0.78,  // #3 — massive surface area (e.g. Siporax ~270k m²/m³)
+  premium_porous:    0.75,  // #4 — macro+micro pores support aerobic+anaerobic bacteria (Matrix, Biohome Plus)
+  lava_rock:         0.65,  // #5 — natural high macro-porosity; heavy but effective
+  bio_balls:         0.58,  // #6 — optimal in trickle/wet-dry; submerged efficiency drops significantly
+  ceramic_rings:     0.45   // #7 — exterior surface only; affordable entry-level bio media
 };
 
 /* Filter type efficiency multipliers */
@@ -2965,7 +2993,7 @@ async function loadFromSheets(){
 <!-- Cookie consent banner -->
 <div id="aq-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0c4a6e;color:#fff;padding:14px 20px;font-family:'Nunito',sans-serif;font-size:.875rem;box-shadow:0 -2px 16px rgba(0,0,0,.25)">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-    <span style="flex:1;min-width:220px;line-height:1.5">We use analytics cookies to improve this site. We don't share data with third parties. <a href="https://aquapacity.com/privacidad.html" style="color:#7dd3fc;text-decoration:underline">Privacy Policy</a></span>
+    <span style="flex:1;min-width:220px;line-height:1.5">We use analytics cookies to improve this site. We don't share data with third parties. <a href="https://aquapacity.com/privacidad" style="color:#7dd3fc;text-decoration:underline">Privacy Policy</a></span>
     <div style="display:flex;gap:10px;flex-shrink:0;align-items:center;flex-wrap:wrap">
       <button onclick="aqOpenPrefs()" style="background:transparent;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:.8rem;font-family:inherit">Preferences</button>
       <button onclick="aqConsent('granted')" style="background:#0ea5e9;border:none;color:#fff;padding:9px 22px;border-radius:6px;cursor:pointer;font-weight:700;font-size:.875rem;font-family:inherit;white-space:nowrap">Accept all</button>
