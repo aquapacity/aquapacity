@@ -176,4 +176,64 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- ES new articles -->
+  <url>
+    <loc>https://aquapacity.com/es/articles/guia-acuario-principiantes</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-acuario-principiantes"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/guia-aquario-iniciantes"/>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/corydoras-guia-especies</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/corydoras-guia-especies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/corydoras-species-guide"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/corydoras-guia-especies"/>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/plantas-acuario-biocarga</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/plantas-acuario-biocarga"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/planted-tanks-bioload"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/plantas-aquario-biocarga"/>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- PT new articles -->
+  <url>
+    <loc>https://aquapacity.com/pt/articles/guia-aquario-iniciantes</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/guia-aquario-iniciantes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-acuario-principiantes"/>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/corydoras-guia-especies</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/corydoras-guia-especies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/corydoras-species-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/corydoras-guia-especies"/>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/plantas-aquario-biocarga</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/plantas-aquario-biocarga"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/planted-tanks-bioload"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/plantas-acuario-biocarga"/>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
