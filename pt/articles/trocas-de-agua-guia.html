@@ -149,21 +149,22 @@
 <span></span><span></span><span></span>
 </button>
 </header>
-<div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+<div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="toggleMobileMenu()"></div>
 <nav class="mobile-nav" id="mobile-nav">
 <div class="mn-header">
 <span class="mn-title">Menu</span>
 </div>
 <div class="mn-links">
-<a href="/pt/"><span class="mn-icon">🧮</span>Calculadora</a>
-<a class="active" href="/pt/articles"><span class="mn-icon">📚</span>Artigos</a>
-<a href="../index.html#faq"><span class="mn-icon">❓</span>FAQ</a>
+<a href="/pt/#calculator" onclick="toggleMobileMenu()"><span class="mn-icon">🧮</span> Calculadora</a>
+<a href="/pt/#how-it-works" onclick="toggleMobileMenu()"><span class="mn-icon">🔬</span> Como Funciona</a>
+<a class="active" href="/pt/articles" onclick="toggleMobileMenu()"><span class="mn-icon">📖</span> Artigos</a>
+<a href="/pt/#faq" onclick="toggleMobileMenu()"><span class="mn-icon">❓</span> FAQ</a>
 </div>
     <div class="mn-footer">
     <p class="mn-lang-label">Idioma</p>
     <select class="mn-lang-select" onchange="mnLangNav(this)">
-      <option value="../../articles.html" data-lang="en">🇬🇧 EN</option>
-      <option value="../../es/articles.html" data-lang="es">🇪🇸 ES</option>
+      <option value="/articles" data-lang="en">🇬🇧 EN</option>
+      <option value="/es/articles" data-lang="es">🇪🇸 ES</option>
       <option value="#" data-lang="pt" selected>🇧🇷 PT</option>
     </select>
     <a href="https://donate.stripe.com/cNiaEW8mofOg9a30Gwco002" target="_blank" class="mn-kofi">Apoie o projeto ☕</a>
@@ -231,7 +232,7 @@
 <div class="cta-box">
 <h3>Calcule a frequência ideal de trocas para o seu aquário</h3>
 <p>Nossa calculadora considera trocas de água no cálculo de biocarga. Descubra quantos peixes seu aquário suporta.</p>
-<a href="../index.html#calculator">Usar a calculadora grátis →</a>
+<a href="/pt/#calculator">Usar a calculadora grátis →</a>
 </div>
 </div>
 <footer class="site-footer">
