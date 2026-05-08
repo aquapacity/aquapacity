@@ -267,6 +267,9 @@ nav a:hover{color:#fff;text-decoration:none}
 .alert-danger{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
 .alert-info{background:#f0f9ff;border:1px solid #bae6fd;color:#0369a1}
 .alert-ok{background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d}
+.territorial-note{display:flex;align-items:flex-start;gap:6px;padding:5px 8px;border-radius:6px;font-size:.76rem;line-height:1.35;margin-top:3px}
+.territorial-note.level-pair{background:#fefce8;border:1px solid #fde68a;color:#92400e}
+.territorial-note.level-danger{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
 
 /* Empty state */
 .empty-state{text-align:center;padding:24px 0;color:var(--muted)}
@@ -2371,15 +2374,17 @@ function recalc(){
   const wc_pct = parseInt(document.getElementById('wc-pct').value)||25;
   const wc_freq = getWCFreqDays();
 
+  const INVERT_CATS=new Set(['snail','neocaridina','shrimp']);
   let total_fp=0, total_bl=0;
   const fishList=[];
   state.fish.forEach((qty,id)=>{
     const f=DB.find(x=>x.id===id);
     if(!f||qty===0) return;
-    const fp=f.bFp+f.pFp*qty;
+    const territorial=!f.school && f.pFp===0 && !INVERT_CATS.has(f.cat);
+    const fp=territorial ? f.bFp*qty : f.bFp+f.pFp*qty;
     const bl=f.bl*qty;
     total_fp+=fp; total_bl+=bl;
-    fishList.push({f,qty,fp,bl});
+    fishList.push({f,qty,fp,bl,territorial});
   });
 
   const eff_bl = total_bl*(1-plantFactor);
@@ -2611,13 +2616,19 @@ function renderSelectedFish(fishList){
   const items=document.getElementById('sel-items');
   if(fishList.length===0){box.style.display='none';return;}
   box.style.display='block';
-  items.innerHTML=fishList.map(({f,qty,bl})=>`
-    <div class="sel-item">
+  items.innerHTML=fishList.map(({f,qty,bl,territorial})=>{
+    let note='';
+    if(territorial && qty===2)
+      note=`<div class="territorial-note level-pair">⚠️ Cálculo de espacio preventivo. Esta especie es territorial; el cálculo asume que cada pez requiere su propio territorio completo. Si se trata de una pareja consolidada, el espacio podría ser más adecuado, pero evita mantener múltiples machos en este volumen.</div>`;
+    else if(territorial && qty>=3)
+      note=`<div class="territorial-note level-danger">🔴 Alto riesgo. Varios individuos territoriales en el mismo espacio derivarán casi con certeza en agresiones. Procede solo con supervisión experta o con un acuario significativamente más grande.</div>`;
+    return `<div class="sel-item">
       <span class="si-emoji">${f.em}</span>
       <span class="si-name">${dn(f)}</span>
       <span class="si-qty">${qty}×</span>
       <button class="si-rm" onclick="removeAll(${f.id})" title="Remove">✕</button>
-    </div>`).join('');
+    </div>${note}`;
+  }).join('');
 }
 
 /* ─── MISSING SPECIES, SESSION RATE LIMIT ──────────────────── */
@@ -2777,6 +2788,15 @@ function renderAlerts(r){
   fishList.forEach(({f,qty})=>{
     if(f.school && qty<f.minG)
       alerts.push({t:'warn',m:`📏 ${dn(f)} es una especie de banco. mantén al menos ${f.minG} juntos para su bienestar (tienes ${qty}).`});
+  });
+
+  // Territorial species
+  fishList.forEach(({f,qty,territorial})=>{
+    if(!territorial || qty<2) return;
+    if(qty===2)
+      alerts.push({t:'warn',m:`⚠️ ${dn(f)} — Cálculo de espacio preventivo. Esta especie es territorial; el cálculo asume que cada pez requiere su propio territorio completo. Si se trata de una pareja consolidada, el espacio podría ser más adecuado, pero evita mantener múltiples machos en este volumen.`});
+    else
+      alerts.push({t:'danger',m:`🔴 ${dn(f)} — Alto riesgo de agresión (${qty} individuos). Varios peces territoriales en el mismo espacio pueden provocar enfrentamientos letales. Procede solo con supervisión experta o un acuario significativamente más grande.`});
   });
 
   // Compatibility
