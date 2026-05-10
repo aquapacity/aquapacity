@@ -43,3 +43,8 @@
 /privacidad.html                                        /privacidad                                             301
 /es/privacidad.html                                     /es/privacidad                                          301
 /pt/privacidade.html                                    /pt/privacidade                                         301
+
+# Batch 3 articles
+/articles/is-my-aquarium-overstocked.html              /articles/is-my-aquarium-overstocked                    301
+/es/articles/peces-compatibles-acuario-comunitario.html /es/articles/peces-compatibles-acuario-comunitario      301
+/pt/articles/ciclagem-aquario-ciclo-nitrogenio.html    /pt/articles/ciclagem-aquario-ciclo-nitrogenio          301

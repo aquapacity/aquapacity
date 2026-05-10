@@ -236,4 +236,32 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Batch 3 articles — unique topics per language -->
+  <url>
+    <loc>https://aquapacity.com/articles/is-my-aquarium-overstocked</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/is-my-aquarium-overstocked"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/is-my-aquarium-overstocked"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/peces-compatibles-acuario-comunitario</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/peces-compatibles-acuario-comunitario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/es/articles/peces-compatibles-acuario-comunitario"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/ciclagem-aquario-ciclo-nitrogenio</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/ciclagem-aquario-ciclo-nitrogenio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/pt/articles/ciclagem-aquario-ciclo-nitrogenio"/>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
