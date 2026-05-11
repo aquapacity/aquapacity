@@ -303,7 +303,6 @@ gtag('config', 'G-03QX35NF7F', {
       <button class="chip" data-cat="species" onclick="filterArticles(this)">Species Guides</button>
       <button class="chip" data-cat="care" onclick="filterArticles(this)">Fish Care</button>
     </div>
-    <span class="article-count" id="article-count">6 published</span>
   </div>
 </div>
 
@@ -468,16 +467,6 @@ function filterArticles(btn){
     if(show) visible++;
   });
 
-  // Update count
-  const published = [...cards].filter(c=>!c.classList.contains('ac-soon')&&(cat==='all'||c.dataset.cat===cat)).length;
-  const soon = [...cards].filter(c=>c.classList.contains('ac-soon')&&(cat==='all'||c.dataset.cat===cat)).length;
-  const countEl = document.getElementById('article-count');
-  if(countEl){
-    const parts=[];
-    if(published) parts.push(`${published} published`);
-    if(soon) parts.push(`${soon} coming soon`);
-    countEl.textContent = parts.join(' · ') || 'No articles';
-  }
 
   // Show/hide empty state
   const emptyEl = document.getElementById('empty-filter');

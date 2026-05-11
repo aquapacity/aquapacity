@@ -288,7 +288,6 @@ gtag('config', 'G-03QX35NF7F', {
       <button class="chip" data-cat="species" onclick="filterArticles(this)">Especies</button>
       <button class="chip" data-cat="care" onclick="filterArticles(this)">Mantenimiento</button>
     </div>
-    <span class="article-count" id="article-count">3 publicados</span>
   </div>
 </div>
 
@@ -444,8 +443,6 @@ function filterArticles(btn){
     card.style.display = show ? '' : 'none';
     if(show) visible++;
   });
-  const countEl = document.getElementById('article-count');
-  if(countEl) countEl.textContent = visible + (visible===1?' publicado':' publicados');
   const empty = document.getElementById('empty-filter');
   if(empty) empty.classList.toggle('visible', visible===0);
 }
