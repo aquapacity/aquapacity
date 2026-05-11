@@ -264,4 +264,32 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Batch 4 articles -->
+  <url>
+    <loc>https://aquapacity.com/articles/aquarium-ph-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/aquarium-ph-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/aquarium-ph-guide"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/enfermedades-peces-acuario</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/enfermedades-peces-acuario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/es/articles/enfermedades-peces-acuario"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/melhores-peixes-para-iniciantes</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/melhores-peixes-para-iniciantes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/pt/articles/melhores-peixes-para-iniciantes"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
