@@ -1603,6 +1603,7 @@ gtag('config', 'G-03QX35NF7F', {
                corydoras, catfish, goldfish, neocaridina, shrimp, snail
 ──────────────────────────────────────────────────────────── */
 let fishMobileOffset = 20; // how many fish cards shown on mobile before "load more"
+let fishObserver = null;  // IntersectionObserver for "load more" trigger
 const DB = [
   // ── TROPICALES (Tetras, Rasboras, Danios, Barbs) ──
   {id:1, name:"Neon Tetra",          sci:"Paracheirodon innesi",         em:"🐠",cat:"tropicales",     minGal:10,tMin:20,tMax:26,phMin:6.0,phMax:7.5,cm:4,  temp:"peaceful",school:true, minG:6,bFp:53.28,pFp:10.08,bl:1.130},
@@ -2237,9 +2238,11 @@ function renderFishGrid(){
     window._aqNFT=setTimeout(()=>gtag('event','species_not_found',{search_term:q.substring(0,100)}),800);
   }
 
-  // On mobile, paginate: show up to fishMobileOffset items
+  // Pagination only when NOT searching — search always shows all results
   const isMobile = window.innerWidth <= 640;
-  const visible = isMobile ? filtered.slice(0, fishMobileOffset) : filtered;
+  const paginate = isMobile && !q;
+  const hasMore = paginate && filtered.length > fishMobileOffset;
+  const visible = paginate ? filtered.slice(0, fishMobileOffset) : filtered;
 
   grid.innerHTML = visible.map(f=>{
     const qty = state.fish.get(f.id)||0;
@@ -2267,9 +2270,21 @@ function renderFishGrid(){
     </div>`;
   }).join('');
 
-  // Show/hide "Load more" button on mobile
+  // "Load more" button: hidden until user scrolls to last card (IntersectionObserver)
   if(loadMoreEl){
-    loadMoreEl.style.display = (isMobile && filtered.length > fishMobileOffset) ? 'block' : 'none';
+    loadMoreEl.style.display = 'none';
+    if(fishObserver){ fishObserver.disconnect(); fishObserver = null; }
+    if(hasMore){
+      const lastCard = grid.lastElementChild;
+      if(lastCard && 'IntersectionObserver' in window){
+        fishObserver = new IntersectionObserver(entries=>{
+          if(entries[0].isIntersecting){ loadMoreEl.style.display = 'block'; }
+        }, {threshold: 0.5});
+        fishObserver.observe(lastCard);
+      } else {
+        loadMoreEl.style.display = 'block'; // fallback for old browsers
+      }
+    }
   }
 }
 
@@ -2347,6 +2362,7 @@ function toggleMobileMenu(){
   btn.classList.toggle('open',isOpen);
   document.body.style.overflow=isOpen?'hidden':'';
 }
+function mnLangNav(sel){ var v=sel.value; if(v&&v!=='#') window.location.href=v; }
 
 /* ─── MAIN CALCULATION ──────────────────────────────────────── */
 function recalc(){

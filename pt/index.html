@@ -1578,6 +1578,7 @@ function dn(f){ if(LANG==='es' && f.names && f.names.es) return f.names.es; if(L
                corydoras, catfish, goldfish, neocaridina, shrimp, snail
 ──────────────────────────────────────────────────────────── */
 let fishMobileOffset = 20; // quantos cards de peixes mostrar no mobile antes de "ver mais"
+let fishObserver = null;  // IntersectionObserver para o botão "ver mais"
 const DB = [
   // ── TROPICALES (Tetras, Rasboras, Danios, Barbs) ──
   {id:1, name:"Neon Tetra",          sci:"Paracheirodon innesi",         em:"🐠",cat:"tropicales",     minGal:10,tMin:20,tMax:26,phMin:6.0,phMax:7.5,cm:4,  temp:"peaceful",school:true, minG:6,bFp:53.28,pFp:10.08,bl:1.130},
@@ -2260,9 +2261,11 @@ function renderFishGrid(){
     window._aqNFT=setTimeout(()=>gtag('event','species_not_found',{search_term:q.substring(0,100)}),800);
   }
 
-  // On mobile, paginate: show up to fishMobileOffset items
+  // Paginação só quando NÃO há busca ativa — a busca mostra todos os resultados
   const isMobile = window.innerWidth <= 640;
-  const visible = isMobile ? filtered.slice(0, fishMobileOffset) : filtered;
+  const paginate = isMobile && !q;
+  const hasMore = paginate && filtered.length > fishMobileOffset;
+  const visible = paginate ? filtered.slice(0, fishMobileOffset) : filtered;
 
   grid.innerHTML = visible.map(f=>{
     const qty = state.fish.get(f.id)||0;
@@ -2290,9 +2293,21 @@ function renderFishGrid(){
     </div>`;
   }).join('');
 
-  // Show/hide "Ver mais" button on mobile
+  // Botão "Ver mais": oculto até o usuário fazer scroll até o último peixe visível
   if(loadMoreEl){
-    loadMoreEl.style.display = (isMobile && filtered.length > fishMobileOffset) ? 'block' : 'none';
+    loadMoreEl.style.display = 'none';
+    if(fishObserver){ fishObserver.disconnect(); fishObserver = null; }
+    if(hasMore){
+      const lastCard = grid.lastElementChild;
+      if(lastCard && 'IntersectionObserver' in window){
+        fishObserver = new IntersectionObserver(entries=>{
+          if(entries[0].isIntersecting){ loadMoreEl.style.display = 'block'; }
+        }, {threshold: 0.5});
+        fishObserver.observe(lastCard);
+      } else {
+        loadMoreEl.style.display = 'block';
+      }
+    }
   }
 }
 
@@ -2370,6 +2385,7 @@ function toggleMobileMenu(){
   btn.classList.toggle('open',isOpen);
   document.body.style.overflow=isOpen?'hidden':'';
 }
+function mnLangNav(sel){ var v=sel.value; if(v&&v!=='#') window.location.href=v; }
 
 /* ─── MAIN CALCULATION ──────────────────────────────────────── */
 function recalc(){
