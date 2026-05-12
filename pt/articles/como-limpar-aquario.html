@@ -136,10 +136,7 @@ nav a:hover{color:#fff;text-decoration:none}
 .care-item{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--sh)}
 .care-item .ci-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:3px}
 .care-item .ci-val{font-size:1rem;font-weight:800;color:#0c4a6e}
-/* ── Article figure / image ── */
-.article-figure{margin:28px 0;border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh2);background:#e0f2fe}
-.article-figure img{width:100%;height:auto;display:block;max-height:420px;object-fit:cover}
-.article-figure figcaption{background:#f0f9ff;padding:9px 16px;font-size:.8rem;color:var(--muted);line-height:1.5;border-top:1px solid var(--border)}
+
 /* ── CTA ── */
 .cta-box{background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f4 100%);border:2px solid var(--p2);border-radius:var(--r12);padding:28px 22px;margin:40px 0;text-align:center}
 .cta-box h3{font-size:1.25rem;color:#0c4a6e;margin-bottom:10px}
@@ -188,6 +185,42 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .footer-inner a{color:rgba(255,255,255,.8)}
 .footer-credit{font-size:.78rem;opacity:.6}
 @media(max-width:900px){.footer-inner{flex-direction:column;align-items:flex-start;gap:12px}}
+
+/* ── Responsive tables: stack as cards on mobile ── */
+@media(max-width:640px){
+.table-wrapper{overflow-x:visible;margin:14px 0}
+.comparison-table thead{display:none}
+.comparison-table,
+.comparison-table tbody,
+.comparison-table tr,
+.comparison-table td{display:block;width:100%}
+.comparison-table tr{
+  margin-bottom:12px;
+  border:1.5px solid var(--border);
+  border-radius:var(--r6);
+  overflow:hidden;
+  background:#fff;
+  box-shadow:var(--sh);
+}
+.comparison-table td{
+  border-bottom:1px solid var(--border);
+  padding:10px 14px;
+  font-size:.9rem;
+  vertical-align:top;
+}
+.comparison-table td:last-child{border-bottom:none}
+.comparison-table tr:nth-child(even) td{background:#fff}
+.comparison-table td[data-label]::before{
+  content:attr(data-label);
+  display:block;
+  font-size:.7rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--muted);
+  margin-bottom:3px;
+}
+}
 </style>
 </head>
 <body>
@@ -255,10 +288,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 <p>A limpeza e manutenção do aquário é o que separa um aquário saudável de um que vive em crise. A boa notícia: com a rotina correta, a manutenção de um aquário comunitário padrão leva <strong>menos de 30 minutos por semana</strong>.</p>
 <p>Este guia mostra exatamente o que fazer, em que ordem, com que frequência — e os erros que matam as bactérias do filtro e desequilibram o aquário.</p>
 
-<figure class="article-figure">
-<img src="https://images.unsplash.com/photo-1559827291-72f80d09fd1b?auto=format&fit=crop&w=800&q=80" alt="Aquário tropical plantado limpo e bem mantido com peixes coloridos nadando em água cristalina" loading="lazy" width="800" height="420" onerror="this.closest('figure').style.display='none'">
-<figcaption>Água cristalina e peixes saudáveis são o resultado de uma rotina de manutenção simples mas consistente.</figcaption>
-</figure>
+
 
 <h2>Equipamentos Necessários</h2>
 <ul>
@@ -297,10 +327,7 @@ Cristais externos, tampa, luminária. Nunca use produtos de limpeza perto do aqu
 </li>
 </ol>
 
-<figure class="article-figure">
-<img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" alt="Sifão de fundo sendo usado para limpar substrato de aquário durante troca de água parcial" loading="lazy" width="800" height="420" onerror="this.closest('figure').style.display='none'">
-<figcaption>O sifão de fundo é o equipamento mais importante da manutenção — remove os detritos que alimentam o nitrogênio tóxico.</figcaption>
-</figure>
+
 
 <h2>Frequência de Cada Tarefa</h2>
 

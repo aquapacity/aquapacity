@@ -170,6 +170,42 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .mn-kofi{display:block;text-align:center;background:#0369a1;color:#fff;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
 .mn-kofi:hover{background:#0284c7;text-decoration:none}
 @media(max-width:900px){.footer-inner{flex-direction:column;align-items:flex-start;gap:12px}.footer-inner>div:last-child{flex-direction:column;gap:8px}}
+
+/* ── Responsive tables: stack as cards on mobile ── */
+@media(max-width:640px){
+.table-wrapper{overflow-x:visible;margin:14px 0}
+.comparison-table thead{display:none}
+.comparison-table,
+.comparison-table tbody,
+.comparison-table tr,
+.comparison-table td{display:block;width:100%}
+.comparison-table tr{
+  margin-bottom:12px;
+  border:1.5px solid var(--border);
+  border-radius:var(--r6);
+  overflow:hidden;
+  background:#fff;
+  box-shadow:var(--sh);
+}
+.comparison-table td{
+  border-bottom:1px solid var(--border);
+  padding:10px 14px;
+  font-size:.9rem;
+  vertical-align:top;
+}
+.comparison-table td:last-child{border-bottom:none}
+.comparison-table tr:nth-child(even) td{background:#fff}
+.comparison-table td[data-label]::before{
+  content:attr(data-label);
+  display:block;
+  font-size:.7rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--muted);
+  margin-bottom:3px;
+}
+}
 </style>
 <script type="application/ld+json">
 {

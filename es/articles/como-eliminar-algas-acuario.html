@@ -136,10 +136,7 @@ nav a:hover{color:#fff;text-decoration:none}
 .care-item{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--sh)}
 .care-item .ci-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:3px}
 .care-item .ci-val{font-size:1rem;font-weight:800;color:#0c4a6e}
-/* ── Article figure / image ── */
-.article-figure{margin:28px 0;border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh2);background:#e0f2fe}
-.article-figure img{width:100%;height:auto;display:block;max-height:420px;object-fit:cover}
-.article-figure figcaption{background:#f0f9ff;padding:9px 16px;font-size:.8rem;color:var(--muted);line-height:1.5;border-top:1px solid var(--border)}
+
 /* ── CTA ── */
 .cta-box{background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f4 100%);border:2px solid var(--p2);border-radius:var(--r12);padding:28px 22px;margin:40px 0;text-align:center}
 .cta-box h3{font-size:1.25rem;color:#0c4a6e;margin-bottom:10px}
@@ -188,6 +185,42 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .footer-inner a{color:rgba(255,255,255,.8)}
 .footer-credit{font-size:.78rem;opacity:.6}
 @media(max-width:900px){.footer-inner{flex-direction:column;align-items:flex-start;gap:12px}}
+
+/* ── Responsive tables: stack as cards on mobile ── */
+@media(max-width:640px){
+.table-wrapper{overflow-x:visible;margin:14px 0}
+.comparison-table thead{display:none}
+.comparison-table,
+.comparison-table tbody,
+.comparison-table tr,
+.comparison-table td{display:block;width:100%}
+.comparison-table tr{
+  margin-bottom:12px;
+  border:1.5px solid var(--border);
+  border-radius:var(--r6);
+  overflow:hidden;
+  background:#fff;
+  box-shadow:var(--sh);
+}
+.comparison-table td{
+  border-bottom:1px solid var(--border);
+  padding:10px 14px;
+  font-size:.9rem;
+  vertical-align:top;
+}
+.comparison-table td:last-child{border-bottom:none}
+.comparison-table tr:nth-child(even) td{background:#fff}
+.comparison-table td[data-label]::before{
+  content:attr(data-label);
+  display:block;
+  font-size:.7rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--muted);
+  margin-bottom:3px;
+}
+}
 </style>
 </head>
 <body>
@@ -255,10 +288,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 <p>Las algas son la pesadilla estética de casi todos los acuaristas. Un cristal verde, decoración cubierta de pelo negro, agua que se vuelve turbia en días... pero lo que muchos no saben es que <strong>las algas son un síntoma, no el problema</strong>. Eliminarlas sin entender por qué aparecen es condenarlas a volver.</p>
 <p>Esta guía te explica los tipos de algas más comunes, qué las causa exactamente y el método más efectivo para eliminar cada una de forma permanente.</p>
 
-<figure class="article-figure">
-<img src="https://images.unsplash.com/photo-1576502200916-3808e07386a5?auto=format&fit=crop&w=800&q=80" alt="Acuario con algas verdes cubiendo el sustrato y decoración, problema común en acuarios tropicales" loading="lazy" width="800" height="420" onerror="this.closest('figure').style.display='none'">
-<figcaption>Las algas son señal de desequilibrio — demasiada luz, exceso de nutrientes o ciclo del nitrógeno inestable.</figcaption>
-</figure>
+
 
 <h2>Por Qué Aparecen las Algas</h2>
 <p>Las algas necesitan dos ingredientes para crecer: <strong>luz y nutrientes</strong>. En un acuario en equilibrio, las plantas consumen ambos antes de que las algas puedan aprovecharlos. Cuando ese equilibrio falla, las algas llenan el hueco. Las causas más frecuentes:</p>
@@ -338,10 +368,7 @@ Con el filtro apagado, aplica agua oxigenada (3%) directamente sobre las manchas
 </li>
 </ol>
 
-<figure class="article-figure">
-<img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=800&q=80" alt="Otocinclus catfish limpiando algas del cristal de un acuario plantado, ejemplo de control biológico de algas" loading="lazy" width="800" height="420" onerror="this.closest('figure').style.display='none'">
-<figcaption>El otocinclus es uno de los mejores limpiadores de algas biológicos para acuarios plantados de agua blanda.</figcaption>
-</figure>
+
 
 <h2>Los Mejores Animales para Controlar Algas</h2>
 

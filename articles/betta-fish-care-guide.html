@@ -138,10 +138,7 @@ nav a:hover{color:#fff;text-decoration:none}
 .care-item{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:var(--sh)}
 .care-item .ci-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:3px}
 .care-item .ci-val{font-size:1rem;font-weight:800;color:#0c4a6e}
-/* ── Article figure / image ── */
-.article-figure{margin:28px 0;border-radius:var(--r12);overflow:hidden;box-shadow:var(--sh2);background:#e0f2fe}
-.article-figure img{width:100%;height:auto;display:block;max-height:420px;object-fit:cover}
-.article-figure figcaption{background:#f0f9ff;padding:9px 16px;font-size:.8rem;color:var(--muted);line-height:1.5;border-top:1px solid var(--border)}
+
 /* ── CTA ── */
 .cta-box{background:linear-gradient(135deg,#f0f9ff 0%,#e0f7f4 100%);border:2px solid var(--p2);border-radius:var(--r12);padding:28px 22px;margin:40px 0;text-align:center}
 .cta-box h3{font-size:1.25rem;color:#0c4a6e;margin-bottom:10px}
@@ -190,6 +187,42 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .footer-inner a{color:rgba(255,255,255,.8)}
 .footer-credit{font-size:.78rem;opacity:.6}
 @media(max-width:900px){.footer-inner{flex-direction:column;align-items:flex-start;gap:12px}}
+
+/* ── Responsive tables: stack as cards on mobile ── */
+@media(max-width:640px){
+.table-wrapper{overflow-x:visible;margin:14px 0}
+.comparison-table thead{display:none}
+.comparison-table,
+.comparison-table tbody,
+.comparison-table tr,
+.comparison-table td{display:block;width:100%}
+.comparison-table tr{
+  margin-bottom:12px;
+  border:1.5px solid var(--border);
+  border-radius:var(--r6);
+  overflow:hidden;
+  background:#fff;
+  box-shadow:var(--sh);
+}
+.comparison-table td{
+  border-bottom:1px solid var(--border);
+  padding:10px 14px;
+  font-size:.9rem;
+  vertical-align:top;
+}
+.comparison-table td:last-child{border-bottom:none}
+.comparison-table tr:nth-child(even) td{background:#fff}
+.comparison-table td[data-label]::before{
+  content:attr(data-label);
+  display:block;
+  font-size:.7rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--muted);
+  margin-bottom:3px;
+}
+}
 </style>
 </head>
 <body>
@@ -257,10 +290,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 <p>The betta fish (<em>Betta splendens</em>) is one of the most beautiful and most misunderstood fish in the hobby. Sold in tiny cups, marketed as low-maintenance, and kept in conditions that would horrify any aquarist — yet betta fish, given proper care, are intelligent, personable fish that can live 4–5 years and recognise their owners.</p>
 <p>This guide covers everything you need to keep a betta healthy: tank size, water parameters, filtration, feeding, and the most common mistakes that cut their lifespan short.</p>
 
-<figure class="article-figure">
-<img src="https://images.unsplash.com/photo-1522069213448-443a614da9d6?auto=format&fit=crop&w=800&q=80" alt="Vibrant blue and red male betta fish with flowing fins in a planted aquarium" loading="lazy" width="800" height="420" onerror="this.closest('figure').style.display='none'">
-<figcaption>A male Betta splendens in a well-planted setup — the natural habitat equivalent keeps them thriving.</figcaption>
-</figure>
+
 
 <h2>Quick-Reference Care Card</h2>
 <div class="care-grid">
@@ -308,10 +338,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 
 <h2>Tank Mates: Who Can Live with a Betta?</h2>
 
-<figure class="article-figure">
-<img src="https://images.unsplash.com/photo-1591087763349-b40ae8e20e58?auto=format&fit=crop&w=800&q=80" alt="Community aquarium with various peaceful tropical fish that can coexist with betta fish" loading="lazy" width="800" height="420" onerror="this.closest('figure').style.display='none'">
-<figcaption>A planted community tank — bettas can thrive with the right tank mates, in a large enough space.</figcaption>
-</figure>
+
 
 <div class="table-wrapper">
 <table class="comparison-table">
