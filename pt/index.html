@@ -1197,6 +1197,9 @@ gtag('config', 'G-03QX35NF7F', {
           <!-- As abas adicionais são criadas dinamicamente por rebuildCatTabs() a partir da coluna Category da planilha (col I) -->
         </div>
         <div class="fish-grid" id="fish-grid"><!-- filled by JS --></div>
+        <div id="fish-load-more" style="display:none;text-align:center;margin-top:10px">
+          <button onclick="loadMoreFish()" style="padding:9px 28px;background:var(--p);color:#fff;border:none;border-radius:var(--r6);font-size:.88rem;font-weight:700;cursor:pointer">Ver mais ▾</button>
+        </div>
 
         <!-- Missing species field -->
         <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border)">
@@ -1574,6 +1577,7 @@ function dn(f){ if(LANG==='es' && f.names && f.names.es) return f.names.es; if(L
    cat values: tetra, livebearer, rasbora, gourami, cichlid,
                corydoras, catfish, goldfish, neocaridina, shrimp, snail
 ──────────────────────────────────────────────────────────── */
+let fishMobileOffset = 20; // quantos cards de peixes mostrar no mobile antes de "ver mais"
 const DB = [
   // ── TROPICALES (Tetras, Rasboras, Danios, Barbs) ──
   {id:1, name:"Neon Tetra",          sci:"Paracheirodon innesi",         em:"🐠",cat:"tropicales",     minGal:10,tMin:20,tMax:26,phMin:6.0,phMax:7.5,cm:4,  temp:"peaceful",school:true, minG:6,bFp:53.28,pFp:10.08,bl:1.130},
@@ -2142,6 +2146,7 @@ function setCat(btn){
   // Category click clears any active search (last action wins)
   const searchEl = document.getElementById('fish-search');
   if(searchEl) searchEl.value = '';
+  fishMobileOffset = 20;
   renderFishGrid();
 }
 
@@ -2155,6 +2160,7 @@ function onFishSearch(){
     const allTab = document.querySelector('.cat-tab[data-cat="all"]');
     if(allTab) allTab.classList.add('active');
   }
+  fishMobileOffset = 20;
   renderFishGrid();
 }
 
@@ -2234,6 +2240,7 @@ function renderFishGrid(){
   const q = (document.getElementById('fish-search').value||'').toLowerCase();
   const cat = state.currentCat;
   const grid = document.getElementById('fish-grid');
+  const loadMoreEl = document.getElementById('fish-load-more');
 
   const filtered = DB.filter(f=>{
     const matchQ = !q || dn(f).toLowerCase().includes(q) || f.name.toLowerCase().includes(q) || f.sci.toLowerCase().includes(q);
@@ -2245,11 +2252,19 @@ function renderFishGrid(){
     return matchQ && matchCat;
   });
 
+  // Sort alphabetically by display name
+  filtered.sort((a,b) => dn(a).localeCompare(dn(b), 'pt'));
+
   if(filtered.length===0 && q){
     clearTimeout(window._aqNFT);
     window._aqNFT=setTimeout(()=>gtag('event','species_not_found',{search_term:q.substring(0,100)}),800);
   }
-  grid.innerHTML = filtered.map(f=>{
+
+  // On mobile, paginate: show up to fishMobileOffset items
+  const isMobile = window.innerWidth <= 640;
+  const visible = isMobile ? filtered.slice(0, fishMobileOffset) : filtered;
+
+  grid.innerHTML = visible.map(f=>{
     const qty = state.fish.get(f.id)||0;
     const tempClass = f.temp==='peaceful'?'tag-peace':f.temp==='semi'?'tag-semi':'tag-agg';
     const tempLabel = f.temp==='peaceful'?'Pacífico':f.temp==='semi'?'Semi-agresivo':'Agresivo';
@@ -2274,6 +2289,16 @@ function renderFishGrid(){
       </div>
     </div>`;
   }).join('');
+
+  // Show/hide "Ver mais" button on mobile
+  if(loadMoreEl){
+    loadMoreEl.style.display = (isMobile && filtered.length > fishMobileOffset) ? 'block' : 'none';
+  }
+}
+
+function loadMoreFish(){
+  fishMobileOffset += 20;
+  renderFishGrid();
 }
 
 /* ─── CARD CLICK (auto-add 1) ───────────────────────────────── */
