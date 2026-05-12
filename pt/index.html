@@ -197,6 +197,7 @@ nav a:hover{color:#fff;text-decoration:none}
 .fish-card .f-emoji{font-size:1.8rem;margin-bottom:4px}
 .fish-card .f-name{font-size:.8rem;font-weight:700;color:var(--txt);margin-bottom:2px}
 .fish-card .f-sci{font-size:.68rem;color:var(--muted);font-style:italic;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fish-card mark{background:none;font-style:normal;text-decoration:underline;text-decoration-color:var(--p);text-underline-offset:2px;font-weight:800;color:var(--p)}
 .fish-card .f-meta{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
 .fish-card .tag{font-size:.68rem;padding:1px 6px;border-radius:100px;font-weight:600}
 .tag-peace{background:#dcfce7;color:#15803d}
@@ -2236,6 +2237,14 @@ function rebuildCatTabs(){
   el.innerHTML = html;
 }
 
+/* ─── SEARCH HIGHLIGHT ──────────────────────────────────────── */
+function hlQ(text, q){
+  if(!q||!text) return text;
+  const i = text.toLowerCase().indexOf(q);
+  if(i===-1) return text;
+  return text.slice(0,i)+'<mark>'+text.slice(i,i+q.length)+'</mark>'+text.slice(i+q.length);
+}
+
 /* ─── FISH GRID RENDER ──────────────────────────────────────── */
 function renderFishGrid(){
   const q = (document.getElementById('fish-search').value||'').toLowerCase();
@@ -2275,8 +2284,8 @@ function renderFishGrid(){
     return `
     <div class="fish-card ${selClass}" id="fc-${f.id}" onclick="cardClick(${f.id})">
       <div class="f-emoji">${f.em}</div>
-      <div class="f-name">${dn(f)}</div>
-      <div class="f-sci">${f.sci}</div>
+      <div class="f-name">${hlQ(dn(f),q)}</div>
+      <div class="f-sci">${hlQ(f.sci,q)}</div>
       <div class="f-meta">
         <span class="tag ${tempClass}">${tempLabel}</span>
         <span class="tag" style="background:#f1f5f9;color:var(--muted)">${f.cm}cm</span>
