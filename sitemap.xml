@@ -264,7 +264,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Batch 4 articles -->
+  <!-- Batch 4 articles (pH, enfermedades, peixes iniciantes) -->
   <url>
     <loc>https://aquapacity.com/articles/aquarium-ph-guide</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/aquarium-ph-guide"/>
@@ -288,6 +288,34 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/melhores-peixes-para-iniciantes"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/pt/articles/melhores-peixes-para-iniciantes"/>
     <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Batch 5 articles -->
+  <url>
+    <loc>https://aquapacity.com/articles/betta-fish-care-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/betta-fish-care-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/betta-fish-care-guide"/>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/como-eliminar-algas-acuario</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/como-eliminar-algas-acuario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/es/articles/como-eliminar-algas-acuario"/>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/como-limpar-aquario</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/como-limpar-aquario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/pt/articles/como-limpar-aquario"/>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
