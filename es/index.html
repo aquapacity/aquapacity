@@ -2279,11 +2279,16 @@ function rebuildCatTabs(){
 }
 
 /* ─── SEARCH HIGHLIGHT ──────────────────────────────────────── */
+function norm(s){ return (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(); }
 function hlQ(text, q){
   if(!q||!text) return text;
-  const i = text.toLowerCase().indexOf(q);
-  if(i===-1) return text;
-  return text.slice(0,i)+'<mark>'+text.slice(i,i+q.length)+'</mark>'+text.slice(i+q.length);
+  const nq = norm(q);
+  if(!nq) return text;
+  const pattern = nq.split('').map(c=>c.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'[\\u0300-\\u036f]*').join('');
+  const re = new RegExp(pattern,'i');
+  const result = text.normalize('NFD').replace(re, m=>'\x00'+m+'\x01');
+  if(!result.includes('\x00')) return text;
+  return result.normalize('NFC').replace(/\x00([^\x01]*)\x01/g,'<mark>$1</mark>');
 }
 
 /* ─── FISH GRID RENDER ──────────────────────────────────────── */
@@ -2294,7 +2299,8 @@ function renderFishGrid(){
   const loadMoreEl = document.getElementById('fish-load-more');
 
   const filtered = DB.filter(f=>{
-    const matchQ = !q || dn(f).toLowerCase().includes(q) || f.name.toLowerCase().includes(q) || f.sci.toLowerCase().includes(q);
+    const nq = norm(q);
+    const matchQ = !nq || norm(dn(f)).includes(nq) || norm(f.name).includes(nq) || norm(f.sci).includes(nq);
     // Category and search are mutually exclusive thanks to "last action wins" logic
     // (onFishSearch resets cat to 'all', setCat clears search, so q and cat never both active)
     let matchCat;
