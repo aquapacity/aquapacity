@@ -320,4 +320,32 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Batch 6 articles -->
+  <url>
+    <loc>https://aquapacity.com/articles/rasbora-danio-species-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/rasbora-danio-species-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/rasbora-danio-species-guide"/>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/peces-acuario-60-litros</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/peces-acuario-60-litros"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/es/articles/peces-acuario-60-litros"/>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/gouramis-guia-completo</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/gouramis-guia-completo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/pt/articles/gouramis-guia-completo"/>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
