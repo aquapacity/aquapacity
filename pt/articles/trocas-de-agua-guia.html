@@ -40,7 +40,8 @@
   if(_c === 'granted') gtag('consent', 'update', {'analytics_storage': 'granted'});
 </script>
 
-<link rel="stylesheet" href="/fonts/nunito.css">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/nunito-latin.woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/nunito.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/fonts/nunito.css"></noscript>
 <script type="application/ld+json">
   {
   "@context": "https://schema.org",

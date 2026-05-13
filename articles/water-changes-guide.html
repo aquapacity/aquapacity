@@ -20,7 +20,8 @@
 <link href="https://aquapacity.com/articles/water-changes-guide" rel="canonical"/>
 
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link rel="stylesheet" href="/fonts/nunito.css">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/nunito-latin.woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/nunito.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/fonts/nunito.css"></noscript>
 <style>
 /* ─── RESET & TOKENS ──────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
