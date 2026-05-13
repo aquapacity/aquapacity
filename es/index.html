@@ -2201,26 +2201,33 @@ function onFishSearch(){
 // Traducciones de las categorías del sheet (col I en inglés → etiqueta en español)
 // Si añades una nueva categoría en el sheet, agrégala aquí para que aparezca traducida
 const CAT_LABELS = {
-  /* ── Agua dulce ─────────────────────────────────────────── */
-  'Tetra':          'Tetras / Rásboras',
+  /* ── Categorías actuales ─────────────────────────────────── */
+  'Tetra':          'Tetras',
+  'Rasbora & Danio':'Rasbora y Danio',
+  'Barb':           'Barbos',
   'Livebearer':     'Vivíparos',
-  'Cyprinids':      'Ciprínidos',
   'Corydoras':      'Corydoras',
+  'Catfish':        'Pez Gato',
+  'Pleco':          'Pleco',
+  'Algae Eater':    'Comedores de algas',
+  'Pencilfish':     'Lápices',
   'Gourami':        'Gurami',
-  'Cichlid':        'Cíclidos',
-  'Loricariids':    'Loricáridos',
-  'Loach':          'Loaches',
   'Betta':          'Betta',
-  'Puffer':         'Pez globo',
-  'Goldfish':       'Goldfish / Agua fría',
-  'Shrimp':         'Gambas',
-  'Snail':          'Caracoles',
+  'Cichlid':        'Cíclidos',
+  'Loach':          'Loaches',
   'Rainbowfish':    'Peces arcoíris',
   'Killifish':      'Killis',
-  'Pencilfish':     'Lápices',
-  'Medaka':         'Medaka / Arroz',
-  'Algae Eater':    'Comedores de algas',
-  /* ── Agua salada ─────────────────────────────────────────── */
+  'Goby':           'Góbido',
+  'Goldfish':       'Goldfish',
+  'Shrimp':         'Gambas',
+  'Snail':          'Caracoles',
+  'Other':          'Otros',
+  /* ── Categorías en migración (aún en DB) ─────────────────── */
+  'Cyprinids':      'Ciprínidos',
+  'Loricariids':    'Loricáridos',
+  'Medaka':         'Medaka',
+  'Puffer':         'Pez globo',
+  /* ── Marina (por si se reactiva) ────────────────────────── */
   'Clownfish':      'Pez payaso',
   'Tang':           'Pez cirujano',
   'Damsel':         'Damisela',
@@ -2230,7 +2237,6 @@ const CAT_LABELS = {
   'Butterflyfish':  'Pez mariposa',
   'Wrasse':         'Lábrido',
   'Blenny':         'Blenio',
-  'Goby':           'Góbido',
   'Lionfish':       'Pez león',
   'Filefish':       'Pez lima',
   'Hawkfish':       'Pez halcón',
@@ -2241,8 +2247,6 @@ const CAT_LABELS = {
   'Mandarin':       'Pez mandarín',
   'Cardinalfish':   'Pez cardenal marino',
   'Seahorse':       'Caballito de mar',
-  /* ── Genérico ─────────────────────────────────────────────── */
-  'Other':          'Otros',
 };
 
 function rebuildCatTabs(){

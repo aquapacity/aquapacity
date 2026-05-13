@@ -2186,26 +2186,33 @@ function onFishSearch(){
 
 /* ─── CATEGORY TABS (dynamic) ───────────────────────────────── */
 const CAT_LABELS = {
-  /* ── Água doce ──────────────────────────────────────────── */
-  'Tetra':          'Tetras / Rásboras',
+  /* ── Categorias atuais ───────────────────────────────────── */
+  'Tetra':          'Tetras',
+  'Rasbora & Danio':'Rasbora e Danio',
+  'Barb':           'Barbos',
   'Livebearer':     'Vivíparos',
-  'Cyprinids':      'Ciprinídeos',
   'Corydoras':      'Corydoras',
+  'Catfish':        'Peixe-gato',
+  'Pleco':          'Pleco',
+  'Algae Eater':    'Come-algas',
+  'Pencilfish':     'Lápis',
   'Gourami':        'Gourami',
-  'Cichlid':        'Ciclídeos',
-  'Loricariids':    'Loricariídeos',
-  'Loach':          'Loaches',
   'Betta':          'Betta',
-  'Puffer':         'Baiacu',
-  'Goldfish':       'Goldfish / Água fria',
-  'Shrimp':         'Camarão',
-  'Snail':          'Caracol',
+  'Cichlid':        'Ciclídeos',
+  'Loach':          'Loaches',
   'Rainbowfish':    'Peixe-arco-íris',
   'Killifish':      'Killis',
-  'Pencilfish':     'Lápis',
-  'Medaka':         'Medaka / Peixe-arroz',
-  'Algae Eater':    'Come-algas',
-  /* ── Água salgada ───────────────────────────────────────── */
+  'Goby':           'Góbio',
+  'Goldfish':       'Goldfish',
+  'Shrimp':         'Camarão',
+  'Snail':          'Caracol',
+  'Other':          'Outros',
+  /* ── Categorias em migração (ainda na DB) ────────────────── */
+  'Cyprinids':      'Ciprinídeos',
+  'Loricariids':    'Loricariídeos',
+  'Medaka':         'Medaka',
+  'Puffer':         'Baiacu',
+  /* ── Marinha (caso se reative) ───────────────────────────── */
   'Clownfish':      'Peixe-palhaço',
   'Tang':           'Peixe-cirurgião',
   'Damsel':         'Donzela',
@@ -2215,7 +2222,6 @@ const CAT_LABELS = {
   'Butterflyfish':  'Peixe-borboleta',
   'Wrasse':         'Bodião',
   'Blenny':         'Blenídeo',
-  'Goby':           'Góbio',
   'Lionfish':       'Peixe-leão',
   'Filefish':       'Peixe-lima',
   'Hawkfish':       'Peixe-gavião',
@@ -2226,8 +2232,6 @@ const CAT_LABELS = {
   'Mandarin':       'Peixe-mandarim',
   'Cardinalfish':   'Cardeal marinho',
   'Seahorse':       'Cavalo-marinho',
-  /* ── Genérico ───────────────────────────────────────────── */
-  'Other':          'Outros',
 };
 
 function rebuildCatTabs(){
