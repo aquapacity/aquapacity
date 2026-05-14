@@ -348,6 +348,19 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- FR calculator -->
+  <url>
+    <loc>https://aquapacity.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aquapacity.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
   <!-- Batch 7 articles -->
   <url>
     <loc>https://aquapacity.com/articles/aquarium-bioload-calculator</loc>
