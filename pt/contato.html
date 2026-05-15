@@ -190,7 +190,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   <h1>Fale Conosco</h1>
   <p class="subtitle">Dúvidas, sugestões ou ideias de artigos? Lemos cada mensagem.</p>
 
-    <form id="cf" method="post" action="https://formspree.io/f/mykogzpp" novalidate>
+    <form id="cf" method="post" novalidate>
     <div class="form-group" id="fg-name">
       <label for="cf-name">Nome</label>
       <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Seu nome">
@@ -268,22 +268,92 @@ document.addEventListener('click',function(){
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
   var form = document.getElementById('cf');
   if (!form) return;
-
   form.addEventListener('submit', function(e) {
     e.preventDefault();
+    e.stopPropagation();
 
     var nameVal  = (document.getElementById('cf-name').value  || '').trim();
     var emailVal = (document.getElementById('cf-email').value || '').trim();
     var msgVal   = (document.getElementById('cf-msg').value   || '').trim();
 
-    /* clear errors */
     ['fe-name','fe-email','fe-msg'].forEach(function(id){
       var el = document.getElementById(id);
-      el.textContent = ''; el.style.display = 'none';
+      if(el){ el.textContent = ''; el.style.display = 'none'; }
     });
+    ['fg-name','fg-email','fg-msg'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.classList.remove('has-error');
+    });
+
+    var errors = 0;
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    if (!nameVal) {
+      document.getElementById('fe-name').textContent = 'Por favor, escreva seu nome.';
+      document.getElementById('fe-name').style.display = 'block';
+      document.getElementById('fg-name').classList.add('has-error');
+      errors++;
+    }
+    if (!emailVal) {
+      document.getElementById('fe-email').textContent = 'Por favor, escreva seu e-mail.';
+      document.getElementById('fe-email').style.display = 'block';
+      document.getElementById('fg-email').classList.add('has-error');
+      errors++;
+    } else if (!emailRe.test(emailVal)) {
+      document.getElementById('fe-email').textContent = 'E-mail inválido — ex: voce@exemplo.com';
+      document.getElementById('fe-email').style.display = 'block';
+      document.getElementById('fg-email').classList.add('has-error');
+      errors++;
+    }
+    if (!msgVal) {
+      document.getElementById('fe-msg').textContent = 'Por favor, escreva uma mensagem.';
+      document.getElementById('fe-msg').style.display = 'block';
+      document.getElementById('fg-msg').classList.add('has-error');
+      errors++;
+    }
+
+    if (errors > 0) return;
+
+    var btn    = document.getElementById('cf-btn');
+    var okDiv  = document.getElementById('cf-ok');
+    var errDiv = document.getElementById('cf-err');
+    btn.disabled    = true;
+    btn.textContent = btn.getAttribute('data-sending');
+    okDiv.style.display  = 'none';
+    errDiv.style.display = 'none';
+
+    fetch('https://formspree.io/f/mykogzpp', {
+      method:  'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body:    JSON.stringify({ name: nameVal, email: emailVal, message: msgVal,
+                 _subject: 'Contact, Aquapacity', _gotcha: '' })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.ok) {
+        okDiv.style.display = 'block';
+        form.reset();
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_submit', { form_id: 'contact', form_name: 'Contact' });
+        }
+      } else {
+        errDiv.textContent   = 'Não foi possível enviar. Tente novamente.';
+        errDiv.style.display = 'block';
+      }
+      btn.disabled    = false;
+      btn.textContent = btn.getAttribute('data-label');
+    })
+    .catch(function() {
+      errDiv.textContent   = 'Não foi possível enviar. Tente novamente.';
+      errDiv.style.display = 'block';
+      btn.disabled    = false;
+      btn.textContent = btn.getAttribute('data-label');
+    });
+  });
+})();
     ['fg-name','fg-email','fg-msg'].forEach(function(id){
       document.getElementById(id).classList.remove('has-error');
     });
