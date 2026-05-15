@@ -107,6 +107,8 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 .back-link{display:inline-block;margin-top:32px;color:var(--muted);text-decoration:none;font-size:.88rem}
 .back-link:hover{color:var(--p)}
 
+.field-error{font-size:.82rem;color:#e11d48;margin-top:5px;display:none;font-weight:600}
+.form-group.has-error input,.form-group.has-error textarea{border-color:#e11d48}
 </style>
 </head>
 <body>
@@ -192,14 +194,17 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
     <div class="form-group">
       <label for="cf-name">Nombre</label>
       <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Tu nombre">
+      <div class="field-error"></div>
     </div>
     <div class="form-group">
       <label for="cf-email">Email</label>
       <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="tú@ejemplo.com">
+      <div class="field-error"></div>
     </div>
     <div class="form-group">
       <label for="cf-msg">Mensaje</label>
       <textarea id="cf-msg" name="message" required placeholder="Tu mensaje..."></textarea>
+      <div class="field-error"></div>
     </div>
     <button type="submit" class="submit-btn" id="cf-btn" data-label="Enviar mensaje" data-sending="Enviando…">Enviar mensaje</button>
     <div class="form-msg ok" id="cf-ok">✅ ¡Mensaje enviado! Te responderemos pronto.</div>
@@ -265,11 +270,38 @@ document.addEventListener('click',function(){
 
 document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  const btn = document.getElementById('cf-btn');
-  const ok  = document.getElementById('cf-ok');
-  const err = document.getElementById('cf-err');
+  var valid = true;
+
+  function setErr(id, msg) {
+    var g = document.getElementById(id).closest('.form-group');
+    var el = g.querySelector('.field-error');
+    if (msg) {
+      el.textContent = msg;
+      el.style.display = 'block';
+      g.classList.add('has-error');
+      valid = false;
+    } else {
+      el.style.display = 'none';
+      g.classList.remove('has-error');
+    }
+  }
+
+  var name  = document.getElementById('cf-name').value.trim();
+  var email = document.getElementById('cf-email').value.trim();
+  var msg   = document.getElementById('cf-msg').value.trim();
+  var emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  setErr('cf-name',  !name  ? 'Por favor, escribe tu nombre.' : null);
+  setErr('cf-email', !email ? 'Por favor, escribe tu email.' : (!emailRe.test(email) ? 'El email no es válido (ej: tú@ejemplo.com).' : null));
+  setErr('cf-msg',   !msg   ? 'Por favor, escribe un mensaje.' : null);
+
+  if (!valid) return;
+
+  var btn = document.getElementById('cf-btn');
+  var ok  = document.getElementById('cf-ok');
+  var err = document.getElementById('cf-err');
   btn.disabled = true;
-  btn.textContent = btn.getAttribute('data-sending');
+  btn.textContent = 'Enviando…';
   ok.style.display = 'none';
   err.style.display = 'none';
 
@@ -277,29 +309,32 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     method: 'POST',
     headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
     body: JSON.stringify({
-      name:    document.getElementById('cf-name').value,
-      email:   document.getElementById('cf-email').value,
-      message: document.getElementById('cf-msg').value,
+      name:    name,
+      email:   email,
+      message: msg,
       _subject: 'Contact, Aquapacity',
       _gotcha: ''
     })
   })
-  .then(r => r.json())
-  .then(data => {
+  .then(function(r){ return r.json(); })
+  .then(function(data) {
     if (data.ok) {
       ok.style.display = 'block';
       document.getElementById('contact-form').reset();
     } else {
+      err.textContent = '⚠️ Error al enviar. Por favor, inténtalo de nuevo.';
       err.style.display = 'block';
     }
     btn.disabled = false;
     btn.textContent = btn.getAttribute('data-label');
   })
-  .catch(() => {
+  .catch(function() {
+    err.textContent = '⚠️ Error al enviar. Por favor, inténtalo de nuevo.';
     err.style.display = 'block';
     btn.disabled = false;
     btn.textContent = btn.getAttribute('data-label');
   });
+});
 });
 
 </script>
