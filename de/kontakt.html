@@ -265,43 +265,64 @@ document.addEventListener('click',function(){
 
 document.getElementById('cf').addEventListener('submit', function(e) {
   e.preventDefault();
-  var ok  = true;
-
-  function showErr(inputId, errId, fgId, msg) {
-    var fe = document.getElementById(errId);
-    var fg = document.getElementById(fgId);
-    var inp = document.getElementById(inputId);
-    fe.textContent = msg || '';
-    fe.style.display = msg ? 'block' : 'none';
-    if (msg) { fg.classList.add('has-error'); inp.focus(); ok = false; }
-    else { fg.classList.remove('has-error'); }
-  }
 
   var nameVal  = (document.getElementById('cf-name').value  || '').trim();
   var emailVal = (document.getElementById('cf-email').value || '').trim();
   var msgVal   = (document.getElementById('cf-msg').value   || '').trim();
-  var emailRe  = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  /* validate all fields — don't stop on first error so all red at once */
-  showErr('cf-name',  'fe-name',  'fg-name',  !nameVal  ? 'Bitte geben Sie Ihren Namen ein.' : null);
-  showErr('cf-email', 'fe-email', 'fg-email', !emailVal ? 'Bitte geben Sie Ihre E-Mail-Adresse ein.' : (!emailRe.test(emailVal) ? 'Ungültige E-Mail-Adresse (z.B. sie@beispiel.com).' : null));
-  showErr('cf-msg',   'fe-msg',   'fg-msg',   !msgVal   ? 'Bitte schreiben Sie eine Nachricht.' : null);
+  /* clear all errors */
+  ['fe-name','fe-email','fe-msg'].forEach(function(id){
+    document.getElementById(id).style.display = 'none';
+    document.getElementById(id).textContent = '';
+  });
+  ['fg-name','fg-email','fg-msg'].forEach(function(id){
+    document.getElementById(id).classList.remove('has-error');
+  });
 
-  if (!ok) return;
+  var errors = 0;
 
-  var btn = document.getElementById('cf-btn');
-  var okDiv = document.getElementById('cf-ok');
+  if (!nameVal) {
+    document.getElementById('fe-name').textContent = 'Bitte Namen eingeben.';
+    document.getElementById('fe-name').style.display = 'block';
+    document.getElementById('fg-name').classList.add('has-error');
+    errors++;
+  }
+
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if (!emailVal) {
+    document.getElementById('fe-email').textContent = 'Bitte E-Mail-Adresse eingeben.';
+    document.getElementById('fe-email').style.display = 'block';
+    document.getElementById('fg-email').classList.add('has-error');
+    errors++;
+  } else if (!emailRe.test(emailVal)) {
+    document.getElementById('fe-email').textContent = 'Ungültige E-Mail — z.B. sie@beispiel.com';
+    document.getElementById('fe-email').style.display = 'block';
+    document.getElementById('fg-email').classList.add('has-error');
+    errors++;
+  }
+
+  if (!msgVal) {
+    document.getElementById('fe-msg').textContent = 'Bitte Nachricht eingeben.';
+    document.getElementById('fe-msg').style.display = 'block';
+    document.getElementById('fg-msg').classList.add('has-error');
+    errors++;
+  }
+
+  if (errors > 0) return;
+
+  var btn    = document.getElementById('cf-btn');
+  var okDiv  = document.getElementById('cf-ok');
   var errDiv = document.getElementById('cf-err');
   btn.disabled = true;
   btn.textContent = btn.getAttribute('data-sending');
-  okDiv.style.display = 'none';
+  okDiv.style.display  = 'none';
   errDiv.style.display = 'none';
 
   fetch('https://formspree.io/f/mykogzpp', {
-    method: 'POST',
+    method:  'POST',
     headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-    body: JSON.stringify({ name: nameVal, email: emailVal, message: msgVal,
-      _subject: 'Contact, Aquapacity', _gotcha: '' })
+    body:    JSON.stringify({ name: nameVal, email: emailVal, message: msgVal,
+               _subject: 'Contact, Aquapacity', _gotcha: '' })
   })
   .then(function(r) { return r.json(); })
   .then(function(data) {
@@ -309,18 +330,19 @@ document.getElementById('cf').addEventListener('submit', function(e) {
       okDiv.style.display = 'block';
       document.getElementById('cf').reset();
     } else {
-      errDiv.textContent = '⚠️ Fehler beim Senden. Bitte erneut versuchen.';
+      errDiv.textContent   = '⚠️ Senden fehlgeschlagen. Bitte erneut versuchen.';
       errDiv.style.display = 'block';
     }
-    btn.disabled = false;
+    btn.disabled    = false;
     btn.textContent = btn.getAttribute('data-label');
   })
   .catch(function() {
-    errDiv.textContent = '⚠️ Fehler beim Senden. Bitte erneut versuchen.';
+    errDiv.textContent   = '⚠️ Senden fehlgeschlagen. Bitte erneut versuchen.';
     errDiv.style.display = 'block';
-    btn.disabled = false;
+    btn.disabled    = false;
     btn.textContent = btn.getAttribute('data-label');
   });
+});
 });
 });
 });
