@@ -2269,7 +2269,7 @@ function renderFishGrid(){
   grid.innerHTML = visible.map(f=>{
     const qty = state.fish.get(f.id)||0;
     const tempClass = f.temp==='peaceful'?'tag-peace':f.temp==='semi'?'tag-semi':'tag-agg';
-    const tempLabel = f.temp==='peaceful'?'Pacífico':f.temp==='semi'?'Semi-agresivo':'Agresivo';
+    const tempLabel = f.temp==='peaceful'?'Friedlich':f.temp==='semi'?'Halbaggressiv':'Aggressiv';
     const selClass = qty>0 ? 'selected' : '';
     return `
     <div class="fish-card ${selClass}" id="fc-${f.id}" onclick="cardClick(${f.id})">
@@ -2278,7 +2278,7 @@ function renderFishGrid(){
       <div class="f-sci">${hlQ(f.sci,q)}</div>
       <div class="f-meta">
         <span class="tag ${tempClass}">${tempLabel}</span>
-        <span class="tag" style="background:#f1f5f9;color:var(--muted)">${f.cm}cm</span>
+        <span class="tag" style="background:#f1f5f9;color:var(--muted)">${state.metric ? f.cm+'cm' : Math.round(f.cm/2.54*10)/10+'"'}</span>
       </div>
       <div class="fish-qty">
         <button class="btn-minus" onclick="event.stopPropagation();changeQty(${f.id},-1)"

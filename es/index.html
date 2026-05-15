@@ -2346,7 +2346,7 @@ function renderFishGrid(){
       <div class="f-sci">${hlQ(f.sci,q)}</div>
       <div class="f-meta">
         <span class="tag ${tempClass}">${tempLabel}</span>
-        <span class="tag" style="background:#f1f5f9;color:var(--muted)">${f.cm}cm</span>
+        <span class="tag" style="background:#f1f5f9;color:var(--muted)">${state.metric ? f.cm+'cm' : Math.round(f.cm/2.54*10)/10+'"'}</span>
       </div>
       <div class="fish-qty">
         <button class="btn-minus" onclick="event.stopPropagation();changeQty(${f.id},-1)"
