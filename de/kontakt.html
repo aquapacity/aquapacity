@@ -186,7 +186,7 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   <h1>Kontakt</h1>
   <p class="subtitle">Fragen, Feedback oder Artikelvorschläge? Wir lesen jede Nachricht.</p>
 
-    <form id="cf" method="post" novalidate>
+    <form id="cf" novalidate onsubmit="cfSend(); return false;">
     <div class="form-group" id="fg-name">
       <label for="cf-name">Name</label>
       <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Ihr Name">
@@ -243,11 +243,10 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
 </footer>
 
 <script>
-
 function toggleMobileMenu(){
-  const nav=document.getElementById('mobile-nav');
-  const backdrop=document.getElementById('mobile-nav-backdrop');
-  const btn=document.getElementById('hamburger');
+  var nav=document.getElementById('mobile-nav');
+  var backdrop=document.getElementById('mobile-nav-backdrop');
+  var btn=document.getElementById('hamburger');
   nav.classList.toggle('open');
   backdrop.classList.toggle('open');
   btn.classList.toggle('open');
@@ -262,235 +261,65 @@ document.addEventListener('click',function(){
   document.querySelectorAll('.lang-switcher.open').forEach(function(sw){ sw.classList.remove('open'); });
 });
 
-
-(function() {
-  var form = document.getElementById('cf');
-  if (!form) return;
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    var nameVal  = (document.getElementById('cf-name').value  || '').trim();
-    var emailVal = (document.getElementById('cf-email').value || '').trim();
-    var msgVal   = (document.getElementById('cf-msg').value   || '').trim();
-
-    ['fe-name','fe-email','fe-msg'].forEach(function(id){
-      var el = document.getElementById(id);
-      if(el){ el.textContent = ''; el.style.display = 'none'; }
-    });
-    ['fg-name','fg-email','fg-msg'].forEach(function(id){
-      var el = document.getElementById(id);
-      if(el) el.classList.remove('has-error');
-    });
-
-    var errors = 0;
-    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-    if (!nameVal) {
-      document.getElementById('fe-name').textContent = 'Bitte Namen eingeben.';
-      document.getElementById('fe-name').style.display = 'block';
-      document.getElementById('fg-name').classList.add('has-error');
-      errors++;
-    }
-    if (!emailVal) {
-      document.getElementById('fe-email').textContent = 'Bitte E-Mail-Adresse eingeben.';
-      document.getElementById('fe-email').style.display = 'block';
-      document.getElementById('fg-email').classList.add('has-error');
-      errors++;
-    } else if (!emailRe.test(emailVal)) {
-      document.getElementById('fe-email').textContent = 'Ungültige E-Mail — z.B. sie@beispiel.com';
-      document.getElementById('fe-email').style.display = 'block';
-      document.getElementById('fg-email').classList.add('has-error');
-      errors++;
-    }
-    if (!msgVal) {
-      document.getElementById('fe-msg').textContent = 'Bitte Nachricht eingeben.';
-      document.getElementById('fe-msg').style.display = 'block';
-      document.getElementById('fg-msg').classList.add('has-error');
-      errors++;
-    }
-
-    if (errors > 0) return;
-
-    var btn    = document.getElementById('cf-btn');
-    var okDiv  = document.getElementById('cf-ok');
-    var errDiv = document.getElementById('cf-err');
-    btn.disabled    = true;
-    btn.textContent = btn.getAttribute('data-sending');
-    okDiv.style.display  = 'none';
-    errDiv.style.display = 'none';
-
-    fetch('https://formspree.io/f/mykogzpp', {
-      method:  'POST',
-      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body:    JSON.stringify({ name: nameVal, email: emailVal, message: msgVal,
-                 _subject: 'Contact, Aquapacity', _gotcha: '' })
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.ok) {
-        okDiv.style.display = 'block';
-        form.reset();
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'form_submit', { form_id: 'contact', form_name: 'Contact' });
-        }
-      } else {
-        errDiv.textContent   = 'Senden fehlgeschlagen. Bitte erneut versuchen.';
-        errDiv.style.display = 'block';
-      }
-      btn.disabled    = false;
-      btn.textContent = btn.getAttribute('data-label');
-    })
-    .catch(function() {
-      errDiv.textContent   = 'Senden fehlgeschlagen. Bitte erneut versuchen.';
-      errDiv.style.display = 'block';
-      btn.disabled    = false;
-      btn.textContent = btn.getAttribute('data-label');
-    });
+function cfSend() {
+  var nv = (document.getElementById('cf-name').value  || '').trim();
+  var ev = (document.getElementById('cf-email').value || '').trim();
+  var mv = (document.getElementById('cf-msg').value   || '').trim();
+  ['fe-name','fe-email','fe-msg'].forEach(function(i){
+    var e = document.getElementById(i); e.textContent = ''; e.style.display = 'none';
   });
-})();
-    ['fg-name','fg-email','fg-msg'].forEach(function(id){
-      document.getElementById(id).classList.remove('has-error');
-    });
-
-    var errors = 0;
-    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-    if (!nameVal) {
-      document.getElementById('fe-name').textContent = 'Bitte Namen eingeben.';
-      document.getElementById('fe-name').style.display = 'block';
-      document.getElementById('fg-name').classList.add('has-error');
-      errors++;
-    }
-    if (!emailVal) {
-      document.getElementById('fe-email').textContent = 'Bitte E-Mail-Adresse eingeben.';
-      document.getElementById('fe-email').style.display = 'block';
-      document.getElementById('fg-email').classList.add('has-error');
-      errors++;
-    } else if (!emailRe.test(emailVal)) {
-      document.getElementById('fe-email').textContent = 'Ungültige E-Mail — z.B. sie@beispiel.com';
-      document.getElementById('fe-email').style.display = 'block';
-      document.getElementById('fg-email').classList.add('has-error');
-      errors++;
-    }
-    if (!msgVal) {
-      document.getElementById('fe-msg').textContent = 'Bitte Nachricht eingeben.';
-      document.getElementById('fe-msg').style.display = 'block';
-      document.getElementById('fg-msg').classList.add('has-error');
-      errors++;
-    }
-
-    if (errors > 0) return;
-
-    var btn    = document.getElementById('cf-btn');
-    var okDiv  = document.getElementById('cf-ok');
-    var errDiv = document.getElementById('cf-err');
-    btn.disabled = true;
-    btn.textContent = btn.getAttribute('data-sending');
-    okDiv.style.display  = 'none';
-    errDiv.style.display = 'none';
-
-    fetch('https://formspree.io/f/mykogzpp', {
-      method:  'POST',
-      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body:    JSON.stringify({ name: nameVal, email: emailVal, message: msgVal,
-                 _subject: 'Contact, Aquapacity', _gotcha: '' })
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.ok) {
-        okDiv.style.display = 'block';
-        form.reset();
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'form_submit', { form_id: 'contact', form_name: 'Contact' });
-        }
-      } else {
-        errDiv.textContent   = '⚠️ Senden fehlgeschlagen. Bitte erneut versuchen.';
-        errDiv.style.display = 'block';
-      }
-      btn.disabled    = false;
-      btn.textContent = btn.getAttribute('data-label');
-    })
-    .catch(function() {
-      errDiv.textContent   = '⚠️ Senden fehlgeschlagen. Bitte erneut versuchen.';
-      errDiv.style.display = 'block';
-      btn.disabled    = false;
-      btn.textContent = btn.getAttribute('data-label');
-    });
+  ['fg-name','fg-email','fg-msg'].forEach(function(i){
+    document.getElementById(i).classList.remove('has-error');
   });
-});
-  ['fg-name','fg-email','fg-msg'].forEach(function(id){
-    document.getElementById(id).classList.remove('has-error');
-  });
-
-  var errors = 0;
-
-  if (!nameVal) {
+  var errs = 0;
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if (!nv) {
     document.getElementById('fe-name').textContent = 'Bitte Namen eingeben.';
     document.getElementById('fe-name').style.display = 'block';
-    document.getElementById('fg-name').classList.add('has-error');
-    errors++;
+    document.getElementById('fg-name').classList.add('has-error'); errs++;
   }
-
-  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  if (!emailVal) {
+  if (!ev) {
     document.getElementById('fe-email').textContent = 'Bitte E-Mail-Adresse eingeben.';
     document.getElementById('fe-email').style.display = 'block';
-    document.getElementById('fg-email').classList.add('has-error');
-    errors++;
-  } else if (!emailRe.test(emailVal)) {
+    document.getElementById('fg-email').classList.add('has-error'); errs++;
+  } else if (!re.test(ev)) {
     document.getElementById('fe-email').textContent = 'Ungültige E-Mail — z.B. sie@beispiel.com';
     document.getElementById('fe-email').style.display = 'block';
-    document.getElementById('fg-email').classList.add('has-error');
-    errors++;
+    document.getElementById('fg-email').classList.add('has-error'); errs++;
   }
-
-  if (!msgVal) {
+  if (!mv) {
     document.getElementById('fe-msg').textContent = 'Bitte Nachricht eingeben.';
     document.getElementById('fe-msg').style.display = 'block';
-    document.getElementById('fg-msg').classList.add('has-error');
-    errors++;
+    document.getElementById('fg-msg').classList.add('has-error'); errs++;
   }
-
-  if (errors > 0) return;
-
-  var btn    = document.getElementById('cf-btn');
-  var okDiv  = document.getElementById('cf-ok');
-  var errDiv = document.getElementById('cf-err');
-  btn.disabled = true;
-  btn.textContent = btn.getAttribute('data-sending');
-  okDiv.style.display  = 'none';
-  errDiv.style.display = 'none';
-
+  if (errs > 0) return;
+  var btn = document.getElementById('cf-btn');
+  var ok  = document.getElementById('cf-ok');
+  var err = document.getElementById('cf-err');
+  btn.disabled = true; btn.textContent = 'Senden…';
+  ok.style.display = err.style.display = 'none';
   fetch('https://formspree.io/f/mykogzpp', {
-    method:  'POST',
-    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-    body:    JSON.stringify({ name: nameVal, email: emailVal, message: msgVal,
-               _subject: 'Contact, Aquapacity', _gotcha: '' })
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify({name:nv, email:ev, message:mv,
+      _subject:'Contact, Aquapacity', _gotcha:''})
   })
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
-    if (data.ok) {
-      okDiv.style.display = 'block';
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if (d.ok) {
+      ok.style.display = 'block';
       document.getElementById('cf').reset();
+      if (typeof gtag !== 'undefined') gtag('event','form_submit',{form_id:'contact'});
     } else {
-      errDiv.textContent   = '⚠️ Senden fehlgeschlagen. Bitte erneut versuchen.';
-      errDiv.style.display = 'block';
+      err.textContent = 'Senden fehlgeschlagen. Bitte erneut versuchen.'; err.style.display = 'block';
     }
-    btn.disabled    = false;
-    btn.textContent = btn.getAttribute('data-label');
+    btn.disabled = false; btn.textContent = 'Nachricht senden';
   })
-  .catch(function() {
-    errDiv.textContent   = '⚠️ Senden fehlgeschlagen. Bitte erneut versuchen.';
-    errDiv.style.display = 'block';
-    btn.disabled    = false;
-    btn.textContent = btn.getAttribute('data-label');
+  .catch(function(){
+    err.textContent = 'Senden fehlgeschlagen. Bitte erneut versuchen.'; err.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Nachricht senden';
   });
-});
-});
-});
-});
-
+}
 </script>
 </body>
 </html>
