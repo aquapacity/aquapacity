@@ -973,7 +973,7 @@ gtag('config', 'G-03QX35NF7F', {
         <div class="media-grid" id="media-grid">
           <div class="media-cat">⚙️ Mecânico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('polishing_pad',this)">
-            <span>Almofada pulidora</span>
+            <span>Almofada filtrante</span>
             <span class="media-tip" data-tip="Almofada de fibra ultra-fina para água cristalina (ex. Fluval Polishing Pad, Seachem The Bag). Sempre colocada no final do fluxo do filtro. Seus poros são finos demais para colonização bacteriana; substituir quando escurecer ou o fluxo cair. Não substitui mídias biológicas.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('filter_wool',this)">
@@ -1059,7 +1059,7 @@ gtag('config', 'G-03QX35NF7F', {
           <div class="media-grid" id="media-grid-2">
           <div class="media-cat">⚙️ Mecânico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('polishing_pad',this)">
-            <span>Almofada pulidora</span>
+            <span>Almofada filtrante</span>
             <span class="media-tip" data-tip="Almofada de fibra ultra-fina para água cristalina (ex. Fluval Polishing Pad, Seachem The Bag). Sempre colocada no final do fluxo do filtro. Seus poros são finos demais para colonização bacteriana; substituir quando escurecer ou o fluxo cair. Não substitui mídias biológicas.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('filter_wool',this)">
@@ -1227,7 +1227,7 @@ gtag('config', 'G-03QX35NF7F', {
           <input type="text" id="missing-species-hp" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <div id="missing-species-thanks" style="display:none;margin-top:6px;font-size:.78rem;color:var(--g)">✅ Gracias! Revisaremos tu sugerencia.</div>
           <div id="missing-species-limit" style="display:none;margin-top:6px;font-size:.78rem;color:var(--y)">⚠️ Has alcanzado el límite de sugerencias por sesión. Vuelve más tarde!</div>
-          <div id="missing-species-error" style="display:none;margin-top:6px;font-size:.78rem;color:var(--danger)">⚠️ No se pudo enviar tu sugerencia. Inténtalo de nuevo.</div>
+          <div id="missing-species-error" style="display:none;margin-top:6px;font-size:.78rem;color:var(--danger)">⚠️ Não foi possível enviar sua sugestão. Tente novamente.</div>
           <p style="font-size:.75rem;color:var(--muted);margin-top:5px">Diga-nos qual espécie você gostaria de ver adicionada e a incluiremos na próxima atualização.</p>
         </div>
       </div>
@@ -1574,7 +1574,7 @@ gtag('config', 'G-03QX35NF7F', {
       <a href="#how-it-works">Como Funciona</a>
       <a href="#faq">FAQ</a>
       <a href="/pt/articles">Artigos</a>
-      <span style="color:rgba(255,255,255,.7)">Contato: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a> &nbsp;·&nbsp; <a href="/pt/privacidade">Privacidade</a></span>
+      <span style="color:rgba(255,255,255,.7)"><a href="/pt/contato">Contato</a> &nbsp;·&nbsp; <a href="/pt/privacidade">Privacidade</a></span>
     </div>
   </div>
 </footer>
@@ -1650,7 +1650,7 @@ const DB = [
 
 /* ─── FILTER MEDIA RATINGS ─────────────────────────────────
    Bio-efficiency ratings based on colonisable surface area.
-   La esponja de espuma es ~9× más eficaz que los canutillos cerámicos
+   A esponja de espuma é ~9× mais eficaz que argolas cerâmicas
    at hosting nitrifying bacteria per unit volume.
 ──────────────────────────────────────────────────────────── */
 const MEDIA_RATINGS = {
@@ -2866,7 +2866,7 @@ function renderAlerts(r){
   // Schooling
   fishList.forEach(({f,qty})=>{
     if(f.school && qty<f.minG)
-      alerts.push({t:'warn',m:`📏 ${dn(f)} es una espécie de banco. mantén al menos ${f.minG} juntos para su bienestar (tienes ${qty}).`});
+      alerts.push({t:'warn',m:`📏 ${dn(f)} é uma espécie de cardume. Mantenha pelo menos ${f.minG} juntos para seu bem-estar (você tem ${qty}).`});
   });
 
   // Territorial species
@@ -3095,7 +3095,7 @@ async function loadFromSheets(){
     }catch(e){
       if(!(e instanceof TypeErro)){
         // Erro HTTP real, no CORS, no intentar JSONP
-        setBanner(`⚠️ Erro al cargar Google Sheets (${e.message}). Usando base de datos local (${DB.length} espécies).`,false);
+        setBanner(`⚠️ Erro ao carregar Google Sheets (${e.message}). Usando base de dados local (${DB.length} espécies).`,false);
         return false;
       }
       // TypeErro = CORS bloqueado (archivo local) → intentar JSONP
@@ -3105,12 +3105,12 @@ async function loadFromSheets(){
 
   // Método 2: JSONP via Google Visualization API (funciona desde file://)
   try{
-    setBanner('⏳ Cargando con método alternativo…',true);
+    setBanner('⏳ Carregando com método alternativo…',true);
     const rows=await loadViaGvizJSONP();
     return applyRows(rows);
   }catch(e2){
     console.warn('JSONP también falló:',e2.message);
-    setBanner(`⚠️ No se pudo cargar Google Sheets. Usando base de datos local (${DB.length} espécies).`,false);
+    setBanner(`⚠️ Não foi possível carregar Google Sheets. Usando base de dados local (${DB.length} espécies).`,false);
     return false;
   }
 }

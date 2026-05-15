@@ -863,30 +863,30 @@ gtag('config', 'G-03QX35NF7F', {
       <div class="panel-head" onclick="togglePanel('panel-tank')">
         <span class="panel-num">2</span>
         <span class="panel-icon">🏊</span>
-        <h2>Tamanho do Aquário</h2>
+        <h2>Taille de l'Aquarium</h2>
         <span class="panel-toggle">▾</span>
       </div>
       <div class="panel-body">
 
         <!-- Mode toggle -->
         <div class="tank-mode-toggle">
-          <button id="mode-dims" class="active" onclick="setTankMode('dims')">📐 Inserir dimensões</button>
-          <button id="mode-vol" onclick="setTankMode('vol')">🪣 Inserir volume</button>
+          <button id="mode-dims" class="active" onclick="setTankMode('dims')">📐 Saisir les dimensions</button>
+          <button id="mode-vol" onclick="setTankMode('vol')">🪣 Saisir le volume</button>
         </div>
 
         <!-- Dimensions mode -->
         <div id="tank-dims-fields">
           <div class="field-row">
             <div class="field">
-              <label id="lbl-L">Comprimento (cm)</label>
+              <label id="lbl-L">Longueur (cm)</label>
               <input type="number" id="tank-L" placeholder="60" min="1" oninput="recalc()">
             </div>
             <div class="field">
-              <label id="lbl-W">Largura (cm)</label>
+              <label id="lbl-W">Largeur (cm)</label>
               <input type="number" id="tank-W" placeholder="30" min="1" oninput="recalc()">
             </div>
             <div class="field">
-              <label id="lbl-H">Altura (cm)</label>
+              <label id="lbl-H">Hauteur (cm)</label>
               <input type="number" id="tank-H" placeholder="35" min="1" oninput="recalc()">
             </div>
           </div>
@@ -906,7 +906,7 @@ gtag('config', 'G-03QX35NF7F', {
         <!-- Volume display -->
         <div class="vol-display" id="vol-display">
           <div class="vd-row">
-            <span class="vd-label">Insira o tamanho do aquário</span>
+            <span class="vd-label">Saisissez la taille de l'aquarium</span>
           </div>
         </div>
       </div>
@@ -925,11 +925,11 @@ gtag('config', 'G-03QX35NF7F', {
         <!-- Flow rate -->
         <div class="field-row">
           <div class="field">
-            <label id="lbl-flow">Vazão do Filtro (L/h)</label>
+            <label id="lbl-flow">Débit du Filtre (L/h)</label>
             <input type="number" id="filter-flow" placeholder="400" min="0" oninput="recalc()">
           </div>
         </div>
-        <div class="field-hint">Insira a vazão nominal do seu filtro (o que o fabricante indica). O algoritmo considera que na prática costuma ser 30 a 50% menor devido ao acúmulo de detritos.</div>
+        <div class="field-hint">Entrez le débit nominal de votre filtre (celui indiqué par le fabricant). L'algorithme considère qu'en pratique il est 30 à 50% inférieur en raison de l'accumulation de déchets.</div>
 
         <!-- Filter type -->
         <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:16px;margin-bottom:4px">Tipo de Filtro</div>
@@ -969,11 +969,11 @@ gtag('config', 'G-03QX35NF7F', {
         <div class="media-grid" id="media-grid">
           <div class="media-cat">⚙️ Mecânico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('polishing_pad',this)">
-            <span>Almofada pulidora</span>
-            <span class="media-tip" data-tip="Almofada de fibra ultra-fina para água cristalina (ex. Fluval Polishing Pad, Seachem The Bag). Sempre colocada no final do fluxo do filtro. Seus poros são finos demais para colonização bacteriana; substituir quando escurecer ou o fluxo cair. Não substitui mídias biológicas.">?</span>
+            <span>Ouate de filtration</span>
+            <span class="media-tip" data-tip="Ouate de filtration ultra-fine pour une eau cristalline (ex. Fluval Polishing Pad, Seachem The Bag). Toujours placée en fin de flux dans le filtre. Ses pores sont trop fins pour la colonisation bactérienne ; remplacer quand elle noircit ou que le débit chute. Ne remplace pas les médias biologiques.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('filter_wool',this)">
-            <span>Lã de filtro (Guata)</span>
+            <span>Laine de filtre (Guata)</span>
             <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
           </div>
           <div class="media-item sw-media-only" role="button" tabindex="0" onclick="toggleMedia('filter_socks',this)" style="display:none">
@@ -982,49 +982,49 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
           <div class="media-cat">🧫 Biológico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('foam_sponge',this)">
-            <span>Éponge de espuma</span>
+            <span>Éponge en mousse</span>
             <span class="media-tip" data-tip="Éponge de poliuretano de poro grosso. Seus poros grandes facilitam excellent fluxo de água e abrigam enormes colônias de bactérias benéficas. Presente em filtros de esponja e muitos HOBs. A melhor opção para filtração biológica.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('k1_moving',this)">
-            <span>Leito móvel / K1</span>
+            <span>Lit mobile / K1</span>
             <span class="media-tip" data-tip="Pequenas peças de plástico (ex. Kaldnes K1, K3) que giram livremente na água em movimento. O movimento constante mantém as superfícies limpas e bem oxigenadas, maximizando o crescimento bacteriano.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('sintered_glass',this)">
-            <span>Vidro sinterizado</span>
+            <span>Verre fritté</span>
             <span class="media-tip" data-tip="Material biológico de élevé desempenho com uma superfície efetiva enorme (ex. Siporax ~270.000 m²/m³). Milhões de poros interconectados suportam colônias bacterianas massivas. Requer bon fluxo de água para atingir todo o seu potencial.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('premium_porous',this)">
             <span>Cerâmica porosa premium</span>
-            <span class="media-tip" data-tip="Cerâmica de engenharia com macro e microporos (ex. Seachem Matrix, Biohome Plus). Os poros internos profundos permitem colonização anaeróbia, o que pode reduzir nitratos — um passo acima dos anéis cerâmicos padrão.">?</span>
+            <span class="media-tip" data-tip="Céramique technique avec macro et micropores (ex. Seachem Matrix, Biohome Plus). Les pores internes profonds permettent une colonisation anaérobie pouvant réduire les nitrates — un cran au-dessus des anneaux céramique standard.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('lava_rock',this)">
             <span>Rocha vulcânica</span>
             <span class="media-tip" data-tip="Rocha vulcânica natural de superfície rugosa e irregular com grande porosidade. Barata e eficaz, com boa superfície para bactérias. Pesada, portanto só é prática em sumps ou cestas grandes de filtros externos.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('bio_balls',this)">
-            <span>Biobolas</span>
-            <span class="media-tip" data-tip="Esferas de plástico projetadas para filtros de gotejamento ou úmido-seco (wet-dry); a exposição ao ar aumenta o oxigênio para as bactérias. Quando usadas totalmente submersas (canister ou HOB) sua eficiência cai significativamente.">?</span>
+            <span>Bio-balls</span>
+            <span class="media-tip" data-tip="Billes de plastique conçues pour les filtres à ruissellement (wet-dry) ; l'exposition à l'air augmente l'oxygène pour les bactéries. Lorsqu'elles sont totalement immergées (canister ou HOB) leur efficacité chute considérablement.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('ceramic_rings',this)">
-            <span>Argolas cerâmicas</span>
-            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa premium para filtração biológica.">?</span>
+            <span>Anneaux céramique</span>
+            <span class="media-tip" data-tip="Anneaux céramique standard (ex. Fluval Biomax, anneaux génériques). Surface modérée uniquement en extérieur. Très courants et économiques, mais moins efficaces que l'éponge ou la céramique poreuse premium pour la biofiltration.">?</span>
           </div>
           <div class="media-cat">⚗️ Químico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('activated_carbon',this)">
-            <span>Carvão ativo</span>
+            <span>Charbon actif</span>
             <span class="media-tip" data-tip="Adsorve compostos orgânicos dissolvidos, medicamentos e odores. Sem valor biológico; seus poros são pequenos demais para bactérias benéficas. Substituir a cada 4–6 semanas. Sempre remover antes de usar medicamentos no aquário.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('synthetic_resins',this)">
-            <span>Resinas sintéticas</span>
-            <span class="media-tip" data-tip="Resinas de troca iônica que eliminam problemas específicos: fosfato (ex. Rowaphos, PhosGuard), nitrato ou silicato. Sem colonização biológica. Usadas para correção pontual de parâmetros; substituir quando esgotadas.">?</span>
+            <span>Résines synthétiques</span>
+            <span class="media-tip" data-tip="Résines échangeuses d'ions pour problèmes spécifiques : phosphate (ex. Rowaphos, PhosGuard), nitrate ou silicate. Pas de colonisation biologique. Utilisées pour des corrections ponctuelles de paramètres ; remplacer quand épuisées.">?</span>
           </div>
         </div>
-        <div class="field-hint" style="margin-top:6px">Selecione os meios filtrantes que usa. Se nenhum for selecionado, será aplicada uma eficiência padrão.</div>
+        <div class="field-hint" style="margin-top:6px">Sélectionnez les médias filtrants que vous utilisez. Si aucun n'est sélectionné, une efficacité par défaut sera appliquée.</div>
 
         <!-- Bio efficiency display -->
         <div class="bio-eff-display" id="bio-eff-display">
-          <span class="be-label">Eficiência biológica estimada</span>
-          <span class="be-val" id="bio-eff-val">55% (Padrão. Selecione mídias filtrantes para maior precisão)</span>
+          <span class="be-label">Efficacité biologique estimée</span>
+          <span class="be-val" id="bio-eff-val">55% (Par défaut. Sélectionnez des médias filtrants pour plus de précision)</span>
         </div>
 
         <!-- Add second filter -->
@@ -1038,7 +1038,7 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
           <div class="field-row">
             <div class="field">
-              <label>Vazão do Segundo Filtro (L/h)</label>
+              <label>Débit du Deuxième Filtre (L/h)</label>
               <input type="number" id="filter-flow-2" placeholder="200" min="0" oninput="recalc()">
               <span id="f2-err-flow" style="display:none;color:#e11d48;font-size:.75rem;margin-top:3px;display:none">Insira a vazão do filtro</span>
             </div>
@@ -1048,18 +1048,18 @@ gtag('config', 'G-03QX35NF7F', {
               <label>Tipo do Segundo Filtro</label>
               <select id="filter-type-2" onchange="recalc()" style="font-size:.9rem">
               </select>
-              <span id="f2-err-type" style="display:none;color:#e11d48;font-size:.75rem;margin-top:3px">Selecione o tipo de filtro</span>
+              <span id="f2-err-type" style="display:none;color:#e11d48;font-size:.75rem;margin-top:3px">Sélectionnez le type de filtre</span>
             </div>
           </div>
           <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:12px;margin-bottom:4px">Materiais Filtrantes <span style="font-weight:400;text-transform:none;letter-spacing:0">(2.º filtro)</span></div>
           <div class="media-grid" id="media-grid-2">
           <div class="media-cat">⚙️ Mecânico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('polishing_pad',this)">
-            <span>Almofada pulidora</span>
-            <span class="media-tip" data-tip="Almofada de fibra ultra-fina para água cristalina (ex. Fluval Polishing Pad, Seachem The Bag). Sempre colocada no final do fluxo do filtro. Seus poros são finos demais para colonização bacteriana; substituir quando escurecer ou o fluxo cair. Não substitui mídias biológicas.">?</span>
+            <span>Ouate de filtration</span>
+            <span class="media-tip" data-tip="Ouate de filtration ultra-fine pour une eau cristalline (ex. Fluval Polishing Pad, Seachem The Bag). Toujours placée en fin de flux dans le filtre. Ses pores sont trop fins pour la colonisation bactérienne ; remplacer quand elle noircit ou que le débit chute. Ne remplace pas les médias biologiques.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('filter_wool',this)">
-            <span>Lã de filtro (Guata)</span>
+            <span>Laine de filtre (Guata)</span>
             <span class="media-tip" data-tip="Apenas filtração mecânica: retém partículas finas e resíduos para polir a água. Valor biológico mínimo, pois as bactérias não conseguem colonizar suas fibras densas. Substituir ou enxaguar frequentemente para evitar obstruções.">?</span>
           </div>
           <div class="media-item sw-media-only" role="button" tabindex="0" onclick="toggleMedia2('filter_socks',this)" style="display:none">
@@ -1068,41 +1068,41 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
           <div class="media-cat">🧫 Biológico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('foam_sponge',this)">
-            <span>Éponge de espuma</span>
+            <span>Éponge en mousse</span>
             <span class="media-tip" data-tip="Éponge de poliuretano de poro grosso. Seus poros grandes facilitam excellent fluxo de água e abrigam enormes colônias de bactérias benéficas. Presente em filtros de esponja e muitos HOBs. A melhor opção para filtração biológica.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('k1_moving',this)">
-            <span>Leito móvel / K1</span>
+            <span>Lit mobile / K1</span>
             <span class="media-tip" data-tip="Pequenas peças de plástico (ex. Kaldnes K1, K3) que giram livremente na água em movimento. O movimento constante mantém as superfícies limpas e bem oxigenadas, maximizando o crescimento bacteriano.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('sintered_glass',this)">
-            <span>Vidro sinterizado</span>
+            <span>Verre fritté</span>
             <span class="media-tip" data-tip="Material biológico de élevé desempenho com uma superfície efetiva enorme (ex. Siporax ~270.000 m²/m³). Milhões de poros interconectados suportam colônias bacterianas massivas. Requer bon fluxo de água para atingir todo o seu potencial.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('premium_porous',this)">
             <span>Cerâmica porosa premium</span>
-            <span class="media-tip" data-tip="Cerâmica de engenharia com macro e microporos (ex. Seachem Matrix, Biohome Plus). Os poros internos profundos permitem colonização anaeróbia, o que pode reduzir nitratos — um passo acima dos anéis cerâmicos padrão.">?</span>
+            <span class="media-tip" data-tip="Céramique technique avec macro et micropores (ex. Seachem Matrix, Biohome Plus). Les pores internes profonds permettent une colonisation anaérobie pouvant réduire les nitrates — un cran au-dessus des anneaux céramique standard.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('lava_rock',this)">
             <span>Rocha vulcânica</span>
             <span class="media-tip" data-tip="Rocha vulcânica natural de superfície rugosa e irregular com grande porosidade. Barata e eficaz, com boa superfície para bactérias. Pesada, portanto só é prática em sumps ou cestas grandes de filtros externos.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('bio_balls',this)">
-            <span>Biobolas</span>
-            <span class="media-tip" data-tip="Esferas de plástico projetadas para filtros de gotejamento ou úmido-seco (wet-dry); a exposição ao ar aumenta o oxigênio para as bactérias. Quando usadas totalmente submersas (canister ou HOB) sua eficiência cai significativamente.">?</span>
+            <span>Bio-balls</span>
+            <span class="media-tip" data-tip="Billes de plastique conçues pour les filtres à ruissellement (wet-dry) ; l'exposition à l'air augmente l'oxygène pour les bactéries. Lorsqu'elles sont totalement immergées (canister ou HOB) leur efficacité chute considérablement.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('ceramic_rings',this)">
-            <span>Argolas cerâmicas</span>
-            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa premium para filtração biológica.">?</span>
+            <span>Anneaux céramique</span>
+            <span class="media-tip" data-tip="Anneaux céramique standard (ex. Fluval Biomax, anneaux génériques). Surface modérée uniquement en extérieur. Très courants et économiques, mais moins efficaces que l'éponge ou la céramique poreuse premium pour la biofiltration.">?</span>
           </div>
           <div class="media-cat">⚗️ Químico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('activated_carbon',this)">
-            <span>Carvão ativo</span>
+            <span>Charbon actif</span>
             <span class="media-tip" data-tip="Adsorve compostos orgânicos dissolvidos, medicamentos e odores. Sem valor biológico; seus poros são pequenos demais para bactérias benéficas. Substituir a cada 4–6 semanas. Sempre remover antes de usar medicamentos no aquário.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('synthetic_resins',this)">
-            <span>Resinas sintéticas</span>
-            <span class="media-tip" data-tip="Resinas de troca iônica que eliminam problemas específicos: fosfato (ex. Rowaphos, PhosGuard), nitrato ou silicato. Sem colonização biológica. Usadas para correção pontual de parâmetros; substituir quando esgotadas.">?</span>
+            <span>Résines synthétiques</span>
+            <span class="media-tip" data-tip="Résines échangeuses d'ions pour problèmes spécifiques : phosphate (ex. Rowaphos, PhosGuard), nitrate ou silicate. Pas de colonisation biologique. Utilisées pour des corrections ponctuelles de paramètres ; remplacer quand épuisées.">?</span>
           </div>
         
           </div>
@@ -1158,7 +1158,7 @@ gtag('config', 'G-03QX35NF7F', {
             <label for="chaeto-btn" style="color:var(--p)">🌿 Refugio con macroalgas (Chaeto/Caulerpa)</label>
             <button class="co2-toggle" id="chaeto-btn" onclick="toggleChaeto()" title="Toggle refugium" aria-pressed="false"></button>
           </div>
-          <div class="field-hint">Uma seção do sump iluminada com Chaeto absorve nitrato e fosfato, o equivalente marinho de um aquário plantado. Muito recomendado para aquários de recife.</div>
+          <div class="field-hint">Une section du sump éclairée avec du Chaeto absorbe nitrates et phosphates, l'équivalent marin d'un aquarium planté. Fortement recommandé pour les aquariums récifaux.</div>
         </div>
 
         <!-- Water changes (shared FW + SW) -->
@@ -1521,7 +1521,7 @@ gtag('config', 'G-03QX35NF7F', {
       <a href="#calculator">Calculateur</a>
       <a href="#how-it-works">Comment ça marche</a>
       <a href="#faq">FAQ</a>
-      <span style="color:rgba(255,255,255,.7)">Contato: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a> &nbsp;·&nbsp; <a href="/pt/privacidade">Privacidade</a></span>
+      <span style="color:rgba(255,255,255,.7)"><a href="/fr/contact">Contact</a> &nbsp;·&nbsp; <a href="/privacidad">Politique de confidentialité</a></span>
     </div>
   </div>
 </footer>
@@ -1597,7 +1597,7 @@ const DB = [
 
 /* ─── FILTER MEDIA RATINGS ─────────────────────────────────
    Bio-efficiency ratings based on colonisable surface area.
-   La esponja de espuma es ~9× más eficaz que los canutillos cerámicos
+   L'éponge en mousse est ~9× plus efficace que les anneaux céramique
    at hosting nitrifying bacteria per unit volume.
 ──────────────────────────────────────────────────────────── */
 const MEDIA_RATINGS = {
@@ -1848,11 +1848,11 @@ function setUnits(u){
   const dimUnit = state.metric ? 'cm' : 'in';
   const flowUnit = state.metric ? 'L/h' : 'GPH';
   const volUnit  = state.metric ? 'L'   : 'gal';
-  document.getElementById('lbl-L').textContent = `Comprimento (${dimUnit})`;
-  document.getElementById('lbl-W').textContent = `Largura (${dimUnit})`;
-  document.getElementById('lbl-H').textContent = `Altura (${dimUnit})`;
-  document.getElementById('lbl-flow').textContent = `Vazão do Filtro (${flowUnit})`;
-  document.getElementById('lbl-vol').textContent  = `Volume do Aquário (${volUnit})`;
+  document.getElementById('lbl-L').textContent = `Longueur (${dimUnit})`;
+  document.getElementById('lbl-W').textContent = `Largeur (${dimUnit})`;
+  document.getElementById('lbl-H').textContent = `Hauteur (${dimUnit})`;
+  document.getElementById('lbl-flow').textContent = `Débit du Filtre (${flowUnit})`;
+  document.getElementById('lbl-vol').textContent  = `Volume de l'Aquarium (${volUnit})`;
 
   document.querySelectorAll('#unit-toggle button').forEach(b=>{
     b.classList.toggle('active', b.dataset.unit===u);
@@ -1912,20 +1912,20 @@ function updateFilterType2Options(){
   if(!sel) return;
   const isSW=state.waterType==='salt';
   const opts=isSW?[
-    {value:'canister',label:'Externo / Canister'},
+    {value:'canister',label:'Externe / Canister'},
     {value:'sump',label:'Sump'},
     {value:'wetdry',label:'Úmido/Seco'},
-    {value:'hob',label:'Pendurado (HOB)'},
+    {value:'hob',label:'Suspendu (HOB)'},
     {value:'internal',label:'Filtro interno'}
   ]:[
-    {value:'canister',label:'Externo / Canister'},
-    {value:'hob',label:'Pendurado (HOB)'},
+    {value:'canister',label:'Externe / Canister'},
+    {value:'hob',label:'Suspendu (HOB)'},
     {value:'internal',label:'Filtro interno'},
-    {value:'sponge',label:'Filtro de esponja'},
-    {value:'undergravel',label:'Subfundo'}
+    {value:'sponge',label:'Filtre éponge'},
+    {value:'undergravel',label:'Sous-gravier'}
   ];
   const prev=sel.value;
-  sel.innerHTML=`<option value="">— Selecione o tipo de filtro —</option>`+opts.map(o=>`<option value="${o.value}">${o.label}</option>`).join('');
+  sel.innerHTML=`<option value="">— Sélectionnez le type de filtre —</option>`+opts.map(o=>`<option value="${o.value}">${o.label}</option>`).join('');
   if(opts.some(o=>o.value===prev)) sel.value=prev;
   // If switching water type invalidates current selection, reset applied state
   if(sel.value!==prev && state.secondFilterApplied){
@@ -2065,12 +2065,12 @@ function updateBioEffDisplay(){
   if(isSW){
     const lrBonus = state.liveRock ? 20 : 0;
     const totalPct = filterPct + lrBonus;
-    const mediaNote = noMedia ? ' (padrão)' : '';
+    const mediaNote = noMedia ? ' (défaut)' : '';
     text = lrBonus
       ? `Filter: ${filterPct}%${mediaNote} + Live rock: +${lrBonus}% = ${totalPct}% bio score`
       : `Filter: ${filterPct}%${mediaNote} (no live rock bonus)`;
   } else {
-    text = noMedia ? `${filterPct}% (Padrão. Selecione mídias filtrantes para maior precisão)` : `${filterPct}%`;
+    text = noMedia ? `${filterPct}% (Par défaut. Sélectionnez des médias filtrants pour plus de précision)` : `${filterPct}%`;
   }
   document.getElementById('bio-eff-val').textContent = text;
 }
@@ -2556,9 +2556,9 @@ function renderResults(r){
       ? Math.ceil((r.eff_bl / (r.eta_bio * r.wc_penalty) * 3.785) / 10) * 10
       : 0;
     document.getElementById('flt-sub').textContent=
-      r.flt>=100?`✅ Filtro adequado (${Math.round(r.flt)}% da carga biológica)`:
+      r.flt>=100?`✅ Filtre adapté (${Math.round(r.flt)}% de la charge biologique)`:
       r.flt>=80 ?`🟡 Marginal, levemente insuficiente${recLPH? ` (recomendado ≥ ${recLPH} L/h)` : ''}`:
-      r.flt>=60 ?`⚠️ Insuficiente${recLPH? `, recomendado pelo menos ${recLPH} L/h` : ', melhore seu filtro'}`:
+      r.flt>=60 ?`⚠️ Insuffisant${recLPH? `, recommandé au moins ${recLPH} L/h` : ', améliorez votre filtre'}`:
                  `🚨 Muito insuficiente${recLPH? `, melhore para ≥ ${recLPH} L/h urgentemente` : ', melhore o filtro urgentemente'}`;
   } else if(r.C_bio>0){
     document.getElementById('flt-val').textContent='—';
@@ -2589,12 +2589,12 @@ function renderResults(r){
           r.turnover<tovMed  ?`⚠️ Afaible do recomendado. mire ≥10× de renovação no sump`:
           r.turnover<tovGood ?`🟡 Melhorando. ≥10× no sump é o mínimo`:
                               isReef
-                               ?`✅ Boa vazão no sump. adicione powerheads para os corais`
+                               ?`✅ Bon débit dans le sump. Ajoutez des powerheads pour les coraux`
                                :`✅ Boa renovação no sump`;
       } else {
         document.getElementById('tov-sub').textContent=
           r.turnover<4  ?`🚨 Muito faible. melhore o filtro urgentemente`:
-          r.turnover<6  ?`⚠️ Afaible do recomendado. mire ≥8× da vazão nominal`:
+          r.turnover<6  ?`⚠️ Débit insuffisant. Visez ≥8× le débit nominal`:
           r.turnover<8  ?`🟡 Melhorando. 8× é o mínimo recomendado`:
                          `✅ Boa renovação`;
       }
@@ -2602,9 +2602,9 @@ function renderResults(r){
       // Update default sub-text to match current water type even when no flow entered
       document.getElementById('tov-sub').textContent = isSW_t
         ? (isReef
-            ? 'Mire ≥10× no sump; os corais também precisam de powerheads para circulação adicional'
-            : 'Mire ≥10× da vazão nominal através do sump e skimmer')
-        : 'Mire ≥8× da vazão nominal para compensar perdas reais';
+            ? 'Visez ≥10× dans le sump ; les coraux ont aussi besoin de powerheads pour la circulation'
+            : 'Visez ≥10× le débit nominal à travers le sump et le skimmer')
+        : 'Visez ≥8× le débit nominal pour compenser les pertes réelles';
     }
   }
 
@@ -2698,7 +2698,7 @@ function submitMissingSpecies(){
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
       species: val,
-      _subject: 'Sugerencia de espécie, Aquapacity',
+      _subject: 'Suggestion d\'espèce, Aquapacity',
       _gotcha: ''
     })
   })
@@ -2741,7 +2741,7 @@ function renderAlerts(r){
   const fishList=r.fishList;
 
   if(fishList.length===0){
-    box.innerHTML=`<div class="alert alert-info"><span>ℹ️</span><span>Insira o tamanho do aquário, a vazão do filtro e adicione poissons para obter a análise completa.</span></div>`;
+    box.innerHTML=`<div class="alert alert-info"><span>ℹ️</span><span>Saisissez la taille de l'aquarium, le débit du filtre et ajoutez des poissons pour obtenir l'analyse complète.</span></div>`;
     return;
   }
 
@@ -2750,7 +2750,7 @@ function renderAlerts(r){
     const tooSmall = fishList.filter(({f}) => f.minGal && (f.minGal * 3.785) > r.vol_L);
     tooSmall.forEach(({f}) => {
       const minL = Math.round(f.minGal * 3.785);
-      alerts.push({t:'danger', m:`🚫 ${dn(f)} precisa de no mínimo ${minL} L (${f.minGal} gal). Seu aquário é muito pequeno para esta espécie.`});
+      alerts.push({t:'danger', m:`🚫 ${dn(f)} nécessite au minimum ${minL} L (${f.minGal} gal). Votre aquarium est trop petit pour cette espèce.`});
     });
   }
 
@@ -2767,18 +2767,18 @@ function renderAlerts(r){
   const flowIsOk = r.turnover >= 6;
   if(r.C_bio>0 && r.flt<80 && r.eff_bl>0){
     if(flowIsOk){
-      alerts.push({t:'danger',m:`🔴 A filtração biológica é insuficiente apesar da vazão adequada. Melhore sua mídia filtrante ou adicione mais superfície biológica.`});
+      alerts.push({t:'danger',m:`🔴 La filtration biologique est insuffisante malgré un débit adéquat. Améliorez votre média filtrant ou ajoutez plus de surface biologique.`});
     } else {
-      alerts.push({t:'danger',m:`🔴 Filtração insuficiente. Recomendado: ≥ ${recLPH2} L/h, considere um ${recFilterType} com biomídia de qualidade.`});
+      alerts.push({t:'danger',m:`🔴 Filtration insuffisante. Recommandé : ≥ ${recLPH2} L/h, envisagez un ${recFilterType} avec un biommedia de qualité.`});
     }
   } else if(r.C_bio>0 && r.flt<100 && r.eff_bl>0){
     if(flowIsOk){
-      alerts.push({t:'warn',m:`⚠️ Capacidade biológica levemente baixa. Considere adicionar mais biomídia (esponja, K1 ou cerâmica porosa) ao seu filtro atual.`});
+      alerts.push({t:'warn',m:`⚠️ Capacité biologique légèrement insuffisante. Envisagez d'ajouter plus de biommedia (éponge, K1 ou céramique poreuse) à votre filtre actuel.`});
     } else {
       alerts.push({t:'warn',m:`⚠️ Filtro levemente subdimensionado. Mínimo recomendado: ${recLPH2} L/h (${recFilterType}).`});
     }
   }
-  if(r.C_bio===0) alerts.push({t:'warn',m:'⚠️ Nenhum filtro especificado. Todos os aquários precisam de filtração biológica. Adicione um filtro para resultados precisos.'});
+  if(r.C_bio===0) alerts.push({t:'warn',m:'⚠️ Aucun filtre spécifié. Tous les aquariums ont besoin de filtration biologique. Ajoutez un filtre pour des résultats précis.'});
 
   // Nitrate, thresholds differ FW vs SW tank type
   const ppm = Math.round(r.NO3_ss);
@@ -2813,7 +2813,7 @@ function renderAlerts(r){
   // Schooling
   fishList.forEach(({f,qty})=>{
     if(f.school && qty<f.minG)
-      alerts.push({t:'warn',m:`📏 ${dn(f)} es una espécie de banco. mantén al menos ${f.minG} juntos para su bienestar (tienes ${qty}).`});
+      alerts.push({t:'warn',m:`📏 ${dn(f)} est une espèce grégaire. Gardez au moins ${f.minG} individus ensemble pour leur bien-être (vous en avez ${qty}).`});
   });
 
   // Territorial species
@@ -3024,11 +3024,11 @@ async function loadFromSheets(){
     DB.length=0;
     loaded.forEach(f=>DB.push(f));
     rebuildCatTabs();
-    setBanner(`✅ Base de dados ao vivo: ${DB.length} espèces chargées do Google Sheets`,true);
+    setBanner(`✅ Base de données en direct : ${DB.length} espèces chargées depuis Google Sheets`,true);
     return true;
   };
 
-  setBanner('⏳ Carregando base de dados do Google Sheets…',true);
+  setBanner('⏳ Chargement de la base de données depuis Google Sheets…',true);
 
   // Método 1: fetch directo (funciona desde servidor HTTP)
   if(SHEET_CSV_URL){
@@ -3042,7 +3042,7 @@ async function loadFromSheets(){
     }catch(e){
       if(!(e instanceof TypeErro)){
         // Erro HTTP real, no CORS, no intentar JSONP
-        setBanner(`⚠️ Erro al cargar Google Sheets (${e.message}). Usando base de datos local (${DB.length} espécies).`,false);
+        setBanner(`⚠️ Erreur lors du chargement de Google Sheets (${e.message}). Utilisation de la base de données locale (${DB.length} espèces).`,false);
         return false;
       }
       // TypeErro = CORS bloqueado (archivo local) → intentar JSONP
@@ -3052,12 +3052,12 @@ async function loadFromSheets(){
 
   // Método 2: JSONP via Google Visualization API (funciona desde file://)
   try{
-    setBanner('⏳ Cargando con método alternativo…',true);
+    setBanner('⏳ Chargement avec méthode alternative…',true);
     const rows=await loadViaGvizJSONP();
     return applyRows(rows);
   }catch(e2){
     console.warn('JSONP también falló:',e2.message);
-    setBanner(`⚠️ No se pudo cargar Google Sheets. Usando base de datos local (${DB.length} espécies).`,false);
+    setBanner(`⚠️ Impossible de charger Google Sheets. Utilisation de la base de données locale (${DB.length} espèces).`,false);
     return false;
   }
 }

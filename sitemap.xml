@@ -392,4 +392,18 @@
     <priority>0.8</priority>
   </url>
 
+
+  <!-- Contact pages (noindex but in sitemap for crawlers) -->
+  <url>
+    <loc>https://aquapacity.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/contato"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aquapacity.com/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://aquapacity.com/de/kontakt"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

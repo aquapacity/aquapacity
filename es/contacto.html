@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | Aquapacity</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/aquapacity_icon_512.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/aquapacity_icon_512.png">
+<link rel="canonical" href="https://aquapacity.com/es/contacto">
+<link rel="alternate" hreflang="en" href="https://aquapacity.com/contact">
+<link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/contato">
+<link rel="alternate" hreflang="fr" href="https://aquapacity.com/fr/contact">
+<link rel="alternate" hreflang="de" href="https://aquapacity.com/de/kontakt">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/nunito-latin.woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/nunito.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/fonts/nunito.css"></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--p:#0369a1;--bg:#f0f9ff;--border:#e0f2fe;--txt:#1e293b;--muted:#64748b;--r12:12px;--g:#16a34a;--r:#e11d48}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;font-size:16px}
+a{color:var(--p)}
+header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;height:64px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-wordmark{font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:-.02em}
+.content{max-width:640px;margin:48px auto;padding:0 24px 64px}
+.content h1{font-size:2rem;font-weight:800;color:#0c4a6e;margin-bottom:8px}
+.content .subtitle{color:var(--muted);margin-bottom:40px;font-size:.95rem}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-weight:700;font-size:.88rem;color:var(--txt);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.form-group input,
+.form-group textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r12);font-family:inherit;font-size:.95rem;color:var(--txt);background:#fff;transition:border .2s}
+.form-group input:focus,
+.form-group textarea:focus{outline:none;border-color:var(--p)}
+.form-group textarea{resize:vertical;min-height:140px}
+.submit-btn{display:inline-flex;align-items:center;gap:8px;background:var(--p);color:#fff;border:none;border-radius:var(--r12);padding:14px 32px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s}
+.submit-btn:hover{background:#0284c7}
+.submit-btn:disabled{opacity:.6;cursor:default}
+.form-msg{margin-top:16px;font-size:.9rem;font-weight:600;display:none}
+.form-msg.ok{color:var(--g)}
+.form-msg.err{color:var(--r)}
+.back-link{display:inline-block;margin-top:32px;color:var(--muted);text-decoration:none;font-size:.88rem}
+.back-link:hover{color:var(--p)}
+footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:24px;font-size:.85rem;text-align:center}
+footer a{color:rgba(255,255,255,.8)}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
+    </a>
+  </div>
+</header>
+
+<div class="content">
+  <h1>Contacto</h1>
+  <p class="subtitle">¿Preguntas, comentarios o sugerencias de artículos? Leemos todos los mensajes.</p>
+
+  <form id="contact-form" novalidate>
+    <div class="form-group">
+      <label for="cf-name">Nombre</label>
+      <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Nombre">
+    </div>
+    <div class="form-group">
+      <label for="cf-email">Email</label>
+      <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="you@example.com">
+    </div>
+    <div class="form-group">
+      <label for="cf-msg">Mensaje</label>
+      <textarea id="cf-msg" name="message" required placeholder="Tu mensaje..."></textarea>
+    </div>
+    <button type="submit" class="submit-btn" id="cf-btn">Enviar mensaje</button>
+    <div class="form-msg ok" id="cf-ok">✅ ¡Mensaje enviado! Te responderemos pronto.</div>
+    <div class="form-msg err" id="cf-err">⚠️ Error al enviar. Por favor inténtalo de nuevo.</div>
+  </form>
+
+  <a href="/es/articles" class="back-link">← Volver a artículos</a>
+</div>
+
+<footer>
+  <div><a href="/es/articles">Artículos</a> &nbsp;·&nbsp; <a href="/es/">Calculadora</a> &nbsp;·&nbsp; <a href="/es/privacidad">Política de privacidad</a></div>
+  <div style="margin-top:8px;font-size:.78rem;opacity:.6">Gratis para siempre. Hecho por aficionados, para aficionados.</div>
+</footer>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('cf-btn');
+  const ok  = document.getElementById('cf-ok');
+  const err = document.getElementById('cf-err');
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+  ok.style.display = 'none';
+  err.style.display = 'none';
+
+  fetch('https://formspree.io/f/mykogzpp', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({
+      name:    document.getElementById('cf-name').value,
+      email:   document.getElementById('cf-email').value,
+      message: document.getElementById('cf-msg').value,
+      _subject: 'Contacto, Aquapacity',
+      _gotcha: ''
+    })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.ok) {
+      ok.style.display = 'block';
+      document.getElementById('contact-form').reset();
+    } else {
+      err.style.display = 'block';
+    }
+    btn.disabled = false;
+    btn.textContent = 'Enviar mensaje';
+  })
+  .catch(() => {
+    err.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Enviar mensaje';
+  });
+});
+</script>
+</body>
+</html>

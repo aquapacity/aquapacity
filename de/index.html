@@ -1007,23 +1007,23 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('ceramic_rings',this)">
             <span>Keramikringe</span>
-            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa premium para filtração biológica.">?</span>
+            <span class="media-tip" data-tip="Standard-Keramikringe (z.B. Fluval Biomax, Generische Ringe). Moderate Oberfläche nur außen. Sehr verbreitet und günstig, aber weniger effektiv als Schaumstoff oder Premium-Porenkeramik für die Biofiltration.">?</span>
           </div>
           <div class="media-cat">⚗️ Químico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('activated_carbon',this)">
-            <span>Carvão ativo</span>
+            <span>Aktivkohle</span>
             <span class="media-tip" data-tip="Adsorve compostos orgânicos dissolvidos, medicamentos e odores. Sem valor biológico; seus poros são pequenos demais para bactérias benéficas. Substituir a cada 4–6 semanas. Sempre remover antes de usar medicamentos no aquário.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia('synthetic_resins',this)">
-            <span>Resinas sintéticas</span>
-            <span class="media-tip" data-tip="Resinas de troca iônica que eliminam problemas específicos: fosfato (ex. Rowaphos, PhosGuard), nitrato ou silicato. Sem colonização biológica. Usadas para correção pontual de parâmetros; substituir quando esgotadas.">?</span>
+            <span>Kunstharze</span>
+            <span class="media-tip" data-tip="Ionenaustauscherharze für spezifische Probleme: Phosphat (z.B. Rowaphos, PhosGuard), Nitrat oder Silikat. Keine biologische Besiedlung. Für gezielte Parameterkorrekturen; ersetzen wenn erschöpft.">?</span>
           </div>
         </div>
         <div class="field-hint" style="margin-top:6px">Verwendete Filtermedien auswählen. Wenn keines ausgewählt ist, wird eine Standardeffizienz angewendet.</div>
 
         <!-- Bio efficiency display -->
         <div class="bio-eff-display" id="bio-eff-display">
-          <span class="be-label">Eficiência biológica estimada</span>
+          <span class="be-label">Geschätzte biologische Effizienz</span>
           <span class="be-val" id="bio-eff-val">55% (Standard. Filtermedien auswählen für höhere Genauigkeit)</span>
         </div>
 
@@ -1093,16 +1093,16 @@ gtag('config', 'G-03QX35NF7F', {
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('ceramic_rings',this)">
             <span>Keramikringe</span>
-            <span class="media-tip" data-tip="Argolas cerâmicas padrão (ex. Fluval Biomax, argolas genéricas). Superfície moderada apenas no exterior. Muito comuns e econômicas, mas menos eficazes que esponja ou cerâmica porosa premium para filtração biológica.">?</span>
+            <span class="media-tip" data-tip="Standard-Keramikringe (z.B. Fluval Biomax, Generische Ringe). Moderate Oberfläche nur außen. Sehr verbreitet und günstig, aber weniger effektiv als Schaumstoff oder Premium-Porenkeramik für die Biofiltration.">?</span>
           </div>
           <div class="media-cat">⚗️ Químico</div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('activated_carbon',this)">
-            <span>Carvão ativo</span>
+            <span>Aktivkohle</span>
             <span class="media-tip" data-tip="Adsorve compostos orgânicos dissolvidos, medicamentos e odores. Sem valor biológico; seus poros são pequenos demais para bactérias benéficas. Substituir a cada 4–6 semanas. Sempre remover antes de usar medicamentos no aquário.">?</span>
           </div>
           <div class="media-item" role="button" tabindex="0" onclick="toggleMedia2('synthetic_resins',this)">
-            <span>Resinas sintéticas</span>
-            <span class="media-tip" data-tip="Resinas de troca iônica que eliminam problemas específicos: fosfato (ex. Rowaphos, PhosGuard), nitrato ou silicato. Sem colonização biológica. Usadas para correção pontual de parâmetros; substituir quando esgotadas.">?</span>
+            <span>Kunstharze</span>
+            <span class="media-tip" data-tip="Ionenaustauscherharze für spezifische Probleme: Phosphat (z.B. Rowaphos, PhosGuard), Nitrat oder Silikat. Keine biologische Besiedlung. Für gezielte Parameterkorrekturen; ersetzen wenn erschöpft.">?</span>
           </div>
         
           </div>
@@ -1521,7 +1521,7 @@ gtag('config', 'G-03QX35NF7F', {
       <a href="#calculator">Rechner</a>
       <a href="#how-it-works">Wie es funktioniert</a>
       <a href="#faq">FAQ</a>
-      <span style="color:rgba(255,255,255,.7)">Kontakt: <a href="mailto:aquapacity.info@gmail.com">aquapacity.info@gmail.com</a> &nbsp;·&nbsp; <a href="/de/datenschutz">Datenschutz</a></span>
+      <span style="color:rgba(255,255,255,.7)"><a href="/de/kontakt">Kontakt</a> &nbsp;·&nbsp; <a href="/de/datenschutz">Datenschutz</a></span>
     </div>
   </div>
 </footer>
@@ -1597,7 +1597,7 @@ const DB = [
 
 /* ─── FILTER MEDIA RATINGS ─────────────────────────────────
    Bio-efficiency ratings based on colonisable surface area.
-   La esponja de espuma es ~9× más eficaz que los canutillos cerámicos
+   Schaumstoff ist ~9× effektiver als Keramikringe
    at hosting nitrifying bacteria per unit volume.
 ──────────────────────────────────────────────────────────── */
 const MEDIA_RATINGS = {
@@ -1912,17 +1912,17 @@ function updateFilterType2Options(){
   if(!sel) return;
   const isSW=state.waterType==='salt';
   const opts=isSW?[
-    {value:'canister',label:'Externo / Canister'},
+    {value:'canister',label:'Außenfilter / Canister'},
     {value:'sump',label:'Sump'},
     {value:'wetdry',label:'Úmido/Seco'},
     {value:'hob',label:'Hang-on-Back (HOB)'},
     {value:'internal',label:'Innenfilter'}
   ]:[
-    {value:'canister',label:'Externo / Canister'},
+    {value:'canister',label:'Außenfilter / Canister'},
     {value:'hob',label:'Hang-on-Back (HOB)'},
     {value:'internal',label:'Innenfilter'},
     {value:'sponge',label:'Schwammfilter'},
-    {value:'undergravel',label:'Subfundo'}
+    {value:'undergravel',label:'Bodenfilter'}
   ];
   const prev=sel.value;
   sel.innerHTML=`<option value="">— Filtertyp auswählen —</option>`+opts.map(o=>`<option value="${o.value}">${o.label}</option>`).join('');
@@ -2813,7 +2813,7 @@ function renderAlerts(r){
   // Schooling
   fishList.forEach(({f,qty})=>{
     if(f.school && qty<f.minG)
-      alerts.push({t:'warn',m:`📏 ${dn(f)} es una espécie de banco. mantén al menos ${f.minG} juntos para su bienestar (tienes ${qty}).`});
+      alerts.push({t:'warn',m:`📏 ${dn(f)} ist ein Schwarmfisch. Halten Sie mindestens ${f.minG} zusammen für ihr Wohlbefinden (Sie haben ${qty}).`});
   });
 
   // Territorial species
@@ -3020,7 +3020,7 @@ async function loadFromSheets(){
   const applyRows=rows=>{
     if(rows.length<2) throw new Erro('Sheet vacío');
     const loaded=rows.slice(1).map(rowToFish).filter(Boolean);
-    if(loaded.length===0) throw new Erro('Nenhuma espécie válida encontrada');
+    if(loaded.length===0) throw new Error('Keine gültigen Arten gefunden');
     DB.length=0;
     loaded.forEach(f=>DB.push(f));
     rebuildCatTabs();
@@ -3028,7 +3028,7 @@ async function loadFromSheets(){
     return true;
   };
 
-  setBanner('⏳ Carregando base de dados do Google Sheets…',true);
+  setBanner('⏳ Datenbank wird von Google Sheets geladen…',true);
 
   // Método 1: fetch directo (funciona desde servidor HTTP)
   if(SHEET_CSV_URL){
@@ -3042,7 +3042,7 @@ async function loadFromSheets(){
     }catch(e){
       if(!(e instanceof TypeErro)){
         // Erro HTTP real, no CORS, no intentar JSONP
-        setBanner(`⚠️ Erro al cargar Google Sheets (${e.message}). Usando base de datos local (${DB.length} espécies).`,false);
+        setBanner(`⚠️ Fehler beim Laden von Google Sheets (${e.message}). Lokale Datenbank wird verwendet (${DB.length} Arten).`,false);
         return false;
       }
       // TypeErro = CORS bloqueado (archivo local) → intentar JSONP
@@ -3052,12 +3052,12 @@ async function loadFromSheets(){
 
   // Método 2: JSONP via Google Visualization API (funciona desde file://)
   try{
-    setBanner('⏳ Cargando con método alternativo…',true);
+    setBanner('⏳ Laden mit alternativer Methode…',true);
     const rows=await loadViaGvizJSONP();
     return applyRows(rows);
   }catch(e2){
     console.warn('JSONP también falló:',e2.message);
-    setBanner(`⚠️ No se pudo cargar Google Sheets. Usando base de datos local (${DB.length} espécies).`,false);
+    setBanner(`⚠️ Google Sheets konnte nicht geladen werden. Lokale Datenbank wird verwendet (${DB.length} Arten).`,false);
     return false;
   }
 }
@@ -3114,7 +3114,7 @@ async function loadFromSheets(){
     <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #e2e8f0">
       <div>
         <div style="font-weight:700;font-size:.9rem">Cookies analíticas</div>
-        <div style="font-size:.8rem;color:#64748b;margin-top:2px">Nos ajudam a entender como o site é usado. Nenhum dado pessoal é compartilhado.</div>
+        <div style="font-size:.8rem;color:#64748b;margin-top:2px">Sie helfen uns zu verstehen, wie die Website genutzt wird. Es werden keine persönlichen Daten geteilt.</div>
       </div>
       <div id="aq-analytics-toggle" onclick="aqToggleAnalytics()" style="background:#0ea5e9;border-radius:999px;width:44px;height:24px;position:relative;flex-shrink:0;cursor:pointer;transition:background .2s">
         <div id="aq-analytics-knob" style="position:absolute;right:3px;top:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:right .2s"></div>

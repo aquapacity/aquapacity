@@ -70,5 +70,12 @@
 # DE calculator
 /de/index.html                                          /de/                                                    301
 
+# Contact pages
+/contact.html                                          /contact                                                301
+/es/contacto.html                                      /es/contacto                                            301
+/pt/contato.html                                       /pt/contato                                             301
+/fr/contact.html                                       /fr/contact                                             301
+/de/kontakt.html                                       /de/kontakt                                             301
+
 # Batch 7 articles
 /articles/aquarium-bioload-calculator.html             /articles/aquarium-bioload-calculator                   301
