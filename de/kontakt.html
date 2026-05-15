@@ -12,18 +12,83 @@
 <link rel="alternate" hreflang="es" href="https://aquapacity.com/es/contacto">
 <link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/contato">
 <link rel="alternate" hreflang="fr" href="https://aquapacity.com/fr/contact">
+<link rel="alternate" hreflang="de" href="https://aquapacity.com/de/kontakt">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/nunito-latin.woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/nunito.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/fonts/nunito.css"></noscript>
 <style>
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--p:#0369a1;--bg:#f0f9ff;--border:#e0f2fe;--txt:#1e293b;--muted:#64748b;--r12:12px;--g:#16a34a;--r:#e11d48}
-body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;font-size:16px}
-a{color:var(--p)}
+:root{
+  --p:#0369a1; --p2:#0ea5e9;
+  --bg:#f0f9ff; --surf:#fff; --border:#e0f2fe;
+  --txt:#1e293b; --muted:#64748b;
+  --sh:0 1px 3px rgba(0,0,0,.10),0 1px 2px rgba(0,0,0,.06);
+  --r6:6px; --r12:12px;
+  --g:#16a34a; --r:#e11d48;
+  --font: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+html{overflow-x:hidden}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;font-size:16px;overflow-x:hidden}
+a{color:var(--p);text-decoration:none}
+a:hover{text-decoration:underline}
+button{cursor:pointer;font-family:inherit;font-size:inherit}
+
+/* ─── HEADER ─── */
 header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);color:#fff;padding:0 24px}
-.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;height:64px}
-.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
-.logo-wordmark{font-size:1.3rem;font-weight:900;color:#fff;letter-spacing:-.02em}
-.content{max-width:640px;margin:48px auto;padding:0 24px 64px}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;user-select:none}
+.logo-wordmark{font-family:'Nunito',sans-serif;font-size:1.3rem;font-weight:900;letter-spacing:-.02em;line-height:1}
+.logo-icon{flex-shrink:0}
+nav{display:flex;gap:20px;align-items:center}
+nav a{color:rgba(255,255,255,.85);font-size:.875rem;transition:color .2s;text-decoration:none}
+nav a:hover{color:#fff}
+
+/* ─── FOOTER ─── */
+footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size:.85rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.footer-inner a{color:rgba(255,255,255,.8)}
+.footer-credit{font-size:.78rem;opacity:.6}
+
+/* ─── HAMBURGER ─── */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px;cursor:pointer;z-index:1001}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ─── MOBILE NAV ─── */
+.mobile-nav{position:fixed;top:0;right:0;width:280px;height:100%;background:#fff;z-index:1000;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 24px rgba(0,0,0,.15);display:flex;flex-direction:column}
+.mobile-nav.open{transform:translateX(0)}
+.mn-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(135deg,#0a3d5c,#0369a1);color:#fff}
+.mn-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem}
+.mn-links{display:flex;flex-direction:column;padding:16px 0;flex:1}
+.mn-links a{display:flex;align-items:center;gap:12px;padding:16px 24px;font-size:1rem;font-weight:600;color:var(--txt);text-decoration:none;border-bottom:1px solid var(--border);transition:background .15s}
+.mn-links a:hover{background:#f0f9ff;color:var(--p)}
+.mn-icon{font-size:1.2rem;width:28px;text-align:center}
+.mobile-nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;backdrop-filter:blur(2px)}
+.mobile-nav-backdrop.open{display:block}
+@media(max-width:900px){nav{display:none}.hamburger{display:flex}}
+
+/* ─── LANG SWITCHER ─── */
+.lang-btn{display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,.85);font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.4);border-radius:100px;padding:4px 11px;transition:all .2s;text-decoration:none;white-space:nowrap;cursor:pointer;background:transparent;font-family:inherit}
+.lang-btn:hover{color:#fff;border-color:rgba(255,255,255,.9);background:rgba(255,255,255,.1)}
+.lang-switcher{position:relative;display:inline-block}
+.lang-switcher .lang-btn{border:none}
+.lang-options{display:none;position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.18);overflow:hidden;min-width:150px;z-index:2000}
+.lang-options a{display:flex;align-items:center;gap:8px;padding:10px 16px;text-decoration:none;color:#1e293b;font-size:.875rem;font-weight:700;transition:background .15s}
+.lang-options a:hover{background:#f1f5f9}
+.lang-switcher.open .lang-options{display:block}
+.mn-footer{padding:20px 24px;border-top:1px solid #e0f2fe}
+.mn-lang-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;margin-bottom:10px}
+.mn-lang-select{width:100%;padding:10px 12px;border-radius:8px;font-weight:700;font-size:.88rem;color:#1e293b;background:#f1f5f9;border:1.5px solid #e2e8f0;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer;margin-bottom:20px}
+.mn-kofi{display:block;text-align:center;background:#0369a1;color:#fff;padding:13px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none}
+.mn-kofi:hover{background:#0284c7;text-decoration:none}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){.footer-inner{flex-direction:column;align-items:flex-start;gap:12px}.footer-inner>div:last-child{flex-direction:column;gap:8px}}
+
+/* ─── CONTACT CONTENT ─── */
+.content{max-width:640px;margin:48px auto;padding:0 24px 80px}
 .content h1{font-size:2rem;font-weight:800;color:#0c4a6e;margin-bottom:8px}
 .content .subtitle{color:var(--muted);margin-bottom:40px;font-size:.95rem}
 .form-group{margin-bottom:20px}
@@ -41,18 +106,79 @@ header{background:linear-gradient(135deg,#0a3d5c 0%,#0369a1 55%,#0891b2 100%);co
 .form-msg.err{color:var(--r)}
 .back-link{display:inline-block;margin-top:32px;color:var(--muted);text-decoration:none;font-size:.88rem}
 .back-link:hover{color:var(--p)}
-footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:24px;font-size:.85rem;text-align:center}
-footer a{color:rgba(255,255,255,.8)}
+
 </style>
 </head>
 <body>
+
 <header>
   <div class="header-inner">
-    <a href="/" class="logo">
+    <a href="/de/" class="logo">
+      <span class="logo-icon">
+          <svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><clipPath id="dec_htc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
+            <rect x="2" y="2" width="30" height="38" rx="4" fill="rgba(255,255,255,0.10)"/>
+            <rect x="2" y="18" width="30" height="22" clip-path="url(#dec_htc)" fill="rgba(94,234,212,0.45)"/>
+            <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#dec_htc)" fill="rgba(94,234,212,0.7)"/>
+            <line x1="24" y1="9" x2="30" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+            <line x1="24" y1="14" x2="30" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+            <line x1="24" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+            <ellipse cx="14" cy="27" rx="6" ry="3.5" fill="rgba(255,255,255,0.85)"/>
+            <path d="M8 27 L5 23 L5 31 Z" fill="rgba(255,255,255,0.7)"/>
+            <circle cx="18.5" cy="25.8" r="1.3" fill="rgba(0,60,80,0.8)"/>
+            <rect x="2" y="2" width="30" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+          </svg>
+      </span>
       <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
     </a>
+    <nav>
+      <a href="/de/#calculator">Rechner</a>
+      <a href="/de/#how-it-works">Wie es funktioniert</a>
+      <a href="/de/#faq">FAQ</a>
+      <div class="lang-switcher">
+        <button class="lang-btn">🌐 DE ▾</button>
+        <div class="lang-options">
+          <a href="/">🇬🇧 English</a>
+          <a href="/es/">🇪🇸 Español</a>
+          <a href="/pt/">🇧🇷 Português</a>
+          <a href="/fr/">🇫🇷 Français</a>
+        </div>
+      </div>
+    </nav>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mn-header">
+    <span class="mn-title">Menü</span>
+  </div>
+  <nav class="mn-links">
+    <a href="/de/#calculator" onclick="toggleMobileMenu()">
+      <span class="mn-icon">🧮</span> Rechner
+    </a>
+    <a href="/de/#how-it-works" onclick="toggleMobileMenu()">
+      <span class="mn-icon">🔬</span> Wie es funktioniert
+    </a>
+    <a href="/de/#faq" onclick="toggleMobileMenu()">
+      <span class="mn-icon">❓</span> FAQ
+    </a>
+  </nav>
+  <div class="mn-footer">
+    <p class="mn-lang-label">Sprache</p>
+    <select class="mn-lang-select" onchange="mnLangNav(this)">
+      <option value="/" data-lang="en">🇬🇧 EN</option>
+      <option value="/es/" data-lang="es">🇪🇸 ES</option>
+      <option value="/pt/" data-lang="pt">🇧🇷 PT</option>
+      <option value="/fr/" data-lang="fr">🇫🇷 FR</option>
+      <option value="#" data-lang="de" selected>🇩🇪 DE</option>
+    </select>
+    <a href="https://donate.stripe.com/cNiaEW8mofOg9a30Gwco002" target="_blank" class="mn-kofi">Projekt unterstützen ☕</a>
+  </div>
+</div>
+<div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="toggleMobileMenu()"></div>
 
 <div class="content">
   <h1>Kontakt</h1>
@@ -61,37 +187,84 @@ footer a{color:rgba(255,255,255,.8)}
   <form id="contact-form" novalidate>
     <div class="form-group">
       <label for="cf-name">Name</label>
-      <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Name">
+      <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Ihr Name">
     </div>
     <div class="form-group">
       <label for="cf-email">E-Mail</label>
-      <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="you@example.com">
+      <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="sie@beispiel.com">
     </div>
     <div class="form-group">
       <label for="cf-msg">Nachricht</label>
       <textarea id="cf-msg" name="message" required placeholder="Ihre Nachricht..."></textarea>
     </div>
-    <button type="submit" class="submit-btn" id="cf-btn">Nachricht senden</button>
+    <button type="submit" class="submit-btn" id="cf-btn" data-label="Nachricht senden" data-sending="Wird gesendet…">Nachricht senden</button>
     <div class="form-msg ok" id="cf-ok">✅ Nachricht gesendet! Wir melden uns bald.</div>
-    <div class="form-msg err" id="cf-err">⚠️ Fehler beim Senden. Bitte versuchen Sie es erneut.</div>
+    <div class="form-msg err" id="cf-err">⚠️ Fehler beim Senden. Bitte erneut versuchen.</div>
   </form>
 
-  <a href="/de/" class="back-link">← Zurück zu den Artikeln</a>
+  <a href="/de/" class="back-link">← Zurück zur Startseite</a>
 </div>
 
 <footer>
-  <div><a href="/de/">Rechner</a> &nbsp;·&nbsp; <a href="/privacidad">Datenschutz</a></div>
-  <div style="margin-top:8px;font-size:.78rem;opacity:.6">Kostenlos für immer. Von Aquarianern, für Aquarianer.</div>
+  <div class="footer-inner">
+    <div>
+      <a href="/de/" class="logo" style="margin-bottom:4px">
+        <span class="logo-icon">
+          <svg width="30" height="38" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><clipPath id="dec_ftc"><rect x="2" y="2" width="30" height="38" rx="4"/></clipPath></defs>
+            <rect x="2" y="2" width="30" height="38" rx="4" fill="rgba(255,255,255,0.10)"/>
+            <rect x="2" y="18" width="30" height="22" clip-path="url(#dec_ftc)" fill="rgba(94,234,212,0.45)"/>
+            <path d="M2 18 Q9 14 16 18 Q23 22 32 18 L32 21 Q23 25 16 21 Q9 17 2 21 Z" clip-path="url(#dec_ftc)" fill="rgba(94,234,212,0.7)"/>
+            <line x1="24" y1="9" x2="30" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+            <line x1="24" y1="14" x2="30" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
+            <line x1="24" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/>
+            <ellipse cx="14" cy="27" rx="6" ry="3.5" fill="rgba(255,255,255,0.85)"/>
+            <path d="M8 27 L5 23 L5 31 Z" fill="rgba(255,255,255,0.7)"/>
+            <circle cx="18.5" cy="25.8" r="1.3" fill="rgba(0,60,80,0.8)"/>
+            <rect x="2" y="2" width="30" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="logo-wordmark"><span style="color:#7dd3fc">Aqua</span><span style="color:#fff">pacity</span></span>
+      </a>
+      <div class="footer-credit">Kostenlos für immer. Von Aquarianern, für Aquarianer.</div>
+    </div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="/de/#calculator">Rechner</a>
+      <a href="/de/#how-it-works">Wie es funktioniert</a>
+      <a href="/de/#faq">FAQ</a>
+      <span style="color:rgba(255,255,255,.7)"><a href="/de/kontakt">Kontakt</a> &nbsp;·&nbsp; <a href="/de/datenschutz">Datenschutz</a></span>
+    </div>
+  </div>
 </footer>
 
 <script>
+
+function toggleMobileMenu(){
+  const nav=document.getElementById('mobile-nav');
+  const backdrop=document.getElementById('mobile-nav-backdrop');
+  const btn=document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  backdrop.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function mnLangNav(sel){ var v=sel.value; if(v&&v!=='#') window.location.href=v; }
+document.querySelectorAll('.lang-switcher').forEach(function(sw){
+  sw.querySelector('.lang-btn').addEventListener('click',function(e){
+    e.stopPropagation(); sw.classList.toggle('open');
+  });
+});
+document.addEventListener('click',function(){
+  document.querySelectorAll('.lang-switcher.open').forEach(function(sw){ sw.classList.remove('open'); });
+});
+
+
 document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const btn = document.getElementById('cf-btn');
   const ok  = document.getElementById('cf-ok');
   const err = document.getElementById('cf-err');
   btn.disabled = true;
-  btn.textContent = 'Senden…';
+  btn.textContent = btn.getAttribute('data-sending');
   ok.style.display = 'none';
   err.style.display = 'none';
 
@@ -102,7 +275,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
       name:    document.getElementById('cf-name').value,
       email:   document.getElementById('cf-email').value,
       message: document.getElementById('cf-msg').value,
-      _subject: 'Kontakt, Aquapacity',
+      _subject: 'Contact, Aquapacity',
       _gotcha: ''
     })
   })
@@ -115,14 +288,15 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
       err.style.display = 'block';
     }
     btn.disabled = false;
-    btn.textContent = 'Nachricht senden';
+    btn.textContent = btn.getAttribute('data-label');
   })
   .catch(() => {
     err.style.display = 'block';
     btn.disabled = false;
-    btn.textContent = 'Nachricht senden';
+    btn.textContent = btn.getAttribute('data-label');
   });
 });
+
 </script>
 </body>
 </html>
