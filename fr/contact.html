@@ -186,25 +186,25 @@ footer{background:#0c4a6e;color:rgba(255,255,255,.7);padding:32px 24px;font-size
   <h1>Contactez-nous</h1>
   <p class="subtitle">Questions, retours ou suggestions d'articles ? Nous lisons chaque message.</p>
 
-  <form id="contact-form" novalidate>
-    <div class="form-group">
+    <form id="cf" novalidate>
+    <div class="form-group" id="fg-name">
       <label for="cf-name">Nom</label>
-      <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Votre nom">
-      <div class="field-error"></div>
+      <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Votre nom">
+      <div class="field-error" id="fe-name"></div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="fg-email">
       <label for="cf-email">E-mail</label>
-      <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="vous@exemple.com">
-      <div class="field-error"></div>
+      <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="vous@exemple.com">
+      <div class="field-error" id="fe-email"></div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="fg-msg">
       <label for="cf-msg">Message</label>
-      <textarea id="cf-msg" name="message" required placeholder="Votre message..."></textarea>
-      <div class="field-error"></div>
+      <textarea id="cf-msg" name="message" placeholder="Votre message..."></textarea>
+      <div class="field-error" id="fe-msg"></div>
     </div>
     <button type="submit" class="submit-btn" id="cf-btn" data-label="Envoyer le message" data-sending="Envoi en cours…">Envoyer le message</button>
     <div class="form-msg ok" id="cf-ok">✅ Message envoyé ! Nous vous répondrons bientôt.</div>
-    <div class="form-msg err" id="cf-err">⚠️ Erreur lors de l'envoi. Veuillez réessayer.</div>
+    <div class="form-msg err" id="cf-err"></div>
   </form>
 
   <a href="/fr/" class="back-link">← Retour au calculateur</a>
@@ -263,72 +263,65 @@ document.addEventListener('click',function(){
 });
 
 
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+document.getElementById('cf').addEventListener('submit', function(e) {
   e.preventDefault();
-  var valid = true;
+  var ok  = true;
 
-  function setErr(id, msg) {
-    var g = document.getElementById(id).closest('.form-group');
-    var el = g.querySelector('.field-error');
-    if (msg) {
-      el.textContent = msg;
-      el.style.display = 'block';
-      g.classList.add('has-error');
-      valid = false;
-    } else {
-      el.style.display = 'none';
-      g.classList.remove('has-error');
-    }
+  function showErr(inputId, errId, fgId, msg) {
+    var fe = document.getElementById(errId);
+    var fg = document.getElementById(fgId);
+    var inp = document.getElementById(inputId);
+    fe.textContent = msg || '';
+    fe.style.display = msg ? 'block' : 'none';
+    if (msg) { fg.classList.add('has-error'); inp.focus(); ok = false; }
+    else { fg.classList.remove('has-error'); }
   }
 
-  var name  = document.getElementById('cf-name').value.trim();
-  var email = document.getElementById('cf-email').value.trim();
-  var msg   = document.getElementById('cf-msg').value.trim();
-  var emailRe = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+  var nameVal  = (document.getElementById('cf-name').value  || '').trim();
+  var emailVal = (document.getElementById('cf-email').value || '').trim();
+  var msgVal   = (document.getElementById('cf-msg').value   || '').trim();
+  var emailRe  = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  setErr('cf-name',  !name  ? 'Veuillez entrer votre nom.' : null);
-  setErr('cf-email', !email ? 'Veuillez entrer votre adresse e-mail.' : (!emailRe.test(email) ? 'L'adresse e-mail n'est pas valide (ex : vous@exemple.com).' : null));
-  setErr('cf-msg',   !msg   ? 'Veuillez écrire un message.' : null);
+  /* validate all fields — don't stop on first error so all red at once */
+  showErr('cf-name',  'fe-name',  'fg-name',  !nameVal  ? 'Veuillez entrer votre nom.' : null);
+  showErr('cf-email', 'fe-email', 'fg-email', !emailVal ? 'Veuillez entrer votre adresse e-mail.' : (!emailRe.test(emailVal) ? 'Adresse e-mail invalide (ex : vous@exemple.com).' : null));
+  showErr('cf-msg',   'fe-msg',   'fg-msg',   !msgVal   ? 'Veuillez écrire un message.' : null);
 
-  if (!valid) return;
+  if (!ok) return;
 
   var btn = document.getElementById('cf-btn');
-  var ok  = document.getElementById('cf-ok');
-  var err = document.getElementById('cf-err');
+  var okDiv = document.getElementById('cf-ok');
+  var errDiv = document.getElementById('cf-err');
   btn.disabled = true;
-  btn.textContent = 'Envoi en cours…';
-  ok.style.display = 'none';
-  err.style.display = 'none';
+  btn.textContent = btn.getAttribute('data-sending');
+  okDiv.style.display = 'none';
+  errDiv.style.display = 'none';
 
   fetch('https://formspree.io/f/mykogzpp', {
     method: 'POST',
     headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-    body: JSON.stringify({
-      name:    name,
-      email:   email,
-      message: msg,
-      _subject: 'Contact, Aquapacity',
-      _gotcha: ''
-    })
+    body: JSON.stringify({ name: nameVal, email: emailVal, message: msgVal,
+      _subject: 'Contact, Aquapacity', _gotcha: '' })
   })
-  .then(function(r){ return r.json(); })
+  .then(function(r) { return r.json(); })
   .then(function(data) {
     if (data.ok) {
-      ok.style.display = 'block';
-      document.getElementById('contact-form').reset();
+      okDiv.style.display = 'block';
+      document.getElementById('cf').reset();
     } else {
-      err.textContent = '⚠️ Erreur lors de l'envoi. Veuillez réessayer.';
-      err.style.display = 'block';
+      errDiv.textContent = '⚠️ Erreur lors de l'envoi. Veuillez réessayer.';
+      errDiv.style.display = 'block';
     }
     btn.disabled = false;
     btn.textContent = btn.getAttribute('data-label');
   })
   .catch(function() {
-    err.textContent = '⚠️ Erreur lors de l'envoi. Veuillez réessayer.';
-    err.style.display = 'block';
+    errDiv.textContent = '⚠️ Erreur lors de l'envoi. Veuillez réessayer.';
+    errDiv.style.display = 'block';
     btn.disabled = false;
     btn.textContent = btn.getAttribute('data-label');
   });
+});
 });
 });
 
