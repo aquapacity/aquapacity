@@ -393,6 +393,27 @@
   </url>
 
 
+  <!-- Nitrogen cycle articles (EN + ES) -->
+  <url>
+    <loc>https://aquapacity.com/articles/how-to-cycle-aquarium</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/how-to-cycle-aquarium"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/ciclar-acuario-guia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/how-to-cycle-aquarium"/>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/ciclar-acuario-guia</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/ciclar-acuario-guia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/how-to-cycle-aquarium"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/how-to-cycle-aquarium"/>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Contact pages (noindex but in sitemap for crawlers) -->
   <url>
     <loc>https://aquapacity.com/contact</loc>
