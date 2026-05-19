@@ -28,6 +28,9 @@
 /pt/articles/guia-completa-filtragem-aquarios.html      /pt/articles/guia-completa-filtragem-aquarios           301
 /pt/articles/regra-do-centimetro-por-litro.html         /pt/articles/regra-do-centimetro-por-litro              301
 /pt/articles/trocas-de-agua-guia.html                   /pt/articles/trocas-de-agua-guia                        301
+# Slug erróneo (español) bajo carpeta PT — corregir entrada de GSC
+/pt/articles/regla-del-centimetro-por-litro.html        /pt/articles/regra-do-centimetro-por-litro              301
+/pt/articles/regla-del-centimetro-por-litro             /pt/articles/regra-do-centimetro-por-litro              301
 
 # ES new articles
 /es/articles/corydoras-guia-especies.html              /es/articles/corydoras-guia-especies                    301
