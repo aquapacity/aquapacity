@@ -124,6 +124,14 @@ nav a.active{color:#fff;font-weight:700}
 .empty-filter.visible{display:block}
 .empty-filter p{font-size:.95rem;margin-top:8px}
 
+/* ─── PAGINATION ───────────────────────────────────────────── */
+.pagination{display:flex;justify-content:center;align-items:center;gap:8px;padding:32px 24px 8px;flex-wrap:wrap}
+.pg-btn{border:1.5px solid var(--border);background:#fff;color:var(--muted);padding:8px 16px;border-radius:8px;font-size:.875rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;min-width:40px}
+.pg-btn:hover:not(:disabled){border-color:var(--p2);color:var(--p);background:#f0f9ff}
+.pg-btn.active{background:var(--p);border-color:var(--p);color:#fff;cursor:default}
+.pg-btn:disabled{opacity:.35;cursor:default}
+.pg-info{font-size:.82rem;color:var(--muted);text-align:center;padding-bottom:16px;text-align:center}
+
 /* ─── NEWSLETTER / CTA BANNER ──────────────────────────────── */
 .cta-banner{background:linear-gradient(135deg,#0a3d5c,#0369a1);color:#fff;padding:48px 24px;margin-top:24px}
 .cta-banner-inner{max-width:700px;margin:0 auto;text-align:center}
@@ -312,6 +320,7 @@ gtag('config', 'G-03QX35NF7F', {
       <button class="chip" data-cat="plants" onclick="filterArticles(this)">Planted Tanks</button>
       <button class="chip" data-cat="species" onclick="filterArticles(this)">Species Guides</button>
       <button class="chip" data-cat="care" onclick="filterArticles(this)">Fish Care</button>
+      <button class="chip" data-cat="water" onclick="filterArticles(this)">Water Quality</button>
       <button class="chip" data-cat="beginner" onclick="filterArticles(this)">Beginner's Guide</button>
     </div>
   </div>
@@ -484,6 +493,34 @@ gtag('config', 'G-03QX35NF7F', {
     </a>
 
     <!-- PUBLISHED -->
+    <a class="article-card" href="/articles/best-fish-for-beginners" data-cat="beginner">
+      <div class="ac-img cat-beginner">🐠</div>
+      <div class="ac-body">
+        <div class="ac-tag">Beginner's Guide</div>
+        <h2>Best Fish for Beginners: 10 Easy Species to Start With</h2>
+        <p class="ac-excerpt">Not all fish forgive beginner mistakes. These 10 species are genuinely hardy, widely available, and work in a newly cycled tank — with a quick-reference comparison table for each.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">10 min read</span></div>
+          <span class="ac-cta">Read article →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- PUBLISHED -->
+    <a class="article-card" href="/articles/aquarium-plants-beginners" data-cat="plants">
+      <div class="ac-img cat-plants">🌿</div>
+      <div class="ac-body">
+        <div class="ac-tag">Planted Tanks</div>
+        <h2>Aquarium Plants for Beginners: 10 Easy Species That Actually Survive</h2>
+        <p class="ac-excerpt">Most beginner plants die because you chose the wrong ones. These 10 species need no CO2, low to moderate light, and tolerate the imperfect conditions of a new tank.</p>
+        <div class="ac-footer">
+          <div class="ac-meta"><span class="ac-read">9 min read</span></div>
+          <span class="ac-cta">Read article →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- PUBLISHED -->
     <a class="article-card" href="/articles/beginners-guide-fish-tank" data-cat="beginner">
       <div class="ac-img cat-beginner">🐠</div>
       <div class="ac-body">
@@ -532,7 +569,12 @@ gtag('config', 'G-03QX35NF7F', {
     <div style="font-size:2.5rem;margin-bottom:12px">📭</div>
     <p>No published articles in this category yet. Check back soon!</p>
   </div>
+
 </main>
+
+<!-- PAGINATION -->
+<div id="pagination" class="pagination"></div>
+<div id="pg-info" class="pg-info"></div>
 
 <!-- CTA BANNER -->
 <div class="cta-banner">
@@ -572,27 +614,87 @@ function toggleMobileMenu(){
   document.body.style.overflow=isOpen?'hidden':'';
 }
 
-/* ─── CATEGORY FILTER ───────────────────────────────────────── */
-function filterArticles(btn){
-  // Update active chip
-  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
-  btn.classList.add('active');
-  const cat = btn.dataset.cat;
+/* ─── PAGINATION + FILTER ───────────────────────────────────── */
+function getCardsPerPage(){ return window.innerWidth < 768 ? 10 : 15; }
+var CARDS_PER_PAGE = getCardsPerPage();
+var currentPage = 1;
+var currentCat = 'all';
 
-  const cards = document.querySelectorAll('#articles-grid .article-card');
-  let visible = 0;
-  cards.forEach(card=>{
-    const cardCat = card.dataset.cat || 'all';
-    const show = cat === 'all' || cardCat === cat;
-    card.style.display = show ? '' : 'none';
-    if(show) visible++;
+// Recalculate on resize (tablet rotation, etc.)
+window.addEventListener('resize', function(){
+  var newCpp = getCardsPerPage();
+  if(newCpp !== CARDS_PER_PAGE){
+    CARDS_PER_PAGE = newCpp;
+    currentPage = 1;
+    renderPage();
+  }
+});
+
+function filterArticles(btn){
+  document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active');});
+  btn.classList.add('active');
+  currentCat = btn.dataset.cat;
+  currentPage = 1;
+  renderPage();
+}
+
+function renderPage(){
+  var allCards = Array.from(document.querySelectorAll('#articles-grid .article-card'));
+  var filtered = allCards.filter(function(card){
+    return currentCat === 'all' || card.dataset.cat === currentCat;
   });
 
+  // Hide all first
+  allCards.forEach(function(card){ card.style.display = 'none'; });
 
-  // Show/hide empty state
-  const emptyEl = document.getElementById('empty-filter');
-  if(emptyEl) emptyEl.classList.toggle('visible', visible===0);
+  // Show only current page slice
+  var start = (currentPage - 1) * CARDS_PER_PAGE;
+  var end = start + CARDS_PER_PAGE;
+  filtered.slice(start, end).forEach(function(card){ card.style.display = ''; });
+
+  // Empty state
+  var emptyEl = document.getElementById('empty-filter');
+  if(emptyEl) emptyEl.classList.toggle('visible', filtered.length === 0);
+
+  // Pagination controls
+  renderPagination(filtered.length);
 }
+
+function renderPagination(total){
+  var totalPages = Math.ceil(total / CARDS_PER_PAGE);
+  var pgDiv = document.getElementById('pagination');
+  var pgInfo = document.getElementById('pg-info');
+  if(!pgDiv) return;
+
+  if(totalPages <= 1){
+    pgDiv.innerHTML = '';
+    if(pgInfo) pgInfo.textContent = '';
+    return;
+  }
+
+  var html = '';
+  // Prev
+  html += '<button class="pg-btn"' + (currentPage === 1 ? ' disabled' : '') + ' onclick="goPage(' + (currentPage - 1) + ')">‹ Prev</button>';
+  // Page numbers
+  for(var i = 1; i <= totalPages; i++){
+    html += '<button class="pg-btn' + (i === currentPage ? ' active' : '') + '" onclick="goPage(' + i + ')">' + i + '</button>';
+  }
+  // Next
+  html += '<button class="pg-btn"' + (currentPage === totalPages ? ' disabled' : '') + ' onclick="goPage(' + (currentPage + 1) + ')">Next ›</button>';
+
+  pgDiv.innerHTML = html;
+  if(pgInfo) pgInfo.textContent = 'Page ' + currentPage + ' of ' + totalPages;
+}
+
+function goPage(page){
+  currentPage = page;
+  renderPage();
+  var grid = document.getElementById('articles-grid');
+  if(grid) grid.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+// Init on load
+renderPage();
 </script>
 
 <!-- Cookie consent banner -->
