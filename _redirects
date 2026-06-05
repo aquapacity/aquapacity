@@ -103,6 +103,11 @@
 # DE privacy page
 /de/datenschutz.html                                   /de/datenschutz                                         301
 
+# Batch 12: summer temperature articles (EN/ES/PT)
+/articles/lower-aquarium-temperature-summer.html       /articles/lower-aquarium-temperature-summer             301
+/es/articles/bajar-temperatura-acuario-verano.html     /es/articles/bajar-temperatura-acuario-verano           301
+/pt/articles/baixar-temperatura-aquario-verao.html     /pt/articles/baixar-temperatura-aquario-verao           301
+
 # Batch 11: calculator comparison articles (EN/ES/PT)
 /articles/best-aquarium-stocking-calculator.html       /articles/best-aquarium-stocking-calculator              301
 /es/articles/mejor-calculadora-biocarga-acuario.html   /es/articles/mejor-calculadora-biocarga-acuario          301
