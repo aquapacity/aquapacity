@@ -95,3 +95,15 @@
 # Batch 9 articles (EN)
 /articles/best-fish-for-beginners.html                 /articles/best-fish-for-beginners                       301
 /articles/aquarium-plants-beginners.html               /articles/aquarium-plants-beginners                     301
+
+# ES + PT new articles (Batch 10)
+/es/articles/mejores-peces-principiantes.html          /es/articles/mejores-peces-principiantes                301
+/pt/articles/parametros-agua-aquario.html              /pt/articles/parametros-agua-aquario                    301
+
+# DE privacy page
+/de/datenschutz.html                                   /de/datenschutz                                         301
+
+# Batch 11: calculator comparison articles (EN/ES/PT)
+/articles/best-aquarium-stocking-calculator.html       /articles/best-aquarium-stocking-calculator              301
+/es/articles/mejor-calculadora-biocarga-acuario.html   /es/articles/mejor-calculadora-biocarga-acuario          301
+/pt/articles/melhor-calculadora-biocarga-aquario.html  /pt/articles/melhor-calculadora-biocarga-aquario         301

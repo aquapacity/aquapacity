@@ -461,6 +461,61 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Batch 10: ES + PT new articles -->
+  <url>
+    <loc>https://aquapacity.com/es/articles/mejores-peces-principiantes</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/mejores-peces-principiantes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/best-fish-for-beginners"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/best-fish-for-beginners"/>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/parametros-agua-aquario</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/parametros-agua-aquario"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/aquarium-water-parameters"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/aquarium-water-parameters"/>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Batch 11: calculator comparison (EN/ES/PT) -->
+  <url>
+    <loc>https://aquapacity.com/articles/best-aquarium-stocking-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/best-aquarium-stocking-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/mejor-calculadora-biocarga-acuario"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/melhor-calculadora-biocarga-aquario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/best-aquarium-stocking-calculator"/>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/mejor-calculadora-biocarga-acuario</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/mejor-calculadora-biocarga-acuario"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/best-aquarium-stocking-calculator"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/melhor-calculadora-biocarga-aquario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/best-aquarium-stocking-calculator"/>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/melhor-calculadora-biocarga-aquario</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/melhor-calculadora-biocarga-aquario"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/best-aquarium-stocking-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/mejor-calculadora-biocarga-acuario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/best-aquarium-stocking-calculator"/>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Contact pages (noindex but in sitemap for crawlers) -->
   <url>
     <loc>https://aquapacity.com/contact</loc>
