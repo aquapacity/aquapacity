@@ -2469,13 +2469,23 @@ function recalc(){
   const wc_freq = getWCFreqDays();
 
   const INVERT_CATS=new Set(['snail','neocaridina','shrimp']);
+  const BOTTOM_CATS=new Set(['fondo','comedor-algas']);
   let total_fp=0, total_bl=0;
   const fishList=[];
+
+  const rawFish=[];
   state.fish.forEach((qty,id)=>{
     const f=DB.find(x=>x.id===id);
     if(!f||qty===0) return;
+    rawFish.push({f,qty});
+  });
+  const hasBottom=rawFish.some(({f})=>BOTTOM_CATS.has(f.cat));
+  const hasNonBottom=rawFish.some(({f})=>!BOTTOM_CATS.has(f.cat)&&!INVERT_CATS.has(f.cat));
+  const layerMix=hasBottom&&hasNonBottom;
+  rawFish.forEach(({f,qty})=>{
     const territorial=!f.school && f.pFp===0 && !INVERT_CATS.has(f.cat);
-    const fp=territorial ? f.bFp*qty : f.bFp+f.pFp*qty;
+    const layerFactor=(layerMix&&BOTTOM_CATS.has(f.cat))?0.65:1.0;
+    const fp=territorial ? f.bFp*qty*layerFactor : (f.bFp+f.pFp*qty)*layerFactor;
     const bl=f.bl*qty;
     total_fp+=fp; total_bl+=bl;
     fishList.push({f,qty,fp,bl,territorial});
@@ -2644,9 +2654,9 @@ function renderResults(r){
     const isSW_t = state.waterType === 'salt';
     const isReef = isSW_t && state.swTankType !== 'fowlr';
     // SW: aim for ≥10× sump flow; FW: ≥8×
-    const tovMin  = isSW_t ? 5 : 4;
-    const tovMed  = isSW_t ? 8 : 6;
-    const tovGood = isSW_t ? 10 : 8;
+    const tovMin  = isSW_t ? 5 : 3;
+    const tovMed  = isSW_t ? 8 : 5;
+    const tovGood = isSW_t ? 10 : 7;
     if(r.net_L>0 && r.flow_LPH>0){
       const tcc = colorClass(r.turnover, tovMin, tovMed, tovGood, true);
       setMeter('tov-bar','tov-val','tov-sub', Math.min(r.turnover, 15), 15,
@@ -2661,9 +2671,9 @@ function renderResults(r){
                                :`✅ Buen recambio en sump`;
       } else {
         document.getElementById('tov-sub').textContent=
-          r.turnover<4  ?`🚨 Muy bajo. mejora el filtro urgentemente`:
-          r.turnover<6  ?`⚠️ Por debajo de lo recomendado. apunta a ≥8× del caudal nominal`:
-          r.turnover<8  ?`🟡 Mejorando. 8× es el mínimo recomendado`:
+          r.turnover<3  ?`🚨 Muy bajo. mejora el filtro urgentemente`:
+          r.turnover<5  ?`⚠️ Bajo. apunta a ≥7× para acuarios bien poblados`:
+          r.turnover<7  ?`🟡 Aceptable. ≥7× es lo ideal para acuarios comunitarios`:
                          `✅ Buen recambio`;
       }
     } else {
