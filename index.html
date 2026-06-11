@@ -1751,7 +1751,7 @@ const POP_LIST=[
   {s:'poecilia reticulata',  n:'guppy',           pop:1},
   {s:'betta splendens',      n:'betta',            pop:2},
   {s:'paracheirodon innesi', n:'neon tetra',       pop:3},
-  {s:'carassius auratus',    n:'common goldfish',  pop:4,exact:true},
+  {s:'',                     n:'common goldfish',  pop:4,nameonly:true},
   {s:'xiphophorus maculatus',n:'platy',            pop:5},
   {s:'poecilia sphenops',    n:'molly',            pop:6},
   {s:'pterophyllum',         n:'angelfish',        pop:7},
@@ -1774,7 +1774,7 @@ function injectPop(){
     const sl=(f.sci||'').toLowerCase();
     let found=null;
     for(const e of POP_LIST){
-      const sm=e.exact?(sl===e.s):sl.includes(e.s);
+      const sm=e.nameonly?false:(e.exact?(sl===e.s):sl.includes(e.s));
       if(sm||nl===e.n||nl.includes(e.n+'s')){found=e.pop;break;}
     }
     if(found!=null)f.pop=found;else delete f.pop;
