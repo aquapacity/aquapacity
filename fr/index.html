@@ -2748,9 +2748,9 @@ function _findExisting(query, lang){
   DB.forEach(f=>{
     const fname = _normStr(f.name);
     const fsci  = _normStr(f.sci||'');
-    // include this language's localized name + all others for cross-language matching
-    const allLocs = f.names ? Object.values(f.names).filter(Boolean).map(n=>_normStr(n)).join(' ') : '';
-    const combined = fname + ' ' + fsci + (allLocs ? ' ' + allLocs : '');
+    // only this language's localized name to avoid false positives from other languages
+    const floc  = _normStr((f.names && f.names['fr'])||'');
+    const combined = fname + ' ' + fsci + (floc ? ' ' + floc : '');
     let score = 0;
     if(combined.includes(q) || q.includes(fname)) { score = 100; }
     else {
