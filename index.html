@@ -181,9 +181,23 @@ nav a:hover{color:#fff;text-decoration:none}
 .wc-custom span{font-size:.82rem;color:var(--muted)}
 
 /* ─── FISH SECTION ────────────────────────────────────────── */
-.fish-search-row{display:flex;gap:8px;margin-bottom:10px}
-.fish-search-row input{flex:1;border:1.5px solid var(--border);border-radius:var(--r6);padding:8px 12px;font-size:.875rem}
-.fish-search-row input:focus{outline:none;border-color:var(--p2)}
+.fish-search-wrap{margin-bottom:14px}
+.fish-search-label{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--p);margin-bottom:6px}
+.fish-search-row{display:flex;gap:8px}
+.fish-search-row input{flex:1;border:2px solid var(--p2);border-radius:var(--r6);padding:11px 14px;font-size:1rem;font-weight:600;background:#f0f9ff;box-shadow:0 0 0 3px rgba(14,165,233,.10)}
+.fish-search-row input:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 4px rgba(3,105,161,.15)}
+.fish-search-row input::placeholder{font-weight:400;color:#94a3b8}
+.fish-search-hint{font-size:.75rem;color:var(--muted);margin-top:5px}
+/* match suggestion chip */
+.missing-match-box{margin-top:8px;padding:10px 12px;background:#f0fdf4;border:1.5px solid #86efac;border-radius:var(--r6);font-size:.82rem;display:none}
+.missing-match-box.show{display:block}
+.missing-match-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.missing-match-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;background:#fff;border:1.5px solid #22c55e;border-radius:100px;font-size:.8rem;font-weight:700;color:#15803d;cursor:pointer;transition:all .15s}
+.missing-match-chip:hover{background:#dcfce7;text-decoration:none}
+.sort-bar{display:flex;align-items:center;gap:6px;margin-bottom:10px;margin-top:2px}
+.sort-label{font-size:.75rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.sort-btn{padding:4px 13px;border-radius:20px;border:1.5px solid var(--border);background:#f8fafc;color:var(--muted);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .15s}
+.sort-btn.active{background:var(--p);border-color:var(--p);color:#fff}
 .cat-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
 #cat-select{display:none}
 .cat-tab{border:none;background:#f1f5f9;padding:5px 10px;border-radius:100px;font-size:.78rem;font-weight:600;color:var(--muted);transition:all .2s}
@@ -1216,8 +1230,17 @@ gtag('config', 'G-03QX35NF7F', {
         <span class="panel-toggle">▾</span>
       </div>
       <div class="panel-body">
-        <div class="fish-search-row">
-          <input type="search" id="fish-search" placeholder="🔍  Search species..." oninput="onFishSearch()">
+        <div class="fish-search-wrap">
+          <div class="fish-search-label">🔍 Find a species</div>
+          <div class="fish-search-row">
+            <input type="search" id="fish-search" placeholder="e.g. neon tetra, guppy, angelfish..." oninput="onFishSearch()" autocomplete="off">
+          </div>
+          <div class="fish-search-hint">Type any common or scientific name to find it instantly</div>
+        </div>
+        <div class="sort-bar">
+          <span class="sort-label">Sort:</span>
+          <button class="sort-btn active" id="sort-pop" onclick="setSort('pop')">🔥 Popular</button>
+          <button class="sort-btn" id="sort-alpha" onclick="setSort('alpha')">A–Z</button>
         </div>
         <select id="cat-select" onchange="setCatByValue(this.value)">
           <option value="all">All categories</option>
@@ -1237,8 +1260,12 @@ gtag('config', 'G-03QX35NF7F', {
             <label style="font-size:.8rem;font-weight:600;color:var(--muted)">🐟 Missing a species?</label>
             </div>
           <div style="display:flex;gap:8px;align-items:flex-start">
-            <input type="text" id="missing-species-input" placeholder="Common or scientific name" maxlength="250" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r6);font-size:.82rem;color:var(--text);background:#fff;outline:none" onfocus="this.style.borderColor='var(--p2)'" onblur="this.style.borderColor='var(--border)'">
+            <input type="text" id="missing-species-input" placeholder="Common or scientific name" maxlength="250" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r6);font-size:.82rem;color:var(--text);background:#fff;outline:none" onfocus="this.style.borderColor='var(--p2)'" onblur="this.style.borderColor='var(--border)'" oninput="onMissingSpeciesInput(this.value,'en')">
             <button id="suggest-btn" onclick="submitMissingSpecies()" style="padding:8px 14px;background:var(--p);color:#fff;border:none;border-radius:var(--r6);font-size:.82rem;font-weight:600;white-space:nowrap">Suggest</button>
+          </div>
+          <div class="missing-match-box" id="missing-match-box">
+            <span id="missing-match-title" style="font-weight:700;color:#15803d">Looking for one of these?</span>
+            <div class="missing-match-chips" id="missing-match-chips"></div>
           </div>
           <input type="text" id="missing-species-hp" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <div id="missing-species-thanks" style="display:none;margin-top:6px;font-size:.78rem;color:var(--g)">✅ Thanks! We'll review your suggestion.</div>
@@ -1621,40 +1648,40 @@ let fishMobileOffset = 20; // how many fish cards shown on mobile before "load m
 let fishObserver = null;  // IntersectionObserver for "load more" trigger
 const DB = [
   // ── TROPICALES (Tetras, Rasboras, Danios, Barbs) ──
-  {id:1, name:"Neon Tetra",          sci:"Paracheirodon innesi",         em:"🐠",cat:"tropicales",     minGal:10,tMin:20,tMax:26,phMin:6.0,phMax:7.5,cm:4,  temp:"peaceful",school:true, minG:6,bFp:53.28,pFp:10.08,bl:1.130},
-  {id:2, name:"Cardinal Tetra",      sci:"Paracheirodon axelrodi",       em:"🐠",cat:"tropicales",     minGal:15,tMin:22,tMax:28,phMin:5.0,phMax:7.0,cm:5,  temp:"peaceful",school:true, minG:6,bFp:58.0, pFp:11.5, bl:1.25},
+  {id:1, name:"Neon Tetra",          sci:"Paracheirodon innesi",         em:"🐠",cat:"tropicales",     minGal:10,tMin:20,tMax:26,phMin:6.0,phMax:7.5,cm:4,  temp:"peaceful",school:true, minG:6,bFp:53.28,pFp:10.08,bl:1.130,pop:3},
+  {id:2, name:"Cardinal Tetra",      sci:"Paracheirodon axelrodi",       em:"🐠",cat:"tropicales",     minGal:15,tMin:22,tMax:28,phMin:5.0,phMax:7.0,cm:5,  temp:"peaceful",school:true, minG:6,bFp:58.0, pFp:11.5, bl:1.25,pop:13},
   {id:3, name:"Ember Tetra",         sci:"Hyphessobrycon amandae",       em:"🐠",cat:"tropicales",     minGal:5, tMin:23,tMax:29,phMin:5.5,phMax:7.0,cm:2,  temp:"peaceful",school:true, minG:8,bFp:35.0, pFp:6.0,  bl:0.65},
-  {id:4, name:"Rummy Nose Tetra",    sci:"Hemigrammus rhodostomus",      em:"🐠",cat:"tropicales",     minGal:15,tMin:22,tMax:28,phMin:5.5,phMax:7.0,cm:5,  temp:"peaceful",school:true, minG:6,bFp:60.0, pFp:10.0, bl:1.45},
+  {id:4, name:"Rummy Nose Tetra",    sci:"Hemigrammus rhodostomus",      em:"🐠",cat:"tropicales",     minGal:15,tMin:22,tMax:28,phMin:5.5,phMax:7.0,cm:5,  temp:"peaceful",school:true, minG:6,bFp:60.0, pFp:10.0, bl:1.45,pop:17},
   {id:5, name:"Black Skirt Tetra",   sci:"Gymnocorymbus ternetzi",       em:"🐠",cat:"tropicales",     minGal:15,tMin:20,tMax:26,phMin:6.0,phMax:8.0,cm:7,  temp:"peaceful",school:true, minG:5,bFp:75.0, pFp:13.0, bl:1.90},
   {id:6, name:"Serpae Tetra",        sci:"Hyphessobrycon eques",         em:"🐠",cat:"tropicales",     minGal:15,tMin:22,tMax:27,phMin:5.0,phMax:7.8,cm:5,  temp:"semi",    school:true, minG:6,bFp:65.0, pFp:11.0, bl:1.60},
-  {id:20,name:"Harlequin Rasbora",   sci:"Trigonostigma heteromorpha",   em:"🐠",cat:"tropicales",     minGal:10,tMin:22,tMax:28,phMin:6.0,phMax:7.5,cm:5,  temp:"peaceful",school:true, minG:6,bFp:62.0, pFp:9.5,  bl:1.40},
+  {id:20,name:"Harlequin Rasbora",   sci:"Trigonostigma heteromorpha",   em:"🐠",cat:"tropicales",     minGal:10,tMin:22,tMax:28,phMin:6.0,phMax:7.5,cm:5,  temp:"peaceful",school:true, minG:6,bFp:62.0, pFp:9.5,  bl:1.40,pop:15},
   {id:21,name:"Chili Rasbora",       sci:"Boraras brigittae",            em:"🐠",cat:"tropicales",     minGal:5, tMin:22,tMax:28,phMin:4.0,phMax:7.0,cm:2,  temp:"peaceful",school:true, minG:8,bFp:32.0, pFp:5.0,  bl:0.55},
   {id:22,name:"Celestial Pearl Danio",sci:"Danio margaritatus",          em:"🐠",cat:"tropicales",     minGal:5, tMin:20,tMax:26,phMin:6.5,phMax:7.5,cm:2.5,temp:"peaceful",school:true, minG:8,bFp:38.0, pFp:6.5,  bl:0.70},
-  {id:23,name:"Zebra Danio",         sci:"Danio rerio",                  em:"🐠",cat:"tropicales",     minGal:10,tMin:18,tMax:28,phMin:6.0,phMax:8.0,cm:5,  temp:"peaceful",school:true, minG:5,bFp:68.0, pFp:10.0, bl:1.55},
-  {id:24,name:"Cherry Barb",         sci:"Puntius titteya",              em:"🐠",cat:"tropicales",     minGal:10,tMin:23,tMax:27,phMin:6.0,phMax:8.0,cm:5,  temp:"peaceful",school:true, minG:6,bFp:65.0, pFp:10.0, bl:1.60},
-  {id:25,name:"Tiger Barb",          sci:"Puntigrus tetrazona",          em:"🐠",cat:"tropicales",     minGal:20,tMin:20,tMax:26,phMin:6.0,phMax:8.0,cm:7,  temp:"semi",    school:true, minG:6,bFp:82.0, pFp:14.0, bl:2.10},
+  {id:23,name:"Zebra Danio",         sci:"Danio rerio",                  em:"🐠",cat:"tropicales",     minGal:10,tMin:18,tMax:28,phMin:6.0,phMax:8.0,cm:5,  temp:"peaceful",school:true, minG:5,bFp:68.0, pFp:10.0, bl:1.55,pop:9},
+  {id:24,name:"Cherry Barb",         sci:"Puntius titteya",              em:"🐠",cat:"tropicales",     minGal:10,tMin:23,tMax:27,phMin:6.0,phMax:8.0,cm:5,  temp:"peaceful",school:true, minG:6,bFp:65.0, pFp:10.0, bl:1.60,pop:12},
+  {id:25,name:"Tiger Barb",          sci:"Puntigrus tetrazona",          em:"🐠",cat:"tropicales",     minGal:20,tMin:20,tMax:26,phMin:6.0,phMax:8.0,cm:7,  temp:"semi",    school:true, minG:6,bFp:82.0, pFp:14.0, bl:2.10,pop:11},
   // ── VIVÍPAROS ──
-  {id:10,name:"Guppy",               sci:"Poecilia reticulata",          em:"🐠",cat:"viviparos",      minGal:10,tMin:18,tMax:28,phMin:5.5,phMax:8.5,cm:6,  temp:"peaceful",school:true, minG:3,bFp:78.84,pFp:1.80, bl:1.90},
-  {id:11,name:"Platy",               sci:"Xiphophorus maculatus",        em:"🐠",cat:"viviparos",      minGal:10,tMin:18,tMax:28,phMin:7.0,phMax:8.3,cm:6,  temp:"peaceful",school:true, minG:3,bFp:80.0, pFp:12.0, bl:2.20},
-  {id:12,name:"Molly",               sci:"Poecilia sphenops",            em:"🐠",cat:"viviparos",      minGal:20,tMin:20,tMax:28,phMin:7.0,phMax:8.5,cm:8,  temp:"peaceful",school:true, minG:3,bFp:95.0, pFp:16.0, bl:2.80},
-  {id:13,name:"Swordtail",           sci:"Xiphophorus hellerii",         em:"🐠",cat:"viviparos",      minGal:15,tMin:20,tMax:28,phMin:7.0,phMax:8.3,cm:12, temp:"peaceful",school:true, minG:1,bFp:130.0,pFp:22.0, bl:3.20},
-  {id:14,name:"Endler's Livebearer", sci:"Poecilia wingei",              em:"🐠",cat:"viviparos",      minGal:5, tMin:22,tMax:30,phMin:6.5,phMax:8.5,cm:3.5,temp:"peaceful",school:true, minG:3,bFp:45.0, pFp:4.5,  bl:0.85},
+  {id:10,name:"Guppy",               sci:"Poecilia reticulata",          em:"🐠",cat:"viviparos",      minGal:10,tMin:18,tMax:28,phMin:5.5,phMax:8.5,cm:6,  temp:"peaceful",school:true, minG:3,bFp:78.84,pFp:1.80, bl:1.90,pop:1},
+  {id:11,name:"Platy",               sci:"Xiphophorus maculatus",        em:"🐠",cat:"viviparos",      minGal:10,tMin:18,tMax:28,phMin:7.0,phMax:8.3,cm:6,  temp:"peaceful",school:true, minG:3,bFp:80.0, pFp:12.0, bl:2.20,pop:5},
+  {id:12,name:"Molly",               sci:"Poecilia sphenops",            em:"🐠",cat:"viviparos",      minGal:20,tMin:20,tMax:28,phMin:7.0,phMax:8.5,cm:8,  temp:"peaceful",school:true, minG:3,bFp:95.0, pFp:16.0, bl:2.80,pop:6},
+  {id:13,name:"Swordtail",           sci:"Xiphophorus hellerii",         em:"🐠",cat:"viviparos",      minGal:15,tMin:20,tMax:28,phMin:7.0,phMax:8.3,cm:12, temp:"peaceful",school:true, minG:1,bFp:130.0,pFp:22.0, bl:3.20,pop:20},
+  {id:14,name:"Endler's Livebearer", sci:"Poecilia wingei",              em:"🐠",cat:"viviparos",      minGal:5, tMin:22,tMax:30,phMin:6.5,phMax:8.5,cm:3.5,temp:"peaceful",school:true, minG:3,bFp:45.0, pFp:4.5,  bl:0.85,pop:19},
   // ── ANABANTIDOS (Gouramis + Labyrinth fish) ──
   {id:30,name:"Honey Gourami",       sci:"Trichogaster chuna",           em:"🐠",cat:"anabantidos",    minGal:10,tMin:22,tMax:28,phMin:6.0,phMax:7.5,cm:5,  temp:"peaceful",school:false,minG:1,bFp:70.0, pFp:11.0, bl:1.70},
-  {id:31,name:"Dwarf Gourami",       sci:"Trichogaster lalius",          em:"🐠",cat:"anabantidos",    minGal:10,tMin:22,tMax:28,phMin:6.0,phMax:7.5,cm:8,  temp:"peaceful",school:false,minG:1,bFp:90.0, pFp:18.0, bl:2.50},
-  {id:32,name:"Pearl Gourami",       sci:"Trichopodus leerii",           em:"🐠",cat:"anabantidos",    minGal:25,tMin:24,tMax:28,phMin:5.5,phMax:7.5,cm:12, temp:"peaceful",school:false,minG:1,bFp:150.0,pFp:30.0, bl:3.80},
+  {id:31,name:"Dwarf Gourami",       sci:"Trichogaster lalius",          em:"🐠",cat:"anabantidos",    minGal:10,tMin:22,tMax:28,phMin:6.0,phMax:7.5,cm:8,  temp:"peaceful",school:false,minG:1,bFp:90.0, pFp:18.0, bl:2.50,pop:14},
+  {id:32,name:"Pearl Gourami",       sci:"Trichopodus leerii",           em:"🐠",cat:"anabantidos",    minGal:25,tMin:24,tMax:28,phMin:5.5,phMax:7.5,cm:12, temp:"peaceful",school:false,minG:1,bFp:150.0,pFp:30.0, bl:3.80,pop:18},
   {id:33,name:"Sparkling Gourami",   sci:"Trichopsis pumila",            em:"🐠",cat:"anabantidos",    minGal:5, tMin:24,tMax:28,phMin:6.0,phMax:7.0,cm:4,  temp:"peaceful",school:false,minG:1,bFp:55.0, pFp:10.0, bl:1.10},
   // ── BETTAS ──
-  {id:35,name:"Betta",               sci:"Betta splendens",              em:"🐠",cat:"bettas",          minGal:5, tMin:24,tMax:30,phMin:6.0,phMax:8.0,cm:7,  temp:"aggressive",school:false,minG:1,bFp:90.0, pFp:0,    bl:2.20},
+  {id:35,name:"Betta",               sci:"Betta splendens",              em:"🐠",cat:"bettas",          minGal:5, tMin:24,tMax:30,phMin:6.0,phMax:8.0,cm:7,  temp:"aggressive",school:false,minG:1,bFp:90.0, pFp:0,    bl:2.20,pop:2},
   // ── CÍCLIDOS ENANOS ──
   {id:40,name:"Bolivian Ram",        sci:"Mikrogeophagus altispinosus",  em:"🐠",cat:"ciclidos-enanos", minGal:20,tMin:22,tMax:28,phMin:6.0,phMax:7.5,cm:8,  temp:"peaceful",school:false,minG:1,bFp:110.0,pFp:20.0, bl:3.00},
   {id:41,name:"German Blue Ram",     sci:"Mikrogeophagus ramirezi",      em:"🐠",cat:"ciclidos-enanos", minGal:20,tMin:26,tMax:30,phMin:5.0,phMax:7.0,cm:7,  temp:"peaceful",school:false,minG:1,bFp:100.0,pFp:18.0, bl:2.80},
   {id:42,name:"Apistogramma",        sci:"Apistogramma cacatuoides",     em:"🐠",cat:"ciclidos-enanos", minGal:15,tMin:22,tMax:27,phMin:6.0,phMax:8.0,cm:7,  temp:"semi",    school:false,minG:1,bFp:100.0,pFp:18.0, bl:2.60},
   // ── CÍCLIDOS SUDAMERICANOS ──
-  {id:43,name:"Angelfish",           sci:"Pterophyllum scalare",         em:"🐠",cat:"ciclidos-sudamericanos",minGal:30,tMin:24,tMax:30,phMin:6.0,phMax:7.5,cm:15,temp:"semi",    school:false,minG:1,bFp:200.0,pFp:40.0, bl:5.50},
-  {id:44,name:"Oscar",               sci:"Astronotus ocellatus",         em:"🐠",cat:"ciclidos-sudamericanos",minGal:55,tMin:23,tMax:27,phMin:6.0,phMax:8.0,cm:35,temp:"aggressive",school:false,minG:1,bFp:550.0,pFp:120.0,bl:18.0},
+  {id:43,name:"Angelfish",           sci:"Pterophyllum scalare",         em:"🐠",cat:"ciclidos-sudamericanos",minGal:30,tMin:24,tMax:30,phMin:6.0,phMax:7.5,cm:15,temp:"semi",    school:false,minG:1,bFp:200.0,pFp:40.0, bl:5.50,pop:7},
+  {id:44,name:"Oscar",               sci:"Astronotus ocellatus",         em:"🐠",cat:"ciclidos-sudamericanos",minGal:55,tMin:23,tMax:27,phMin:6.0,phMax:8.0,cm:35,temp:"aggressive",school:false,minG:1,bFp:550.0,pFp:120.0,bl:18.0,pop:16},
   // ── PECES DE FONDO (Corydoras + Loaches) ──
-  {id:50,name:"Bronze Corydoras",    sci:"Corydoras aeneus",             em:"🐠",cat:"fondo",           minGal:10,tMin:20,tMax:26,phMin:6.0,phMax:8.0,cm:7,  temp:"peaceful",school:true, minG:4,bFp:75.0, pFp:12.0, bl:1.85},
+  {id:50,name:"Bronze Corydoras",    sci:"Corydoras aeneus",             em:"🐠",cat:"fondo",           minGal:10,tMin:20,tMax:26,phMin:6.0,phMax:8.0,cm:7,  temp:"peaceful",school:true, minG:4,bFp:75.0, pFp:12.0, bl:1.85,pop:8},
   {id:51,name:"Panda Corydoras",     sci:"Corydoras panda",              em:"🐠",cat:"fondo",           minGal:10,tMin:20,tMax:26,phMin:6.0,phMax:7.5,cm:5,  temp:"peaceful",school:true, minG:4,bFp:60.0, pFp:9.5,  bl:1.50},
   {id:52,name:"Sterbai Corydoras",   sci:"Corydoras sterbai",            em:"🐠",cat:"fondo",           minGal:20,tMin:24,tMax:30,phMin:6.0,phMax:8.0,cm:7,  temp:"peaceful",school:true, minG:4,bFp:78.0, pFp:13.0, bl:2.00},
   {id:53,name:"Pygmy Corydoras",     sci:"Corydoras pygmaeus",           em:"🐠",cat:"fondo",           minGal:10,tMin:22,tMax:26,phMin:6.0,phMax:8.0,cm:3,  temp:"peaceful",school:true, minG:6,bFp:42.0, pFp:7.0,  bl:0.80},
@@ -1665,8 +1692,8 @@ const DB = [
   {id:61,name:"Otocinclus",          sci:"Otocinclus vestitus",          em:"🐠",cat:"comedor-algas",   minGal:10,tMin:21,tMax:27,phMin:6.0,phMax:7.5,cm:5,  temp:"peaceful",school:true, minG:3,bFp:50.0, pFp:9.0,  bl:0.90},
   {id:63,name:"Common Pleco",        sci:"Hypostomus plecostomus",       em:"🐠",cat:"comedor-algas",   minGal:55,tMin:22,tMax:28,phMin:6.5,phMax:7.5,cm:50, temp:"peaceful",school:false,minG:1,bFp:600.0,pFp:0,    bl:20.0},
   // ── AGUA FRÍA ──
-  {id:70,name:"Fancy Goldfish",      sci:"Carassius auratus (fancy)",    em:"🐠",cat:"agua-fria",       minGal:20,tMin:10,tMax:22,phMin:6.0,phMax:8.0,cm:20, temp:"peaceful",school:false,minG:1,bFp:350.0,pFp:75.0, bl:12.0,coldwater:true},
-  {id:71,name:"Common Goldfish",     sci:"Carassius auratus",            em:"🐠",cat:"agua-fria",       minGal:30,tMin:10,tMax:24,phMin:6.0,phMax:8.0,cm:30, temp:"peaceful",school:false,minG:1,bFp:450.0,pFp:100.0,bl:15.0,coldwater:true},
+  {id:70,name:"Fancy Goldfish",      sci:"Carassius auratus (fancy)",    em:"🐠",cat:"agua-fria",       minGal:20,tMin:10,tMax:22,phMin:6.0,phMax:8.0,cm:20, temp:"peaceful",school:false,minG:1,bFp:350.0,pFp:75.0, bl:12.0,coldwater:true,pop:4},
+  {id:71,name:"Common Goldfish",     sci:"Carassius auratus",            em:"🐠",cat:"agua-fria",       minGal:30,tMin:10,tMax:24,phMin:6.0,phMax:8.0,cm:30, temp:"peaceful",school:false,minG:1,bFp:450.0,pFp:100.0,bl:15.0,coldwater:true,pop:4},
   // ── INVERTEBRADOS ──
   {id:80,name:"Neocaridina",         sci:"Neocaridina davidi",           em:"🦐",cat:"neocaridina",     minGal:5, tMin:18,tMax:28,phMin:6.5,phMax:8.0,cm:3,  temp:"peaceful",school:true, minG:5,bFp:8.0,  pFp:2.0,  bl:0.15},
   {id:81,name:"Amano Shrimp",        sci:"Caridina multidentata",        em:"🦐",cat:"shrimp",          minGal:5, tMin:18,tMax:26,phMin:6.0,phMax:7.5,cm:5,  temp:"peaceful",school:true, minG:3,bFp:12.0, pFp:3.0,  bl:0.25},
@@ -1735,6 +1762,7 @@ const state = {
   hasSecondFilter: false,
   secondFilterApplied: false,
   currentCat: 'all',
+  sortBy: 'pop',           // 'pop' | 'alpha'
   fish: new Map()          // id → qty
 };
 
@@ -2188,6 +2216,14 @@ function _syncCatUI(cat){
   if(sel) sel.value = cat;
 }
 
+function setSort(type){
+  state.sortBy = type;
+  const popBtn = document.getElementById('sort-pop');
+  const alphaBtn = document.getElementById('sort-alpha');
+  if(popBtn) popBtn.className = 'sort-btn' + (type==='pop'?' active':'');
+  if(alphaBtn) alphaBtn.className = 'sort-btn' + (type==='alpha'?' active':'');
+  renderFishGrid();
+}
 function setCat(btn){
   state.currentCat = btn.dataset.cat;
   const searchEl = document.getElementById('fish-search');
@@ -2281,8 +2317,17 @@ function renderFishGrid(){
     return matchQ && matchCat;
   });
 
-  // Sort alphabetically by common name
-  filtered.sort((a,b) => a.name.localeCompare(b.name));
+  // Sort by chosen criterion
+  if(state.sortBy === 'alpha'){
+    filtered.sort((a,b) => a.name.localeCompare(b.name));
+  } else {
+    filtered.sort((a,b) => {
+      const pa = (a.pop != null) ? a.pop : 999;
+      const pb = (b.pop != null) ? b.pop : 999;
+      if(pa !== pb) return pa - pb;
+      return a.name.localeCompare(b.name);
+    });
+  }
 
   if(filtered.length===0 && q){
     clearTimeout(window._aqNFT);
@@ -2697,6 +2742,80 @@ function renderSelectedFish(fishList){
       <button class="si-rm" onclick="removeAll(${f.id})" title="Remove">✕</button>
     </div>${note}`;
   }).join('');
+}
+
+/* ─── MISSING SPECIES: EXISTING SPECIES DETECTOR ───────────── */
+function _normStr(s){
+  return (s||'').toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g,'')
+    .replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+}
+function _findExisting(query){
+  const q = _normStr(query);
+  if(q.length < 3) return [];
+  const results = [];
+  DB.forEach(f=>{
+    const fname = _normStr(f.name);
+    const fsci  = _normStr(f.sci||'');
+    const combined = fname + ' ' + fsci;
+    let score = 0;
+    // 1. direct substring (fast path)
+    if(combined.includes(q) || q.includes(fname)) { score = 100; }
+    else {
+      // 2. word-level match
+      q.split(' ').forEach(w=>{ if(w.length>=3 && combined.includes(w)) score=Math.max(score,80); });
+      // 3. sliding window >= 4 chars (catches "escalar"<->"scalare", "disco"<->"discus")
+      if(!score && q.length>=4){
+        for(let len=Math.min(q.length,7);len>=4;len--){
+          for(let i=0;i<=q.length-len;i++){
+            const win=q.substring(i,i+len);
+            if(combined.includes(win)){ score=Math.max(score,20+len*5); break; }
+          }
+          if(score) break;
+        }
+      }
+    }
+    if(score>0) results.push({f,score});
+  });
+  return results.sort((a,b)=>b.score-a.score).slice(0,3);
+}
+function _jumpToFish(id, lang){
+  // Populate search bar and trigger render, then scroll panel into view
+  const searchEl = document.getElementById('fish-search');
+  if(searchEl){
+    const f = DB.find(x=>x.id===id);
+    if(f){ searchEl.value = f.name; onFishSearch(); }
+  }
+  // Clear missing field + hide match box
+  const inp = document.getElementById('missing-species-input');
+  if(inp) inp.value = '';
+  const box = document.getElementById('missing-match-box');
+  if(box) box.classList.remove('show');
+  // Scroll fish panel into view
+  const panel = document.getElementById('panel-fish');
+  if(panel){ panel.scrollIntoView({behavior:'smooth',block:'start'}); }
+}
+const _MATCH_LABELS = {
+  en: { title: 'Looking for one of these?', cta: 'Add to calculator' },
+  es: { title: '¿Buscas una de estas especies?', cta: 'Agregar a la calculadora' },
+  pt: { title: 'Procurando uma dessas especies?', cta: 'Adicionar a calculadora' },
+  de: { title: 'Suchst du eine dieser Arten?', cta: 'Zum Rechner hinzufugen' }
+};
+function onMissingSpeciesInput(val, lang){
+  const box   = document.getElementById('missing-match-box');
+  const chips = document.getElementById('missing-match-chips');
+  const title = document.getElementById('missing-match-title');
+  if(!box||!chips) return;
+  const matches = _findExisting(val);
+  if(!matches.length){ box.classList.remove('show'); return; }
+  const lbl = _MATCH_LABELS[lang||'en']||_MATCH_LABELS.en;
+  if(title) title.textContent = lbl.title;
+  chips.innerHTML = matches.map(({f})=>
+    `<button class="missing-match-chip" onclick="_jumpToFish(${f.id},'${lang||'en'}')" title="${f.sci||''}">
+      ${f.em||'🐠'} ${f.name}
+    </button>`
+  ).join('');
+  box.classList.add('show');
 }
 
 /* ─── MISSING SPECIES, SESSION RATE LIMIT ──────────────────── */
