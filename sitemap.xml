@@ -482,6 +482,40 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Batch 13: vacation care (EN/ES/PT) -->
+  <url>
+    <loc>https://aquapacity.com/articles/aquarium-vacation-care</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/aquarium-vacation-care"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/acuario-vacaciones-cuidados"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/aquario-ferias-cuidados"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/aquarium-vacation-care"/>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/acuario-vacaciones-cuidados</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/acuario-vacaciones-cuidados"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/aquarium-vacation-care"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/aquario-ferias-cuidados"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/aquarium-vacation-care"/>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/aquario-ferias-cuidados</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/aquario-ferias-cuidados"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/aquarium-vacation-care"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/acuario-vacaciones-cuidados"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/aquarium-vacation-care"/>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Batch 12: summer temperature (EN/ES/PT) -->
   <url>
     <loc>https://aquapacity.com/articles/lower-aquarium-temperature-summer</loc>
