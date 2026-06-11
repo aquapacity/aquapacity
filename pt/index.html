@@ -1246,6 +1246,10 @@ gtag('config', 'G-03QX35NF7F', {
             <input type="text" id="missing-species-input" placeholder="Nome comum o científico" maxlength="250" oninput="onMissingSpeciesInput(this.value,'pt')" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r6);font-size:.82rem;color:var(--text);background:#fff;outline:none" onfocus="this.style.borderColor='var(--p2)'" onblur="this.style.borderColor='var(--border)'">
             <button id="suggest-btn" onclick="submitMissingSpecies()" style="padding:8px 14px;background:var(--p);color:#fff;border:none;border-radius:var(--r6);font-size:.82rem;font-weight:600;white-space:nowrap">Sugerir</button>
           </div>
+          <div class="missing-match-box" id="missing-match-box">
+            <span id="missing-match-title" style="font-weight:700;color:#15803d">Procurando uma dessas espécies?</span>
+            <div class="missing-match-chips" id="missing-match-chips"></div>
+          </div>
           <input type="text" id="missing-species-hp" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <div id="missing-species-thanks" style="display:none;margin-top:6px;font-size:.78rem;color:var(--g)">✅ Gracias! Revisaremos tu sugerencia.</div>
           <div id="missing-species-limit" style="display:none;margin-top:6px;font-size:.78rem;color:var(--y)">⚠️ Has alcanzado el límite de sugerencias por sesión. Vuelve más tarde!</div>
@@ -2800,14 +2804,16 @@ function _normStr(s){
     .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
     .replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
 }
-function _findExisting(query){
+function _findExisting(query, lang){
   const q = _normStr(query);
   if(q.length < 3) return [];
   const results = [];
   DB.forEach(f=>{
     const fname = _normStr(f.name);
     const fsci  = _normStr(f.sci||'');
-    const combined = fname + ' ' + fsci;
+    // include this language's localized name + all others for cross-language matching
+    const allLocs = f.names ? Object.values(f.names).filter(Boolean).map(n=>_normStr(n)).join(' ') : '';
+    const combined = fname + ' ' + fsci + (allLocs ? ' ' + allLocs : '');
     let score = 0;
     if(combined.includes(q) || q.includes(fname)) { score = 100; }
     else {
@@ -2826,11 +2832,11 @@ function _findExisting(query){
   });
   return results.sort((a,b)=>b.score-a.score).slice(0,3);
 }
-function _jumpToFish(id){
+function _jumpToFish(id, lang){
   const searchEl = document.getElementById('fish-search');
   if(searchEl){
     const f = DB.find(x=>x.id===id);
-    if(f){ searchEl.value = f.name; onFishSearch(); }
+    if(f){ searchEl.value = dn(f); onFishSearch(); }
   }
   const inp = document.getElementById('missing-species-input');
   if(inp) inp.value = '';
@@ -2850,12 +2856,12 @@ function onMissingSpeciesInput(val, lang){
   const chips = document.getElementById('missing-match-chips');
   const titleEl = document.getElementById('missing-match-title');
   if(!box||!chips) return;
-  const matches = _findExisting(val);
+  const matches = _findExisting(val, lang);
   if(!matches.length){ box.classList.remove('show'); return; }
-  const lbl = _MATCH_LABELS[lang||'en']||_MATCH_LABELS.en;
+  const lbl = _MATCH_LABELS[lang||'pt']||_MATCH_LABELS['pt'];
   if(titleEl) titleEl.textContent = lbl.title;
   chips.innerHTML = matches.map(({f})=>
-    `<button class="missing-match-chip" onclick="_jumpToFish(${f.id})" title="${(f.sci||'').replace(/"/g,'&quot;')}">${f.em||'\uD83D\uDC20'} ${f.name}</button>`
+    `<button class="missing-match-chip" onclick="_jumpToFish(${f.id},'pt')" title="${(f.sci||'').replace(/"/g,'&quot;')}">${f.em||'\uD83D\uDC20'} ${dn(f)}</button>`
   ).join('');
   box.classList.add('show');
 }

@@ -2741,14 +2741,16 @@ function _normStr(s){
     .normalize('NFD').replace(/[̀-ͯ]/g,'')
     .replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
 }
-function _findExisting(query){
+function _findExisting(query, lang){
   const q = _normStr(query);
   if(q.length < 3) return [];
   const results = [];
   DB.forEach(f=>{
     const fname = _normStr(f.name);
     const fsci  = _normStr(f.sci||'');
-    const combined = fname + ' ' + fsci;
+    // include this language's localized name + all others for cross-language matching
+    const allLocs = f.names ? Object.values(f.names).filter(Boolean).map(n=>_normStr(n)).join(' ') : '';
+    const combined = fname + ' ' + fsci + (allLocs ? ' ' + allLocs : '');
     let score = 0;
     if(combined.includes(q) || q.includes(fname)) { score = 100; }
     else {
@@ -2767,11 +2769,11 @@ function _findExisting(query){
   });
   return results.sort((a,b)=>b.score-a.score).slice(0,3);
 }
-function _jumpToFish(id){
+function _jumpToFish(id, lang){
   const searchEl = document.getElementById('fish-search');
   if(searchEl){
     const f = DB.find(x=>x.id===id);
-    if(f){ searchEl.value = f.name; onFishSearch(); }
+    if(f){ searchEl.value = dn(f); onFishSearch(); }
   }
   const inp = document.getElementById('missing-species-input');
   if(inp) inp.value = '';
@@ -2792,12 +2794,12 @@ function onMissingSpeciesInput(val, lang){
   const chips = document.getElementById('missing-match-chips');
   const titleEl = document.getElementById('missing-match-title');
   if(!box||!chips) return;
-  const matches = _findExisting(val);
+  const matches = _findExisting(val, lang);
   if(!matches.length){ box.classList.remove('show'); return; }
-  const lbl = _MATCH_LABELS[lang||'en']||_MATCH_LABELS.en;
+  const lbl = _MATCH_LABELS[lang||'fr']||_MATCH_LABELS['fr'];
   if(titleEl) titleEl.textContent = lbl.title;
   chips.innerHTML = matches.map(({f})=>
-    `<button class="missing-match-chip" onclick="_jumpToFish(${f.id})" title="${(f.sci||'').replace(/"/g,'&quot;')}">${f.em||'🐠'} ${f.name}</button>`
+    `<button class="missing-match-chip" onclick="_jumpToFish(${f.id},'fr')" title="${(f.sci||'').replace(/"/g,'&quot;')}">${f.em||'\uD83D\uDC20'} ${dn(f)}</button>`
   ).join('');
   box.classList.add('show');
 }

@@ -2784,21 +2784,20 @@ function _normStr(s){
     .normalize('NFD').replace(/[̀-ͯ]/g,'')
     .replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
 }
-function _findExisting(query){
+function _findExisting(query, lang){
   const q = _normStr(query);
   if(q.length < 3) return [];
   const results = [];
   DB.forEach(f=>{
     const fname = _normStr(f.name);
     const fsci  = _normStr(f.sci||'');
-    const combined = fname + ' ' + fsci;
+    // include all localized names so cross-language queries work (e.g. "escalar" finds Angelfish)
+    const allLocs = f.names ? Object.values(f.names).filter(Boolean).map(n=>_normStr(n)).join(' ') : '';
+    const combined = fname + ' ' + fsci + (allLocs ? ' ' + allLocs : '');
     let score = 0;
-    // 1. direct substring (fast path)
     if(combined.includes(q) || q.includes(fname)) { score = 100; }
     else {
-      // 2. word-level match
       q.split(' ').forEach(w=>{ if(w.length>=3 && combined.includes(w)) score=Math.max(score,80); });
-      // 3. sliding window >= 4 chars (catches "escalar"<->"scalare", "disco"<->"discus")
       if(!score && q.length>=4){
         for(let len=Math.min(q.length,7);len>=4;len--){
           for(let i=0;i<=q.length-len;i++){
@@ -2840,7 +2839,7 @@ function onMissingSpeciesInput(val, lang){
   const chips = document.getElementById('missing-match-chips');
   const title = document.getElementById('missing-match-title');
   if(!box||!chips) return;
-  const matches = _findExisting(val);
+  const matches = _findExisting(val, lang);
   if(!matches.length){ box.classList.remove('show'); return; }
   const lbl = _MATCH_LABELS[lang||'en']||_MATCH_LABELS.en;
   if(title) title.textContent = lbl.title;
