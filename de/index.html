@@ -3012,14 +3012,6 @@ function renderAlerts(r){
         alerts.push({t:'warn',m:`🦐 Los camarones pueden ser comidos por ${dn(a)}. Una densa cobertura de plantas mejora enormemente su supervivencia.`});
     }
   }
-
-  // Min tank size
-  fishList.forEach(({f})=>{
-    const minL=Math.round(f.minGal*3.785);
-    if(r.vol_L>0&&r.vol_L<minL)
-      alerts.push({t:'warn',m:`📏 ${dn(f)} precisa de pelo menos ${state.metric?minL+'L':f.minGal+' gal'}. seu aquário pode ser muito pequeno.`});
-  });
-
   if(alerts.length===0) alerts.push({t:'ok',m:'✅ Tudo em ordem! Os parâmetros do seu aquário estão dentro de faixas saudáveis.'});
 
   box.innerHTML=alerts.map(a=>`

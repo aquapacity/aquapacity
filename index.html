@@ -3050,14 +3050,6 @@ function renderAlerts(r){
         alerts.push({t:'warn',m:`🦐 Shrimp may be eaten by ${a.name}. Dense plant cover greatly improves survival.`});
     }
   }
-
-  // Min tank size
-  fishList.forEach(({f})=>{
-    const minL=Math.round(f.minGal*3.785);
-    if(r.vol_L>0&&r.vol_L<minL)
-      alerts.push({t:'warn',m:`📏 ${f.name} needs at least ${state.metric?minL+'L':f.minGal+' gal'}. your tank may be too small.`});
-  });
-
   if(alerts.length===0) alerts.push({t:'ok',m:'✅ Everything looks good! Your tank parameters are within healthy ranges.'});
 
   box.innerHTML=alerts.map(a=>`
