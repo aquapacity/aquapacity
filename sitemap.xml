@@ -20,7 +20,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles"/>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -94,7 +94,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles"/>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -147,7 +147,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles"/>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -580,6 +580,99 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/mejor-calculadora-biocarga-acuario"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/best-aquarium-stocking-calculator"/>
     <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Batch 14: guppy, ammonia, community tank (EN/ES/PT) -->
+  <url>
+    <loc>https://aquapacity.com/articles/guppy-fish-care-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/guppy-fish-care-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-cuidados-guppy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/guppy-fish-care-guide"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/articles/aquarium-ammonia-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/aquarium-ammonia-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/amoniaco-acuario"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/amonia-aquario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/aquarium-ammonia-guide"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/articles/community-fish-tank-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/community-fish-tank-guide"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/peixes-aquario-comunitario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/community-fish-tank-guide"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/guia-cuidados-guppy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/guia-cuidados-guppy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/guppy-fish-care-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/guppy-fish-care-guide"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/amoniaco-acuario</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/amoniaco-acuario"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/aquarium-ammonia-guide"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/amonia-aquario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/aquarium-ammonia-guide"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/es/articles/tetra-neon-cuidados</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/tetra-neon-cuidados"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/es/articles/tetra-neon-cuidados"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/cuidados-peixe-betta</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/cuidados-peixe-betta"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/betta-fish-care-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/betta-fish-care-guide"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/amonia-aquario</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/amonia-aquario"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/aquarium-ammonia-guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aquapacity.com/es/articles/amoniaco-acuario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/aquarium-ammonia-guide"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aquapacity.com/pt/articles/peixes-aquario-comunitario</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://aquapacity.com/pt/articles/peixes-aquario-comunitario"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquapacity.com/articles/community-fish-tank-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquapacity.com/articles/community-fish-tank-guide"/>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
