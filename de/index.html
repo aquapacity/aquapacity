@@ -2304,6 +2304,40 @@ function hlQ(text, q){
 }
 
 /* ─── FISH GRID RENDER ──────────────────────────────────────── */
+/* ─── FUZZY FISH SEARCH ───────────────────────────────────────── */
+const FISH_ALIASES={
+  // gourami misspellings
+  gurami:'gourami',gorami:'gourami',guramy:'gourami',gouram:'gourami',
+  // guppy
+  gupy:'guppy',gupie:'guppy',gupi:'guppy',
+  // platy
+  platty:'platy',platie:'platy',platies:'platy',
+  // betta
+  beta:'betta',
+  // tetra
+  tetar:'tetra',terta:'tetra',
+  // corydoras
+  coridoras:'corydoras',coridora:'corydoras',
+  // molly
+  mollie:'molly',mollies:'molly',
+  // misc
+  danios:'danio',swordtale:'swordtail',
+};
+function _fishMatch(combined,q){
+  // Tier 1: exact substring
+  if(combined.includes(q)) return true;
+  // Tier 2: alias table for common misspellings
+  const a=FISH_ALIASES[q];
+  if(a&&combined.includes(a)) return true;
+  // Tier 3: sliding window — catches remaining typos (>=60% of query, min 3 chars)
+  if(q.length>=4){
+    const minW=Math.max(3,Math.floor(q.length*0.6));
+    for(let l=q.length-1;l>=minW;l--)
+      for(let i=0;i<=q.length-l;i++)
+        if(combined.includes(q.substring(i,i+l))) return true;
+  }
+  return false;
+}
 function renderFishGrid(){
   const q = (document.getElementById('fish-search').value||'').toLowerCase();
   const cat = state.currentCat;
@@ -2312,7 +2346,7 @@ function renderFishGrid(){
 
   const filtered = DB.filter(f=>{
     const nq = norm(q);
-    const matchQ = !nq || norm(dn(f)).includes(nq) || norm(f.name).includes(nq) || norm(f.sci).includes(nq);
+    const matchQ = !nq || _fishMatch(norm(dn(f))+' '+norm(f.name)+' '+norm(f.sci||''), nq);
     // Category and search are mutually exclusive thanks to "last action wins" logic
     // (onFishSearch resets cat to 'all', setCat clears search, so q and cat never both active)
     let matchCat;
