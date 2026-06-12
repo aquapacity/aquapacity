@@ -2397,9 +2397,9 @@ function _fishMatch(combined,q){
   // Tier 2: alias table for common misspellings
   const a=FISH_ALIASES[q];
   if(a&&combined.includes(a)) return true;
-  // Tier 3: sliding window — catches remaining typos (>=60% of query, min 3 chars)
-  if(q.length>=4){
-    const minW=Math.max(3,Math.floor(q.length*0.6));
+  // Tier 3: sliding window — only 5+ char queries, min window 4 chars (70%) to avoid false positives
+  if(q.length>=5){
+    const minW=Math.max(4,Math.floor(q.length*0.7));
     for(let l=q.length-1;l>=minW;l--)
       for(let i=0;i<=q.length-l;i++)
         if(combined.includes(q.substring(i,i+l))) return true;
