@@ -3403,7 +3403,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   // Contact email
-  document.querySelectorAll('a[href*="aquapacity.info@gmail.com"]').forEach(function(el){
+  document.querySelectorAll('a[href*="aquapacity.info&#64;gmail.com"]').forEach(function(el){
     el.addEventListener('click', function(){
       gtag('event', 'click_contact_email', {event_category:'engagement', event_label:'contact_email_en'});
     });

@@ -118,6 +118,14 @@
 /es/articles/acuario-vacaciones-cuidados.html          /es/articles/acuario-vacaciones-cuidados                 301
 /pt/articles/aquario-ferias-cuidados.html              /pt/articles/aquario-ferias-cuidados                     301
 
+# GSC fix: PT URL with wrong ES slug — redirect to correct PT article
+/pt/articles/cambios-de-agua-guia.html                 /pt/articles/trocas-de-agua-guia                         301
+/pt/articles/cambios-de-agua-guia                      /pt/articles/trocas-de-agua-guia                         301
+
+# GSC fix: /privacy redirect (EN) to canonical privacidad
+/privacy.html                                          /privacidad                                              301
+/privacy                                               /privacidad                                              301
+
 # Batch 14: guppy, ammonia, community tank (EN/ES/PT)
 /articles/guppy-fish-care-guide.html                   /articles/guppy-fish-care-guide                          301
 /articles/aquarium-ammonia-guide.html                  /articles/aquarium-ammonia-guide                         301
